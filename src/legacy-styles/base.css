@@ -1,0 +1,29 @@
+/* Общий базовый слой: сброс и правила, одинаковые на всех страницах.
+   Стили конкретных страниц лежат в home.css / rating.css / review.css
+   и заскоуплены классами .page-home / .page-rating / .page-review. */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+.page-home,
+.page-rating,
+.page-review {
+  min-height: 100vh;
+}
