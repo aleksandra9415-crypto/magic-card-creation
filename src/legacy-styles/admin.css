@@ -19,7 +19,7 @@
   min-height: 100vh;
   background: var(--a-bg);
   color: var(--a-ink);
-  font-family: Manrope, system-ui, sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
 }
 
@@ -780,7 +780,7 @@ a.admin-stat:hover {
   padding: 1px 5px;
   border-radius: 4px;
   background: rgb(0 0 0 / 0.06);
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-body);
   font-size: 12px;
 }
 
@@ -801,7 +801,7 @@ a.admin-stat:hover {
   min-height: 100vh;
   padding: 24px;
   background: #f4f6fb;
-  font-family: Manrope, system-ui, sans-serif;
+  font-family: var(--font-body);
   color: #0b1530;
 }
 

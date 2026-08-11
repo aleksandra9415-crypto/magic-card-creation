@@ -28,10 +28,10 @@
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --shadow-lg: 0 20px 50px rgba(11, 21, 48, 0.1);
         --container: 1200px;
-        --font:
+        --font: var(--font-body);
           "Manrope", "Inter", -apple-system, BlinkMacSystemFont, system-ui,
           sans-serif;
-        --mono:
+        --mono: var(--font-body);
           "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       }
       
@@ -39,7 +39,7 @@
       & {
         background: var(--bg);
         color: var(--ink);
-        font-family: var(--font);
+        font-family: var(--font-body);
         font-size: 16px;
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
@@ -270,14 +270,19 @@
         border-radius: 999px;
       }
       .rv-h1 {
-        font-size: clamp(28px, 3.2vw, 42px);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
+        font-family: var(--font-heading);
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 700;
         margin: 12px 0 8px;
         display: flex;
         align-items: center;
         gap: 10px;
+      }
+      @media (min-width: 768px) {
+        .rv-h1 {
+          font-size: 40px;
+        }
       }
       .check {
         display: inline-grid;
@@ -326,7 +331,7 @@
       }
       .promo__v {
         display: block;
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 700;
         font-size: 15px;
         letter-spacing: 0.02em;
@@ -422,7 +427,7 @@
         flex: 1;
       }
       .plan .price {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 24px;
         font-weight: 600;
         margin-bottom: 14px;
@@ -431,7 +436,7 @@
         font-size: 13px;
         color: var(--muted);
         font-weight: 600;
-        font-family: var(--font);
+        font-family: var(--font-body);
       }
       .plan .btn {
         width: 100%;
@@ -548,7 +553,7 @@
         flex-wrap: wrap;
       }
       .rev-score {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 800;
         font-size: 32px;
         color: var(--ink);
@@ -1006,7 +1011,7 @@
         margin-top: 3px;
       }
       .crit__w {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 12px;
         font-weight: 600;
         color: var(--muted);

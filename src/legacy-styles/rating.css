@@ -34,10 +34,10 @@
         --shadow-sm: 0 1px 2px rgba(11, 21, 48, 0.05);
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --container: 1600px;
-        --font:
+        --font: var(--font-body);
           "Manrope", "Inter", -apple-system, BlinkMacSystemFont, system-ui,
           sans-serif;
-        --mono:
+        --mono: var(--font-body);
           "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       }
       
@@ -45,7 +45,7 @@
       & {
         background: var(--bg);
         color: var(--ink);
-        font-family: var(--font);
+        font-family: var(--font-body);
         font-size: 15px;
         line-height: 1.45;
         -webkit-font-smoothing: antialiased;
@@ -189,10 +189,16 @@
         gap: 10px 18px;
       }
       .hero h1 {
-        font-size: clamp(21px, 3vw, 28px);
-        letter-spacing: -0.02em;
-        font-weight: 800;
+        font-family: var(--font-heading);
+        font-size: 22px;
+        line-height: 1.25;
+        font-weight: 700;
         margin: 0;
+      }
+      @media (min-width: 768px) {
+        .hero h1 {
+          font-size: 28px;
+        }
       }
       .live {
         display: inline-flex;
@@ -528,7 +534,7 @@
         text-align: right;
       }
       thead th .arr {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 10px;
         color: var(--blue);
       }
@@ -557,7 +563,7 @@
       td.c-rank {
         width: 36px;
         text-align: center;
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 700;
         font-size: 13px;
         color: var(--muted);
@@ -633,7 +639,7 @@
         white-space: nowrap;
       }
       .rate b {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 14px;
       }
       .rate .star {
@@ -647,7 +653,7 @@
         font-weight: 600;
       }
       td .mono {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 700;
         font-size: 12.5px;
         white-space: nowrap;
@@ -657,7 +663,7 @@
         font-size: 11px;
         color: var(--muted);
         font-weight: 600;
-        font-family: var(--font);
+        font-family: var(--font-body);
         white-space: nowrap;
       }
       .good {
@@ -710,7 +716,7 @@
         color: var(--red);
       }
       .year {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 700;
         font-size: 13.5px;
         color: var(--blue);
@@ -831,7 +837,7 @@
       }
       summary::after {
         content: "+";
-        font-family: var(--mono);
+        font-family: var(--font-body);
         color: var(--muted);
         font-size: 16px;
         flex: none;

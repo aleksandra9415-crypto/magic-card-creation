@@ -19,6 +19,9 @@
  */
 
 @theme inline {
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,6 +65,8 @@
 }
 
 :root {
+  --font-heading: "Onest", sans-serif;
+  --font-body: "Inter", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
@@ -140,5 +145,78 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, .h1 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+  @media (min-width: 768px) {
+    h1, .h1 {
+      font-size: 40px;
+    }
+  }
+
+  h2, .h2 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  @media (min-width: 768px) {
+    h2, .h2 {
+      font-size: 28px;
+    }
+  }
+
+  h3, .h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  h4, .h4 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .body-large {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .caption {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .btn, button {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* Numbers rule */
+  .tabular-nums,
+  [class*="price"],
+  [class*="count"],
+  [class*="num"],
+  [class*="score"],
+  input[type="number"] {
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
   }
 }
