@@ -2,7 +2,7 @@
   .country-page {
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--font);
+    font-family: var(--font-body);
   }
 
   .country-hero {

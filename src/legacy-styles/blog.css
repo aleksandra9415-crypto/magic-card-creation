@@ -2,7 +2,7 @@
   .blog-page {
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--font);
+    font-family: var(--font-body);
   }
 
   .blog-hero,

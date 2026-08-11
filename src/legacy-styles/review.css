@@ -28,10 +28,10 @@
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --shadow-lg: 0 20px 50px rgba(11, 21, 48, 0.1);
         --container: 1200px;
-        --font:
+        --font: var(--font-body);
           "Manrope", "Inter", -apple-system, BlinkMacSystemFont, system-ui,
           sans-serif;
-        --mono:
+        --mono: var(--font-body);
           "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       }
       
@@ -39,7 +39,7 @@
       & {
         background: var(--bg);
         color: var(--ink);
-        font-family: var(--font);
+        font-family: var(--font-body);
         font-size: 16px;
         line-height: 1.55;
         -webkit-font-smoothing: antialiased;
@@ -326,7 +326,7 @@
       }
       .promo__v {
         display: block;
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 700;
         font-size: 15px;
         letter-spacing: 0.02em;
@@ -422,7 +422,7 @@
         flex: 1;
       }
       .plan .price {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 24px;
         font-weight: 600;
         margin-bottom: 14px;
@@ -431,7 +431,7 @@
         font-size: 13px;
         color: var(--muted);
         font-weight: 600;
-        font-family: var(--font);
+        font-family: var(--font-body);
       }
       .plan .btn {
         width: 100%;
@@ -548,7 +548,7 @@
         flex-wrap: wrap;
       }
       .rev-score {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-weight: 800;
         font-size: 32px;
         color: var(--ink);
@@ -1006,7 +1006,7 @@
         margin-top: 3px;
       }
       .crit__w {
-        font-family: var(--mono);
+        font-family: var(--font-body);
         font-size: 12px;
         font-weight: 600;
         color: var(--muted);
