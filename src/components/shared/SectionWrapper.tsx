@@ -29,9 +29,9 @@ export default function SectionWrapper({
       <div className="container">
         {(eyebrow || title || description) && (
           <div className={cn("section-header", centered && "section-header--centered")}>
-            {eyebrow && <span className="section-eyebrow">{eyebrow}</span>}
-            {title && <TitleTag className={titleAs}>{title}</TitleTag>}
-            {description && <p className="section-description">{description}</p>}
+            {eyebrow && <span className="section-eyebrow eyebrow-pro">{eyebrow}</span>}
+            {title && <TitleTag className={cn(titleAs, titleAs === "h1" ? "section__title" : "section__title--pro")}>{title}</TitleTag>}
+            {description && <p className={cn("section-description", titleAs === "h1" ? "section__sub" : "section__sub--pro")}>{description}</p>}
           </div>
         )}
         <div className="section-content">

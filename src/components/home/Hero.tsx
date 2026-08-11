@@ -1,4 +1,5 @@
 import Link from "@/components/shared/Link";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 import { ArrowRight } from "@/components/shared/icons";
 import { CARDS_TOTAL } from "@/data/home";
 import { COUNTRIES } from "@/data/countries";
