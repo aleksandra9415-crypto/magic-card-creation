@@ -9,61 +9,205 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as SiteRouteImport } from './routes/_site'
+import { Route as SiteIndexRouteImport } from './routes/_site.index'
+import { Route as SiteBlogIndexRouteImport } from './routes/_site.blog.index'
+import { Route as SiteBlogSlugRouteImport } from './routes/_site.blog.$slug'
+import { Route as SiteCardsIndexRouteImport } from './routes/_site.cards.index'
+import { Route as SiteCardsSlugRouteImport } from './routes/_site.cards.$slug'
+import { Route as SiteCountriesIndexRouteImport } from './routes/_site.countries.index'
+import { Route as SiteCountriesSlugRouteImport } from './routes/_site.countries.$slug'
 
-const IndexRoute = IndexRouteImport.update({
+const SiteRoute = SiteRouteImport.update({
+  id: '/_site',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteBlogSlugRoute = SiteBlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCardsIndexRoute = SiteCardsIndexRouteImport.update({
+  id: '/cards/',
+  path: '/cards/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCardsSlugRoute = SiteCardsSlugRouteImport.update({
+  id: '/cards/$slug',
+  path: '/cards/$slug',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCountriesIndexRoute = SiteCountriesIndexRouteImport.update({
+  id: '/countries/',
+  path: '/countries/',
+  getParentRoute: () => SiteRoute,
+} as any)
+const SiteCountriesSlugRoute = SiteCountriesSlugRouteImport.update({
+  id: '/countries/$slug',
+  path: '/countries/$slug',
+  getParentRoute: () => SiteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof SiteIndexRoute
+  '/blog/$slug': typeof SiteBlogSlugRoute
+  '/cards/$slug': typeof SiteCardsSlugRoute
+  '/countries/$slug': typeof SiteCountriesSlugRoute
+  '/blog/': typeof SiteBlogIndexRoute
+  '/cards/': typeof SiteCardsIndexRoute
+  '/countries/': typeof SiteCountriesIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof SiteIndexRoute
+  '/blog/$slug': typeof SiteBlogSlugRoute
+  '/cards/$slug': typeof SiteCardsSlugRoute
+  '/countries/$slug': typeof SiteCountriesSlugRoute
+  '/blog': typeof SiteBlogIndexRoute
+  '/cards': typeof SiteCardsIndexRoute
+  '/countries': typeof SiteCountriesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_site': typeof SiteRouteWithChildren
+  '/_site/': typeof SiteIndexRoute
+  '/_site/blog/$slug': typeof SiteBlogSlugRoute
+  '/_site/cards/$slug': typeof SiteCardsSlugRoute
+  '/_site/countries/$slug': typeof SiteCountriesSlugRoute
+  '/_site/blog/': typeof SiteBlogIndexRoute
+  '/_site/cards/': typeof SiteCardsIndexRoute
+  '/_site/countries/': typeof SiteCountriesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/blog/$slug'
+    | '/cards/$slug'
+    | '/countries/$slug'
+    | '/blog/'
+    | '/cards/'
+    | '/countries/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/blog/$slug'
+    | '/cards/$slug'
+    | '/countries/$slug'
+    | '/blog'
+    | '/cards'
+    | '/countries'
+  id:
+    | '__root__'
+    | '/_site'
+    | '/_site/'
+    | '/_site/blog/$slug'
+    | '/_site/cards/$slug'
+    | '/_site/countries/$slug'
+    | '/_site/blog/'
+    | '/_site/cards/'
+    | '/_site/countries/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  SiteRoute: typeof SiteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_site': {
+      id: '/_site'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof SiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_site/': {
+      id: '/_site/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/blog/': {
+      id: '/_site/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof SiteBlogIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/blog/$slug': {
+      id: '/_site/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof SiteBlogSlugRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/cards/': {
+      id: '/_site/cards/'
+      path: '/cards'
+      fullPath: '/cards/'
+      preLoaderRoute: typeof SiteCardsIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/cards/$slug': {
+      id: '/_site/cards/$slug'
+      path: '/cards/$slug'
+      fullPath: '/cards/$slug'
+      preLoaderRoute: typeof SiteCardsSlugRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/countries/': {
+      id: '/_site/countries/'
+      path: '/countries'
+      fullPath: '/countries/'
+      preLoaderRoute: typeof SiteCountriesIndexRouteImport
+      parentRoute: typeof SiteRoute
+    }
+    '/_site/countries/$slug': {
+      id: '/_site/countries/$slug'
+      path: '/countries/$slug'
+      fullPath: '/countries/$slug'
+      preLoaderRoute: typeof SiteCountriesSlugRouteImport
+      parentRoute: typeof SiteRoute
     }
   }
 }
 
+interface SiteRouteChildren {
+  SiteIndexRoute: typeof SiteIndexRoute
+  SiteBlogSlugRoute: typeof SiteBlogSlugRoute
+  SiteCardsSlugRoute: typeof SiteCardsSlugRoute
+  SiteCountriesSlugRoute: typeof SiteCountriesSlugRoute
+  SiteBlogIndexRoute: typeof SiteBlogIndexRoute
+  SiteCardsIndexRoute: typeof SiteCardsIndexRoute
+  SiteCountriesIndexRoute: typeof SiteCountriesIndexRoute
+}
+
+const SiteRouteChildren: SiteRouteChildren = {
+  SiteIndexRoute: SiteIndexRoute,
+  SiteBlogSlugRoute: SiteBlogSlugRoute,
+  SiteCardsSlugRoute: SiteCardsSlugRoute,
+  SiteCountriesSlugRoute: SiteCountriesSlugRoute,
+  SiteBlogIndexRoute: SiteBlogIndexRoute,
+  SiteCardsIndexRoute: SiteCardsIndexRoute,
+  SiteCountriesIndexRoute: SiteCountriesIndexRoute,
+}
+
+const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  SiteRoute: SiteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
