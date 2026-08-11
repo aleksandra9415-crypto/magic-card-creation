@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import ApplyLink from "@/components/shared/ApplyLink";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 type Option = {
   key: string;
@@ -83,55 +84,50 @@ export default function DecisionTreeSection() {
   const [active, setActive] = useState<Option | null>(null);
 
   return (
-    <section className="section section--soft" id="decision" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">Подбор за 10 секунд</span>
-          <h2 className="section__title--pro">Что вы хотите оплачивать?</h2>
-          <p className="section__sub--pro">
-            Выберите главный сценарий — покажем карту, которая точно
-            подходит по услугам из её собственного тарифа.
-          </p>
+    <SectionWrapper
+      id="decision"
+      centered
+      eyebrow="Подбор за 10 секунд"
+      title="Что вы хотите оплачивать?"
+      description="Выберите главный сценарий — покажем карту, которая точно подходит по услугам из её собственного тарифа."
+    >
+      <div className="dtree">
+        <div className="dtree__q">Главный сценарий оплаты:</div>
+        <div className="dtree__opts">
+          {OPTIONS.map((o) => (
+            <button
+              key={o.key}
+              type="button"
+              className={`dtree-opt${active?.key === o.key ? " is-active" : ""}`}
+              onClick={() => setActive(o)}
+            >
+              <span className="dtree-opt__icon">{o.icon}</span>
+              <span>
+                <span className="dtree-opt__label">{o.label}</span>
+                <span className="dtree-opt__sub">{o.sub}</span>
+              </span>
+            </button>
+          ))}
         </div>
 
-        <div className="dtree">
-          <div className="dtree__q">Главный сценарий оплаты:</div>
-          <div className="dtree__opts">
-            {OPTIONS.map((o) => (
-              <button
-                key={o.key}
-                type="button"
-                className={`dtree-opt${active?.key === o.key ? " is-active" : ""}`}
-                onClick={() => setActive(o)}
+        <div className={`dtree__result${active ? " is-shown" : ""}`}>
+          {active ? (
+            <>
+              <div className="dtree__result-tag">Рекомендация</div>
+              <div className="dtree__result-pick">{active.pick}</div>
+              <div className="dtree__result-meta">{active.meta}</div>
+              <ApplyLink
+                className="btn btn--primary btn--sm mt-24"
+                href={active.applyUrl}
+                card={active.slug}
+                place="dtree"
               >
-                <span className="dtree-opt__icon">{o.icon}</span>
-                <span>
-                  <span className="dtree-opt__label">{o.label}</span>
-                  <span className="dtree-opt__sub">{o.sub}</span>
-                </span>
-              </button>
-            ))}
-          </div>
-
-          <div className={`dtree__result${active ? " is-shown" : ""}`}>
-            {active ? (
-              <>
-                <div className="dtree__result-tag">Рекомендация</div>
-                <div className="dtree__result-pick">{active.pick}</div>
-                <div className="dtree__result-meta">{active.meta}</div>
-                <ApplyLink
-                  className="btn btn--primary btn--sm mt-24"
-                  href={active.applyUrl}
-                  card={active.slug}
-                  place="dtree"
-                >
-                  Оформить
-                </ApplyLink>
-              </>
-            ) : null}
-          </div>
+                Оформить
+              </ApplyLink>
+            </>
+          ) : null}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

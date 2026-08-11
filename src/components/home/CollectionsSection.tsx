@@ -1,4 +1,5 @@
 import Link from "@/components/shared/Link";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 import type { CSSProperties, ReactNode } from "react";
 
 const catHref = (category: string) =>
@@ -238,50 +239,42 @@ const COLLS: Coll[] = [
 
 export default function CollectionsSection() {
   return (
-    <section className="section" id="collections">
-      <div className="container">
-        <div className="section__head">
-          <h2 className="section__title">
-            Виртуальные карты для оплаты иностранных подписок
-          </h2>
-          <p className="section__sub">
-            Подборки в 8 категориях — под каждый сервис своя страница с
-            рейтингом карт и инструкцией по оплате.
-          </p>
-        </div>
-
-        <div className="collections-grid">
-          {COLLS.map((c) => (
-            <Link className="coll" href={c.href} key={c.title}>
-              <div
-                className={`coll__hero${c.heroClass ? ` ${c.heroClass}` : ""}`}
-                style={c.heroStyle}
-              >
-                {c.hero}
-              </div>
-              <div className="coll__body">
-                <h3 className="coll__title">{c.title}</h3>
-                <p className="coll__list">{c.list}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="center mt-32">
-          <Link className="btn btn--ghost btn--lg" href="/cards">
-            Перейти к рейтингу карт для подписок
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path
-                d="M1 7h12M8 2l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+    <SectionWrapper
+      id="collections"
+      title="Виртуальные карты для оплаты иностранных подписок"
+      description="Подборки в 8 категориях — под каждый сервис своя страница с рейтингом карт и инструкцией по оплате."
+    >
+      <div className="collections-grid grid-spacing">
+        {COLLS.map((c) => (
+          <Link className="coll" href={c.href} key={c.title}>
+            <div
+              className={`coll__hero${c.heroClass ? ` ${c.heroClass}` : ""}`}
+              style={c.heroStyle}
+            >
+              {c.hero}
+            </div>
+            <div className="coll__body card-padding">
+              <h3 className="coll__title">{c.title}</h3>
+              <p className="coll__list">{c.list}</p>
+            </div>
           </Link>
-        </div>
+        ))}
       </div>
-    </section>
+
+      <div className="center mt-32">
+        <Link className="btn btn--ghost btn--lg" href="/cards">
+          Перейти к рейтингу карт для подписок
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path
+              d="M1 7h12M8 2l5 5-5 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </div>
+    </SectionWrapper>
   );
 }

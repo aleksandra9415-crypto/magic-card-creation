@@ -1,4 +1,5 @@
 import { FAQ_ITEMS } from "@/data/home";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 export function FaqItem({
   q,
@@ -19,21 +20,17 @@ export function FaqItem({
 
 export default function FaqSection() {
   return (
-    <section className="section" id="faq" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="section__head section__head--centered">
-          <h2 className="section__title">Отвечаем на ваши вопросы</h2>
-          <p className="section__sub">
-            Если не нашли ответ — напишите в наш Telegram, отвечаем в течение
-            часа.
-          </p>
-        </div>
-        <div className="faq">
-          {FAQ_ITEMS.map((item) => (
-            <FaqItem key={item.q} {...item} />
-          ))}
-        </div>
+    <SectionWrapper
+      id="faq"
+      centered
+      title="Отвечаем на ваши вопросы"
+      description="Если не нашли ответ — напишите в наш Telegram, отвечаем в течение часа."
+    >
+      <div className="faq">
+        {FAQ_ITEMS.map((item) => (
+          <FaqItem key={item.q} {...item} />
+        ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

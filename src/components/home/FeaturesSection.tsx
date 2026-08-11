@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { FEATURES, type Feature } from "@/data/home";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 const ICONS: Record<Feature["icon"], ReactNode> = {
   card: (
@@ -68,21 +69,17 @@ function FeatureCard({ feature }: { feature: Feature }) {
 
 export default function FeaturesSection() {
   return (
-    <section className="section" id="why">
-      <div className="container">
-        <div className="section__head section__head--centered">
-          <h2 className="section__title">Почему именно NHcard</h2>
-          <p className="section__sub">
-            Один источник правды для всех зарубежных платёжных сервисов. Без
-            рекламных приоритетов — рейтинг строится на проверке и отзывах.
-          </p>
-        </div>
-        <div className="features__grid">
-          {FEATURES.map((f) => (
-            <FeatureCard key={f.title} feature={f} />
-          ))}
-        </div>
+    <SectionWrapper
+      id="why"
+      centered
+      title="Почему именно NHcard"
+      description="Один источник правды для всех зарубежных платёжных сервисов. Без рекламных приоритетов — рейтинг строится на проверке и отзывах."
+    >
+      <div className="features__grid grid-spacing">
+        {FEATURES.map((f) => (
+          <FeatureCard key={f.title} feature={f} />
+        ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "@/components/shared/Link";
 import { COUNTRIES, type Country } from "@/data/countries";
 import { COUNTRY_GROUPS } from "@/data/rating-form";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 /* Декоративные глифы стран — 1:1 из исходной вёрстки */
 const GLYPHS: Record<Country["id"], ReactNode> = {
@@ -138,48 +139,39 @@ function CountryList() {
 
 export default function CountriesSection() {
   return (
-    <section className="section countries-section" id="countries">
-      <div className="container">
-        <div className="section__head">
-          <h2 className="section__title">Лучшие карты для{"\u00a0"}путешествий</h2>
-          <p className="section__sub">
-            Ниже мы подобрали лучшие карты для каждой страны, протестировали
-            их{"\u00a0"}в{"\u00a0"}реальных поездках и{"\u00a0"}собрали
-            максимально полный гайд по{"\u00a0"}оплате: какие карты принимают,
-            в{"\u00a0"}какой валюте платить, как снимать наличные и{"\u00a0"}на
-            {"\u00a0"}что обращать внимание.
-          </p>
-        </div>
-
-        <div className="collections-grid countries-grid">
-          {COUNTRIES.map((c) => (
-            <Link className="coll" href={c.href} key={c.id}>
-              <CountryHero country={c} />
-              <div className="coll__body">
-                <h3 className="coll__title">{c.title}</h3>
-                <p className="coll__list">{c.list}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <CountryList />
-
-        <div className="center mt-32">
-          <Link className="btn btn--ghost btn--lg" href="/countries">
-            Перейти к рейтингу карт для путешествий
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path
-                d="M1 7h12M8 2l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+    <SectionWrapper
+      id="countries"
+      title="Лучшие карты для путешествий"
+      description="Ниже мы подобрали лучшие карты для каждой страны, протестировали их в реальных поездках и собрали максимально полный гайд по оплате: какие карты принимают, в какой валюте платить, как снимать наличные и на что обращать внимание."
+    >
+      <div className="collections-grid countries-grid grid-spacing">
+        {COUNTRIES.map((c) => (
+          <Link className="coll" href={c.href} key={c.id}>
+            <CountryHero country={c} />
+            <div className="coll__body card-padding">
+              <h3 className="coll__title">{c.title}</h3>
+              <p className="coll__list">{c.list}</p>
+            </div>
           </Link>
-        </div>
+        ))}
       </div>
-    </section>
+
+      <CountryList />
+
+      <div className="center mt-32">
+        <Link className="btn btn--ghost btn--lg" href="/countries">
+          Перейти к рейтингу карт для путешествий
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path
+              d="M1 7h12M8 2l5 5-5 5"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </div>
+    </SectionWrapper>
   );
 }

@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { BLOG_POSTS, type BlogPost } from "@/data/blog";
 import CollectionCard from "./CollectionCard";
 import { ArrowRight16 } from "@/components/shared/icons";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 const slice = {
   position: "absolute",
@@ -91,28 +92,23 @@ function BlogPostCard({ post }: { post: BlogPost }) {
 
 export default function BlogSection() {
   return (
-    <section className="section blog-section" id="blog" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="section__head section__head--row">
-          <div>
-            <h2 className="section__title">Последние статьи блога</h2>
-            <p className="section__sub">
-              Разборы, гайды и{"\u00a0"}новости рынка карт для{"\u00a0"}оплаты
-              сервисов и{"\u00a0"}путешествий.
-            </p>
-          </div>
-          <a className="btn btn--ghost blog-all" href="/blog">
-            Все статьи
-            <ArrowRight16 />
-          </a>
-        </div>
-
-        <div className="collections-grid blog-grid">
-          {BLOG_POSTS.map((p) => (
-            <BlogPostCard key={p.title} post={p} />
-          ))}
-        </div>
+    <SectionWrapper
+      id="blog"
+      title="Последние статьи блога"
+      description="Разборы, гайды и новости рынка карт для оплаты сервисов и путешествий."
+    >
+      <div className="collections-grid blog-grid grid-spacing">
+        {BLOG_POSTS.map((p) => (
+          <BlogPostCard key={p.title} post={p} />
+        ))}
       </div>
-    </section>
+
+      <div className="center mt-32">
+        <a className="btn btn--ghost btn--lg" href="/blog">
+          Все статьи
+          <ArrowRight16 />
+        </a>
+      </div>
+    </SectionWrapper>
   );
 }

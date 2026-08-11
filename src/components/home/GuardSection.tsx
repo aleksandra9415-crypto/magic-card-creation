@@ -1,3 +1,5 @@
+import SectionWrapper from "@/components/shared/SectionWrapper";
+
 /* Секция «Безопасность и закон» — два guard-карда: налоги и KYC/AML */
 
 function TaxIcon() {
@@ -88,57 +90,51 @@ const SEC_ITEMS = [
 
 export default function GuardSection() {
   return (
-    <section className="section section--soft" id="guard" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">Безопасность и закон</span>
-          <h2 className="section__title--pro">
-            Что важно знать перед оформлением
-          </h2>
-          <p className="section__sub--pro">
-            Два вопроса, которые задают чаще всего: налоги и риски блокировки.
+    <SectionWrapper
+      id="guard"
+      centered
+      eyebrow="Безопасность и закон"
+      title="Что важно знать перед оформлением"
+      description="Два вопроса, которые задают чаще всего: налоги и риски блокировки."
+    >
+      <div className="guard grid-spacing">
+        <div className="guard-card guard-card--tax card-padding">
+          <div className="guard-card__head">
+            <div className="guard-card__icon">
+              <TaxIcon />
+            </div>
+            <div>
+              <h3>Налоги и ФНС</h3>
+              <div className="guard-card__sub">Что декларировать и когда</div>
+            </div>
+          </div>
+          <p>
+            По закону <b>173-ФЗ</b> резидент РФ обязан уведомить ФНС о счёте в
+            иностранном банке в течение <b>30 дней</b> с момента открытия и
+            подавать отчёт о движении средств до <b>1 июня</b> следующего
+            года.
           </p>
+          <GuardList items={TAX_ITEMS} />
         </div>
 
-        <div className="guard">
-          <div className="guard-card guard-card--tax">
-            <div className="guard-card__head">
-              <div className="guard-card__icon">
-                <TaxIcon />
-              </div>
-              <div>
-                <h3>Налоги и ФНС</h3>
-                <div className="guard-card__sub">Что декларировать и когда</div>
-              </div>
+        <div className="guard-card guard-card--sec card-padding">
+          <div className="guard-card__head">
+            <div className="guard-card__icon">
+              <SecIcon />
             </div>
-            <p>
-              По закону <b>173-ФЗ</b> резидент РФ обязан уведомить ФНС о счёте в
-              иностранном банке в течение <b>30 дней</b> с момента открытия и
-              подавать отчёт о движении средств до <b>1 июня</b> следующего
-              года.
-            </p>
-            <GuardList items={TAX_ITEMS} />
-          </div>
-
-          <div className="guard-card guard-card--sec">
-            <div className="guard-card__head">
-              <div className="guard-card__icon">
-                <SecIcon />
-              </div>
-              <div>
-                <h3>Безопасность · KYC/AML</h3>
-                <div className="guard-card__sub">Как не попасть на блокировку</div>
-              </div>
+            <div>
+              <h3>Безопасность · KYC/AML</h3>
+              <div className="guard-card__sub">Как не попасть на блокировку</div>
             </div>
-            <p>
-              Карты блокируют не из-за гражданства, а из-за нарушений
-              AML-процедур: пополнение с чужого счёта, переводы P2P, оплата
-              санкционных сервисов. Соблюдайте пять правил — и риск минимальный.
-            </p>
-            <GuardList items={SEC_ITEMS} />
           </div>
+          <p>
+            Карты блокируют не из-за гражданства, а из-за нарушений
+            AML-процедур: пополнение с чужого счёта, переводы P2P, оплата
+            санкционных сервисов. Соблюдайте пять правил — и риск минимальный.
+          </p>
+          <GuardList items={SEC_ITEMS} />
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
