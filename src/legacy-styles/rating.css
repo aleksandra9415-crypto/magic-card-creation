@@ -35,10 +35,7 @@
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --container: 1600px;
         --font: var(--font-body);
-          "Manrope", "Inter", -apple-system, BlinkMacSystemFont, system-ui,
-          sans-serif;
         --mono: var(--font-body);
-          "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
       }
       
       
