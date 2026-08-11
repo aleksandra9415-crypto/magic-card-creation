@@ -324,4 +324,18 @@
     gap: var(--space-md);
     margin-bottom: var(--space-lg);
   }
+
+  .hero__grid-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .hero__grid-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+  }
 }
