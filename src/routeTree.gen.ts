@@ -10,40 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SiteRouteImport } from './routes/_site'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as SiteIndexRouteImport } from './routes/_site.index'
-import { Route as AdminAuthenticatedRouteImport } from './routes/admin/_authenticated'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as SiteBlogIndexRouteImport } from './routes/_site.blog.index'
 import { Route as SiteBlogSlugRouteImport } from './routes/_site.blog.$slug'
 import { Route as SiteCardsIndexRouteImport } from './routes/_site.cards.index'
 import { Route as SiteCardsSlugRouteImport } from './routes/_site.cards.$slug'
 import { Route as SiteCountriesIndexRouteImport } from './routes/_site.countries.index'
 import { Route as SiteCountriesSlugRouteImport } from './routes/_site.countries.$slug'
-import { Route as AdminAuthenticatedIndexRouteImport } from './routes/admin/_authenticated.index'
 
 const SiteRoute = SiteRouteImport.update({
   id: '/_site',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => SiteRoute,
-} as any)
-const AdminAuthenticatedRoute = AdminAuthenticatedRouteImport.update({
-  id: '/_authenticated',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AdminRoute,
 } as any)
 const SiteBlogIndexRoute = SiteBlogIndexRouteImport.update({
   id: '/blog/',
@@ -75,27 +57,17 @@ const SiteCountriesSlugRoute = SiteCountriesSlugRouteImport.update({
   path: '/countries/$slug',
   getParentRoute: () => SiteRoute,
 } as any)
-const AdminAuthenticatedIndexRoute = AdminAuthenticatedIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AdminAuthenticatedRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof SiteIndexRoute
-  '/admin': typeof AdminRouteWithChildren
-  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
   '/cards/$slug': typeof SiteCardsSlugRoute
   '/countries/$slug': typeof SiteCountriesSlugRoute
   '/blog/': typeof SiteBlogIndexRoute
   '/cards/': typeof SiteCardsIndexRoute
   '/countries/': typeof SiteCountriesIndexRoute
-  '/admin/': typeof AdminAuthenticatedIndexRoute
 }
 export interface FileRoutesByTo {
-  '/admin': typeof AdminAuthenticatedIndexRoute
-  '/admin/login': typeof AdminLoginRoute
   '/': typeof SiteIndexRoute
   '/blog/$slug': typeof SiteBlogSlugRoute
   '/cards/$slug': typeof SiteCardsSlugRoute
@@ -107,9 +79,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_site': typeof SiteRouteWithChildren
-  '/admin': typeof AdminRouteWithChildren
-  '/admin/_authenticated': typeof AdminAuthenticatedRouteWithChildren
-  '/admin/login': typeof AdminLoginRoute
   '/_site/': typeof SiteIndexRoute
   '/_site/blog/$slug': typeof SiteBlogSlugRoute
   '/_site/cards/$slug': typeof SiteCardsSlugRoute
@@ -117,25 +86,19 @@ export interface FileRoutesById {
   '/_site/blog/': typeof SiteBlogIndexRoute
   '/_site/cards/': typeof SiteCardsIndexRoute
   '/_site/countries/': typeof SiteCountriesIndexRoute
-  '/admin/_authenticated/': typeof AdminAuthenticatedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/admin'
-    | '/admin/login'
     | '/blog/$slug'
     | '/cards/$slug'
     | '/countries/$slug'
     | '/blog/'
     | '/cards/'
     | '/countries/'
-    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/admin'
-    | '/admin/login'
     | '/'
     | '/blog/$slug'
     | '/cards/$slug'
@@ -146,9 +109,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_site'
-    | '/admin'
-    | '/admin/_authenticated'
-    | '/admin/login'
     | '/_site/'
     | '/_site/blog/$slug'
     | '/_site/cards/$slug'
@@ -156,12 +116,10 @@ export interface FileRouteTypes {
     | '/_site/blog/'
     | '/_site/cards/'
     | '/_site/countries/'
-    | '/admin/_authenticated/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   SiteRoute: typeof SiteRouteWithChildren
-  AdminRoute: typeof AdminRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -173,33 +131,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_site/': {
       id: '/_site/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof SiteIndexRouteImport
       parentRoute: typeof SiteRoute
-    }
-    '/admin/_authenticated': {
-      id: '/admin/_authenticated'
-      path: ''
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminAuthenticatedRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
     }
     '/_site/blog/': {
       id: '/_site/blog/'
@@ -243,13 +180,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteCountriesSlugRouteImport
       parentRoute: typeof SiteRoute
     }
-    '/admin/_authenticated/': {
-      id: '/admin/_authenticated/'
-      path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminAuthenticatedIndexRouteImport
-      parentRoute: typeof AdminAuthenticatedRoute
-    }
   }
 }
 
@@ -275,32 +205,8 @@ const SiteRouteChildren: SiteRouteChildren = {
 
 const SiteRouteWithChildren = SiteRoute._addFileChildren(SiteRouteChildren)
 
-interface AdminAuthenticatedRouteChildren {
-  AdminAuthenticatedIndexRoute: typeof AdminAuthenticatedIndexRoute
-}
-
-const AdminAuthenticatedRouteChildren: AdminAuthenticatedRouteChildren = {
-  AdminAuthenticatedIndexRoute: AdminAuthenticatedIndexRoute,
-}
-
-const AdminAuthenticatedRouteWithChildren =
-  AdminAuthenticatedRoute._addFileChildren(AdminAuthenticatedRouteChildren)
-
-interface AdminRouteChildren {
-  AdminAuthenticatedRoute: typeof AdminAuthenticatedRouteWithChildren
-  AdminLoginRoute: typeof AdminLoginRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminAuthenticatedRoute: AdminAuthenticatedRouteWithChildren,
-  AdminLoginRoute: AdminLoginRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   SiteRoute: SiteRouteWithChildren,
-  AdminRoute: AdminRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
