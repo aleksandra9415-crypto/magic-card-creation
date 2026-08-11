@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { PMETHODS, type PMethod } from "@/data/home";
+import SectionWrapper from "@/components/shared/SectionWrapper";
 
 const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
@@ -66,25 +67,18 @@ function PMethodCard({ method }: { method: PMethod }) {
 
 export default function PMethodsSection() {
   return (
-    <section className="section section--soft" id="pmethods" style={{ paddingTop: 0 }}>
-      <div className="container">
-        <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">4 способа пополнения</span>
-          <h2 className="section__title--pro">
-            Как закидывать деньги на зарубежную карту
-          </h2>
-          <p className="section__sub--pro">
-            Большая часть переплат — это комиссия пополнения. Сравните каналы,
-            прежде чем оформлять карту.
-          </p>
-        </div>
-
-        <div className="pmethods">
-          {PMETHODS.map((m) => (
-            <PMethodCard key={m.variant} method={m} />
-          ))}
-        </div>
+    <SectionWrapper
+      id="pmethods"
+      centered
+      eyebrow="4 способа пополнения"
+      title="Как закидывать деньги на зарубежную карту"
+      description="Большая часть переплат — это комиссия пополнения. Сравните каналы, прежде чем оформлять карту."
+    >
+      <div className="pmethods grid-spacing">
+        {PMETHODS.map((m) => (
+          <PMethodCard key={m.variant} method={m} />
+        ))}
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
