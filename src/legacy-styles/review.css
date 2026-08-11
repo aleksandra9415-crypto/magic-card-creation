@@ -270,14 +270,19 @@
         border-radius: 999px;
       }
       .rv-h1 {
-        font-size: clamp(28px, 3.2vw, 42px);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
+        font-family: var(--font-heading);
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 700;
         margin: 12px 0 8px;
         display: flex;
         align-items: center;
         gap: 10px;
+      }
+      @media (min-width: 768px) {
+        .rv-h1 {
+          font-size: 40px;
+        }
       }
       .check {
         display: inline-grid;

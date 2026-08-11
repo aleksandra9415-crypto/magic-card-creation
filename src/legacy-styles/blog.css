@@ -31,10 +31,18 @@
 
   .blog-hero h1,
   .blog-post-hero h1 {
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.02;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
     margin: 0 0 16px;
     max-width: 860px;
+  }
+  @media (min-width: 768px) {
+    .blog-hero h1,
+    .blog-post-hero h1 {
+      font-size: 40px;
+    }
   }
 
   .blog-hero p,
@@ -160,9 +168,9 @@
   }
 
   .blog-lead {
-    color: var(--ink-2);
-    font-size: 20px;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
     margin: 0 0 28px;
   }
 

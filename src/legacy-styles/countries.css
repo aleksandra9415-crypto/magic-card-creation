@@ -34,10 +34,17 @@
   }
 
   .country-hero h1 {
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.02;
+    font-family: var(--font-heading);
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
     margin: 0 0 16px;
     max-width: 780px;
+  }
+  @media (min-width: 768px) {
+    .country-hero h1 {
+      font-size: 40px;
+    }
   }
 
   .country-hero--index h1,

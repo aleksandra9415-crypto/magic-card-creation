@@ -343,12 +343,17 @@
         box-shadow: 0 0 0 4px rgba(14, 163, 114, 0.18);
       }
       .h1 {
-        font-size: clamp(32px, 6vw, 56px);
-        line-height: 1.05;
-        letter-spacing: -0.025em;
-        font-weight: 800;
+        font-family: var(--font-heading);
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 700;
         margin: 16px 0 16px;
         text-wrap: balance;
+      }
+      @media (min-width: 768px) {
+        .h1 {
+          font-size: 40px;
+        }
       }
       .h1 .accent {
         color: var(--orange);
