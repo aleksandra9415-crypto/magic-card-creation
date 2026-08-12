@@ -929,22 +929,11 @@ export default function RatingForm({
                           <span className="rf-name">
                             {c.name}
                             {c.verified ? (
-                              <span
+                              <ShieldIcon
                                 className="rf-verified-icon"
                                 title="Проверено редакцией"
                                 aria-label="Проверено редакцией"
-                                onMouseEnter={() => setTip("v" + c.id)}
-                                onMouseLeave={() => setTip(null)}
-                              >
-                                
-                                {tip === "v" + c.id ? (
-                                  <span className="rf-tip" style={{ width: 250 }}>
-                                    Редакция реально выпустила карту, провела тестовый
-                                    платёж и проверила ответ поддержки. Обновляем раз в
-                                    квартал.
-                                  </span>
-                                ) : null}
-                              </span>
+                              />
                             ) : null}
                           </span>
                           <span className="rf-tag">{c.tag}</span>
@@ -1191,11 +1180,11 @@ export default function RatingForm({
             <div className="rf-legend">
               <div className="rf-legend-item">
                 <ShieldIcon className="rf-legend-ic" />
-                <span>Сервис проверен редакцией: мы выпустили карту и оплатили ей подписку</span>
+                <span className="rf-legend-txt">Сервис проверен редакцией: мы выпустили карту и оплатили ей подписку</span>
               </div>
               <div className="rf-legend-item">
                 <GiftIcon className="rf-legend-ic rf-legend-ic--gift" />
-                <span>Есть промокод NHcard на выпуск</span>
+                <span className="rf-legend-txt">Есть промокод NHcard на выпуск</span>
               </div>
             </div>
 
