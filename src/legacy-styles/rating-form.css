@@ -29,7 +29,7 @@
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
      в контейнер 1200px без горизонтального скролла. */
-  --rf-grid: 36px 1.25fr 100px 112px 108px 1fr 100px 176px 34px;
+  --rf-grid: 4% 21% 11% 12% 13% 12% 7% 5% 15%;
 
   color: var(--rf-ink);
   text-align: left;
@@ -552,14 +552,24 @@
   overflow-x: auto;
 }
 .rf-table-inner {
-  min-width: 1150px;
+  width: 100%;
+}
+@media (max-width: 1100px) {
+  .rf-table-inner {
+    min-width: 1100px;
+  }
+}
+
+.rf-table-el {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
 .rf-head {
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 10px;
   padding: 0 12px;
   height: 50px;
   border-bottom: 1px solid var(--rf-line);
@@ -567,8 +577,20 @@
   font-weight: 700;
   color: var(--rf-muted);
 }
-.rf-th {
+.rf-th-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.rf-th, .rf-th-simple {
   position: relative;
+  padding-right: 16px;
+  min-width: 0;
+  overflow: hidden;
+}
+.rf-num-head {
+  padding-right: 16px;
 }
 .rf-th button {
   border: 0;
@@ -584,7 +606,16 @@
   color: var(--rf-blue);
 }
 .rf-arr {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 11px;
+}
+.rf-arr.on {
+  color: var(--rf-blue);
 }
 
 .rf-row {
@@ -624,10 +655,16 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 0;
   padding: 14px 12px;
   min-height: 72px;
   cursor: pointer;
+}
+.rf-grid > div {
+  padding-right: 16px;
+  min-width: 0;
+}
+.rf-grid > .rf-chev-cell {
+  padding-right: 0;
 }
 
 .rf-num {
@@ -767,9 +804,9 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   font-variant-numeric: var(--rf-tabular);
-  /* Длинные слова каталога («индивидуальная») не должны залезать в соседнюю
-     колонку */
-  overflow-wrap: anywhere;
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
 }
 /* Removed font-size overrides for .rf-maint and .rf-fee as they should use the base 13px */
 .rf-m-note {

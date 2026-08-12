@@ -794,48 +794,59 @@ export default function RatingForm({
           <div className="rf-table-inner">
             <div className="rf-head">
               <div className="rf-num-head">№</div>
-              <div>Сервис</div>
+              <div className="rf-th-simple">Сервис</div>
               <div className="rf-th">
-                <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
-                  Выпуск карты <span className="rf-arr">{arrow("issue")}</span>
-                </button>
-                <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
-                {tip === "issue" ? (
-                  <span className="rf-tip" style={{ width: 240 }}>
-                    Разовая цена выпуска одной виртуальной карты, включая комиссию
-                    платформы. Без учёта пополнения.
-                  </span>
-                ) : null}
+                <div className="rf-th-wrap">
+                  <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
+                    Выпуск карты
+                  </button>
+                  <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
+                  {tip === "issue" ? (
+                    <span className="rf-tip" style={{ width: 240 }}>
+                      Разовая цена выпуска одной виртуальной карты, включая комиссию
+                      платформы. Без учёта пополнения.
+                    </span>
+                  ) : null}
+                  <span className={`rf-arr${sort.key === "issue" ? " on" : ""}`}>{arrow("issue")}</span>
+                </div>
               </div>
               <div className="rf-th">
-                <button type="button" className={sort.key === "maint" ? "on" : ""} onClick={() => togSort("maint")}>
-                  Обслуживание <span className="rf-arr">{arrow("maint")}</span>
-                </button>
-                <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
-                {tip === "maint" ? (
-                  <span className="rf-tip" style={{ width: 230 }}>
-                    Регулярная плата за месяц. «0 ₽ первый год» — далее по тарифу
-                    сервиса.
-                  </span>
-                ) : null}
+                <div className="rf-th-wrap">
+                  <button type="button" className={sort.key === "maint" ? "on" : ""} onClick={() => togSort("maint")}>
+                    Обслуживание
+                  </button>
+                  <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
+                  {tip === "maint" ? (
+                    <span className="rf-tip" style={{ width: 230 }}>
+                      Регулярная плата за месяц. «0 ₽ первый год» — далее по тарифу
+                      сервиса.
+                    </span>
+                  ) : null}
+                  <span className={`rf-arr${sort.key === "maint" ? " on" : ""}`}>{arrow("maint")}</span>
+                </div>
               </div>
               <div className="rf-th">
-                Комиссия
-                <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
-                {tip === "fee" ? (
-                  <span className="rf-tip" style={{ width: 230 }}>
-                    Комиссия сервиса за пополнение карты. Считается сверх суммы
-                    пополнения, курс конвертации в неё не входит.
-                  </span>
-                ) : null}
+                <div className="rf-th-wrap">
+                  Комиссия
+                  <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
+                  {tip === "fee" ? (
+                    <span className="rf-tip" style={{ width: 230 }}>
+                      Комиссия сервиса за пополнение карты. Считается сверх суммы
+                      пополнения, курс конвертации в неё не входит.
+                    </span>
+                  ) : null}
+                </div>
               </div>
-              <div>Оплачивает</div>
+              <div className="rf-th-simple">Оплачивает</div>
               <div className="rf-th">
-                <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
-                  Рейтинг <span className="rf-arr">{arrow("reviews")}</span>
-                </button>
+                <div className="rf-th-wrap">
+                  <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
+                    Рейтинг
+                  </button>
+                  <span className={`rf-arr${sort.key === "reviews" ? " on" : ""}`}>{arrow("reviews")}</span>
+                </div>
               </div>
-              <div />
+              <div className="rf-th-simple">Промо</div>
               <div />
             </div>
 
