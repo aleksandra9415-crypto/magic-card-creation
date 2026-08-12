@@ -151,6 +151,20 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Global Container System */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 24px;
+    }
+  }
+
   h1, .h1 {
     font-family: var(--font-heading);
     font-size: 28px;
