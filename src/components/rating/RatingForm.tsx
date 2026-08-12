@@ -888,222 +888,146 @@ export default function RatingForm({
                 );
 
                 return (
-                  <tr
-                    key={c.id}
-                    className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
-                    onClick={() => {
-                      setExpanded(exp ? null : c.id);
-                      setPopRow(null);
-                    }}
-                  >
-                    <td className="rf-td rf-col-rank">
-                      <div className="rf-num-cell">{i + 1}</div>
-                    </td>
+                  <Fragment key={c.id}>
+                    <tr
+                      className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
+                      onClick={() => {
+                        setExpanded(exp ? null : c.id);
+                        setPopRow(null);
+                      }}
+                    >
+                      <td className="rf-td rf-col-rank">
+                        <div className="rf-num-cell">{i + 1}</div>
+                      </td>
 
-                    <td className="rf-td rf-col-service">
-                      <div className="rf-name-cell">
-                        <span className="rf-logo" style={{ background: c.logo.bg }}>
-                          {c.logo.txt}
-                        </span>
-                        <div className="rf-name-box">
-                          <span className="rf-name-link">
-                            {c.name}
-                            {c.verified && (
-                              <ShieldIcon
-                                className="rf-verified-icon"
-                                style={{ color: "var(--rf-blue)", width: 14, height: 14 }}
-                              />
-                            )}
+                      <td className="rf-td rf-col-service">
+                        <div className="rf-name-cell">
+                          <span className="rf-logo" style={{ background: c.logo.bg }}>
+                            {c.logo.txt}
                           </span>
-                          <span className="rf-tag">{c.tag}</span>
+                          <div className="rf-name-box">
+                            <span className="rf-name-link">
+                              {c.name}
+                              {c.verified && (
+                                <ShieldIcon
+                                  className="rf-verified-icon"
+                                  style={{ color: "var(--rf-blue)", width: 14, height: 14 }}
+                                />
+                              )}
+                            </span>
+                            <span className="rf-tag">{c.tag}</span>
+                          </div>
                         </div>
-                      </div>
-                    </td>
+                      </td>
 
-                    <td className="rf-td rf-col-issue">
-                      <div className="rf-val-box">
-                        <span className="rf-val">{c.issueTxt}</span>
-                      </div>
-                    </td>
+                      <td className="rf-td rf-col-issue">
+                        <div className="rf-val-box">
+                          <span className="rf-val">{c.issueTxt}</span>
+                        </div>
+                      </td>
 
-                    <td className="rf-td rf-col-maint">
-                      <MetricCell txt={c.maintTxt} />
-                    </td>
+                      <td className="rf-td rf-col-maint">
+                        <MetricCell txt={c.maintTxt} />
+                      </td>
 
-                    <td className="rf-td rf-col-comm">
-                      <div className="rf-val-box">
-                        <span className="rf-val">{c.topupFee}</span>
-                      </div>
-                    </td>
+                      <td className="rf-td rf-col-comm">
+                        <div className="rf-val-box">
+                          <span className="rf-val">{c.topupFee}</span>
+                        </div>
+                      </td>
 
-                    <td className="rf-td rf-col-pay">
-                      <div className="rf-svcs-cell">
-                        <button
-                          type="button"
-                          className="rf-svc-link"
-                          aria-expanded={pop}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setPopRow(pop ? null : c.id);
-                          }}
-                        >
-                          {servicesLabel(c.svcTotal)}
-                          <ChevronIcon className={`rf-svc-chev${pop ? " up" : ""}`} style={{ width: 12, height: 12 }} />
-                        </button>
+                      <td className="rf-td rf-col-pay">
+                        <div className="rf-svcs-cell">
+                          <button
+                            type="button"
+                            className="rf-svc-link"
+                            aria-expanded={pop}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setPopRow(pop ? null : c.id);
+                            }}
+                          >
+                            {servicesLabel(c.svcTotal)}
+                            <ChevronIcon className={`rf-svc-chev${pop ? " up" : ""}`} style={{ width: 12, height: 12 }} />
+                          </button>
 
-                        {pop && (
-                          <div
-                            className="rf-pop rf-pop--svcs"
-                            data-nh-dd="pop"
+                          {pop && (
+                            <div
+                              className="rf-pop rf-pop--svcs"
+                              data-nh-dd="pop"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="rf-pop-head">
+                                <input
+                                  value={popq}
+                                  onChange={(e) => setPopq(e.target.value)}
+                                  placeholder="Поиск по сервисам…"
+                                  className="rf-pop-input"
+                                />
+                              </div>
+                              <div className="rf-pop-list">
+                                {popItems.map((s) => (
+                                  <NavOption
+                                    key={s}
+                                    href={`/cards/${serviceSlug(s)}`}
+                                    className="rf-opt"
+                                    onSelect={(e) => {
+                                      e.stopPropagation();
+                                      goNav({ kind: "service", slug: s, label: s });
+                                    }}
+                                  >
+                                    <span className="rf-opt-ic">{s.slice(0, 2)}</span>
+                                    <span className="rf-opt-name">{s}</span>
+                                    <span className="rf-opt-cnt">{SVC_CAT[s]}</span>
+                                  </NavOption>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+
+                      <td className="rf-td rf-col-rating">
+                        <div className="rf-rating-val">{c.rating?.toFixed(1) ?? "—"}</div>
+                      </td>
+
+                      <td className="rf-td rf-col-promo">
+                        {c.promo && (
+                          <button
+                            type="button"
+                            className="rf-promo-ic"
+                            onClick={(e) => copyPromo(e, c)}
+                          >
+                            <GiftIcon style={{ width: 20, height: 20 }} />
+                          </button>
+                        )}
+                      </td>
+
+                      <td className="rf-td rf-col-actions">
+                        <div className="rf-actions-inner">
+                          <Link
+                            href={`/cards/${c.slug}`}
+                            className="rf-btn rf-btn--ghost"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <div className="rf-pop-head">
-                              <input
-                                value={popq}
-                                onChange={(e) => setPopq(e.target.value)}
-                                placeholder="Поиск по сервисам…"
-                                className="rf-pop-input"
-                              />
-                            </div>
-                            <div className="rf-pop-list">
-                              {popItems.map((s) => (
-                                <NavOption
-                                  key={s}
-                                  href={`/cards/${serviceSlug(s)}`}
-                                  className="rf-opt"
-                                  onSelect={(e) => {
-                                    e.stopPropagation();
-                                    goNav({ kind: "service", slug: s, label: s });
-                                  }}
-                                >
-                                  <span className="rf-opt-ic">{s.slice(0, 2)}</span>
-                                  <span className="rf-opt-name">{s}</span>
-                                  <span className="rf-opt-cnt">{SVC_CAT[s]}</span>
-                                </NavOption>
-                              ))}
-                            </div>
+                            Обзор
+                          </Link>
+                          <ApplyLink
+                            className="rf-btn rf-btn--primary"
+                            href={c.applyUrl}
+                            card={c.slug}
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            Оформить
+                          </ApplyLink>
+                          <div className="rf-chev-cell">
+                            <span className={`rf-chev${exp ? " up" : ""}`}>
+                              <ChevronIcon style={{ width: 20, height: 20 }} />
+                            </span>
                           </div>
-                        )}
-                      </div>
-                    </td>
-
-                    <td className="rf-td rf-col-rating">
-                      <div className="rf-rating-val">{c.rating?.toFixed(1) ?? "—"}</div>
-                    </td>
-
-                    <td className="rf-td rf-col-promo">
-                      {c.promo && (
-                        <button
-                          type="button"
-                          className="rf-promo-ic"
-                          onClick={(e) => copyPromo(e, c)}
-                        >
-                          <GiftIcon style={{ width: 20, height: 20 }} />
-                        </button>
-                      )}
-                    </td>
-
-                    <td className="rf-td rf-col-actions">
-                      <div className="rf-actions-inner">
-                        <Link
-                          href={`/cards/${c.slug}`}
-                          className="rf-btn rf-btn--ghost"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          Обзор
-                        </Link>
-                        <ApplyLink
-                          className="rf-btn rf-btn--primary"
-                          href={c.applyUrl}
-                          card={c.slug}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          Оформить
-                        </ApplyLink>
-                        <div className="rf-chev-cell">
-                          <span className={`rf-chev${exp ? " up" : ""}`}>
-                            <ChevronIcon style={{ width: 20, height: 20 }} />
-                          </span>
                         </div>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
-
-                    {exp && (
-                      <tr className="rf-exp-row">
-                        <td colSpan={9} className="rf-exp-td">
-                          <div className="rf-exp">
-
-                        <div className="rf-exp-grid">
-                          <div>
-                            <div className="rf-exp-lbl">Валюты</div>
-                            <div className="rf-exp-val">{c.cur.join(" · ")}</div>
-                          </div>
-                          <div>
-                            <div className="rf-exp-lbl">Пополнение</div>
-                            <div className="rf-exp-val">{c.topup}</div>
-                            <div className="rf-exp-sub">комиссия {c.topupFee}</div>
-                          </div>
-                          <div>
-                            <div className="rf-exp-lbl">Срок действия</div>
-                            <div className="rf-exp-val">{c.limits}</div>
-                          </div>
-                          <div>
-                            <div className="rf-exp-lbl">Промокод</div>
-                            {c.promo ? (
-                              <button
-                                type="button"
-                                className="rf-promo-code"
-                                onClick={(e) => copyPromo(e, c)}
-                              >
-                                {c.promo} ⧉
-                              </button>
-                            ) : (
-                              <div className="rf-exp-none">Нет активных</div>
-                            )}
-                          </div>
-
-                          {c.pros.length ? (
-                            <div className="rf-exp-pros">
-                              <div className="rf-exp-h rf-exp-h--good">✓ Плюсы</div>
-                              {c.pros.map((p) => (
-                                <div key={p} className="rf-exp-item">
-                                  · {p}
-                                </div>
-                              ))}
-                            </div>
-                          ) : null}
-
-                          {c.cons.length ? (
-                            <div className="rf-exp-cons">
-                              <div className="rf-exp-h rf-exp-h--bad">− Минусы</div>
-                              {c.cons.map((p) => (
-                                <div key={p} className="rf-exp-item">
-                                  · {p}
-                                </div>
-                              ))}
-                            </div>
-                          ) : null}
-
-                          <div className="rf-exp-cta">
-                            <Link href={`/cards/${c.slug}`} className="rf-btn rf-btn--ghost">
-                              Полный обзор
-                            </Link>
-                            <ApplyLink
-                              className="rf-btn rf-btn--primary"
-                              href={c.applyUrl}
-                              card={c.slug}
-                              place="rating-form-exp"
-                            >
-                              Оформить карту →
-                            </ApplyLink>
-                          </div>
+                      </td>
+                    </tr>
                     {exp && (
                       <tr className="rf-exp-row">
                         <td colSpan={9} className="rf-exp-td">
@@ -1180,6 +1104,7 @@ export default function RatingForm({
                   </Fragment>
                 );
               })
+
             )}
           </tbody>
         </table>
