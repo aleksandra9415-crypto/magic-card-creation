@@ -508,14 +508,13 @@
   align-items: center;
   justify-content: center;
   cursor: help;
-  flex: 0 0 auto;
+  flex-shrink: 0;
 }
 .rf-info--sm {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   font-size: 9.5px;
-  margin-left: 4px;
-  vertical-align: middle;
+  flex-shrink: 0;
 }
 .rf-tip {
   position: absolute;
