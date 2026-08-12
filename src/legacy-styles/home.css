@@ -2990,7 +2990,7 @@
 
       /* ============ Section helpers ============ */
       .section--soft {
-        background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+        background: transparent;
       }
       .section__head--centered {
         text-align: center;

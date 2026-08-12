@@ -66,7 +66,7 @@ function PMethodCard({ method }: { method: PMethod }) {
 
 export default function PMethodsSection() {
   return (
-    <section className="section section--soft" id="pmethods" style={{ paddingTop: 0 }}>
+    <section className="section" id="pmethods" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">4 способа пополнения</span>

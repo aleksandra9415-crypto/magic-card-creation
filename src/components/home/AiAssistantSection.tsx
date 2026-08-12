@@ -61,7 +61,7 @@ export default function AiAssistantSection() {
   };
 
   return (
-    <section className="section section--soft" id="ai-assistant">
+    <section className="section" id="ai-assistant">
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">AI-помощник · подбор за 30 секунд</span>
