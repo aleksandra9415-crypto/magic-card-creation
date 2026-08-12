@@ -2517,7 +2517,8 @@
       }
       .calc__result {
         padding: 28px;
-        background: linear-gradient(180deg, #f3f6ff 0%, #eaf0ff 100%);
+        background: #ffffff;
+        border: 1px solid var(--line);
         display: flex;
         flex-direction: column;
         justify-content: center;

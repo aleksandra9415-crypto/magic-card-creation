@@ -238,7 +238,7 @@
   }
 
   .country-card__foot b {
-    background: var(--orange-50);
+    background: #ffffff;
     border-radius: 999px;
     color: var(--orange);
     font-size: 12px;

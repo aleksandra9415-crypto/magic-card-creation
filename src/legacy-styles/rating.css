@@ -121,7 +121,7 @@
       }
       .hdr-nav a.active {
         color: var(--ink);
-        background: var(--blue-50);
+        background: #ffffff;
       }
       .hdr-cta {
         margin-left: auto;
@@ -398,7 +398,7 @@
         text-overflow: ellipsis;
       }
       .svc-pop-opt.active {
-        background: var(--blue-50);
+        background: #ffffff;
         color: var(--blue);
       }
       .svc-pop-opt.on {
@@ -429,7 +429,7 @@
         border-color: var(--blue);
       }
       .f-chip.on {
-        background: var(--blue-50);
+        background: #ffffff;
         border-color: var(--blue);
         color: var(--blue);
       }
@@ -701,7 +701,7 @@
         color: var(--green);
       }
       .pill.o {
-        background: var(--orange-50);
+        background: #ffffff;
         color: #b25406;
       }
       .pill.n {
