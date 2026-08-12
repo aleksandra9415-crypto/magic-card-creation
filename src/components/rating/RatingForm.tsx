@@ -908,12 +908,8 @@ export default function RatingForm({
                           <div className="rf-name-box">
                             <span className="rf-name-link">
                               {c.name}
-                              {c.verified && (
-                                <ShieldIcon
-                                  className="rf-verified-icon"
-                                  style={{ color: "var(--rf-blue)", width: 14, height: 14 }}
-                                />
-                              )}
+                              {c.verified && <ShieldIcon className="rf-verified-icon" />}
+
                             </span>
                             <span className="rf-tag">{c.tag}</span>
                           </div>
@@ -927,8 +923,14 @@ export default function RatingForm({
                       </td>
 
                       <td className="rf-td rf-col-maint">
-                        <MetricCell txt={c.maintTxt} />
+                        <div className="rf-val-box">
+                          <span className="rf-val">{splitMetric(c.maintTxt)[0]}</span>
+                          {splitMetric(c.maintTxt)[1] && (
+                            <span className="rf-m-note">{splitMetric(c.maintTxt)[1]}</span>
+                          )}
+                        </div>
                       </td>
+
 
                       <td className="rf-td rf-col-comm">
                         <div className="rf-val-box">
@@ -948,7 +950,7 @@ export default function RatingForm({
                             }}
                           >
                             {servicesLabel(c.svcTotal)}
-                            <ChevronIcon className={`rf-svc-chev${pop ? " up" : ""}`} style={{ width: 12, height: 12 }} />
+                            <ChevronIcon className={`rf-svc-chev${pop ? " up" : ""}`} />
                           </button>
 
                           {pop && (
@@ -998,7 +1000,7 @@ export default function RatingForm({
                             className="rf-promo-ic"
                             onClick={(e) => copyPromo(e, c)}
                           >
-                            <GiftIcon style={{ width: 20, height: 20 }} />
+                            <GiftIcon />
                           </button>
                         )}
                       </td>
@@ -1016,13 +1018,15 @@ export default function RatingForm({
                             className="rf-btn rf-btn--primary"
                             href={c.applyUrl}
                             card={c.slug}
+                            place="rating-form"
                             onClick={(e) => e.stopPropagation()}
                           >
                             Оформить
                           </ApplyLink>
+
                           <div className="rf-chev-cell">
                             <span className={`rf-chev${exp ? " up" : ""}`}>
-                              <ChevronIcon style={{ width: 20, height: 20 }} />
+                              <ChevronIcon />
                             </span>
                           </div>
                         </div>
