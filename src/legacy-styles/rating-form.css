@@ -618,7 +618,7 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 12px;
+  gap: 0;
   padding: 14px 12px;
   min-height: 72px;
   cursor: pointer;
