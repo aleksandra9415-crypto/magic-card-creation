@@ -83,7 +83,7 @@ export default function DecisionTreeSection() {
   const [active, setActive] = useState<Option | null>(null);
 
   return (
-    <section className="section section--soft" id="decision" style={{ paddingTop: 0 }}>
+    <section className="section" id="decision" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Подбор за 10 секунд</span>

@@ -73,7 +73,7 @@ export default function CalculatorSection() {
   }, [turnover, method, tier]);
 
   return (
-    <section className="section section--soft" id="calc" style={{ paddingTop: 0 }}>
+    <section className="section" id="calc" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Калькулятор · единственный в рынке</span>
