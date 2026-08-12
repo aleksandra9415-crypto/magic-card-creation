@@ -915,10 +915,8 @@ export default function RatingForm({
                         setPopRow(null);
                       }}
                     >
-                      <div className="c-rank">
-                        <div className="rf-num-cell">
-                          <span className="rf-num-text">{i + 1}</span>
-                        </div>
+                      <div className="rf-num">
+                        {i + 1}
                       </div>
 
                       <div className="rf-name-cell">
