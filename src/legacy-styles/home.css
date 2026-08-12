@@ -2515,7 +2515,7 @@
         color: #fff;
         border-color: var(--ink);
       }
-      .calc__result {
+      .calc__result { border: 1px solid var(--line);
         border: 1px solid var(--line);
         padding: 28px;
         background: #ffffff;
