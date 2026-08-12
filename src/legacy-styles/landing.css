@@ -68,12 +68,12 @@
 /* Текстовая колонка. Таблица рейтинга шире — она сама себе контейнер. */
 .lp-wrap {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) {
   .lp-wrap {
     padding: 0 24px;
   }
