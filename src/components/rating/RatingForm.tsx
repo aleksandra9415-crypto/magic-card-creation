@@ -1479,24 +1479,16 @@ function ChevronIcon() {
   );
 }
 
-function ShieldIcon() {
+function GiftIcon({ className }: { className?: string }) {
   return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z" fill="#2660FF" />
-      <path
-        d="M8 12l2.5 2.5L16 9"
-        stroke="#fff"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function GiftIcon() {
-  return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg 
+      className={className}
+      width="17" 
+      height="17" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      aria-hidden="true"
+    >
       <rect x="3" y="8" width="18" height="4" rx="1" stroke="currentColor" strokeWidth="2" />
       <path
         d="M5 12v8h14v-8M12 8v12M12 8c-2-.5-4-2-4-3.5C8 3 9 2.5 10 2.5c1.5 0 2 2.5 2 5.5zm0 0c2-.5 4-2 4-3.5 0-1.5-1-2-2-2-1.5 0-2 2.5-2 5.5z"
