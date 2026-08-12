@@ -552,7 +552,7 @@
         transition: background 0.1s;
       }
       tbody tr:hover {
-        background: #fafbfe;
+        background: #ffffff;
       }
       tbody tr.best {
         background: linear-gradient(90deg, var(--orange-50), transparent 55%);
