@@ -247,12 +247,10 @@ export default function HomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
         />
       ))}
-      {/* Порядок секций — как в референсе landing (NHcard.html). На мобильном
-          рейтинг поднимается сразу под hero (см. .home-main в home.css):
-          в прототипе первый экран заканчивается формой-рейтингом. */}
       <main className="home-main">
         <Hero />
         <TrustStrip />
+        <DecisionTreeSection />
         <ServicesSection />
         <CollectionsSection />
         <CountriesSection />
@@ -260,16 +258,13 @@ export default function HomePage() {
         <EeatStrip />
         <TransparencyStrip />
         <ContextSection />
-        <DecisionTreeSection />
         <MethodologySection />
         <CalculatorSection />
-        {/* В референсе AI-подбор живёт внутри виджета рейтинга; пока виджет не
-            перенесён, держим секцию здесь, чтобы не терять функциональность. */}
-        <AiAssistantSection />
         <PMethodsSection />
         <HowToSection />
-        <CtaBlock />
+        <AiAssistantSection />
         <FaqSection />
+        <CtaBlock />
         <GuardSection />
         <FeaturesSection />
       </main>

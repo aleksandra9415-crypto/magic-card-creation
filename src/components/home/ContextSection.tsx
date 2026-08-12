@@ -50,9 +50,7 @@ export default function ContextSection() {
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Контекст 2026</span>
-          <h2 className="section__title--pro">
-            Почему российские карты не работают и что приходит на замену
-          </h2>
+          <h2 className="section__title--pro">Уточнить фильтр таблицы</h2>
           <p className="section__sub--pro">
             Короткое объяснение для тех, кто оформляет зарубежную карту впервые.
             Если уже разбираетесь — пролистайте.
