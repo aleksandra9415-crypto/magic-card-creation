@@ -774,7 +774,7 @@
 /* Removed font-size overrides for .rf-maint and .rf-fee as they should use the base 13px */
 .rf-m-note {
   display: block;
-  font-size: 12px;
+  font-size: var(--rf-font-note);
   font-weight: 500;
   color: var(--rf-muted);
   margin-top: 2px;
