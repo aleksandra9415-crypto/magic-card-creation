@@ -759,10 +759,7 @@
      колонку */
   overflow-wrap: anywhere;
 }
-.rf-maint .rf-m-val,
-.rf-fee .rf-m-val {
-  font-size: 14px;
-}
+/* Removed font-size overrides for .rf-maint and .rf-fee as they should use the base 13px */
 .rf-m-note {
   display: block;
   font-size: 12px;
