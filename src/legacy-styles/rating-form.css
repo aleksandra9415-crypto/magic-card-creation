@@ -866,6 +866,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  width: auto;
 }
 /* .rf-btn... вместо .rf-btn--primary: у ссылок «Оформить»/«Обзор» ниже
    специфичность, чем у сброса `.page-home a { color: inherit }` (тег + класс),
