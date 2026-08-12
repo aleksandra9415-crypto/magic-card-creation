@@ -1373,16 +1373,14 @@ function Metric({
   cls,
   label,
   txt,
-  free,
 }: {
   cls: string;
   label: string;
   txt: string;
-  free: boolean;
 }) {
   const [val, note] = splitMetric(txt);
   return (
-    <div className={`rf-m ${cls}${free ? " free" : ""}`}>
+    <div className={`rf-m ${cls}`}>
       <span className="rf-m-lbl">{label}</span>
       {/* 13 знаков — предел, при котором значение ещё влезает в треть карточки
           крупным кеглем; замер по самым длинным формулировкам каталога. */}

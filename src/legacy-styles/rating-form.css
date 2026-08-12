@@ -806,17 +806,15 @@
   word-break: normal;
   overflow-wrap: break-word;
   hyphens: none;
+  color: #0F172A;
 }
 /* Removed font-size overrides for .rf-maint and .rf-fee as they should use the base 13px */
 .rf-m-note {
   display: block;
   font-size: var(--rf-font-note);
   font-weight: 500;
-  color: var(--rf-muted);
+  color: #64748B;
   margin-top: 2px;
-}
-.rf-m.free .rf-m-val {
-  color: var(--rf-good);
 }
 
 .rf-svcs {
