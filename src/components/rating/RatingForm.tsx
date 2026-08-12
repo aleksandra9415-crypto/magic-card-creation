@@ -970,7 +970,7 @@ export default function RatingForm({
                           }}
                         >
                           {servicesLabel(c.svcTotal)}
-                          <span>›</span>
+                          <ChevronIcon className="rf-svc-expand-ic" />
                         </button>
 
                         {pop ? (
