@@ -1,6 +1,6 @@
 .page-home {
   .blog-page {
-    background: var(--bg);
+    background: #ffffff;
     color: var(--ink);
     font-family: var(--font-body);
   }

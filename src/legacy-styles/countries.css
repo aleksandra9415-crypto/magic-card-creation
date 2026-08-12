@@ -1,6 +1,6 @@
 .page-home {
   .country-page {
-    background: var(--bg);
+    background: #ffffff;
     color: var(--ink);
     font-family: var(--font-body);
   }
@@ -238,7 +238,7 @@
   }
 
   .country-card__foot b {
-    background: var(--orange-50);
+    background: #ffffff;
     border-radius: 999px;
     color: var(--orange);
     font-size: 12px;

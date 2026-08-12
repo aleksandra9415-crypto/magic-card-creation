@@ -12,7 +12,7 @@
 .page-rating {
 
       & {
-        --bg: #f7f8fb;
+        --bg: #ffffff;
         --bg-2: #fff;
         --ink: #0b1530;
         --ink-2: #1b2447;
@@ -40,7 +40,7 @@
       
       
       & {
-        background: var(--bg);
+        background: #ffffff;
         color: var(--ink);
         font-family: var(--font-body);
         font-size: 15px;
@@ -121,7 +121,7 @@
       }
       .hdr-nav a.active {
         color: var(--ink);
-        background: var(--blue-50);
+        background: #ffffff;
       }
       .hdr-cta {
         margin-left: auto;
@@ -398,7 +398,7 @@
         text-overflow: ellipsis;
       }
       .svc-pop-opt.active {
-        background: var(--blue-50);
+        background: #ffffff;
         color: var(--blue);
       }
       .svc-pop-opt.on {
@@ -429,7 +429,7 @@
         border-color: var(--blue);
       }
       .f-chip.on {
-        background: var(--blue-50);
+        background: #ffffff;
         border-color: var(--blue);
         color: var(--blue);
       }
@@ -552,7 +552,7 @@
         transition: background 0.1s;
       }
       tbody tr:hover {
-        background: #fafbfe;
+        background: #ffffff;
       }
       tbody tr.best {
         background: linear-gradient(90deg, var(--orange-50), transparent 55%);
@@ -701,7 +701,7 @@
         color: var(--green);
       }
       .pill.o {
-        background: var(--orange-50);
+        background: #ffffff;
         color: #b25406;
       }
       .pill.n {

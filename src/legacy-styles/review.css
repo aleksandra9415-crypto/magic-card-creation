@@ -4,7 +4,7 @@
 .page-review {
 
       & {
-        --bg: #f7f8fb;
+        --bg: #ffffff;
         --bg-2: #fff;
         --ink: #0b1530;
         --ink-2: #1b2447;
@@ -34,7 +34,7 @@
       
       
       & {
-        background: var(--bg);
+        background: #ffffff;
         color: var(--ink);
         font-family: var(--font-body);
         font-size: 16px;
@@ -257,7 +257,7 @@
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        background: var(--blue-50);
+        background: #ffffff;
         color: var(--blue);
         font-size: 11px;
         font-weight: 800;
@@ -315,7 +315,7 @@
         gap: 12px;
         margin-top: 14px;
         padding: 12px 14px;
-        background: var(--orange-50);
+        background: #ffffff;
         border: 1px dashed #ffc894;
         border-radius: 13px;
       }
@@ -466,7 +466,7 @@
         display: grid;
         place-items: center;
         padding: 14px;
-        background: var(--bg);
+        background: #ffffff;
         border-bottom: 1px solid var(--line-2);
       }
       .shot__img img {
@@ -593,7 +593,7 @@
         height: 36px;
         flex: 0 0 36px;
         border-radius: 50%;
-        background: var(--blue-50);
+        background: #ffffff;
         color: var(--blue);
         font-size: 12px;
         font-weight: 700;
@@ -717,7 +717,7 @@
         font-weight: 700;
         border-radius: 999px;
         padding: 6px 12px;
-        background: var(--bg);
+        background: #ffffff;
         border: 1px solid var(--line);
         color: var(--ink-2);
       }
@@ -727,7 +727,7 @@
         color: #0b7c57;
       }
       .bdg--v {
-        background: var(--blue-50);
+        background: #ffffff;
         border-color: transparent;
         color: var(--blue);
       }
@@ -934,7 +934,7 @@
         margin-top: 18px;
         padding: 14px 16px;
         border-radius: 13px;
-        background: var(--blue-50);
+        background: #ffffff;
         transition: background 0.13s ease;
       }
       a.fit__cta:hover {
@@ -962,7 +962,7 @@
         color: var(--blue);
       }
       a.fit__cta--muted {
-        background: var(--bg);
+        background: #ffffff;
       }
       .fit__cta--muted span span {
         color: var(--muted);
@@ -1082,7 +1082,7 @@
         color: var(--muted);
         text-align: left;
         padding: 13px 18px;
-        background: var(--bg);
+        background: #ffffff;
         border-bottom: 1px solid var(--line);
       }
       .t td {
@@ -1136,14 +1136,14 @@
         color: #c13b3f;
       }
       .pill--m {
-        background: var(--orange-50);
+        background: #ffffff;
         color: #b45309;
       }
       .t--cmp td:first-child {
         white-space: nowrap;
       }
       .t--cmp .me {
-        background: var(--blue-50);
+        background: #ffffff;
       }
       .t--cmp .me td {
         color: var(--ink);
@@ -1152,7 +1152,7 @@
         font-size: 13.5px;
         line-height: 1.6;
         color: var(--ink-2);
-        background: var(--bg);
+        background: #ffffff;
         border-left: 3px solid var(--orange);
         border-radius: 0 10px 10px 0;
         padding: 14px 18px;
@@ -1233,7 +1233,7 @@
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        background: var(--bg);
+        background: #ffffff;
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 7px 13px 7px 8px;
@@ -1256,7 +1256,7 @@
         color: var(--ink-2);
       }
       .stile--m {
-        background: var(--blue-50);
+        background: #ffffff;
         border-color: transparent;
         color: var(--blue);
         padding: 7px 13px;
@@ -1319,14 +1319,14 @@
       .rtag {
         font-size: 11px;
         font-weight: 600;
-        background: var(--bg);
+        background: #ffffff;
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 4px 10px;
         color: var(--muted);
       }
       .rev-ans {
-        background: var(--bg);
+        background: #ffffff;
         border-left: 3px solid var(--blue);
         border-radius: 0 10px 10px 0;
         padding: 12px 14px;
