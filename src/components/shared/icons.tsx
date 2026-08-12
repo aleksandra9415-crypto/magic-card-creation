@@ -87,9 +87,16 @@ export function VerifiedShield() {
 }
 
 /** Внешняя ссылка 11x11 (trust-чипы) */
-export function ExternalIcon() {
+export function ExternalIcon({ className }: { className?: string }) {
   return (
-    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+    <svg
+      width="11"
+      height="11"
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
       <path
         d="M3.5 8.5 8.5 3.5M4.5 3.5h4v4"
         stroke="currentColor"
