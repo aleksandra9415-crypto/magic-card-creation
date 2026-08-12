@@ -952,19 +952,16 @@ export default function RatingForm({
                         cls="rf-issue"
                         label="Выпуск карты"
                         txt={c.issueTxt}
-                        free={c.issue === 0}
                       />
                       <Metric
                         cls="rf-maint"
                         label="Обслуживание"
                         txt={c.maintTxt}
-                        free={c.maint === 0}
                       />
                       <Metric
                         cls="rf-fee"
                         label="Комиссия"
                         txt={c.topupFee}
-                        free={isFree(c.topupFee)}
                       />
 
                       <div className="rf-svcs">
@@ -1040,7 +1037,7 @@ export default function RatingForm({
                         <span className="rf-star" aria-hidden="true">
                           ★
                         </span>
-                        <span className={`rf-rating rf-rating--${ratingColor(c.rating)}`}>
+                        <span className="rf-rating">
                           {c.rating?.toFixed(1) ?? "—"}
                         </span>
                         {/* Счётчик отзывов показываем, только когда он есть:

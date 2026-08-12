@@ -784,7 +784,7 @@
   display: block;
   font-size: var(--rf-font-note);
   font-weight: 500;
-  color: var(--rf-dim);
+  color: #64748B;
   margin-top: 2px;
 }
 
@@ -869,18 +869,7 @@
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
-}
-.rf-rating--good {
-  color: var(--rf-good);
-}
-.rf-rating--warn {
-  color: var(--rf-warn);
-}
-.rf-rating--bad {
-  color: var(--rf-bad);
-}
-.rf-rating--muted {
-  color: var(--rf-dim);
+  color: #0F172A;
 }
 .rf .rf-reviews-cnt {
   font-size: 12.5px;
