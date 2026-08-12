@@ -6,9 +6,8 @@ export default function TrustStrip() {
     <section className="trust">
       <div className="container">
         <div className="trust__inner">
-          <div className="trust__lbl">
-            Нам доверяют
-          </div>
+          <div className="trust__lbl">Нам доверяют</div>
+          <div className="trust__divider" />
           <div className="trust__list">
             {TRUST_LINKS.map((t) => (
               <a
