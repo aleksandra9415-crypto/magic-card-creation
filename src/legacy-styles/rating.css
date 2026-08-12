@@ -978,12 +978,14 @@
           background: var(--bg-2);
           font-size: 11.5px;
         }
-        td.c-rank::before {
+        td.c-rank .rf-num-text::before {
           content: "#";
           color: var(--muted);
         }
         tr.best td.c-rank {
           border-color: var(--orange);
+        }
+        tr.best td.c-rank .rf-num-text {
           color: var(--orange);
         }
 
