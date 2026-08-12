@@ -931,7 +931,6 @@ export default function RatingForm({
                             {c.verified ? (
                               <ShieldIcon
                                 className="rf-verified-icon"
-                                title="Проверено редакцией"
                                 aria-label="Проверено редакцией"
                               />
                             ) : null}
