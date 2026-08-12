@@ -618,9 +618,9 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  min-height: 84px;
+  gap: 12px;
+  padding: 14px 12px;
+  min-height: 72px;
   cursor: pointer;
 }
 
