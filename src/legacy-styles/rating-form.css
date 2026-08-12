@@ -631,7 +631,7 @@
 }
 
 .rf-num {
-  font-size: 14px;
+  font-size: var(--rf-font-num);
   font-weight: 800;
   display: inline-flex;
   align-items: center;
