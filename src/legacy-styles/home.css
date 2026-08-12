@@ -1,13 +1,20 @@
 /* Auto-scoped 1:1 copy of original page styles (native CSS nesting) */
 @keyframes pulseDot {
-        0%,
-        100% {
-          box-shadow: 0 0 0 4px rgba(14, 163, 114, 0.15);
-        }
-        50% {
-          box-shadow: 0 0 0 8px rgba(14, 163, 114, 0);
-        }
-      }
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(14, 163, 114, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(14, 163, 114, 0);
+  }
+}
+
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(14, 163, 114, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(14, 163, 114, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 163, 114, 0); }
+}
+
 
 .page-home {
 
