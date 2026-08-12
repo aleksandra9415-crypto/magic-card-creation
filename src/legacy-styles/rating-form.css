@@ -1859,7 +1859,7 @@
   padding: 16px 18px 16px 56px;
   border: 1px solid #eef1f7;
   border-radius: 12px;
-  background: #ffffff;
+  background: #f7f8fb;
 }
 .sguide-steps li::before {
   content: counter(sg, decimal-leading-zero);
