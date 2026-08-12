@@ -644,6 +644,7 @@
   align-items: center;
   gap: 12px;
   min-width: 0;
+  padding-left: 0;
 }
 .rf-logo {
   width: 40px;
