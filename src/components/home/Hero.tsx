@@ -18,14 +18,11 @@ export default function Hero() {
       <div className="container">
         <div className="hero__grid">
           <div>
-            {/* На мобильном плашка сокращается до «обновлено сегодня»:
+            {/* На мобильном подпись сокращается до «обновлено сегодня»:
                 в две строки она съедала первый экран. */}
-            <span className="eyebrow">
-              <span className="eyebrow__dot"></span>
-              <span>
-                <span className="hide-sm">Независимый мониторинг · </span>
-                обновлено сегодня
-              </span>
+            <span className="eyebrow eyebrow--plain">
+              <span className="hide-sm">Независимый мониторинг · </span>
+              обновлено сегодня
             </span>
             <h1 className="h1">
               Зарубежные виртуальные карты —{" "}
