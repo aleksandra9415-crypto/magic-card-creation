@@ -792,7 +792,7 @@ export default function RatingForm({
         <div className="rf-table-scroll">
           <div className="rf-table-inner">
             <div className="rf-head">
-              <div>№</div>
+              <div className="rf-num-head">№</div>
               <div>Сервис</div>
               <div className="rf-th">
                 <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
@@ -831,7 +831,7 @@ export default function RatingForm({
               <div>Оплачивает</div>
               <div className="rf-th">
                 <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
-                  Отзывы <span className="rf-arr">{arrow("reviews")}</span>
+                  Рейтинг <span className="rf-arr">{arrow("reviews")}</span>
                 </button>
               </div>
               <div />
@@ -914,8 +914,8 @@ export default function RatingForm({
                         setPopRow(null);
                       }}
                     >
-                      <div>
-                        <span className={`rf-num${isTop ? " on" : ""}`}>{i + 1}</span>
+                      <div className="rf-num-cell">
+                        <span className="rf-num-text">{i + 1}</span>
                       </div>
 
                       <div className="rf-name-cell">
@@ -927,12 +927,13 @@ export default function RatingForm({
                             {c.name}
                             {c.verified ? (
                               <span
-                                className="rf-verified"
+                                className="rf-verified-icon"
+                                title="Проверено редакцией"
+                                aria-label="Проверено редакцией"
                                 onMouseEnter={() => setTip("v" + c.id)}
                                 onMouseLeave={() => setTip(null)}
                               >
-                                <ShieldIcon />
-                                Проверено
+                                
                                 {tip === "v" + c.id ? (
                                   <span className="rf-tip" style={{ width: 250 }}>
                                     Редакция реально выпустила карту, провела тестовый
@@ -1188,6 +1189,17 @@ export default function RatingForm({
               })
             )}
 
+            <div className="rf-legend">
+              <div className="rf-legend-item">
+                <ShieldIcon className="rf-legend-ic" />
+                <span>Сервис проверен редакцией: мы выпустили карту и оплатили ей подписку</span>
+              </div>
+              <div className="rf-legend-item">
+                <GiftIcon className="rf-legend-ic rf-legend-ic--gift" />
+                <span>Есть промокод NHcard на выпуск</span>
+              </div>
+            </div>
+
             {!isEmpty && sorted.length > COLLAPSED ? (
               <div className="rf-showall">
                 <button
@@ -1383,6 +1395,31 @@ function Metric({
       <span className={`rf-m-val${val.length > 13 ? " long" : ""}`}>{val}</span>
       {note ? <span className="rf-m-note">{note}</span> : null}
     </div>
+  );
+}
+
+function ShieldIcon({ className }: { className?: string }) {
+  return (
+    <svg 
+      className={className}
+      width="14" 
+      height="14" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      aria-hidden="true"
+    >
+      <path
+        d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z"
+        fill="currentColor"
+      />
+      <path
+        d="M8 12l2.5 2.5L16 9"
+        stroke="#fff"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 

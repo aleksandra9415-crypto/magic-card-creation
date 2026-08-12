@@ -467,7 +467,11 @@
         border-collapse: collapse;
         table-layout: fixed;
       }
-      col.col-rank { width: 42px; }
+      .rf-num-head {
+        width: 48px;
+        text-align: center;
+      }
+      col.col-rank { width: 48px; }
       col.col-service { width: 224px; }
       col.col-score { width: 78px; }
       col.col-issue { width: 106px; }
@@ -557,16 +561,18 @@
       tbody tr.best {
         background: linear-gradient(90deg, var(--orange-50), transparent 55%);
       }
-      td.c-rank {
-        width: 36px;
-        text-align: center;
-        font-family: var(--font-body);
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--muted);
+      .rf-num-cell {
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      tr.best td.c-rank {
-        color: var(--orange);
+      .rf-num-text {
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 500;
+        color: #94A3B8;
+        line-height: 1;
       }
       .svc-cell {
         display: flex;
@@ -604,14 +610,15 @@
         color: var(--blue);
         text-decoration: underline;
       }
-      .check {
-        display: inline-grid;
-        place-items: center;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--green);
+      .rf-verified-icon {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 6px;
+        color: var(--blue);
         flex: none;
+        vertical-align: middle;
+        position: relative;
+        cursor: help;
       }
       .best-mark {
         font-size: 9.5px;
@@ -757,6 +764,28 @@
       .gift {
         cursor: help;
         font-size: 14px;
+      }
+      .rf-legend {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 13px;
+        color: var(--muted);
+        padding: 0 4px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+      }
+      .rf-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .rf-legend-ic {
+        color: var(--blue);
+        flex: none;
+      }
+      .rf-legend-ic--gift {
+        color: var(--orange);
       }
       .tbl-note {
         font-size: 12px;
