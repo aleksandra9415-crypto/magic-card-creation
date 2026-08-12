@@ -1163,7 +1163,7 @@
         color: var(--muted);
       }
       .tariff-table .row-pop {
-        background: rgba(38, 96, 255, 0.025);
+        background: #ffffff;
       }
 
       /* CTA */
@@ -2990,7 +2990,7 @@
 
       /* ============ Section helpers ============ */
       .section--soft {
-        background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+        background: #ffffff;
       }
       .section__head--centered {
         text-align: center;
