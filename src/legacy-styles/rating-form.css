@@ -685,6 +685,39 @@
   font-weight: 800;
   letter-spacing: -0.01em;
 }
+.rf-svc-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  color: var(--rf-blue);
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s ease;
+}
+.rf-svc-expand-btn:hover {
+  text-decoration: underline;
+}
+.rf-svc-expand-btn:focus-visible {
+  outline: 2px solid var(--rf-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.rf-svc-expand-ic {
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+  transition: transform 0.2s ease;
+}
+.rf-svc-expand-btn[aria-expanded="true"] .rf-svc-expand-ic {
+  transform: rotate(0deg);
+}
+
 .rf-verified {
   position: relative;
   display: inline-flex;
