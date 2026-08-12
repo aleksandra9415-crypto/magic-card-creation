@@ -475,7 +475,7 @@
       col.col-service { width: 224px; }
       col.col-score { width: 78px; }
       col.col-issue { width: 106px; }
-      col.col-topup { width: 138px; }
+      col.col-topup { width: 148px; }
       col.col-fx { width: 106px; }
       col.col-monthly { width: 118px; }
       col.col-term { width: 92px; }
@@ -686,8 +686,10 @@
       td.c-topup .mono,
       td.c-topup .sub {
         display: block;
-        overflow-wrap: anywhere;
-        white-space: normal !important;
+        overflow-wrap: normal;
+        white-space: nowrap !important;
+        hyphens: none;
+        min-width: 132px;
       }
       td.c-term,
       td.c-kyc,
@@ -746,6 +748,33 @@
         font-weight: 800;
         color: #fff;
         flex: none;
+      }
+      .rf-svc-expand-btn {
+        background: none;
+        border: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--blue);
+        cursor: pointer;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 180ms ease;
+      }
+      .rf-svc-expand-btn:hover {
+        text-decoration: underline;
+      }
+      .rf-svc-expand-btn:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .rf-svc-expand-btn span {
+        font-size: 12px;
+        line-height: 1;
+        margin-left: 2px;
       }
       .ic-more {
         background: var(--line-2);

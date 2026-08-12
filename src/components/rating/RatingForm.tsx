@@ -29,6 +29,7 @@ import {
   ctyCount,
   cardsCountLabel,
   servicesCountLabel,
+  servicesLabel,
   serviceSlug,
   type RatingCard,
 } from "@/data/rating-form";
@@ -971,21 +972,17 @@ export default function RatingForm({
 
                       <div className="rf-svcs">
                         <span className="rf-svcs-lbl">Оплачивает</span>
-                        {c.services.slice(0, 4).map((s) => (
-                          <span key={s} className="rf-svc-ic" title={s}>
-                            {s.slice(0, 2)}
-                          </span>
-                        ))}
                         <button
                           type="button"
-                          className="rf-more"
+                          className="rf-svc-expand-btn"
+                          aria-expanded={exp}
                           onClick={(e) => {
                             e.stopPropagation();
-                            setPopRow(pop ? null : c.id);
-                            setPopq("");
+                            setExpanded(exp ? null : c.id);
                           }}
                         >
-                          +{Math.max(c.svcTotal - 4, 1)}
+                          {servicesLabel(c.svcTotal)}
+                          <span>›</span>
                         </button>
 
                         {pop ? (
