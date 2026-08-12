@@ -12,7 +12,7 @@
 .page-rating {
 
       & {
-        --bg: #f7f8fb;
+        --bg: #ffffff;
         --bg-2: #fff;
         --ink: #0b1530;
         --ink-2: #1b2447;
@@ -40,7 +40,7 @@
       
       
       & {
-        background: var(--bg);
+        background: #ffffff;
         color: var(--ink);
         font-family: var(--font-body);
         font-size: 15px;
