@@ -118,33 +118,19 @@ export default function Hero() {
               </div>
             </div>
             <div className="float-badge float-badge--tr">
-              <span className="dot"></span>
+              <span className="dot dot--green"></span>
               <div>
-                <div style={{ fontWeight: 700 }}>Все карты онлайн</div>
-                <div className="muted" style={{ fontSize: 11 }}>
+                <div style={{ fontWeight: 700, lineHeight: 1.2 }}>Все карты онлайн</div>
+                <div className="muted" style={{ fontSize: 11, marginTop: 2 }}>
                   выпуск за 5 минут
                 </div>
               </div>
             </div>
             <div className="float-badge float-badge--bl">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 2L3 7v5c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"
-                  stroke="#2660FF"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke="#2660FF"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <span className="dot dot--dark"></span>
               <div>
-                <div style={{ fontWeight: 700 }}>0% комиссии</div>
-                <div className="muted" style={{ fontSize: 11 }}>
+                <div style={{ fontWeight: 700, lineHeight: 1.2 }}>0% комиссии</div>
+                <div className="muted" style={{ fontSize: 11, marginTop: 2 }}>
                   на пополнение
                 </div>
               </div>
