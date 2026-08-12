@@ -1138,11 +1138,23 @@ export default function RatingForm({
             ) : null}
           </div>
         </div>
+
+        <div className="rf-legend">
+          <div className="rf-legend-item">
+            <ShieldIcon className="rf-legend-ic" />
+            <span className="rf-legend-txt">Сервис проверен редакцией: мы выпустили карту и оплатили ей подписку</span>
+          </div>
+          <div className="rf-legend-item">
+            <GiftIcon className="rf-legend-ic rf-legend-ic--gift" />
+            <span className="rf-legend-txt">Есть промокод NHcard на выпуск</span>
+          </div>
+        </div>
       </div>
 
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
         <div className="rf-ai-head">
+
           <div>
             <div className="rf-ai-title">Подобрать карту за 10 секунд</div>
             <div className="rf-ai-sub">
