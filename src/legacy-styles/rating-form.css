@@ -625,16 +625,12 @@
 }
 
 .rf-num {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: var(--rf-blue);
 }
 .rf-num.on {
   background: var(--rf-blue);
