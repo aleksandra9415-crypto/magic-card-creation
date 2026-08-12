@@ -590,49 +590,58 @@
         background: #fff;
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
-        padding: 18px 0;
+        padding: 40px 0;
       }
       .trust__inner {
         display: flex;
-        align-items: center;
-        gap: 12px 28px;
-        flex-wrap: wrap;
-        justify-content: center;
-        color: var(--muted);
-        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
       }
       .trust__lbl {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--ink);
-        font-weight: 600;
+        font-size: 16px;
+        color: var(--muted);
+        font-weight: 400;
+        margin-bottom: 12px;
+        line-height: 1.6;
+      }
+      .trust__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+        width: 100%;
       }
       .trust__chip {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        justify-content: center;
+        min-width: 104px;
+        height: 40px;
+        padding: 0 16px;
         font-weight: 700;
         color: var(--ink-2);
         letter-spacing: -0.01em;
         font-size: 14.5px;
         background: var(--bg);
         border: 1.5px solid var(--line);
-        border-radius: 999px;
-        padding: 8px 16px;
-        transition: all 0.15s;
+        border-radius: 12px;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        cursor: pointer;
       }
-      .trust__chip svg {
-        color: var(--muted);
-        transition: color 0.15s;
+      .trust__chip-icon {
+        width: 14px;
+        height: 14px;
+        margin-left: 8px;
+        display: none;
+        opacity: 0.8;
       }
       .trust__chip:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-        background: var(--blue-50);
+        background: var(--line-2);
+        border-color: var(--muted-2);
       }
-      .trust__chip:hover svg {
-        color: var(--blue);
+      .trust__chip:hover .trust__chip-icon {
+        display: block;
       }
 
       /* Features */
