@@ -1219,7 +1219,6 @@ export default function RatingForm({
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
         <div className="rf-ai-head">
-          <span className="rf-ai-ic">✦</span>
           <div>
             <div className="rf-ai-title">Подобрать карту за 10 секунд</div>
             <div className="rf-ai-sub">
@@ -1236,6 +1235,8 @@ export default function RatingForm({
             </button>
           ) : null}
         </div>
+
+        <div className="rf-ai-divider" />
 
         <div className="rf-ai-grid">
           {AI_QUESTIONS.map(([field, title, opts]) => (
