@@ -688,7 +688,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 4px 7px;
-  font-size: 14px;
+  font-size: var(--rf-font-name);
   font-weight: 600;
   letter-spacing: -0.01em;
 }
