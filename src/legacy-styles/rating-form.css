@@ -10,6 +10,12 @@
   --rf-line: #e6eaf2;
   --rf-line-2: #eef1f7;
   --rf-bg: #f7f8fb;
+  --rf-tabular: tabular-nums;
+  --rf-font-main: 13px;
+  --rf-font-note: 12px;
+  --rf-font-th: 12px;
+  --rf-font-name: 14px;
+  --rf-font-num: 14px;
   --rf-blue: #2660ff;
   --rf-blue-600: #1e4fe0;
   --rf-blue-50: #eaf0ff;
@@ -23,7 +29,7 @@
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
      в контейнер 1200px без горизонтального скролла. */
-  --rf-grid: 40px 1.25fr 100px 112px 108px 1fr 100px 176px 34px;
+  --rf-grid: 36px 1.25fr 100px 112px 108px 1fr 100px 176px 34px;
 
   color: var(--rf-ink);
   text-align: left;
@@ -554,10 +560,10 @@
   grid-template-columns: var(--rf-grid);
   align-items: center;
   gap: 10px;
-  padding: 0 18px;
-  height: 56px;
+  padding: 0 12px;
+  height: 50px;
   border-bottom: 1px solid var(--rf-line);
-  font-size: 12.5px;
+  font-size: var(--rf-font-th);
   font-weight: 700;
   color: var(--rf-muted);
 }
@@ -618,23 +624,21 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  min-height: 84px;
+  gap: 0;
+  padding: 14px 12px;
+  min-height: 72px;
   cursor: pointer;
 }
 
 .rf-num {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
-  font-size: 13px;
+  font-size: var(--rf-font-num);
   font-weight: 800;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: var(--rf-blue);
+  width: 36px;
+  background: transparent;
 }
 .rf-num.on {
   background: var(--rf-blue);
@@ -646,12 +650,15 @@
   align-items: center;
   gap: 12px;
   min-width: 0;
+  padding-left: 0;
+  margin-left: 0;
 }
 .rf-logo {
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
   border-radius: 12px;
+  margin-left: 0;
   color: #fff;
   font-size: 13px;
   font-weight: 800;
@@ -681,8 +688,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 4px 7px;
-  font-size: 15px;
-  font-weight: 800;
+  font-size: var(--rf-font-name);
+  font-weight: 600;
   letter-spacing: -0.01em;
 }
 .rf-svc-expand-btn {
@@ -739,7 +746,7 @@
 }
 .rf-tag {
   display: block;
-  font-size: 12px;
+  font-size: var(--rf-font-note);
   font-weight: 500;
   color: var(--rf-dim);
   margin-top: 2px;
@@ -756,20 +763,18 @@
 }
 .rf-m-val {
   display: block;
-  font-size: 15px;
+  font-size: var(--rf-font-main);
   font-weight: 700;
   letter-spacing: -0.01em;
+  font-variant-numeric: var(--rf-tabular);
   /* Длинные слова каталога («индивидуальная») не должны залезать в соседнюю
      колонку */
   overflow-wrap: anywhere;
 }
-.rf-maint .rf-m-val,
-.rf-fee .rf-m-val {
-  font-size: 14px;
-}
+/* Removed font-size overrides for .rf-maint and .rf-fee as they should use the base 13px */
 .rf-m-note {
   display: block;
-  font-size: 12px;
+  font-size: var(--rf-font-note);
   font-weight: 500;
   color: var(--rf-muted);
   margin-top: 2px;
@@ -825,8 +830,8 @@
   display: none;
 }
 .rf-rating {
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 .rf-rating--good {
@@ -857,17 +862,19 @@
   align-items: center;
   gap: 8px;
   justify-content: flex-end;
+  width: auto;
 }
 .rf-btn {
-  height: 38px;
-  padding: 0 15px;
+  height: 34px;
+  padding: 0 14px;
   border-radius: 11px;
-  font-size: 13px;
+  font-size: var(--rf-font-main);
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
+  width: auto;
 }
 /* .rf-btn... вместо .rf-btn--primary: у ссылок «Оформить»/«Обзор» ниже
    специфичность, чем у сброса `.page-home a { color: inherit }` (тег + класс),
@@ -894,8 +901,8 @@
   display: none;
 }
 .rf-promo {
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 12px;
   border: 1px solid var(--rf-orange-line);
   background: var(--rf-orange-50);
@@ -903,7 +910,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 40px;
+  flex: 0 0 34px;
 }
 .rf-promo:hover {
   border-color: var(--rf-orange);
