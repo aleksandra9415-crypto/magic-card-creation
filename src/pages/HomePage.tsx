@@ -247,9 +247,6 @@ export default function HomePage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
         />
       ))}
-      {/* Порядок секций — как в референсе landing (NHcard.html). На мобильном
-          рейтинг поднимается сразу под hero (см. .home-main в home.css):
-          в прототипе первый экран заканчивается формой-рейтингом. */}
       <main className="home-main">
         <Hero />
         <TrustStrip />
