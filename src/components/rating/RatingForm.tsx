@@ -966,7 +966,7 @@ export default function RatingForm({
                           aria-expanded={exp}
                           onClick={(e) => {
                             e.stopPropagation();
-                            setExpanded(exp ? null : c.id);
+                            setPopRow(pop ? null : c.id);
                           }}
                         >
                           {servicesLabel(c.svcTotal)}
