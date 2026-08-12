@@ -746,7 +746,7 @@
 }
 .rf-tag {
   display: block;
-  font-size: 12px;
+  font-size: var(--rf-font-note);
   font-weight: 500;
   color: var(--rf-dim);
   margin-top: 2px;
