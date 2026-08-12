@@ -631,6 +631,8 @@
   align-items: center;
   justify-content: center;
   color: var(--rf-blue);
+  width: 36px;
+  background: transparent;
 }
 .rf-num.on {
   background: var(--rf-blue);
