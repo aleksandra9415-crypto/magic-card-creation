@@ -8,7 +8,9 @@
           box-shadow: 0 0 0 8px rgba(14, 163, 114, 0);
         }
       }
+
 .page-home {
+
       /* === styles.css === */
       /* NHcard — virtual foreign card monitor. Light fintech theme. */
       & {
@@ -34,9 +36,13 @@
         --shadow-sm: 0 1px 2px rgba(11, 21, 48, 0.05);
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --shadow-lg: 0 20px 50px rgba(11, 21, 48, 0.1);
+        --container: 1200px;
         --font: var(--font-body);
         --mono: var(--font-body);
       }
+
+      
+      
       & {
         background: var(--bg);
         color: var(--ink);
@@ -59,8 +65,19 @@
         font-family: inherit;
         cursor: pointer;
       }
-      @media (min-width: 768px) {
+
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 16px;
       }
+      @media (min-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+
       /* Header */
       .hdr {
         position: sticky;
@@ -130,6 +147,7 @@
         height: 38px;
         flex-basis: 38px;
       }
+
       /* NH mini mark used inside virtual card brand */
       .vcard__brand {
         display: inline-flex;
@@ -266,6 +284,7 @@
           display: none;
         }
       }
+
       /* Hero */
       .hero {
         position: relative;
@@ -376,6 +395,7 @@
           font-size: 13px;
         }
       }
+
       /* Hero visual */
       .hero__visual {
         position: relative;
@@ -471,6 +491,7 @@
         left: -40px;
         top: -40px;
       }
+
       .float-badge {
         position: absolute;
         background: #fff;
@@ -505,6 +526,7 @@
           left: 4px;
         }
       }
+
       /* Sections */
       .section {
         padding: 56px 0;
@@ -534,6 +556,7 @@
         margin: 0;
         text-wrap: pretty;
       }
+
       /* Trust strip */
       .trust {
         background: #fff;
@@ -583,6 +606,7 @@
       .trust__chip:hover svg {
         color: var(--blue);
       }
+
       /* Features */
       .features__grid {
         display: grid;
@@ -639,8 +663,10 @@
         font-size: 14px;
         margin: 0;
       }
+
       /* === styles-2.css === */
       /* part 2 — service cards, pricing, FAQ, CTA, footer */
+
       /* Filter bar */
       .filterbar {
         background: #fff;
@@ -728,6 +754,7 @@
         color: var(--blue);
         background: var(--blue-50);
       }
+
       /* Service card */
       .services {
         display: grid;
@@ -839,6 +866,7 @@
         align-items: center;
         gap: 4px;
       }
+
       .svc__rating {
         margin-left: auto;
         text-align: right;
@@ -853,6 +881,7 @@
         font-size: 11px;
         color: var(--muted);
       }
+
       .svc__row {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -875,6 +904,7 @@
       .svc__cell .val .free {
         color: var(--green);
       }
+
       .svc__features {
         display: flex;
         flex-wrap: wrap;
@@ -895,6 +925,7 @@
         background: var(--bg);
         color: var(--ink-2);
       }
+
       .svc__svcs {
         display: flex;
         align-items: center;
@@ -953,6 +984,7 @@
         color: var(--muted);
         font-size: 10px;
       }
+
       .svc__cta {
         display: flex;
         gap: 8px;
@@ -962,6 +994,7 @@
         flex: 1;
         height: 42px;
       }
+
       /* Pricing table */
       .pricing {
         background: #fff;
@@ -1002,6 +1035,7 @@
         color: var(--ink);
         box-shadow: var(--shadow-sm);
       }
+
       /* Mobile: stack as cards; Desktop: real table */
       .tariff-cards {
         display: grid;
@@ -1062,6 +1096,7 @@
         margin-top: 2px;
         color: var(--green);
       }
+
       .tariff-table {
         display: none;
       }
@@ -1130,6 +1165,7 @@
       .tariff-table .row-pop {
         background: rgba(38, 96, 255, 0.025);
       }
+
       /* CTA */
       .cta-block {
         position: relative;
@@ -1201,6 +1237,7 @@
         flex-wrap: wrap;
         gap: 12px;
       }
+
       /* FAQ */
       .faq {
         display: grid;
@@ -1256,6 +1293,7 @@
         color: var(--muted);
         font-size: 15px;
       }
+
       /* Footer */
       .footer {
         background: #fff;
@@ -1311,6 +1349,7 @@
         color: var(--muted);
         font-size: 13px;
       }
+
       /* Collection cards with hero visual */
       .collections-grid {
         display: grid;
@@ -1421,6 +1460,7 @@
         background: var(--bg);
         color: var(--ink-2);
       }
+
       /* Hero visual tiles per category */
       .coll-tiles {
         position: relative;
@@ -1487,6 +1527,7 @@
         background: #24292f;
         color: #fff;
       }
+
       .coll__hero--ai {
         background: linear-gradient(
           135deg,
@@ -1533,6 +1574,7 @@
       .coll__hero--all {
         background: linear-gradient(135deg, #eef1f7 0%, #d8deec 100%);
       }
+
       /* AI visual — gradient blob */
       .ai-blob {
         position: absolute;
@@ -1569,6 +1611,7 @@
           inset -10px -16px 28px rgba(11, 21, 48, 0.35),
           0 12px 28px rgba(38, 96, 255, 0.35);
       }
+
       /* Travel visual */
       .travel-scene {
         position: absolute;
@@ -1597,6 +1640,7 @@
         background: var(--blue);
         box-shadow: 0 0 0 4px rgba(38, 96, 255, 0.2);
       }
+
       /* Hero pattern fallback */
       .coll__hero .glyph {
         position: relative;
@@ -1604,6 +1648,7 @@
         font-size: clamp(40px, 8vw, 64px);
         filter: drop-shadow(0 8px 16px rgba(11, 21, 48, 0.18));
       }
+
       /* Countries grid */
       .countries {
         display: grid;
@@ -1676,6 +1721,7 @@
       .country--more {
         border-style: dashed;
       }
+
       /* Country tiles (reuse .coll cards) */
       .countries-grid .coll__hero {
         display: flex;
@@ -1706,6 +1752,7 @@
       .countries-cta .btn {
         gap: 8px;
       }
+
       /* Blog section */
       .section__head--row {
         display: flex;
@@ -1769,6 +1816,7 @@
         color: var(--muted);
         font-weight: 500;
       }
+
       /* ── Horizontal ranking table ─────────────────────────── */
       .rank-tbl {
         border: 1px solid var(--line);
@@ -1823,6 +1871,7 @@
           rgba(38, 96, 255, 0) 60%
         );
       }
+
       .best-badge {
         position: absolute;
         top: -1px;
@@ -1835,6 +1884,7 @@
         padding: 4px 12px;
         border-radius: 0 0 8px 8px;
       }
+
       .rank-num {
         width: 30px;
         height: 30px;
@@ -1851,6 +1901,7 @@
         background: var(--blue);
         color: #fff;
       }
+
       .rank-name {
         display: flex;
         align-items: center;
@@ -1862,6 +1913,7 @@
         flex: 0 0 40px;
         font-size: 15px;
       }
+
       .rank-cell .val {
         font-weight: 700;
         font-size: 15px;
@@ -1873,11 +1925,13 @@
       .rank-cell--sub .val {
         font-size: 14px;
       }
+
       .rank-svcs {
         display: flex;
         align-items: center;
         gap: 6px;
       }
+
       .rank-reviews {
         display: inline-flex;
         align-items: center;
@@ -1896,6 +1950,7 @@
         font-size: 13px;
         color: var(--muted);
       }
+
       .rank-actions {
         display: flex;
         align-items: center;
@@ -1921,11 +1976,13 @@
         padding: 0 18px;
         font-size: 13px;
       }
+
       @media (max-width: 900px) {
         .rank-tbl__head {
           display: none;
         }
       }
+
       /* utility */
       .muted {
         color: var(--muted);
@@ -1951,8 +2008,10 @@
       .gap-12 {
         gap: 12px;
       }
+
       /* === styles-pro.css === */
       /* NHcard pro additions — second-level upgrades */
+
       /* ============ E-E-A-T strip in hero ============ */
       .eeat {
         display: grid;
@@ -2051,6 +2110,7 @@
         box-shadow: 0 0 0 4px rgba(14, 163, 114, 0.15);
         animation: pulseDot 2s infinite;
       }
+      
       .changelog ul {
         list-style: none;
         padding: 0;
@@ -2073,6 +2133,7 @@
         color: var(--muted);
         padding-top: 1px;
       }
+
       /* ============ Transparency strip ============ */
       .transp {
         background: linear-gradient(180deg, #0b1530 0%, #142146 100%);
@@ -2153,6 +2214,7 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         position: relative;
       }
+
       /* ============ Context block (why blocked / what is) ============ */
       .ctx {
         display: grid;
@@ -2227,6 +2289,7 @@
         margin-bottom: 4px;
         font-weight: 700;
       }
+
       /* ============ Methodology ============ */
       .method {
         display: grid;
@@ -2361,6 +2424,7 @@
       .expert-quote__author b {
         color: var(--ink);
       }
+
       /* ============ Calculator ============ */
       .calc {
         display: grid;
@@ -2527,6 +2591,7 @@
         color: var(--muted);
         margin-top: 2px;
       }
+
       /* ============ Decision tree ============ */
       .dtree {
         padding: 28px;
@@ -2626,6 +2691,7 @@
         color: var(--ink-2);
         margin-top: 4px;
       }
+
       /* ============ Payment methods ============ */
       .pmethods {
         display: grid;
@@ -2728,6 +2794,7 @@
       .pmethod--p2p ul li::before {
         background: var(--orange);
       }
+
       /* ============ HowTo steps ============ */
       .howto-steps {
         display: grid;
@@ -2793,6 +2860,7 @@
         background: var(--line-2);
         color: var(--muted);
       }
+
       /* ============ Tax / Security combined ============ */
       .guard {
         display: grid;
@@ -2873,6 +2941,7 @@
         margin-bottom: 3px;
         font-weight: 700;
       }
+
       /* ============ Sources ============ */
       .sources {
         display: grid;
@@ -2918,6 +2987,7 @@
       .source span {
         color: var(--muted);
       }
+
       /* ============ Section helpers ============ */
       .section--soft {
         background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
@@ -2958,8 +3028,11 @@
         margin: 0;
         line-height: 1.55;
       }
+    
 }
+
 @keyframes aidot { 0%, 100% { opacity: 0.25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
+
 .page-home {
 /* ============ Hub tiles / guides / mini-strip (redesign v2) ============ */
 .hub-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
@@ -2970,6 +3043,7 @@
 .hub-tile__t { font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
 .hub-tile__s { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
 .hub-tile__go { margin-top: auto; padding-top: 6px; font-size: 13px; font-weight: 700; color: var(--blue); display: inline-flex; gap: 6px; align-items: center; }
+
 .guides-cols { display: grid; gap: 16px; }
 @media (min-width: 900px) { .guides-cols { grid-template-columns: 1fr 1fr; } }
 .guide-col { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); padding: 26px; box-shadow: 0 1px 2px rgba(11, 21, 48, 0.04); }
@@ -2980,6 +3054,7 @@
 .gchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; background: var(--bg); transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease; }
 .gchip:hover { border-color: var(--blue-100); color: var(--blue); background: var(--blue-50); }
 .gchip--more { color: var(--blue); background: var(--blue-50); border-color: transparent; }
+
 .mini-grid { display: grid; gap: 14px; }
 @media (min-width: 900px) { .mini-grid { grid-template-columns: repeat(3, 1fr); } }
 .mini-card { display: flex; gap: 14px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); text-decoration: none; color: var(--ink); box-shadow: 0 1px 2px rgba(11, 21, 48, 0.04); transition: box-shadow 0.15s ease, border-color 0.15s ease; }
@@ -2988,6 +3063,7 @@
 .mini-card p { margin: 3px 0 0; font-size: 13px; line-height: 1.4; color: var(--muted); }
 .mini-card__ic { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--blue-50); color: var(--blue); }
 .mini-card__go { margin-left: auto; color: var(--muted); }
+
 /* ============ AI assistant ============ */
 .ai-ask { display: grid; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); box-shadow: 0 1px 2px rgba(11, 21, 48, 0.04); overflow: hidden; }
 @media (min-width: 900px) { .ai-ask { grid-template-columns: 1.15fr 1fr; } }
@@ -3005,11 +3081,13 @@
 .ai-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); animation: aidot 1s infinite ease-in-out; }
 .ai-dot:nth-child(2) { animation-delay: 0.15s; }
 .ai-dot:nth-child(3) { animation-delay: 0.3s; }
+
 .ai-ask__answer { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .ai-ask__card { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
 .ai-ask__reason { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
 .ai-ask__alt { font-size: 13px; line-height: 1.5; color: var(--muted); padding: 10px 14px; background: #fff; border-radius: 10px; }
 .ai-ask__disclaimer { font-size: 11.5px; color: var(--muted); }
+
 /* ============ Rank table: без горизонтального скролла ============ */
 .rank-cell .lbl {
   display: none;
@@ -3037,6 +3115,7 @@
   .rank-row > .rank-cell:last-child { grid-column: 1 / -1; }
   .rank-row > .rank-cell:last-child .btn { width: 100%; }
 }
+
 /* Пустой результат фильтров */
 .rank-empty {
   padding: 28px 22px;
@@ -3044,6 +3123,7 @@
   font-size: 14px;
 }
 .rank-empty b { color: var(--ink); }
+
 /* ============ Подборки и страны: 4 в ряд на широких ============ */
 @media (min-width: 1200px) {
   #collections .collections-grid,
@@ -3052,6 +3132,7 @@
     gap: 16px;
   }
 }
+
 /* ============ Подвал: 5 колонок как в референсе ============ */
 @media (min-width: 768px) {
   .footer__grid {
@@ -3060,13 +3141,16 @@
   }
 }
 .footer__social { display: flex; gap: 8px; margin-top: 16px; }
+
 /* ==================================================================
    Мобильная версия — раздел 5 спеки.
    Порог 899px совпадает с формой-рейтингом (rating-form.css).
    ================================================================== */
+
 /* ---- бургер-меню: раскрывающаяся панель под шапкой ----
    Селектор с .nav, потому что «.nav a» задаёт этой ссылке display */
 .nav .nav__cta { display: none; }
+
 @media (max-width: 1023px) {
   .nav.is-open {
     display: flex;
@@ -3113,8 +3197,10 @@
     background: rgba(11, 21, 48, 0.35);
   }
 }
+
 /* ---- sticky таб-бар ---- */
 .tabbar { display: none; }
+
 @media (max-width: 899px) {
   .tabbar {
     display: grid;
@@ -3146,6 +3232,7 @@
     padding-bottom: calc(24px + 72px + env(safe-area-inset-bottom));
   }
 }
+
 /* ---- подвал: аккордеоны ---- */
 .footer__toggle {
   position: absolute;
@@ -3155,6 +3242,7 @@
   pointer-events: none;
 }
 .footer__chev { display: none; }
+
 @media (max-width: 767px) {
   .footer { padding-top: 32px; }
   .footer__grid { grid-template-columns: 1fr; gap: 0; }
@@ -3198,6 +3286,7 @@
   }
   .footer__bottom { margin-top: 24px; }
 }
+
 /* Лид блока рейтинга (макс. ширина 820px, 16.5/1.65 — как в спеке) */
 .services-lead {
   max-width: 820px;
@@ -3206,6 +3295,7 @@
   line-height: 1.65;
   text-wrap: pretty;
 }
+
 /* Переходы по якорям из таб-бара и меню не должны прятать заголовок под
    липкой шапкой */
 .section,
@@ -3215,6 +3305,7 @@
 [id="services"] {
   scroll-margin-top: 76px;
 }
+
 /* ---- ритм секций, hero ---- */
 @media (max-width: 639px) {
   .section { padding: 24px 0; }
@@ -3236,6 +3327,7 @@
     line-height: 1.55;
   }
   .mt-32 { margin-top: 20px; }
+
   .hero { padding: 20px 0 20px; }
   .h1 {
     font-size: 29px;
@@ -3250,6 +3342,7 @@
   }
   /* Текст, который на первом экране только мешает */
   .hide-sm { display: none; }
+
   /* Полоса «нам доверяют» на мобильном уезжает под рейтинг: в прототипе
      форма-рейтинг начинается сразу после статов hero. Порядком управляем
      только здесь, разметка и десктоп остаются нетронутыми. */
@@ -3258,10 +3351,12 @@
   .home-main > .hero { order: 0; }
   .home-main > #services { order: 1; }
   .home-main > .trust { order: 2; }
+
   /* Первый экран прототипа: плашка → h1 → лид → полоса статов → рейтинг.
      Кнопок и стопки карт на мобильном нет: сразу под лидом идёт форма. */
   .hero__cta,
   .hero__visual { display: none; }
+
   .hero__grid { gap: 0; }
   .hero__stats {
     display: flex;
@@ -3278,6 +3373,7 @@
   }
   .stat__num { font-size: 16px; letter-spacing: -0.03em; }
   .stat__lbl { font-size: 12px; margin-top: 0; }
+
   /* Длинные подписи («Перейти к рейтингу карт для путешествий») на узком
      экране переносим: с nowrap кнопка вылезала за вьюпорт и тянула за собой
      горизонтальный скролл всей страницы. */
@@ -3293,6 +3389,7 @@
   .btn--primary { box-shadow: 0 6px 18px rgba(38, 96, 255, 0.26); }
   .center .btn { width: 100%; }
 }
+
 /* ---- подборки: один столбец с обложкой-плиткой 96px ---- */
 @media (max-width: 559px) {
   .collections-grid { gap: 10px; }
@@ -3319,8 +3416,10 @@
   .coll__title { font-size: 15.5px; margin: 0 0 4px; }
   .coll__list { font-size: 12px; margin: 0; -webkit-line-clamp: 2; }
 }
+
 /* ---- страны: сгруппированные списки-строки ---- */
 .ctr-list { display: none; }
+
 @media (max-width: 559px) {
   .countries-grid { display: none; }
   .ctr-list { display: block; }

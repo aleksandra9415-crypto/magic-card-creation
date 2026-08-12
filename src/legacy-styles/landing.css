@@ -52,7 +52,7 @@
    его сузили на /cards (.page-rating.page-rating--index в rating.css) —
    форма-рейтинг должна быть одного размера на всех страницах. */
 .page-rating.lp {
-  
+  --container: 1200px;
   font-size: 16px;
   line-height: 1.55;
 }
@@ -68,12 +68,12 @@
 /* Текстовая колонка. Таблица рейтинга шире — она сама себе контейнер. */
 .lp-wrap {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .lp-wrap {
     padding: 0 24px;
   }

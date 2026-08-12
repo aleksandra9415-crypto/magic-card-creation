@@ -8,7 +8,9 @@
           opacity: 0.35;
         }
       }
+
 .page-rating {
+
       & {
         --bg: #f7f8fb;
         --bg-2: #fff;
@@ -31,9 +33,12 @@
         --radius-sm: 10px;
         --shadow-sm: 0 1px 2px rgba(11, 21, 48, 0.05);
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
+        --container: 1600px;
         --font: var(--font-body);
         --mono: var(--font-body);
       }
+      
+      
       & {
         background: var(--bg);
         color: var(--ink);
@@ -55,8 +60,18 @@
         font-family: inherit;
         cursor: pointer;
       }
-      @media (min-width: 768px) {
+      .container {
+        width: 100%;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 16px;
       }
+      @media (min-width: 768px) {
+        .container {
+          padding: 0 24px;
+        }
+      }
+
       /* header */
       .hdr {
         position: sticky;
@@ -159,6 +174,7 @@
           display: flex;
         }
       }
+
       /* hero — компактный */
       .hero {
         padding: 22px 0 14px;
@@ -199,6 +215,7 @@
         background: var(--green);
         animation: pulse 1.6s infinite;
       }
+      
       @media (prefers-reduced-motion: reduce) {
         .live i {
           animation: none;
@@ -213,6 +230,7 @@
       .hero p b {
         color: var(--ink);
       }
+
       /* панель управления: сервис + фильтры + сценарий */
       .panel {
         background: var(--bg-2);
@@ -396,6 +414,7 @@
         font-size: 13px;
         color: var(--muted);
       }
+
       .f-chip {
         border: 1.5px solid var(--line);
         background: #fff;
@@ -432,6 +451,7 @@
       .reset:hover {
         color: var(--red);
       }
+
       /* таблица */
       .tbl-wrap {
         background: var(--bg-2);
@@ -755,6 +775,7 @@
       .empty b {
         color: var(--ink);
       }
+
       /* нижние блоки */
       .sec {
         margin: 40px 0;
@@ -848,6 +869,7 @@
         font-size: 12.5px;
         color: var(--muted);
       }
+
       /* ─── Мобильная версия: таблица → список карточек, без горизонтального скролла ─── */
       @media (max-width: 900px) {
         .tbl-wrap {
@@ -871,6 +893,7 @@
           display: block;
           width: auto;
         }
+
         /* каждая строка — самостоятельная карточка */
         tbody tr {
           position: relative;
@@ -889,6 +912,7 @@
         tbody tr.best {
           border-color: var(--orange);
         }
+
         /* строка «подпись — значение» */
         tbody td {
           display: flex;
@@ -912,6 +936,7 @@
           color: var(--muted);
           white-space: nowrap;
         }
+
         /* № — компактный бейдж в углу карточки */
         td.c-rank {
           position: absolute;
@@ -932,6 +957,7 @@
           border-color: var(--orange);
           color: var(--orange);
         }
+
         /* сервис — «шапка» карточки на всю ширину */
         td.c-svc {
           padding: 0 48px 12px 0;
@@ -942,6 +968,7 @@
           max-width: none;
           font-size: 15px;
         }
+
         /* рейтинг — число отзывов в одну строку */
         td.c-score {
           gap: 6px;
@@ -951,6 +978,7 @@
           display: inline;
           margin-left: 6px;
         }
+
         /* пополнение — метод и комиссия столбиком у правого края */
         td.c-topup {
           display: grid;
@@ -968,10 +996,12 @@
         td.c-topup .sub {
           text-align: right;
         }
+
         /* оплата — значки к правому краю */
         td.c-payment .icons {
           justify-content: flex-end;
         }
+
         /* бонус — прячем пустую ячейку */
         td.c-bonus:empty {
           display: none;
@@ -979,6 +1009,7 @@
         td.c-bonus .gift {
           font-size: 18px;
         }
+
         /* действия — кнопки в ряд на всю ширину, без подписи */
         td.c-act {
           border-bottom: 0;
@@ -997,11 +1028,14 @@
           padding: 11px 0;
         }
       }
+
 }
+
 /* /cards — сама таблица рейтинга, а не посадочная страница сервиса/страны
    (той нужен широкий контейнер 1600px под таблицу — см. landing.css). Форма
    rf-grid в rating-form.css подобрана под 1200px, как на главной, поэтому
    здесь сужаем .container до того же размера. Побеждаем специфичностью, а
    не порядком файлов — тот же приём, что у .page-rating.lp в landing.css. */
 .page-rating.page-rating--index {
+  --container: 1200px;
 }
