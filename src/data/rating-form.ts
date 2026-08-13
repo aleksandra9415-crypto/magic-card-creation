@@ -204,7 +204,7 @@ const hasFeat = (c: Card, re: RegExp) =>
 const issueTxt = (c: Card) =>
   c.display?.issue ??
   (c.issueRub === null
-    ? "не указано"
+    ? "не указано\n"
     : c.issueRub === 0
       ? "Бесплатно"
       : "от " + fmtRub(c.issueRub));
@@ -212,7 +212,7 @@ const issueTxt = (c: Card) =>
 const maintTxt = (c: Card) =>
   c.display?.monthly ??
   (c.monthlyRub === null
-    ? "не указано"
+    ? "не указано\n"
     : c.monthlyRub === 0
       ? "0 ₽ / мес"
       : fmtRub(c.monthlyRub) + " / мес");
