@@ -1191,9 +1191,13 @@ export default function RatingForm({
                 </button>
               </div>
             ) : null}
+            <div className="rf-footer-note">
+              <span className="rf-verified-icon"><ShieldIcon /></span> — сервис нами проверен
+            </div>
           </div>
         </div>
       </div>
+
 
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
