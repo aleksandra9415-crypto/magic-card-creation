@@ -220,7 +220,7 @@ const maintTxt = (c: Card) =>
 /* Виджет подписывает значение словом «комиссия», поэтому убираем его из
    редакционного текста, где оно уже есть («комиссия 0 ₽»). */
 const topupFeeTxt = (c: Card) =>
-  (c.display?.topupFee ?? (c.topupFee === null ? "не указана" : c.topupFee + "%"))
+  (c.display?.topupFee ?? (c.topupFee === null || c.topupFee === "не указано\n" ? "не указана" : c.topupFee + "%"))
     .replace(/^комиссия\s+/i, "");
 
 export const RATING_CARDS: RatingCard[] = CARDS.map((c, i) => ({
