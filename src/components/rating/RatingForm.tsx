@@ -748,6 +748,7 @@ export default function RatingForm({
         <span className="rf-dot">·</span>
         <div style={{ display: 'flex', align-items: 'center', gap: '4px', position: 'relative' }}>
           <span style={{ fontSize: '14px', color: '#64748B' }}>сортировка: <strong style={{ color: '#0F172A' }}>{sortLabel}</strong></span>
+
           <InfoIcon 
             onMouseEnter={() => setActiveTooltip('sort')} 
             onMouseLeave={() => setActiveTooltip(null)} 
