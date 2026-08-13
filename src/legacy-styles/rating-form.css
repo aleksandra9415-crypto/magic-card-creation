@@ -5,10 +5,10 @@
 .rf {
   --rf-ink: #0b1530;
   --rf-ink-2: #1b2447;
-  --rf-muted: #64708a;
-  --rf-dim: #9aa4b8;
-  --rf-line: #e6eaf2;
-  --rf-line-2: #eef1f7;
+  --rf-muted: #64748B;
+  --rf-dim: #94A3B8;
+  --rf-line: #E2E8F0;
+  --rf-line-2: #EEF2F6;
   --rf-bg: #f7f8fb;
   --rf-tabular: tabular-nums;
   --rf-font-main: 13px;
@@ -62,7 +62,8 @@
 .rf-panel {
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 16px;
+  border-radius: 12px;
+
   padding: 16px;
   box-shadow: 0 1px 2px rgb(11 21 48 / 5%);
   position: relative;
@@ -70,9 +71,32 @@
 }
 .rf-panel-row {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
+
+.rf-chip {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid #E2E8F0;
+
+  background: #fff;
+  color: var(--rf-ink);
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.rf-chip.active {
+  background: var(--rf-blue);
+  color: #fff;
+  border-color: var(--rf-blue);
+}
+
 
 .rf-dd {
   position: relative;
@@ -151,7 +175,8 @@
   border-collapse: collapse;
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 16px;
+  border-radius: 12px;
+
   box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
   overflow: hidden;
 }
@@ -163,6 +188,10 @@
   text-align: left;
   border-bottom: 1px solid var(--rf-line-2);
 }
+.rf-tr:last-child .rf-td {
+  border-bottom: 0;
+}
+
 
 .rf-th:first-child, .rf-td:first-child {
   padding-left: 16px;
@@ -170,12 +199,15 @@
 
 .rf-th {
   background: var(--rf-bg);
-  color: var(--rf-dim);
-  font-size: var(--rf-font-th);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  border-top: 1px solid var(--rf-line-2);
 }
+
+
 
 .rf-col-rank { width: 44px; }
 .rf-col-service { /* occupies remainder */ }
@@ -190,8 +222,15 @@
 .rf-th-inner {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   white-space: nowrap;
+}
+.rf-info-ic {
+  width: 14px;
+  height: 14px;
+  color: #94A3B8;
+  margin-left: 6px;
+  flex-shrink: 0;
+  cursor: help;
 }
 
 .rf-th-btn {
@@ -217,15 +256,22 @@
 }
 
 .rf-num-cell {
-  font-family: var(--rf-tabular);
-  font-size: var(--rf-font-num);
-  font-weight: 700;
-  color: var(--rf-dim);
+  font-family: inherit;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+  color: #94A3B8;
+  text-align: center;
 }
 
+.rf-logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .rf-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 9px;
   display: inline-flex;
   align-items: center;
@@ -233,7 +279,7 @@
   color: #fff;
   font-weight: 800;
   font-size: 13px;
-  flex: 0 0 32px;
+  flex-shrink: 0;
 }
 
 .rf-name-box {
@@ -257,11 +303,13 @@
   font-size: var(--rf-font-main);
   font-weight: 600;
   color: #0F172A;
+  display: block;
 }
 .rf-note {
-  font-size: var(--rf-font-note);
-  color: var(--rf-muted);
+  font-size: 11px;
+  color: #94A3B8;
   display: block;
+  margin-top: 2px;
 }
 
 .rf-rating-val {
@@ -311,7 +359,9 @@
 }
 .rf-btn--primary {
   background: var(--rf-blue);
-  color: #fff;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  font-weight: 500;
 }
 
 .rf-promo-ic {
@@ -339,8 +389,13 @@
   display: flex;
   gap: 24px;
   padding: 14px 16px;
-  border-top: 1px solid var(--rf-line-2);
 }
+.rf-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .rf-legend-item {
   display: flex;
   align-items: center;
@@ -364,7 +419,7 @@
 .rf-ai {
   background: #0b1530;
   color: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 32px;
   margin-top: 24px;
 }
@@ -375,3 +430,59 @@
 }
 
 /* Остальные стили (попапы, мобилки и т.д.) сохраняются ниже... */
+
+/* ---------- спец-оформление первой строки ---------- */
+.rf-tr-best {
+  position: relative;
+  background: #f2f6ff !important;
+}
+.rf-tr-best::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--rf-blue);
+  z-index: 10;
+}
+.rf-best-badge {
+  position: absolute;
+  top: 0;
+  left: 56px;
+  background: var(--rf-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 0 0 6px 6px;
+  z-index: 20;
+  text-transform: uppercase;
+}
+
+/* ---------- прочие элементы ---------- */
+.rf-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 16px;
+}
+.rf-dot {
+  color: #CBD5E1;
+  font-size: 14px;
+}
+.rf-show-all-btn {
+  display: block;
+  margin: 24px auto;
+  border: 0;
+  background: transparent;
+  color: var(--rf-blue);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.rf-footer-sep {
+  height: 1px;
+  background: #EEF2F6;
+  margin: 0 16px;
+}
