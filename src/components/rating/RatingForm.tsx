@@ -150,6 +150,7 @@ export default function RatingForm({
   const [expanded, setExpanded] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [tip, setTip] = useState<string | null>(null);
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [ai, setAi] = useState<{
     pay: string | null;
@@ -724,70 +725,39 @@ export default function RatingForm({
           </div>
         </div>
 
-        <div className="rf-chips">
+        <div className="rf-panel-row" style={{ marginTop: '12px' }}>
           {chips.map((c) => (
             <button
               key={c.label}
               type="button"
-              className={`rf-chip${c.active || c.pending ? " on" : ""}`}
+              className={`rf-chip${c.active ? " active" : ""}`}
               aria-pressed={c.active}
               onClick={c.on}
             >
               {c.label}
-              {c.pending ? <span className="rf-spin" /> : null}
-              {c.mark && !c.pending ? <span className="rf-chip-x">✕</span> : null}
+              {c.pending ? <span className="rf-spin" style={{ marginLeft: '6px' }} /> : null}
             </button>
           ))}
         </div>
       </div>
 
-      {/* ---- панель состояния ---- */}
-      <div className="rf-state">
-        {nav ? (
-          <span className="rf-navchip">
-            {nav.label}
-            <button type="button" onClick={reset} title="Сбросить фильтр" aria-label="Сбросить фильтр">
-              ✕
-            </button>
-          </span>
-        ) : null}
-        {/* Без активного фильтра эта строка на мобильном не нужна: в прототипе
-            в панели состояния только счётчик и ссылка сортировки. */}
-        <span className={`rf-state-main${nav ? "" : " rf-state-main--idle"}`}>
-          {summaryMain}
-        </span>
-        <span className="rf-state-count">{summaryCount}</span>
-        <span className="rf-state-dot">·</span>
-        {/* На мобильном сортировка живёт в шторке: кликать по шапке таблицы
-            там негде. Тултип методики уезжает в ту же шторку. */}
-        {isMobile ? (
-          <button
-            type="button"
-            className="rf-state-sort rf-state-sort--btn"
-            onClick={() => setSheet("sort")}
-            aria-label={`Сортировка: ${SORT_LABELS[sort.key]}`}
-          >
-            <SortIcon />
-            <strong>{SORT_LABELS[sort.key]}</strong>
-          </button>
-        ) : (
-          <span className="rf-state-sort">
-            сортировка: <strong>{sortLabel}</strong>
-            <InfoDot onShow={() => setTip("method")} onHide={() => setTip(null)} />
-            {tip === "method" ? (
-              <span className="rf-tip" style={{ width: 300 }}>
-                <strong>Как мы считаем рейтинг:</strong> отзывы пользователей (40%),
-                комиссии и тарифы (30%), скорость выпуска (15%), проверка редакцией —
-                реальный выпуск и тестовый платёж (15%).
-              </span>
-            ) : null}
-          </span>
-        )}
-        {!noFilter ? (
-          <button type="button" className="rf-reset" onClick={reset}>
-            Сбросить всё ✕
-          </button>
-        ) : null}
+      <div className="rf-summary">
+        <h2 style={{ fontSize: '18px', fontWeight: 700, margin: 0 }}>{summaryMain}</h2>
+        <span className="rf-dot">·</span>
+        <span style={{ fontSize: '14px', color: '#64748B' }}>{summaryCount}</span>
+        <span className="rf-dot">·</span>
+        <div style={{ display: 'flex', align-items: 'center', gap: '4px', position: 'relative' }}>
+          <span style={{ fontSize: '14px', color: '#64748B' }}>сортировка: <strong style={{ color: '#0F172A' }}>{sortLabel}</strong></span>
+          <InfoIcon 
+            onMouseEnter={() => setActiveTooltip('sort')} 
+            onMouseLeave={() => setActiveTooltip(null)} 
+          />
+          {activeTooltip === 'sort' && (
+            <div className="rf-tip" style={{ display: 'block', bottom: '100%', left: '50%', transform: 'translateX(-50%)', marginBottom: '8px' }}>
+              <strong>Как мы считаем рейтинг:</strong> отзывы пользователей (40%), комиссии и тарифы (30%), скорость выпуска (15%), проверка редакцией (15%).
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="rf-scroll">
@@ -805,8 +775,15 @@ export default function RatingForm({
                   >
                     Выпуск карты
                   </button>
-                  <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
-                  <span className={`rf-arr${sort.key === "issue" ? " on" : ""}`}>{arrow("issue")}</span>
+                  <div style={{ position: 'relative', display: 'flex' }}>
+                    <InfoIcon 
+                      onMouseEnter={() => setActiveTooltip('issue')} 
+                      onMouseLeave={() => setActiveTooltip(null)} 
+                    />
+                    {activeTooltip === 'issue' && (
+                      <div className="rf-tip" style={{ display: 'block' }}>Стоимость выпуска физической или виртуальной карты</div>
+                    )}
+                  </div>
                 </div>
               </th>
               <th className="rf-th rf-col-maint">
@@ -818,14 +795,29 @@ export default function RatingForm({
                   >
                     Обслуживание
                   </button>
-                  <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
-                  <span className={`rf-arr${sort.key === "maint" ? " on" : ""}`}>{arrow("maint")}</span>
+                  <div style={{ position: 'relative', display: 'flex' }}>
+                    <InfoIcon 
+                      onMouseEnter={() => setActiveTooltip('maint')} 
+                      onMouseLeave={() => setActiveTooltip(null)} 
+                    />
+                    {activeTooltip === 'maint' && (
+                      <div className="rf-tip" style={{ display: 'block' }}>Ежемесячная или ежегодная плата за пользование сервисом</div>
+                    )}
+                  </div>
                 </div>
               </th>
               <th className="rf-th rf-col-comm">
                 <div className="rf-th-inner">
                   Комиссия
-                  <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
+                  <div style={{ position: 'relative', display: 'flex' }}>
+                    <InfoIcon 
+                      onMouseEnter={() => setActiveTooltip('comm')} 
+                      onMouseLeave={() => setActiveTooltip(null)} 
+                    />
+                    {activeTooltip === 'comm' && (
+                      <div className="rf-tip" style={{ display: 'block' }}>Процент за транзакции или пополнение баланса</div>
+                    )}
+                  </div>
                 </div>
               </th>
               <th className="rf-th rf-col-pay">Оплачивает</th>
@@ -838,7 +830,6 @@ export default function RatingForm({
                   >
                     Рейтинг
                   </button>
-                  <span className={`rf-arr${sort.key === "reviews" ? " on" : ""}`}>{arrow("reviews")}</span>
                 </div>
               </th>
               <th className="rf-th rf-col-promo"></th>
