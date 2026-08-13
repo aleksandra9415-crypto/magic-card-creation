@@ -2283,8 +2283,8 @@
       "display": {
         "issue": "от 19 990 ₽",
         "monthly": "не опубликовано",
-        "topupFee": "зависит от банка",
-        "fx": "зависит от банка"
+        "topupFee": "зависит\nот банка",
+        "fx": "зависит\nот банка"
       },
       "detail": {
         "sourceUrl": "https://easypayments.online/bank-accounts/cards",
@@ -3148,7 +3148,7 @@
         "issue": "от 20 990 ₽",
         "monthly": "0 ₽",
         "topupFee": "1% (мин 3 $)",
-        "fx": "зависит от банка"
+        "fx": "зависит\nот банка"
       },
       "detail": {
         "sourceUrl": "https://visatut.one",
@@ -3975,7 +3975,7 @@
         "issue": "от 7 000 ₽",
         "monthly": "0 ₽",
         "topupFee": "от 3%",
-        "fx": "зависит от банка"
+        "fx": "зависит\nот банка"
       },
       "detail": {
         "sourceUrl": "https://5kart.ru/cards",
