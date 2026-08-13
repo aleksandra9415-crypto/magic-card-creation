@@ -1741,7 +1741,7 @@
       "reviews": null,
       "issueRub": null,
       "monthlyRub": null,
-      "topup": "не указано",
+      "topup": "не указано\n",
       "topupFee": 4,
       "fx": null,
       "txFeeUsd": 0.2,
