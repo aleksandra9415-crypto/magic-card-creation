@@ -424,3 +424,59 @@
 }
 
 /* Остальные стили (попапы, мобилки и т.д.) сохраняются ниже... */
+
+/* ---------- спец-оформление первой строки ---------- */
+.rf-tr-best {
+  position: relative;
+  background: #f2f6ff !important;
+}
+.rf-tr-best::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--rf-blue);
+  z-index: 10;
+}
+.rf-best-badge {
+  position: absolute;
+  top: 0;
+  left: 56px;
+  background: var(--rf-blue);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 0 0 6px 6px;
+  z-index: 20;
+  text-transform: uppercase;
+}
+
+/* ---------- прочие элементы ---------- */
+.rf-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0 16px;
+}
+.rf-dot {
+  color: #CBD5E1;
+  font-size: 14px;
+}
+.rf-show-all-btn {
+  display: block;
+  margin: 24px auto;
+  border: 0;
+  background: transparent;
+  color: var(--rf-blue);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.rf-footer-sep {
+  height: 1px;
+  background: #EEF2F6;
+  margin: 0 16px;
+}
