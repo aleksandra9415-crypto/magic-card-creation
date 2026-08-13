@@ -1741,7 +1741,7 @@
       "reviews": null,
       "issueRub": null,
       "monthlyRub": null,
-      "topup": "не указано\n",
+      "topup": "не указано",
       "topupFee": 4,
       "fx": null,
       "txFeeUsd": 0.2,
@@ -2282,7 +2282,7 @@
       "bonus": null,
       "display": {
         "issue": "от 19 990 ₽",
-        "monthly": "не указано\n",
+        "monthly": null,
         "topupFee": "зависит\nот банка",
         "fx": "зависит\nот банка"
       },
