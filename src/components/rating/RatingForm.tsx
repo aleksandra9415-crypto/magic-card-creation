@@ -900,8 +900,8 @@ export default function RatingForm({
                             <span className="rf-name-link">
                               {c.name}
                               {c.verified && <ShieldIcon className="rf-verified-icon" />}
-
                             </span>
+
                             <span className="rf-tag">{c.tag}</span>
                           </div>
                         </div>
@@ -1379,6 +1379,34 @@ function SearchIcon() {
   );
 }
 
+function InfoIcon({
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ cursor: 'help', flexShrink: 0, marginLeft: '6px', color: '#94A3B8' }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4M12 8h.01" />
+    </svg>
+  );
+}
+
 function ChevronIcon({ className }: { className?: string }) {
   return (
     <svg 
@@ -1421,23 +1449,3 @@ function GiftIcon({ className }: { className?: string }) {
   );
 }
 
-function InfoDot({
-  onShow,
-  onHide,
-  small,
-}: {
-  onShow: () => void;
-  onHide: () => void;
-  small?: boolean;
-}) {
-  return (
-    <span
-      className={`rf-info${small ? " rf-info--sm" : ""}`}
-      onMouseEnter={onShow}
-      onMouseLeave={onHide}
-      aria-hidden="true"
-    >
-      i
-    </span>
-  );
-}
