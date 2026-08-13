@@ -888,9 +888,9 @@ export default function RatingForm({
                         setPopRow(null);
                       }}
                     >
-                      {isTop && <div className="rf-best-badge">★ Лучшее предложение</div>}
+                      <td className="rf-td rf-col-rank" style={{ position: 'relative' }}>
+                        {isTop && <div className="rf-best-badge">★ Лучшее предложение</div>}
 
-                      <td className="rf-td rf-col-rank">
                         <div className="rf-num-cell">{i + 1}</div>
                       </td>
 
