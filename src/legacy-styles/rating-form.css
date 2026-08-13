@@ -201,7 +201,9 @@
   font-weight: 600;
   text-transform: none;
   letter-spacing: normal;
+  border-top: 1px solid var(--rf-line-2);
 }
+
 
 .rf-col-rank { width: 44px; }
 .rf-col-service { /* occupies remainder */ }
