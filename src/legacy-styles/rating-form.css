@@ -390,7 +390,6 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-    white-space: pre-line;
   transition: all 0.15s ease;
 }
 .rf-chip:hover {
