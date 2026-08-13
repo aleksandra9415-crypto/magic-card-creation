@@ -1156,6 +1156,7 @@ export default function RatingForm({
 
 
 
+
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
         <div className="rf-ai-head">
