@@ -98,10 +98,6 @@ const ratingColor = (r: number | null) =>
    остальное показываем целиком — числа на мобильном и десктопе должны
    совпадать с редакционным текстом. */
 const splitMetric = (txt: string): [value: string, note: string | null] => {
-  if (txt.includes("\n")) {
-    const [val, ...rest] = txt.split("\n");
-    return [val.trim(), rest.join("\n").trim()];
-  }
   const lead = /^(первый год|первый месяц)\s+(.+)$/i.exec(txt);
   if (lead) return [lead[2], lead[1].toLowerCase()];
   const per = /^(.+?)\s*\/\s*мес\.?$/i.exec(txt);
