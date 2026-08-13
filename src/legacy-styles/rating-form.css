@@ -200,13 +200,13 @@
 .rf-th {
   background: var(--rf-bg);
   color: #64748B;
-
   font-size: 12px;
   font-weight: 600;
   text-transform: none;
   letter-spacing: normal;
   border-top: 1px solid var(--rf-line-2);
 }
+
 
 
 .rf-col-rank { width: 44px; }
