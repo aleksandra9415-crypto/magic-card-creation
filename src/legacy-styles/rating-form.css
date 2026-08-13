@@ -563,7 +563,17 @@
 }
 .rf-th {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
+.rf-th-sep {
+  width: 1px;
+  height: 12px;
+  background: var(--rf-line);
+  margin: 0 2px;
+}
+
 .rf-th button {
   border: 0;
   background: transparent;
@@ -640,6 +650,18 @@
   background: var(--rf-blue);
   color: #fff;
 }
+.rf-num--plain {
+  background: transparent !important;
+  border: none !important;
+  color: var(--rf-muted) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
 
 .rf-name-cell {
   display: flex;
@@ -685,16 +707,25 @@
   font-weight: 800;
   letter-spacing: -0.01em;
 }
-.rf-verified {
-  position: relative;
+.rf-verified-icon {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  color: var(--rf-blue);
-  font-size: 11px;
-  font-weight: 700;
-  cursor: help;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--rf-good);
+  vertical-align: middle;
+  margin-left: 6px;
+  flex-shrink: 0;
 }
+.rf-verified-icon svg {
+  width: 14px;
+  height: 14px;
+}
+.rf-verified {
+  display: none;
+}
+
 .rf-tag {
   display: block;
   font-size: 12px;
@@ -745,32 +776,41 @@
 .rf-svcs-lbl {
   display: none;
 }
-.rf-svc-ic {
-  width: 24px;
-  height: 24px;
-  border-radius: 7px;
-  background: #f0f2f8;
-  color: var(--rf-ink-2);
-  font-size: 9.5px;
-  font-weight: 700;
+.rf-more-btn {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px dashed var(--rf-line);
+  border-radius: 11px;
+  background: transparent;
+  transition: all 0.2s ease;
+  line-height: 1.1;
+  min-width: 90px;
+}
+.rf-more-btn:hover {
+  border-color: var(--rf-blue);
+  background: var(--rf-blue-50);
+}
+.rf-more-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--rf-ink);
+}
+.rf-more-lbl {
+  font-size: 10px;
+  color: var(--rf-muted);
+  text-transform: lowercase;
+}
+.rf-svc-ic {
+  display: none;
 }
 .rf-more {
-  height: 24px;
-  padding: 0 8px;
-  border-radius: 7px;
-  border: 1px dashed #c3cbdb;
-  background: #fff;
-  color: var(--rf-muted);
-  font-size: 11.5px;
-  font-weight: 700;
+  display: none;
 }
-.rf-more:hover {
-  border-color: var(--rf-blue);
-  color: var(--rf-blue);
-}
+
 
 .rf-reviews {
   display: flex;
