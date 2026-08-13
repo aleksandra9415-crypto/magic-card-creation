@@ -7,7 +7,6 @@
    одинаковы — для пользователя это один живой фильтр. */
 
 import {
-  Fragment,
   useCallback,
   useEffect,
   useMemo,
@@ -15,7 +14,6 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
-
 import Link from "@/components/shared/Link";
 import { useRouter } from "@/lib/next-compat";
 import ApplyLink from "@/components/shared/ApplyLink";
@@ -31,7 +29,6 @@ import {
   ctyCount,
   cardsCountLabel,
   servicesCountLabel,
-  servicesLabel,
   serviceSlug,
   type RatingCard,
 } from "@/data/rating-form";
@@ -790,92 +787,83 @@ export default function RatingForm({
         ) : null}
       </div>
 
-      <div className="rf-scroll">
-        <table className="rf-table">
-          <thead>
-            <tr className="rf-head">
-              <th className="rf-th rf-col-rank">№</th>
-              <th className="rf-th rf-col-service">Сервис</th>
-              <th className="rf-th rf-col-issue">
-                <div className="rf-th-inner">
-                  <button
-                    type="button"
-                    className={`rf-th-btn${sort.key === "issue" ? " on" : ""}`}
-                    onClick={() => togSort("issue")}
-                  >
-                    Выпуск карты
-                  </button>
-                  <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
-                  <span className={`rf-arr${sort.key === "issue" ? " on" : ""}`}>{arrow("issue")}</span>
-                </div>
-              </th>
-              <th className="rf-th rf-col-maint">
-                <div className="rf-th-inner">
-                  <button
-                    type="button"
-                    className={`rf-th-btn${sort.key === "maint" ? " on" : ""}`}
-                    onClick={() => togSort("maint")}
-                  >
-                    Обслуживание
-                  </button>
-                  <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
-                  <span className={`rf-arr${sort.key === "maint" ? " on" : ""}`}>{arrow("maint")}</span>
-                </div>
-              </th>
-              <th className="rf-th rf-col-comm">
-                <div className="rf-th-inner">
-                  Комиссия
-                  <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
-                </div>
-              </th>
-              <th className="rf-th rf-col-pay">Оплачивает</th>
-              <th className="rf-th rf-col-rating">
-                <div className="rf-th-inner">
-                  <button
-                    type="button"
-                    className={`rf-th-btn${sort.key === "reviews" ? " on" : ""}`}
-                    onClick={() => togSort("reviews")}
-                  >
-                    Рейтинг
-                  </button>
-                  <span className={`rf-arr${sort.key === "reviews" ? " on" : ""}`}>{arrow("reviews")}</span>
-                </div>
-              </th>
-              <th className="rf-th rf-col-promo"></th>
-              <th className="rf-th rf-col-actions"></th>
-            </tr>
-          </thead>
-          <tbody>
+      {/* ---- таблица ---- */}
+      <div className="rf-table">
+        <div className="rf-table-scroll">
+          <div className="rf-table-inner">
+            <div className="rf-head">
+              <div>№</div>
+              <div>Сервис</div>
+              <div className="rf-th">
+                <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
+                  Выпуск карты <span className="rf-arr">{arrow("issue")}</span>
+                </button>
+                <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
+                {tip === "issue" ? (
+                  <span className="rf-tip" style={{ width: 240 }}>
+                    Разовая цена выпуска одной виртуальной карты, включая комиссию
+                    платформы. Без учёта пополнения.
+                  </span>
+                ) : null}
+              </div>
+              <div className="rf-th">
+                <button type="button" className={sort.key === "maint" ? "on" : ""} onClick={() => togSort("maint")}>
+                  Обслуживание <span className="rf-arr">{arrow("maint")}</span>
+                </button>
+                <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
+                {tip === "maint" ? (
+                  <span className="rf-tip" style={{ width: 230 }}>
+                    Регулярная плата за месяц. «0 ₽ первый год» — далее по тарифу
+                    сервиса.
+                  </span>
+                ) : null}
+              </div>
+              <div className="rf-th">
+                Комиссия
+                <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
+                {tip === "fee" ? (
+                  <span className="rf-tip" style={{ width: 230 }}>
+                    Комиссия сервиса за пополнение карты. Считается сверх суммы
+                    пополнения, курс конвертации в неё не входит.
+                  </span>
+                ) : null}
+              </div>
+              <div>Оплачивает</div>
+              <div className="rf-th">
+                <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
+                  Отзывы <span className="rf-arr">{arrow("reviews")}</span>
+                </button>
+              </div>
+              <div />
+              <div />
+            </div>
+
             {isEmpty ? (
-              <tr>
-                <td colSpan={9}>
-                  <div className="rf-empty">
-                    <div className="rf-empty-emoji">🔍</div>
-                    <div className="rf-empty-title">Ничего не нашли</div>
-                    <div className="rf-empty-sub">
-                      {qn
-                        ? `По запросу «${q}» с текущими фильтрами карт нет. Посмотрите похожие:`
-                        : "С такими фильтрами карт нет. Посмотрите похожие:"}
-                    </div>
-                    <div className="rf-empty-alts">
-                      {alts.map((c) => (
-                        <button key={c.id} type="button" className="rf-alt" onClick={reset}>
-                          <span className="rf-logo rf-logo--md" style={{ background: c.logo.bg }}>
-                            {c.logo.txt}
-                          </span>
-                          <span className="rf-alt-name">
-                            {c.name}
-                            <span className="rf-alt-rating">★ {c.rating?.toFixed(1) ?? "—"}</span>
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                    <button type="button" className="rf-btn rf-btn--primary" onClick={reset}>
-                      Показать весь рейтинг
+              <div className="rf-empty">
+                <div className="rf-empty-emoji">🔍</div>
+                <div className="rf-empty-title">Ничего не нашли</div>
+                <div className="rf-empty-sub">
+                  {qn
+                    ? `По запросу «${q}» с текущими фильтрами карт нет. Посмотрите похожие:`
+                    : "С такими фильтрами карт нет. Посмотрите похожие:"}
+                </div>
+                <div className="rf-empty-alts">
+                  {alts.map((c) => (
+                    <button key={c.id} type="button" className="rf-alt" onClick={reset}>
+                      <span className="rf-logo rf-logo--md" style={{ background: c.logo.bg }}>
+                        {c.logo.txt}
+                      </span>
+                      <span className="rf-alt-name">
+                        {c.name}
+                        <span className="rf-alt-rating">★ {c.rating?.toFixed(1) ?? "—"}</span>
+                      </span>
                     </button>
-                  </div>
-                </td>
-              </tr>
+                  ))}
+                </div>
+                <button type="button" className="rf-btn rf-btn--primary" onClick={reset}>
+                  Показать весь рейтинг
+                </button>
+              </div>
             ) : (
               shown.map((c, i) => {
                 const exp = expanded === c.id;
@@ -888,82 +876,141 @@ export default function RatingForm({
                 );
 
                 return (
-                  <Fragment key={c.id}>
-                    <tr
-                      className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
+                  <div
+                    key={c.id}
+                    className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
+                  >
+                    {isTop ? (
+                      <div className="rf-badge-wrap">
+                        <button
+                          type="button"
+                          className="rf-badge"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setTip(tip === "best" ? null : "best");
+                          }}
+                        >
+                          ★ Лучшее предложение
+                        </button>
+                        {tip === "best" ? (
+                          <span className="rf-tip rf-tip--badge" style={{ width: 290 }}>
+                            Лучшее сочетание цены, отзывов и надёжности по нашей
+                            методике. Не реклама: позиция не продаётся.
+                          </span>
+                        ) : null}
+                      </div>
+                    ) : null}
+
+                    {aiHit ? (
+                      <div className="rf-badge-wrap">
+                        <span className="rf-badge rf-badge--ai">✦ Подходит по вашему подбору</span>
+                      </div>
+                    ) : null}
+
+                    <div
+                      className="rf-grid"
                       onClick={() => {
                         setExpanded(exp ? null : c.id);
                         setPopRow(null);
                       }}
                     >
-                      <td className="rf-td rf-col-rank">
-                        <div className="rf-num-cell">{i + 1}</div>
-                      </td>
+                      <div>
+                        <span className={`rf-num${isTop ? " on" : ""}`}>{i + 1}</span>
+                      </div>
 
-                      <td className="rf-td rf-col-service">
-                        <div className="rf-name-cell">
-                          <span className="rf-logo" style={{ background: c.logo.bg }}>
-                            {c.logo.txt}
+                      <div className="rf-name-cell">
+                        <span className="rf-logo" style={{ background: c.logo.bg }}>
+                          {c.logo.txt}
+                        </span>
+                        <span className="rf-name-box">
+                          <span className="rf-name">
+                            {c.name}
+                            {c.verified ? (
+                              <span
+                                className="rf-verified"
+                                onMouseEnter={() => setTip("v" + c.id)}
+                                onMouseLeave={() => setTip(null)}
+                              >
+                                <ShieldIcon />
+                                Проверено
+                                {tip === "v" + c.id ? (
+                                  <span className="rf-tip" style={{ width: 250 }}>
+                                    Редакция реально выпустила карту, провела тестовый
+                                    платёж и проверила ответ поддержки. Обновляем раз в
+                                    квартал.
+                                  </span>
+                                ) : null}
+                              </span>
+                            ) : null}
                           </span>
-                          <div className="rf-name-box">
-                            <span className="rf-name-link">
-                              {c.name}
-                              {c.verified && <ShieldIcon className="rf-verified-icon" />}
+                          <span className="rf-tag">{c.tag}</span>
+                        </span>
+                      </div>
 
-                            </span>
-                            <span className="rf-tag">{c.tag}</span>
-                          </div>
-                        </div>
-                      </td>
+                      <Metric
+                        cls="rf-issue"
+                        label="Выпуск карты"
+                        txt={c.issueTxt}
+                        free={c.issue === 0}
+                      />
+                      <Metric
+                        cls="rf-maint"
+                        label="Обслуживание"
+                        txt={c.maintTxt}
+                        free={c.maint === 0}
+                      />
+                      <Metric
+                        cls="rf-fee"
+                        label="Комиссия"
+                        txt={c.topupFee}
+                        free={isFree(c.topupFee)}
+                      />
 
-                      <td className="rf-td rf-col-issue">
-                        <div className="rf-val-box">
-                          <span className="rf-val">{c.issueTxt}</span>
-                        </div>
-                      </td>
+                      <div className="rf-svcs">
+                        <span className="rf-svcs-lbl">Оплачивает</span>
+                        {c.services.slice(0, 4).map((s) => (
+                          <span key={s} className="rf-svc-ic" title={s}>
+                            {s.slice(0, 2)}
+                          </span>
+                        ))}
+                        <button
+                          type="button"
+                          className="rf-more"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setPopRow(pop ? null : c.id);
+                            setPopq("");
+                          }}
+                        >
+                          +{Math.max(c.svcTotal - 4, 1)}
+                        </button>
 
-                      <td className="rf-td rf-col-maint">
-                        <div className="rf-val-box">
-                          <span className="rf-val">{splitMetric(c.maintTxt)[0]}</span>
-                          {splitMetric(c.maintTxt)[1] && (
-                            <span className="rf-m-note">{splitMetric(c.maintTxt)[1]}</span>
-                          )}
-                        </div>
-                      </td>
-
-
-                      <td className="rf-td rf-col-comm">
-                        <div className="rf-val-box">
-                          <span className="rf-val">{c.topupFee}</span>
-                        </div>
-                      </td>
-
-                      <td className="rf-td rf-col-pay">
-                        <div className="rf-svcs-cell">
-                          <button
-                            type="button"
-                            className="rf-svc-link"
-                            aria-expanded={pop}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setPopRow(pop ? null : c.id);
-                            }}
-                          >
-                            {servicesLabel(c.svcTotal)}
-                            <ChevronIcon className={`rf-svc-chev${pop ? " up" : ""}`} />
-                          </button>
-
-                          {pop && (
+                        {pop ? (
+                          <>
+                            <SheetVeil
+                              onClose={(e) => {
+                                e.stopPropagation();
+                                setPopRow(null);
+                              }}
+                            />
                             <div
                               className="rf-pop rf-pop--svcs"
                               data-nh-dd="pop"
                               onClick={(e) => e.stopPropagation()}
                             >
+                              <SheetHead
+                                title={`Что оплачивает ${c.name}`}
+                                onClose={(e) => {
+                                  e.stopPropagation();
+                                  setPopRow(null);
+                                }}
+                              />
                               <div className="rf-pop-head">
                                 <input
                                   value={popq}
                                   onChange={(e) => setPopq(e.target.value)}
                                   placeholder="Поиск по сервисам…"
+                                  aria-label="Поиск по сервисам карты"
                                   className="rf-pop-input"
                                 />
                               </div>
@@ -984,166 +1031,184 @@ export default function RatingForm({
                                   </NavOption>
                                 ))}
                               </div>
+                              <div className="rf-pop-foot">
+                                Всего поддерживается — {servicesCountLabel(c.svcTotal)}
+                              </div>
                             </div>
-                          )}
-                        </div>
-                      </td>
+                          </>
+                        ) : null}
+                      </div>
 
-                      <td className="rf-td rf-col-rating">
-                        <div className="rf-rating-val">{c.rating?.toFixed(1) ?? "—"}</div>
-                      </td>
+                      <div className="rf-reviews">
+                        <span className="rf-star" aria-hidden="true">
+                          ★
+                        </span>
+                        <span className={`rf-rating rf-rating--${ratingColor(c.rating)}`}>
+                          {c.rating?.toFixed(1) ?? "—"}
+                        </span>
+                        {/* Счётчик отзывов показываем, только когда он есть:
+                            у части карт редакция их не собирает. */}
+                        {c.reviews !== null ? (
+                          <Link
+                            href={`/cards/${c.slug}`}
+                            className="rf-reviews-cnt"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <ReviewIcon />
+                            {c.reviews}
+                          </Link>
+                        ) : null}
+                      </div>
 
-                      <td className="rf-td rf-col-promo">
-                        {c.promo && (
+                      <div className="rf-actions">
+                        {c.promo ? (
                           <button
                             type="button"
-                            className="rf-promo-ic"
+                            className="rf-promo"
+                            title={`Скопировать промокод${c.promoText ? " — " + c.promoText : ""}`}
+                            aria-label="Скопировать промокод"
                             onClick={(e) => copyPromo(e, c)}
                           >
                             <GiftIcon />
                           </button>
-                        )}
-                      </td>
+                        ) : null}
+                        {/* На мобильном первая кнопка раскрывает карточку —
+                            «Полный обзор» лежит внутри раскрытия. */}
+                        <button
+                          type="button"
+                          className="rf-btn rf-btn--ghost rf-btn--toggle"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setExpanded(exp ? null : c.id);
+                            setPopRow(null);
+                          }}
+                        >
+                          {exp ? "Свернуть" : "Обзор"}
+                        </button>
+                        <Link
+                          href={`/cards/${c.slug}`}
+                          className="rf-btn rf-btn--ghost rf-btn--review"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Обзор
+                        </Link>
+                        <ApplyLink
+                          className="rf-btn rf-btn--primary"
+                          href={c.applyUrl}
+                          card={c.slug}
+                          place="rating-form"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Оформить
+                        </ApplyLink>
+                      </div>
 
-                      <td className="rf-td rf-col-actions">
-                        <div className="rf-actions-inner">
-                          <Link
-                            href={`/cards/${c.slug}`}
-                            className="rf-btn rf-btn--ghost"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            Обзор
-                          </Link>
-                          <ApplyLink
-                            className="rf-btn rf-btn--primary"
-                            href={c.applyUrl}
-                            card={c.slug}
-                            place="rating-form"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            Оформить
-                          </ApplyLink>
+                      <div className="rf-chev-cell">
+                        <span className={`rf-chev${exp ? " up" : ""}`}>
+                          <ChevronIcon />
+                        </span>
+                      </div>
 
-                          <div className="rf-chev-cell">
-                            <span className={`rf-chev${exp ? " up" : ""}`}>
-                              <ChevronIcon />
-                            </span>
+                      {/* Разрыв строки мобильной карточки: держит шапку и
+                          метрики на разных строках при любой ширине. */}
+                      <span className="rf-break" aria-hidden="true" />
+                    </div>
+
+                    {exp ? (
+                      <div className="rf-exp">
+                        <div className="rf-exp-grid">
+                          <div>
+                            <div className="rf-exp-lbl">Валюты</div>
+                            <div className="rf-exp-val">{c.cur.join(" · ")}</div>
+                          </div>
+                          <div>
+                            <div className="rf-exp-lbl">Пополнение</div>
+                            <div className="rf-exp-val">{c.topup}</div>
+                            <div className="rf-exp-sub">комиссия {c.topupFee}</div>
+                          </div>
+                          <div>
+                            <div className="rf-exp-lbl">Срок действия</div>
+                            <div className="rf-exp-val">{c.limits}</div>
+                          </div>
+                          <div>
+                            <div className="rf-exp-lbl">Промокод</div>
+                            {c.promo ? (
+                              <button
+                                type="button"
+                                className="rf-promo-code"
+                                onClick={(e) => copyPromo(e, c)}
+                              >
+                                {c.promo} ⧉
+                              </button>
+                            ) : (
+                              <div className="rf-exp-none">Нет активных</div>
+                            )}
+                          </div>
+
+                          {c.pros.length ? (
+                            <div className="rf-exp-pros">
+                              <div className="rf-exp-h rf-exp-h--good">✓ Плюсы</div>
+                              {c.pros.map((p) => (
+                                <div key={p} className="rf-exp-item">
+                                  · {p}
+                                </div>
+                              ))}
+                            </div>
+                          ) : null}
+
+                          {c.cons.length ? (
+                            <div className="rf-exp-cons">
+                              <div className="rf-exp-h rf-exp-h--bad">− Минусы</div>
+                              {c.cons.map((p) => (
+                                <div key={p} className="rf-exp-item">
+                                  · {p}
+                                </div>
+                              ))}
+                            </div>
+                          ) : null}
+
+                          <div className="rf-exp-cta">
+                            <Link href={`/cards/${c.slug}`} className="rf-btn rf-btn--ghost">
+                              Полный обзор
+                            </Link>
+                            <ApplyLink
+                              className="rf-btn rf-btn--primary"
+                              href={c.applyUrl}
+                              card={c.slug}
+                              place="rating-form-exp"
+                            >
+                              Оформить карту →
+                            </ApplyLink>
                           </div>
                         </div>
-                      </td>
-                    </tr>
-                    {exp && (
-                      <tr className="rf-exp-row">
-                        <td colSpan={9} className="rf-exp-td">
-                          <div className="rf-exp">
-                            <div className="rf-exp-grid">
-                              <div>
-                                <div className="rf-exp-lbl">Валюты</div>
-                                <div className="rf-exp-val">{c.cur.join(" · ")}</div>
-                              </div>
-                              <div>
-                                <div className="rf-exp-lbl">Пополнение</div>
-                                <div className="rf-exp-val">{c.topup}</div>
-                                <div className="rf-exp-sub">комиссия {c.topupFee}</div>
-                              </div>
-                              <div>
-                                <div className="rf-exp-lbl">Срок действия</div>
-                                <div className="rf-exp-val">{c.limits}</div>
-                              </div>
-                              <div>
-                                <div className="rf-exp-lbl">Промокод</div>
-                                {c.promo ? (
-                                  <button
-                                    type="button"
-                                    className="rf-promo-code"
-                                    onClick={(e) => copyPromo(e, c)}
-                                  >
-                                    {c.promo} ⧉
-                                  </button>
-                                ) : (
-                                  <div className="rf-exp-none">Нет активных</div>
-                                )}
-                              </div>
-
-                              {c.pros.length ? (
-                                <div className="rf-exp-pros">
-                                  <div className="rf-exp-h rf-exp-h--good">✓ Плюсы</div>
-                                  {c.pros.map((p) => (
-                                    <div key={p} className="rf-exp-item">
-                                      · {p}
-                                    </div>
-                                  ))}
-                                </div>
-                              ) : null}
-
-                              {c.cons.length ? (
-                                <div className="rf-exp-cons">
-                                  <div className="rf-exp-h rf-exp-h--bad">− Минусы</div>
-                                  {c.cons.map((p) => (
-                                    <div key={p} className="rf-exp-item">
-                                      · {p}
-                                    </div>
-                                  ))}
-                                </div>
-                              ) : null}
-
-                              <div className="rf-exp-cta">
-                                <Link href={`/cards/${c.slug}`} className="rf-btn rf-btn--ghost">
-                                  Полный обзор
-                                </Link>
-                                <ApplyLink
-                                  className="rf-btn rf-btn--primary"
-                                  href={c.applyUrl}
-                                  card={c.slug}
-                                  place="rating-form-exp"
-                                >
-                                  Оформить карту →
-                                </ApplyLink>
-                              </div>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    )}
-                  </Fragment>
+                      </div>
+                    ) : null}
+                  </div>
                 );
               })
-
             )}
-          </tbody>
-        </table>
-      </div>
 
-      {!isEmpty && sorted.length > COLLAPSED ? (
-        <div className="rf-showall">
-          <button
-            type="button"
-            className={showAll ? "rf-collapse" : ""}
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll
-              ? "Свернуть ↑"
-              : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
-          </button>
-        </div>
-      ) : null}
-
-      <div className="rf-legend">
-        <div className="rf-legend-item">
-          <ShieldIcon className="rf-legend-ic" />
-          <span className="rf-legend-txt">Сервис проверен редакцией: мы выпустили карту и оплатили ей подписку</span>
-        </div>
-        <div className="rf-legend-item">
-          <GiftIcon className="rf-legend-ic rf-legend-ic--gift" />
-          <span className="rf-legend-txt">Есть промокод NHcard на выпуск</span>
+            {!isEmpty && sorted.length > COLLAPSED ? (
+              <div className="rf-showall">
+                <button
+                  type="button"
+                  className={showAll ? "rf-collapse" : ""}
+                  onClick={() => setShowAll(!showAll)}
+                >
+                  {showAll
+                    ? "Свернуть ↑"
+                    : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
-
 
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
         <div className="rf-ai-head">
-
+          <span className="rf-ai-ic">✦</span>
           <div>
             <div className="rf-ai-title">Подобрать карту за 10 секунд</div>
             <div className="rf-ai-sub">
@@ -1160,8 +1225,6 @@ export default function RatingForm({
             </button>
           ) : null}
         </div>
-
-        <div className="rf-ai-divider" />
 
         <div className="rf-ai-grid">
           {AI_QUESTIONS.map(([field, title, opts]) => (
@@ -1304,45 +1367,22 @@ function Metric({
   cls,
   label,
   txt,
+  free,
 }: {
   cls: string;
   label: string;
   txt: string;
+  free: boolean;
 }) {
   const [val, note] = splitMetric(txt);
   return (
-    <div className={`rf-m ${cls}`}>
+    <div className={`rf-m ${cls}${free ? " free" : ""}`}>
       <span className="rf-m-lbl">{label}</span>
       {/* 13 знаков — предел, при котором значение ещё влезает в треть карточки
           крупным кеглем; замер по самым длинным формулировкам каталога. */}
       <span className={`rf-m-val${val.length > 13 ? " long" : ""}`}>{val}</span>
       {note ? <span className="rf-m-note">{note}</span> : null}
     </div>
-  );
-}
-
-function ShieldIcon({ className }: { className?: string }) {
-  return (
-    <svg 
-      className={className}
-      width="14" 
-      height="14" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z"
-        fill="currentColor"
-      />
-      <path
-        d="M8 12l2.5 2.5L16 9"
-        stroke="#fff"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
@@ -1388,16 +1428,9 @@ function SearchIcon() {
   );
 }
 
-function ChevronIcon({ className }: { className?: string }) {
+function ChevronIcon() {
   return (
-    <svg 
-      className={className}
-      width="14" 
-      height="14" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      aria-hidden="true"
-    >
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path
         d="M6 9l6 6 6-6"
         stroke="currentColor"
@@ -1409,16 +1442,24 @@ function ChevronIcon({ className }: { className?: string }) {
   );
 }
 
-function GiftIcon({ className }: { className?: string }) {
+function ShieldIcon() {
   return (
-    <svg 
-      className={className}
-      width="17" 
-      height="17" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      aria-hidden="true"
-    >
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z" fill="#2660FF" />
+      <path
+        d="M8 12l2.5 2.5L16 9"
+        stroke="#fff"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function GiftIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="8" width="18" height="4" rx="1" stroke="currentColor" strokeWidth="2" />
       <path
         d="M5 12v8h14v-8M12 8v12M12 8c-2-.5-4-2-4-3.5C8 3 9 2.5 10 2.5c1.5 0 2 2.5 2 5.5zm0 0c2-.5 4-2 4-3.5 0-1.5-1-2-2-2-1.5 0-2 2.5-2 5.5z"

@@ -10,12 +10,6 @@
   --rf-line: #e6eaf2;
   --rf-line-2: #eef1f7;
   --rf-bg: #f7f8fb;
-  --rf-tabular: tabular-nums;
-  --rf-font-main: 13px;
-  --rf-font-note: 12px;
-  --rf-font-th: 12px;
-  --rf-font-name: 14px;
-  --rf-font-num: 14px;
   --rf-blue: #2660ff;
   --rf-blue-600: #1e4fe0;
   --rf-blue-50: #eaf0ff;
@@ -26,6 +20,10 @@
   --rf-orange: #ff7a1a;
   --rf-orange-50: #fff1e5;
   --rf-orange-line: #ffd9b8;
+  /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
+     шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
+     в контейнер 1200px без горизонтального скролла. */
+  --rf-grid: 40px 1.25fr 100px 112px 108px 1fr 100px 176px 34px;
 
   color: var(--rf-ink);
   text-align: left;
@@ -94,6 +92,11 @@
 .rf-dd-btn:hover {
   border-color: var(--rf-blue);
 }
+.rf-dd-btn.on {
+  border-color: var(--rf-blue);
+  background: var(--rf-blue-50);
+  color: var(--rf-blue-600);
+}
 .rf-caret {
   width: 7px;
   height: 7px;
@@ -101,6 +104,9 @@
   border-bottom: 2px solid currentColor;
   transform: translateY(-2px) rotate(45deg);
   transition: transform 0.15s;
+}
+.rf-caret.up {
+  transform: translateY(1px) rotate(-135deg);
 }
 
 .rf-search-wrap {
@@ -129,249 +135,1804 @@
   width: 100%;
   color: var(--rf-ink);
 }
-
-/* ---------- таблица (десктоп) ---------- */
-
-.rf-scroll {
-  overflow-x: auto;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-@media (min-width: 1121px) {
-  .rf-scroll {
-    max-width: none;
-    overflow: visible;
-  }
-}
-
-.rf-table {
-  width: 100%;
-  min-width: 1120px;
-  border-collapse: collapse;
-  background: #fff;
-  border: 1px solid var(--rf-line);
-  border-radius: 16px;
-  box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
-  overflow: hidden;
-}
-
-.rf-th, .rf-td {
-  padding: 14px 16px 14px 0;
-  vertical-align: middle;
-  overflow: visible;
-  text-align: left;
-  border-bottom: 1px solid var(--rf-line-2);
-}
-
-.rf-th:first-child, .rf-td:first-child {
-  padding-left: 16px;
-}
-
-.rf-th {
-  background: var(--rf-bg);
-  color: var(--rf-dim);
-  font-size: var(--rf-font-th);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.rf-col-rank { width: 44px; }
-.rf-col-service { /* occupies remainder */ }
-.rf-col-issue { width: 120px; }
-.rf-col-maint { width: 130px; }
-.rf-col-comm { width: 140px; }
-.rf-col-pay { width: 130px; }
-.rf-col-rating { width: 72px; }
-.rf-col-promo { width: 52px; }
-.rf-col-actions { width: 210px; }
-
-.rf-th-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-
-.rf-th-btn {
+.rf-search-clear {
   border: 0;
-  background: transparent;
-  font: inherit;
-  color: inherit;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-.rf-th-btn.on {
-  color: var(--rf-blue);
-}
-
-.rf-arr {
-  font-size: 10px;
-  opacity: 0.5;
-}
-.rf-arr.on {
-  opacity: 1;
-}
-
-.rf-num-cell {
-  font-family: var(--rf-tabular);
-  font-size: var(--rf-font-num);
+  background: var(--rf-line);
+  color: var(--rf-muted);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--rf-dim);
-}
-
-.rf-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-weight: 800;
-  font-size: 13px;
-  flex: 0 0 32px;
+  flex: 0 0 auto;
 }
 
-.rf-name-box {
-  display: flex;
-  flex-direction: column;
+/* ---------- выпадашки ---------- */
+
+.rf-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--rf-line);
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgb(11 21 48 / 14%);
+  z-index: 60;
+  animation: rf-fade 0.14s ease;
+  overflow: hidden;
 }
-.rf-name-link {
-  font-size: var(--rf-font-name);
+.rf-pop--svc {
+  width: 420px;
+}
+.rf-pop--cty {
+  width: 360px;
+}
+.rf-pop--sug {
+  right: 0;
+  padding: 6px;
+}
+.rf-pop--svcs {
+  width: 320px;
+  box-shadow: 0 20px 50px rgb(11 21 48 / 16%);
+  z-index: 65;
+  cursor: default;
+}
+
+.rf-pop-head {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rf-line-2);
+}
+.rf-pop-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rf-bg);
+  border: 1px solid var(--rf-line);
+  border-radius: 10px;
+  padding: 0 12px;
+  height: 38px;
+  color: var(--rf-dim);
+}
+.rf-pop-search input,
+.rf-pop-input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  width: 100%;
+  color: var(--rf-ink);
+}
+.rf-pop-input {
+  border: 1px solid var(--rf-line);
+  background: var(--rf-bg);
+  border-radius: 9px;
+  height: 34px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+.rf-pop-list {
+  max-height: 380px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px 6px 10px;
+  scrollbar-width: thin;
+}
+.rf-pop--cty .rf-pop-list {
+  max-height: 360px;
+}
+.rf-pop--svcs .rf-pop-list {
+  max-height: 240px;
+  padding: 6px;
+}
+.rf-pop-list::-webkit-scrollbar {
+  width: 6px;
+}
+.rf-pop-list::-webkit-scrollbar-thumb {
+  background: #d6dce8;
+  border-radius: 3px;
+}
+.rf-pop-foot {
+  padding: 9px 14px;
+  border-top: 1px solid var(--rf-line-2);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rf-dim);
+}
+.rf-pop-empty {
+  padding: 20px 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rf-muted);
+}
+
+.rf-grp {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rf-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 10px 4px;
+}
+.rf-pop-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 10px 10px;
+}
+.rf-pop-chip {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--rf-line);
+  background: #fff;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--rf-ink);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
 }
-.rf-tag {
-  font-size: var(--rf-font-note);
-  color: var(--rf-muted);
-}
-
-.rf-val {
-  font-size: var(--rf-font-main);
-  font-weight: 600;
-  color: #0F172A;
-}
-.rf-note {
-  font-size: var(--rf-font-note);
-  color: var(--rf-muted);
-  display: block;
+.rf-pop-chip:hover {
+  border-color: var(--rf-blue);
+  color: var(--rf-blue);
 }
 
-.rf-rating-val {
-  font-size: 18px;
+.rf-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  color: var(--rf-ink);
+}
+.rf-opt:hover {
+  background: var(--rf-blue-100);
+  color: var(--rf-blue-600);
+}
+.rf-opt.on {
+  background: var(--rf-blue-50);
+}
+.rf-opt-ic {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  border-radius: 7px;
+  background: var(--rf-blue-50);
+  color: var(--rf-blue);
+  font-size: 11px;
   font-weight: 700;
-  color: #0F172A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-opt-flag {
+  font-size: 17px;
+  flex: 0 0 22px;
+}
+.rf-opt-name {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rf-opt-cnt {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--rf-dim);
+  white-space: nowrap;
+}
+.rf-opt-check {
+  color: var(--rf-blue);
+  font-weight: 800;
 }
 
-.rf-svc-link {
+.rf-sug {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 8px 10px;
+  border-radius: 9px;
+  text-align: left;
+  color: var(--rf-ink);
+}
+.rf-sug:hover {
+  background: var(--rf-blue-100);
+}
+.rf-sug--link:hover {
+  color: var(--rf-blue-600);
+}
+.rf-sug-name {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.rf-sug-kind {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rf-dim);
+  margin-left: auto;
+}
+.rf-sug--link .rf-sug-kind {
+  margin-left: 0;
+}
+.rf-sug-arrow {
+  margin-left: auto;
+  color: var(--rf-blue);
+  font-weight: 700;
+}
+
+/* ---------- чипы ---------- */
+
+.rf-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.rf-chip {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--rf-line);
+  background: #fff;
+  color: var(--rf-ink-2);
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.rf-chip:hover {
+  border-color: var(--rf-blue);
+  color: var(--rf-blue);
+}
+.rf-chip.on {
+  border-color: var(--rf-blue);
+  background: var(--rf-blue-50);
+  color: var(--rf-blue);
+}
+.rf-chip-x {
+  font-size: 11px;
+  opacity: 0.85;
+}
+.rf-spin {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(255 255 255 / 40%);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rf-spin 0.6s linear infinite;
+}
+
+/* ---------- панель состояния ---------- */
+
+.rf-state {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 2px 12px;
+  min-height: 34px;
+}
+.rf-navchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rf-blue);
+  color: #fff;
+  border-radius: 999px;
+  height: 32px;
+  padding: 0 8px 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.rf-navchip button {
+  border: 0;
+  background: rgb(255 255 255 / 22%);
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-state-main {
+  font-size: 14px;
+  font-weight: 600;
+}
+.rf-state-count {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--rf-muted);
+}
+.rf-state-dot {
+  color: #d6dce8;
+}
+.rf-state-sort {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--rf-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+.rf-state-sort strong {
+  color: var(--rf-ink);
+  font-weight: 700;
+}
+.rf-reset {
+  margin-left: auto;
   border: 0;
   background: transparent;
   color: var(--rf-blue);
-  font: inherit;
-  font-size: var(--rf-font-main);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.rf-reset:hover {
+  background: var(--rf-blue-50);
+}
+
+.rf-info {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1.5px solid #c3cbdb;
+  color: #8a94ad;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  flex: 0 0 auto;
+}
+.rf-info--sm {
+  width: 15px;
+  height: 15px;
+  font-size: 9.5px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.rf-tip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--rf-ink);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12.5px;
   font-weight: 500;
+  line-height: 1.5;
+  z-index: 70;
+  box-shadow: 0 12px 30px rgb(11 21 48 / 30%);
+  animation: rf-fade 0.12s ease;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: left;
+}
+.rf-tip--badge {
+  top: calc(100% + 4px);
+  left: 18px;
+}
+
+/* ---------- таблица ---------- */
+
+.rf-table {
+  background: #fff;
+  border: 1px solid var(--rf-line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgb(11 21 48 / 6%);
+}
+.rf-table-scroll {
+  overflow-x: auto;
+}
+.rf-table-inner {
+  min-width: 1150px;
+}
+
+.rf-head {
+  display: grid;
+  grid-template-columns: var(--rf-grid);
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  height: 56px;
+  border-bottom: 1px solid var(--rf-line);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--rf-muted);
+}
+.rf-th {
+  position: relative;
+}
+.rf-th button {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--rf-muted);
   padding: 0;
   display: inline-flex;
   align-items: center;
   gap: 4px;
 }
-.rf-svc-link:hover {
-  text-decoration: underline;
+.rf-th button.on {
+  color: var(--rf-blue);
+}
+.rf-arr {
+  font-size: 11px;
 }
 
-.rf-actions-inner {
+.rf-row {
+  border-bottom: 1px solid var(--rf-line-2);
+}
+.rf-row--top {
+  background: linear-gradient(90deg, rgb(38 96 255 / 5%), rgb(38 96 255 / 0) 65%);
+  box-shadow: inset 3px 0 0 var(--rf-blue);
+}
+.rf-row--ai {
+  background: #fff9f2;
+  box-shadow: inset 3px 0 0 var(--rf-orange);
+}
+
+.rf-badge-wrap {
+  position: relative;
+  padding: 14px 18px 0;
+}
+.rf-badge {
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--rf-blue-50);
+  color: var(--rf-blue);
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+.rf-badge--ai {
+  background: var(--rf-orange-50);
+  color: #b45309;
+}
+
+.rf-grid {
+  display: grid;
+  grid-template-columns: var(--rf-grid);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  min-height: 84px;
+  cursor: pointer;
+}
+
+.rf-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--rf-blue-50);
+  color: var(--rf-blue);
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-num.on {
+  background: var(--rf-blue);
+  color: #fff;
+}
+
+.rf-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.rf-logo {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-logo--sm {
+  width: 26px;
+  height: 26px;
+  flex-basis: 26px;
+  border-radius: 8px;
+  font-size: 10px;
+}
+.rf-logo--md {
+  width: 30px;
+  height: 30px;
+  flex-basis: 30px;
+  border-radius: 9px;
+  font-size: 11px;
+}
+.rf-name-box {
+  min-width: 0;
+}
+.rf-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 7px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.rf-verified {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--rf-blue);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: help;
+}
+.rf-tag {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rf-dim);
+  margin-top: 2px;
+}
+
+/* Метрика: значение + уточнение отдельной строкой. Подпись («Выпуск карты»)
+   в таблице не нужна — её роль играет шапка колонки, поэтому по умолчанию она
+   спрятана и всплывает только в мобильной карточке. */
+.rf-m {
+  min-width: 0;
+}
+.rf-m-lbl {
+  display: none;
+}
+.rf-m-val {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  /* Длинные слова каталога («индивидуальная») не должны залезать в соседнюю
+     колонку */
+  overflow-wrap: anywhere;
+}
+.rf-maint .rf-m-val,
+.rf-fee .rf-m-val {
+  font-size: 14px;
+}
+.rf-m-note {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--rf-muted);
+  margin-top: 2px;
+}
+.rf-m.free .rf-m-val {
+  color: var(--rf-good);
+}
+
+.rf-svcs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+.rf-svcs-lbl {
+  display: none;
+}
+.rf-svc-ic {
+  width: 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: #f0f2f8;
+  color: var(--rf-ink-2);
+  font-size: 9.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-more {
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px dashed #c3cbdb;
+  background: #fff;
+  color: var(--rf-muted);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.rf-more:hover {
+  border-color: var(--rf-blue);
+  color: var(--rf-blue);
+}
+
+.rf-reviews {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+/* Звезда и иконка отзывов — часть мобильной карточки, в таблице их нет. */
+.rf-star,
+.rf-rev-ic {
+  display: none;
+}
+.rf-rating {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rf-rating--good {
+  color: var(--rf-good);
+}
+.rf-rating--warn {
+  color: var(--rf-warn);
+}
+.rf-rating--bad {
+  color: var(--rf-bad);
+}
+.rf-rating--muted {
+  color: var(--rf-dim);
+}
+.rf .rf-reviews-cnt {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--rf-muted);
+  border-bottom: 1px dashed #c3cbdb;
+}
+.rf .rf-reviews-cnt:hover {
+  color: var(--rf-blue);
+  border-bottom-color: var(--rf-blue);
+}
+
+.rf-actions {
   display: flex;
   align-items: center;
   gap: 8px;
   justify-content: flex-end;
 }
-
 .rf-btn {
-  height: 34px;
-  padding: 0 14px;
-  border-radius: 9px;
+  height: 38px;
+  padding: 0 15px;
+  border-radius: 11px;
   font-size: 13px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  white-space: nowrap;
+  border: 1px solid transparent;
 }
-.rf-btn--ghost {
-  background: var(--rf-bg);
+/* .rf-btn... вместо .rf-btn--primary: у ссылок «Оформить»/«Обзор» ниже
+   специфичность, чем у сброса `.page-home a { color: inherit }` (тег + класс),
+   и без префикса .rf свой color проигрывал бы ему, наследуя тёмный var(--rf-ink)
+   от .rf вместо явного цвета кнопки. */
+.rf .rf-btn--ghost {
+  border-color: var(--rf-line);
+  background: #fff;
   color: var(--rf-ink);
 }
-.rf-btn--primary {
+.rf .rf-btn--ghost:hover {
+  border-color: var(--rf-ink);
+}
+.rf .rf-btn--primary {
   background: var(--rf-blue);
   color: #fff;
 }
-
-.rf-promo-ic {
-  color: var(--rf-orange);
-  cursor: pointer;
-  display: flex;
+.rf .rf-btn--primary:hover {
+  background: var(--rf-blue-600);
+  color: #fff;
 }
-
-.rf-chev {
-  width: 20px;
-  height: 20px;
-  display: flex;
+/* Кнопка «Обзор → Свернуть» живёт только в мобильной карточке. */
+.rf-btn--toggle {
+  display: none;
+}
+.rf-promo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--rf-orange-line);
+  background: var(--rf-orange-50);
+  color: var(--rf-orange);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 40px;
+}
+.rf-promo:hover {
+  border-color: var(--rf-orange);
+}
+
+.rf-chev-cell {
+  display: flex;
+  justify-content: center;
+}
+/* Разрыв строки нужен только мобильной карточке */
+.rf-break {
+  display: none;
+}
+.rf-chev {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
   color: var(--rf-dim);
-  transition: transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease;
 }
 .rf-chev.up {
   transform: rotate(180deg);
 }
 
-/* ---------- легенда ---------- */
+/* ---------- аккордеон строки ---------- */
 
-.rf-legend {
-  display: flex;
-  gap: 24px;
-  padding: 14px 16px;
-  border-top: 1px solid var(--rf-line-2);
+.rf-exp {
+  padding: 4px 18px 18px 78px;
+  animation: rf-fade 0.18s ease;
 }
-.rf-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.rf-exp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  background: var(--rf-bg);
+  border: 1px solid var(--rf-line-2);
+  border-radius: 14px;
+  padding: 16px 18px;
 }
-.rf-legend-ic {
-  width: 14px;
-  height: 14px;
-  color: var(--rf-blue);
+.rf-exp-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rf-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
 }
-.rf-legend-ic--gift {
-  color: var(--rf-orange);
+.rf-exp-val {
+  font-size: 13.5px;
+  font-weight: 600;
 }
-.rf-legend-txt {
-  font-size: 13px;
+.rf-exp-sub {
+  font-size: 12px;
+  font-weight: 500;
   color: var(--rf-muted);
+  margin-top: 3px;
+}
+.rf-exp-none {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--rf-dim);
+}
+.rf-exp-pros {
+  grid-column: 1 / 3;
+}
+.rf-exp-cons {
+  grid-column: 3 / 5;
+}
+.rf-exp-h {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.rf-exp-h--good {
+  color: var(--rf-good);
+}
+.rf-exp-h--bad {
+  color: #e5484d;
+}
+.rf-exp-item {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--rf-ink-2);
+}
+.rf-exp-cta {
+  grid-column: 1 / 5;
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+.rf-exp-cta .rf-btn {
+  height: 40px;
+  padding: 0 18px;
+  font-size: 13.5px;
+}
+.rf-promo-code {
+  border: 1px dashed var(--rf-orange);
+  background: var(--rf-orange-50);
+  color: #b45309;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 9px;
+  padding: 6px 12px;
+}
+
+/* ---------- пусто / показать все ---------- */
+
+.rf-empty {
+  padding: 44px 24px 40px;
+  text-align: center;
+}
+.rf-empty-emoji {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+.rf-empty-title {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.rf-empty-sub {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--rf-muted);
+  margin-bottom: 20px;
+}
+.rf-empty-alts {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.rf-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--rf-line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 9px 14px;
+}
+.rf-alt:hover {
+  border-color: var(--rf-blue);
+}
+.rf-alt-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: left;
+}
+.rf-alt-rating {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--rf-good);
+}
+.rf-empty .rf-btn--primary {
+  height: 42px;
+  padding: 0 22px;
+  font-size: 14px;
+}
+
+.rf-showall {
+  padding: 14px 18px;
+  border-top: 1px solid var(--rf-line-2);
+  text-align: center;
+}
+.rf-showall button {
+  border: 0;
+  background: transparent;
+  color: var(--rf-blue);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+.rf-showall button:hover {
+  background: var(--rf-blue-50);
+}
+.rf-showall button.rf-collapse {
+  color: var(--rf-muted);
+}
+.rf-showall button.rf-collapse:hover {
+  background: var(--rf-bg);
 }
 
 /* ---------- подбор карты ---------- */
 
 .rf-ai {
-  background: #0b1530;
-  color: #fff;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #0b1530, #1b2447);
   border-radius: 16px;
-  padding: 32px;
-  margin-top: 24px;
+  padding: 22px 24px;
+  color: #fff;
+}
+.rf-ai-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.rf-ai-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgb(255 255 255 / 10%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.rf-ai-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.rf-ai-sub {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #8a94ad;
+}
+.rf-ai-reset {
+  margin-left: auto;
+  border: 1px solid rgb(255 255 255 / 25%);
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 12px;
 }
 .rf-ai-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr;
-  column-gap: 40px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.rf-ai-q {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #b9c2d8;
+  margin-bottom: 8px;
+}
+.rf-ai-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rf-ai-opt {
+  height: 31px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 25%);
+  background: transparent;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+.rf-ai-opt.on {
+  border-color: #fff;
+  background: #fff;
+  color: var(--rf-ink);
+}
+.rf-ai-why {
+  margin-top: 16px;
+  background: rgb(255 255 255 / 7%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  animation: rf-fade 0.2s ease;
 }
 
-/* Остальные стили (попапы, мобилки и т.д.) сохраняются ниже... */
+/* ---------- шторки (мобильный) ---------- */
+
+/* Шапка и подложка размечены всегда, но на десктопе выключены: там та же
+   разметка работает обычной выпадашкой. */
+.rf-sheet-head,
+.rf-veil {
+  display: none;
+}
+.rf-sheet-grip {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d6dce8;
+}
+.rf-sheet-title {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.rf-sheet-x {
+  position: absolute;
+  top: 13px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--rf-bg);
+  color: var(--rf-muted);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.rf-sheet-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  border-radius: 12px;
+  text-align: left;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--rf-ink);
+}
+.rf-sheet-opt.on {
+  background: var(--rf-blue-50);
+  color: var(--rf-blue-600);
+}
+
+@keyframes rf-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes rf-veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- тост ---------- */
+
+.rf-toast {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 120;
+  background: var(--rf-ink);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgb(11 21 48 / 35%);
+  animation: rf-toast 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rf-toast span {
+  color: #3ddc97;
+}
+
+/* ---------- мобильная ----------
+   Порог совпадает с MOBILE_Q в RatingForm.tsx: ниже него таблица разбирается
+   в карточки, выпадашки открываются шторками снизу, сортировка уезжает в свою
+   шторку. Горизонтального скролла в рейтинге на мобильном нет. */
+
+@media (max-width: 899px) {
+  /* --- панель фильтров --- */
+  .rf-panel {
+    padding: 12px;
+    /* Слой панели убираем: он создавал контекст наложения, из-за которого
+       шторки уходили под таб-бар. На мобильном выпадашки всё равно fixed. */
+    z-index: auto;
+  }
+  .rf-panel-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .rf-search-wrap {
+    grid-column: 1 / -1;
+    order: -1;
+    min-width: 0;
+  }
+  .rf-dd {
+    min-width: 0;
+  }
+  /* Как в прототипе: подпись слева, шеврон справа, иконки нет */
+  .rf-dd-btn {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .rf-dd-btn > svg {
+    display: none;
+  }
+  .rf-caret {
+    flex: 0 0 auto;
+  }
+  .rf-search {
+    height: 46px;
+  }
+  /* 16px — минимум, при котором iOS не зумит страницу на фокусе поля */
+  .rf-search input {
+    font-size: 16px;
+  }
+
+  /* Чипы — горизонтальная карусель со snap, с выходом за края панели */
+  .rf-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    margin: 12px -12px 0;
+    padding: 0 12px;
+  }
+  .rf-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .rf-chips::after {
+    content: "";
+    flex: 0 0 4px;
+  }
+  .rf-chip {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    color: var(--rf-ink);
+    font-size: 12.5px;
+    font-weight: 700;
+    gap: 6px;
+  }
+  .rf-chip.on {
+    background: var(--rf-blue);
+    color: #fff;
+  }
+
+  /* --- панель состояния: счётчик слева, ссылка сортировки справа --- */
+  .rf-state {
+    gap: 8px 10px;
+    margin: 14px 2px 12px;
+    min-height: 40px;
+  }
+  .rf-state-main {
+    flex: 1 1 100%;
+    font-size: 13.5px;
+  }
+  .rf-state-main--idle,
+  .rf-state-dot {
+    display: none;
+  }
+  .rf-state-count {
+    font-size: 13.5px;
+  }
+  .rf-state-sort--btn {
+    margin-left: auto;
+    min-height: 40px;
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--rf-blue);
+    gap: 7px;
+  }
+  .rf-state-sort--btn strong {
+    color: var(--rf-blue);
+    font-weight: 700;
+  }
+  .rf-reset {
+    height: 36px;
+  }
+
+  /* --- таблица разбирается в карточки --- */
+  .rf-table {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .rf-table-scroll {
+    overflow: visible;
+  }
+  .rf-table-inner {
+    min-width: 0;
+  }
+  .rf-head {
+    display: none;
+  }
+
+  .rf-row {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--rf-line);
+    border-radius: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
+  }
+  .rf-row--top {
+    margin-top: 18px;
+    background: #fff;
+    border-color: #bfd2ff;
+    box-shadow: 0 10px 26px rgb(38 96 255 / 12%);
+  }
+  .rf-row--ai {
+    background: #fff;
+    border-color: var(--rf-orange-line);
+    box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
+  }
+
+  .rf-badge-wrap {
+    position: absolute;
+    top: -9px;
+    left: 14px;
+    padding: 0;
+    z-index: 2;
+  }
+  /* Карточка может быть и лидером, и подобранной — второй бейдж уходит вправо */
+  .rf-badge-wrap + .rf-badge-wrap {
+    left: auto;
+    right: 14px;
+  }
+  .rf-badge {
+    padding: 4px 10px;
+    background: var(--rf-blue);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgb(38 96 255 / 28%);
+  }
+  .rf-badge--ai {
+    background: var(--rf-orange-50);
+    color: #b45309;
+    box-shadow: none;
+  }
+
+  .rf-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    column-gap: 8px;
+    row-gap: 0;
+    padding: 18px;
+    min-height: 0;
+  }
+  /* Пустой элемент шириной в строку: flex-раскладка обязана перенести всё
+     последующее на новую строку, поэтому шапка и метрики не смешиваются ни на
+     320px, ни на планшете. Вертикальные отступы задают сами блоки. */
+  .rf-break {
+    display: block;
+    flex: 1 0 100%;
+    height: 0;
+    order: 1;
+  }
+  /* Ячейка номера позиции */
+  .rf-grid > :first-child {
+    flex: 0 0 26px;
+  }
+  .rf-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+  /* Базис 0: название занимает остаток строки и не выталкивает оценку вниз
+     даже при длинном имени сервиса */
+  .rf-name-cell {
+    flex: 1 1 0;
+    align-items: flex-start;
+    gap: 11px;
+  }
+  .rf-name {
+    font-size: 16px;
+    letter-spacing: -0.015em;
+  }
+  .rf-tag {
+    font-size: 11.5px;
+  }
+
+  .rf-reviews {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0 5px;
+    margin-left: auto;
+    text-align: right;
+  }
+  .rf-star {
+    display: inline-block;
+    color: var(--rf-good);
+    font-size: 16px;
+    line-height: 1;
+  }
+  .rf-rating {
+    font-size: 20px;
+    letter-spacing: -0.03em;
+  }
+  .rf-reviews-cnt {
+    flex: 0 0 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    border-bottom: 0;
+    font-size: 12px;
+    color: var(--rf-dim);
+  }
+  .rf-rev-ic {
+    display: block;
+    color: #bfd2ff;
+  }
+
+  /* Три метрики в ряд: выпуск · комиссия · обслуживание. 30% + два зазора
+     влезают в строку вплоть до 320px. */
+  .rf-m {
+    flex: 1 1 30%;
+    margin-top: 16px;
+  }
+  .rf-issue {
+    order: 2;
+  }
+  .rf-fee {
+    order: 3;
+  }
+  .rf-maint {
+    order: 4;
+  }
+  .rf-m-lbl {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--rf-dim);
+  }
+  /* 19px по спеке; на узких экранах кегль едет за шириной, иначе цена вида
+     «0 ₽ - 3 490 ₽» налезала бы на соседнюю метрику */
+  .rf-m-val,
+  .rf-maint .rf-m-val,
+  .rf-fee .rf-m-val {
+    font-size: min(19px, 4.9vw);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
+  /* Редакционные формулировки вроде «СБП 0% / крипто 9%» в треть строки не
+     влезают — для них уменьшаем кегль вместо обрезки числа */
+  .rf-m-val.long,
+  .rf-maint .rf-m-val.long,
+  .rf-fee .rf-m-val.long {
+    font-size: min(13px, 3.4vw);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .rf-m-note {
+    font-size: 11.5px;
+    margin-top: 3px;
+  }
+
+  /* «Оплачивает» */
+  .rf-svcs {
+    order: 5;
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+  }
+  .rf-svcs-lbl {
+    display: block;
+    flex: 1 0 100%;
+    margin-bottom: -3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--rf-dim);
+  }
+  .rf-svc-ic {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+    font-size: 12px;
+  }
+  .rf-more {
+    height: 36px;
+    min-width: 44px;
+    padding: 0 12px;
+    border-radius: 11px;
+    font-size: 13px;
+  }
+
+  /* Кнопки карточки */
+  .rf-actions {
+    order: 6;
+    flex: 1 0 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  .rf-btn {
+    height: 46px;
+    border-radius: 13px;
+    font-size: 14px;
+  }
+  .rf-btn--toggle {
+    display: inline-flex;
+  }
+  .rf-btn--review,
+  .rf-promo,
+  .rf-chev-cell {
+    display: none;
+  }
+
+  /* Раскрытие */
+  .rf-exp {
+    padding: 0 18px 18px;
+  }
+  .rf-exp-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
+    padding: 14px;
+  }
+  .rf-exp-pros,
+  .rf-exp-cons,
+  .rf-exp-cta {
+    grid-column: 1 / 3;
+  }
+  .rf-exp-cta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .rf-exp-cta .rf-btn {
+    width: 100%;
+    height: 46px;
+    padding: 0;
+  }
+  .rf-promo-code {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .rf-showall {
+    padding: 0;
+    border-top: 0;
+    margin-top: 2px;
+  }
+  .rf-showall button {
+    width: 100%;
+    height: 46px;
+    border: 1px solid var(--rf-line);
+    border-radius: 13px;
+    background: #fff;
+  }
+  .rf-empty {
+    background: #fff;
+    border: 1px solid var(--rf-line);
+    border-radius: 18px;
+    padding: 34px 18px 30px;
+  }
+  .rf-empty-alts {
+    flex-direction: column;
+  }
+  .rf-empty .rf-btn--primary {
+    width: 100%;
+    height: 50px;
+  }
+
+  /* --- выпадашки превращаются в шторки --- */
+  .rf-veil {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: rgb(11 21 48 / 42%);
+    animation: rf-veil-in 0.2s ease;
+  }
+  .rf-pop--svc,
+  .rf-pop--cty,
+  .rf-pop--svcs,
+  .rf-sheet {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: auto;
+    max-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 -14px 44px rgb(11 21 48 / 24%);
+    animation: rf-sheet-up 0.26s cubic-bezier(0.32, 0.72, 0, 1);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .rf-sheet-head {
+    display: block;
+    position: relative;
+    flex: 0 0 auto;
+    padding: 18px 52px 12px 18px;
+    border-bottom: 1px solid var(--rf-line-2);
+  }
+  .rf-pop .rf-pop-head {
+    flex: 0 0 auto;
+  }
+  .rf-pop .rf-pop-search {
+    height: 44px;
+  }
+  .rf-pop .rf-pop-search input,
+  .rf-pop .rf-pop-input {
+    font-size: 16px;
+  }
+  .rf-pop .rf-pop-input {
+    height: 44px;
+  }
+  .rf-pop .rf-pop-list,
+  .rf-sheet .rf-pop-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: none;
+    padding: 6px 8px 12px;
+  }
+  .rf-pop .rf-pop-foot {
+    flex: 0 0 auto;
+  }
+  /* Строки шторок — от 44px, как требует спека по хитам */
+  .rf-opt,
+  .rf-sug {
+    min-height: 48px;
+    padding: 8px 12px;
+  }
+  .rf-opt-name,
+  .rf-sug-name {
+    font-size: 14.5px;
+  }
+  .rf-pop-chip {
+    height: 36px;
+    font-size: 13px;
+  }
+  /* Подсказки поиска остаются под полем: это не шторка */
+  .rf-pop--sug {
+    z-index: 70;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* --- подбор карты --- */
+  .rf-ai {
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+  .rf-ai-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .rf-ai-reset {
+    height: 36px;
+  }
+
+  /* На планшете карточка не должна растягивать метрики и кнопки на всю
+     ширину: держим их в человеческих размерах */
+  @media (min-width: 620px) {
+    .rf-m {
+      flex: 0 1 190px;
+    }
+    .rf-actions {
+      grid-template-columns: repeat(2, minmax(0, 200px));
+    }
+    .rf-exp-cta {
+      grid-template-columns: repeat(2, minmax(0, 220px));
+    }
+  }
+
+  /* Тост поднимаем над таб-баром */
+  .rf-toast {
+    left: 16px;
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom));
+    transform: none;
+    justify-content: center;
+    animation: none;
+  }
+}
+
+/* ---------- блок «Как оплатить … самостоятельно» ---------- */
+
+.sguide {
+  background: #fff;
+  border: 1px solid var(--rf-line, #e6eaf2);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgb(11 21 48 / 5%);
+  padding: 28px;
+  margin: 28px 0 0;
+}
+@media (min-width: 900px) {
+  .sguide {
+    padding: 32px 36px;
+  }
+}
+
+.sguide-head h2 {
+  font-size: clamp(21px, 2.6vw, 27px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.sguide-head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #64708a;
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+.sguide-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  background: #eaf0ff;
+  border-radius: 12px;
+}
+.sguide-price__lbl {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2660ff;
+}
+.sguide-price__val {
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 17px;
+  font-weight: 600;
+  color: #0b1530;
+}
+.sguide-price__note {
+  flex: 1 1 100%;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #64708a;
+}
+
+.sguide-steps {
+  list-style: none;
+  counter-reset: sg;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 760px) {
+  .sguide-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.sguide-steps li {
+  counter-increment: sg;
+  position: relative;
+  padding: 16px 18px 16px 56px;
+  border: 1px solid #eef1f7;
+  border-radius: 12px;
+  background: #f7f8fb;
+}
+.sguide-steps li::before {
+  content: counter(sg, decimal-leading-zero);
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #2660ff;
+  color: #fff;
+  font-family: var(--mono, "JetBrains Mono", monospace);
+  font-size: 12px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+}
+.sguide-steps h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.sguide-steps p {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1b2447;
+}
+
+.sguide-pitfalls {
+  margin-top: 22px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border-left: 3px solid #ff7a1a;
+  background: #fff1e5;
+}
+.sguide-pitfalls__title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+.sguide-pitfalls ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.sguide-pitfalls li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #1b2447;
+}
+.sguide-pitfalls li b {
+  display: block;
+  font-size: 13.5px;
+  color: #0b1530;
+}
+
+.sguide-foot {
+  margin: 18px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #9aa4b8;
+}
+.sguide-foot a {
+  color: #2660ff;
+  border-bottom: 1px solid rgb(38 96 255 / 30%);
+}
+.sguide-foot a:hover {
+  border-bottom-color: #2660ff;
+}

@@ -271,4 +271,4 @@ export const cardsCountLabel = cardsLabel;
 /** «21 сервис / 24 сервиса / 26 сервисов» — кнопка «Показать все N». */
 export const servicesCountLabel = servicesLabel;
 
-export { serviceSlug, servicesLabel };
+export { serviceSlug };
