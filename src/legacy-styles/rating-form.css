@@ -1093,6 +1093,28 @@
   background: var(--rf-bg);
 }
 
+.rf-footer-note {
+  margin-top: 24px;
+  padding: 20px 24px 0;
+  border-top: 1px solid var(--rf-line-2);
+  color: var(--rf-muted);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rf-footer-note .rf-verified-icon {
+  margin-left: 0;
+}
+
+@media (max-width: 899px) {
+  .rf-footer-note {
+    display: none;
+  }
+}
+
+
 /* ---------- подбор карты ---------- */
 
 .rf-ai {
