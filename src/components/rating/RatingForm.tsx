@@ -834,7 +834,8 @@ export default function RatingForm({
                 </div>
               </th>
               <th className="rf-th rf-col-promo"></th>
-              <th className="rf-th rf-col-actions"></th>
+              <th className="rf-th rf-col-actions" style={{ textAlign: 'right' }}></th>
+
             </tr>
           </thead>
           <tbody>

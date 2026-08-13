@@ -200,6 +200,7 @@
 .rf-th {
   background: var(--rf-bg);
   color: #64748B;
+
   font-size: 12px;
   font-weight: 600;
   text-transform: none;
