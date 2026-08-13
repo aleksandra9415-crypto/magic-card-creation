@@ -1119,11 +1119,11 @@ export default function RatingForm({
                   </Fragment>
                 );
               })
-
             )}
           </tbody>
         </table>
       </div>
+
 
 
       <div className="rf-legend">
