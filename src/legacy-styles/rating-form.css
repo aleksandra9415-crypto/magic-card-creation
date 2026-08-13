@@ -62,7 +62,8 @@
 .rf-panel {
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 16px;
+  border-radius: 12px;
+
   padding: 16px;
   box-shadow: 0 1px 2px rgb(11 21 48 / 5%);
   position: relative;
