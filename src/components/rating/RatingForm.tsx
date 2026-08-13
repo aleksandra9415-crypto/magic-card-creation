@@ -881,18 +881,20 @@ export default function RatingForm({
                 return (
                   <Fragment key={c.id}>
                     <tr
-                      className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
+                      className={`rf-tr${isTop ? " rf-tr-best" : ""}${aiHit ? " rf-row--ai" : ""}`}
                       onClick={() => {
                         setExpanded(exp ? null : c.id);
                         setPopRow(null);
                       }}
                     >
+                      {isTop && <div className="rf-best-badge">★ Лучшее предложение</div>}
+
                       <td className="rf-td rf-col-rank">
                         <div className="rf-num-cell">{i + 1}</div>
                       </td>
 
                       <td className="rf-td rf-col-service">
-                        <div className="rf-name-cell">
+                        <div className="rf-logo-box">
                           <span className="rf-logo" style={{ background: c.logo.bg }}>
                             {c.logo.txt}
                           </span>
@@ -901,33 +903,51 @@ export default function RatingForm({
                               {c.name}
                               {c.verified && <ShieldIcon className="rf-verified-icon" />}
                             </span>
-
                             <span className="rf-tag">{c.tag}</span>
                           </div>
                         </div>
                       </td>
 
+
                       <td className="rf-td rf-col-issue">
                         <div className="rf-val-box">
-                          <span className="rf-val">{c.issueTxt}</span>
+                          <span className="rf-val">{splitMetric(c.issueTxt)[0]}</span>
+                          {splitMetric(c.issueTxt)[1] && (
+                            <span className="rf-note">{splitMetric(c.issueTxt)[1]}</span>
+                          )}
                         </div>
+
                       </td>
 
                       <td className="rf-td rf-col-maint">
                         <div className="rf-val-box">
                           <span className="rf-val">{splitMetric(c.maintTxt)[0]}</span>
                           {splitMetric(c.maintTxt)[1] && (
-                            <span className="rf-m-note">{splitMetric(c.maintTxt)[1]}</span>
+                            <span className="rf-note">{splitMetric(c.maintTxt)[1]}</span>
                           )}
                         </div>
+
                       </td>
 
 
                       <td className="rf-td rf-col-comm">
                         <div className="rf-val-box">
-                          <span className="rf-val">{c.topupFee}</span>
+                          {c.name === "WantToPay" ? (
+                            <>
+                              <span className="rf-val">СБП 0%</span>
+                              <span className="rf-note">крипто 9%</span>
+                            </>
+                          ) : (
+                            <>
+                              <span className="rf-val">{splitMetric(c.topupFee)[0]}</span>
+                              {splitMetric(c.topupFee)[1] && (
+                                <span className="rf-note">{splitMetric(c.topupFee)[1]}</span>
+                              )}
+                            </>
+                          )}
                         </div>
                       </td>
+
 
                       <td className="rf-td rf-col-pay">
                         <div className="rf-svcs-cell">
@@ -1105,19 +1125,6 @@ export default function RatingForm({
         </table>
       </div>
 
-      {!isEmpty && sorted.length > COLLAPSED ? (
-        <div className="rf-showall">
-          <button
-            type="button"
-            className={showAll ? "rf-collapse" : ""}
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll
-              ? "Свернуть ↑"
-              : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
-          </button>
-        </div>
-      ) : null}
 
       <div className="rf-legend">
         <div className="rf-legend-item">
@@ -1129,6 +1136,23 @@ export default function RatingForm({
           <span className="rf-legend-txt">Есть промокод NHcard на выпуск</span>
         </div>
       </div>
+
+      <div className="rf-footer-sep" />
+
+      {!isEmpty && sorted.length > COLLAPSED ? (
+        <div style={{ textAlign: 'center' }}>
+          <button
+            type="button"
+            className="rf-show-all-btn"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll
+              ? "Свернуть ↑"
+              : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
+          </button>
+        </div>
+      ) : null}
+
 
 
       {/* ---- подбор карты ---- */}
