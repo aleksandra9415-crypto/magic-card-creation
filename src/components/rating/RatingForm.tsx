@@ -798,6 +798,7 @@ export default function RatingForm({
                 <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
                   Выпуск карты <span className="rf-arr">{arrow("issue")}</span>
                 </button>
+                <div className="rf-th-sep" />
                 <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
                 {tip === "issue" ? (
                   <span className="rf-tip" style={{ width: 240 }}>
@@ -810,6 +811,7 @@ export default function RatingForm({
                 <button type="button" className={sort.key === "maint" ? "on" : ""} onClick={() => togSort("maint")}>
                   Обслуживание <span className="rf-arr">{arrow("maint")}</span>
                 </button>
+                <div className="rf-th-sep" />
                 <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
                 {tip === "maint" ? (
                   <span className="rf-tip" style={{ width: 230 }}>
@@ -820,6 +822,7 @@ export default function RatingForm({
               </div>
               <div className="rf-th">
                 Комиссия
+                <div className="rf-th-sep" />
                 <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
                 {tip === "fee" ? (
                   <span className="rf-tip" style={{ width: 230 }}>
@@ -828,12 +831,13 @@ export default function RatingForm({
                   </span>
                 ) : null}
               </div>
-              <div>Оплачивает</div>
+              <div className="rf-th">Оплачивает</div>
               <div className="rf-th">
                 <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
                   Отзывы <span className="rf-arr">{arrow("reviews")}</span>
                 </button>
               </div>
+
               <div />
               <div />
             </div>
@@ -915,7 +919,7 @@ export default function RatingForm({
                       }}
                     >
                       <div>
-                        <span className={`rf-num${isTop ? " on" : ""}`}>{i + 1}</span>
+                        <span className="rf-num rf-num--plain">{i + 1}</span>
                       </div>
 
                       <div className="rf-name-cell">
@@ -926,26 +930,15 @@ export default function RatingForm({
                           <span className="rf-name">
                             {c.name}
                             {c.verified ? (
-                              <span
-                                className="rf-verified"
-                                onMouseEnter={() => setTip("v" + c.id)}
-                                onMouseLeave={() => setTip(null)}
-                              >
+                              <span className="rf-verified-icon" title="Сервис нами проверен">
                                 <ShieldIcon />
-                                Проверено
-                                {tip === "v" + c.id ? (
-                                  <span className="rf-tip" style={{ width: 250 }}>
-                                    Редакция реально выпустила карту, провела тестовый
-                                    платёж и проверила ответ поддержки. Обновляем раз в
-                                    квартал.
-                                  </span>
-                                ) : null}
                               </span>
                             ) : null}
                           </span>
                           <span className="rf-tag">{c.tag}</span>
                         </span>
                       </div>
+
 
                       <Metric
                         cls="rf-issue"
@@ -968,22 +961,19 @@ export default function RatingForm({
 
                       <div className="rf-svcs">
                         <span className="rf-svcs-lbl">Оплачивает</span>
-                        {c.services.slice(0, 4).map((s) => (
-                          <span key={s} className="rf-svc-ic" title={s}>
-                            {s.slice(0, 2)}
-                          </span>
-                        ))}
                         <button
                           type="button"
-                          className="rf-more"
+                          className="rf-more-btn"
                           onClick={(e) => {
                             e.stopPropagation();
                             setPopRow(pop ? null : c.id);
                             setPopq("");
                           }}
                         >
-                          +{Math.max(c.svcTotal - 4, 1)}
+                          <span className="rf-more-val">{c.svcTotal}</span>
+                          <span className="rf-more-lbl">сервиса</span>
                         </button>
+
 
                         {pop ? (
                           <>
