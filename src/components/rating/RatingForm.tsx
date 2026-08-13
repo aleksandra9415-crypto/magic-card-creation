@@ -150,7 +150,6 @@ export default function RatingForm({
   const [expanded, setExpanded] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
   const [tip, setTip] = useState<string | null>(null);
-  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [ai, setAi] = useState<{
     pay: string | null;
@@ -725,40 +724,70 @@ export default function RatingForm({
           </div>
         </div>
 
-        <div className="rf-panel-row" style={{ marginTop: '12px' }}>
+        <div className="rf-chips">
           {chips.map((c) => (
             <button
               key={c.label}
               type="button"
-              className={`rf-chip${c.active ? " active" : ""}`}
+              className={`rf-chip${c.active || c.pending ? " on" : ""}`}
               aria-pressed={c.active}
               onClick={c.on}
             >
               {c.label}
-              {c.pending ? <span className="rf-spin" style={{ marginLeft: '6px' }} /> : null}
+              {c.pending ? <span className="rf-spin" /> : null}
+              {c.mark && !c.pending ? <span className="rf-chip-x">✕</span> : null}
             </button>
           ))}
         </div>
       </div>
 
-      <div className="rf-summary">
-        <h2 style={{ fontSize: '18px', fontWeight: 700, margin: 0 }}>{summaryMain}</h2>
-        <span className="rf-dot">·</span>
-        <span style={{ fontSize: '14px', color: '#64748B' }}>{summaryCount}</span>
-        <span className="rf-dot">·</span>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', position: 'relative' }}>
-          <span style={{ fontSize: '14px', color: '#64748B' }}>сортировка: <strong style={{ color: '#0F172A' }}>{sortLabel}</strong></span>
-
-          <InfoIcon 
-            onMouseEnter={() => setActiveTooltip('sort')} 
-            onMouseLeave={() => setActiveTooltip(null)} 
-          />
-          {activeTooltip === 'sort' && (
-            <div className="rf-tip" style={{ display: 'block', bottom: '100%', left: '50%', transform: 'translateX(-50%)', marginBottom: '8px' }}>
-              <strong>Как мы считаем рейтинг:</strong> отзывы пользователей (40%), комиссии и тарифы (30%), скорость выпуска (15%), проверка редакцией (15%).
-            </div>
-          )}
-        </div>
+      {/* ---- панель состояния ---- */}
+      <div className="rf-state">
+        {nav ? (
+          <span className="rf-navchip">
+            {nav.label}
+            <button type="button" onClick={reset} title="Сбросить фильтр" aria-label="Сбросить фильтр">
+              ✕
+            </button>
+          </span>
+        ) : null}
+        {/* Без активного фильтра эта строка на мобильном не нужна: в прототипе
+            в панели состояния только счётчик и ссылка сортировки. */}
+        <span className={`rf-state-main${nav ? "" : " rf-state-main--idle"}`}>
+          {summaryMain}
+        </span>
+        <span className="rf-state-count">{summaryCount}</span>
+        <span className="rf-state-dot">·</span>
+        {/* На мобильном сортировка живёт в шторке: кликать по шапке таблицы
+            там негде. Тултип методики уезжает в ту же шторку. */}
+        {isMobile ? (
+          <button
+            type="button"
+            className="rf-state-sort rf-state-sort--btn"
+            onClick={() => setSheet("sort")}
+            aria-label={`Сортировка: ${SORT_LABELS[sort.key]}`}
+          >
+            <SortIcon />
+            <strong>{SORT_LABELS[sort.key]}</strong>
+          </button>
+        ) : (
+          <span className="rf-state-sort">
+            сортировка: <strong>{sortLabel}</strong>
+            <InfoDot onShow={() => setTip("method")} onHide={() => setTip(null)} />
+            {tip === "method" ? (
+              <span className="rf-tip" style={{ width: 300 }}>
+                <strong>Как мы считаем рейтинг:</strong> отзывы пользователей (40%),
+                комиссии и тарифы (30%), скорость выпуска (15%), проверка редакцией —
+                реальный выпуск и тестовый платёж (15%).
+              </span>
+            ) : null}
+          </span>
+        )}
+        {!noFilter ? (
+          <button type="button" className="rf-reset" onClick={reset}>
+            Сбросить всё ✕
+          </button>
+        ) : null}
       </div>
 
       <div className="rf-scroll">
@@ -776,15 +805,8 @@ export default function RatingForm({
                   >
                     Выпуск карты
                   </button>
-                  <div style={{ position: 'relative', display: 'flex' }}>
-                    <InfoIcon 
-                      onMouseEnter={() => setActiveTooltip('issue')} 
-                      onMouseLeave={() => setActiveTooltip(null)} 
-                    />
-                    {activeTooltip === 'issue' && (
-                      <div className="rf-tip" style={{ display: 'block' }}>Стоимость выпуска физической или виртуальной карты</div>
-                    )}
-                  </div>
+                  <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
+                  <span className={`rf-arr${sort.key === "issue" ? " on" : ""}`}>{arrow("issue")}</span>
                 </div>
               </th>
               <th className="rf-th rf-col-maint">
@@ -796,29 +818,14 @@ export default function RatingForm({
                   >
                     Обслуживание
                   </button>
-                  <div style={{ position: 'relative', display: 'flex' }}>
-                    <InfoIcon 
-                      onMouseEnter={() => setActiveTooltip('maint')} 
-                      onMouseLeave={() => setActiveTooltip(null)} 
-                    />
-                    {activeTooltip === 'maint' && (
-                      <div className="rf-tip" style={{ display: 'block' }}>Ежемесячная или ежегодная плата за пользование сервисом</div>
-                    )}
-                  </div>
+                  <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
+                  <span className={`rf-arr${sort.key === "maint" ? " on" : ""}`}>{arrow("maint")}</span>
                 </div>
               </th>
               <th className="rf-th rf-col-comm">
                 <div className="rf-th-inner">
                   Комиссия
-                  <div style={{ position: 'relative', display: 'flex' }}>
-                    <InfoIcon 
-                      onMouseEnter={() => setActiveTooltip('comm')} 
-                      onMouseLeave={() => setActiveTooltip(null)} 
-                    />
-                    {activeTooltip === 'comm' && (
-                      <div className="rf-tip" style={{ display: 'block' }}>Процент за транзакции или пополнение баланса</div>
-                    )}
-                  </div>
+                  <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
                 </div>
               </th>
               <th className="rf-th rf-col-pay">Оплачивает</th>
@@ -831,11 +838,11 @@ export default function RatingForm({
                   >
                     Рейтинг
                   </button>
+                  <span className={`rf-arr${sort.key === "reviews" ? " on" : ""}`}>{arrow("reviews")}</span>
                 </div>
               </th>
               <th className="rf-th rf-col-promo"></th>
-              <th className="rf-th rf-col-actions" style={{ textAlign: 'right' }}></th>
-
+              <th className="rf-th rf-col-actions"></th>
             </tr>
           </thead>
           <tbody>
@@ -883,20 +890,18 @@ export default function RatingForm({
                 return (
                   <Fragment key={c.id}>
                     <tr
-                      className={`rf-tr${isTop ? " rf-tr-best" : ""}${aiHit ? " rf-row--ai" : ""}`}
+                      className={`rf-row${isTop ? " rf-row--top" : ""}${aiHit ? " rf-row--ai" : ""}`}
                       onClick={() => {
                         setExpanded(exp ? null : c.id);
                         setPopRow(null);
                       }}
                     >
-                      <td className="rf-td rf-col-rank" style={{ position: 'relative' }}>
-                        {isTop && <div className="rf-best-badge">★ Лучшее предложение</div>}
-
+                      <td className="rf-td rf-col-rank">
                         <div className="rf-num-cell">{i + 1}</div>
                       </td>
 
                       <td className="rf-td rf-col-service">
-                        <div className="rf-logo-box">
+                        <div className="rf-name-cell">
                           <span className="rf-logo" style={{ background: c.logo.bg }}>
                             {c.logo.txt}
                           </span>
@@ -904,52 +909,34 @@ export default function RatingForm({
                             <span className="rf-name-link">
                               {c.name}
                               {c.verified && <ShieldIcon className="rf-verified-icon" />}
+
                             </span>
                             <span className="rf-tag">{c.tag}</span>
                           </div>
                         </div>
                       </td>
 
-
                       <td className="rf-td rf-col-issue">
                         <div className="rf-val-box">
-                          <span className="rf-val">{splitMetric(c.issueTxt)[0]}</span>
-                          {splitMetric(c.issueTxt)[1] && (
-                            <span className="rf-note">{splitMetric(c.issueTxt)[1]}</span>
-                          )}
+                          <span className="rf-val">{c.issueTxt}</span>
                         </div>
-
                       </td>
 
                       <td className="rf-td rf-col-maint">
                         <div className="rf-val-box">
                           <span className="rf-val">{splitMetric(c.maintTxt)[0]}</span>
                           {splitMetric(c.maintTxt)[1] && (
-                            <span className="rf-note">{splitMetric(c.maintTxt)[1]}</span>
+                            <span className="rf-m-note">{splitMetric(c.maintTxt)[1]}</span>
                           )}
                         </div>
-
                       </td>
 
 
                       <td className="rf-td rf-col-comm">
                         <div className="rf-val-box">
-                          {c.name === "WantToPay" ? (
-                            <>
-                              <span className="rf-val">СБП 0%</span>
-                              <span className="rf-note">крипто 9%</span>
-                            </>
-                          ) : (
-                            <>
-                              <span className="rf-val">{splitMetric(c.topupFee)[0]}</span>
-                              {splitMetric(c.topupFee)[1] && (
-                                <span className="rf-note">{splitMetric(c.topupFee)[1]}</span>
-                              )}
-                            </>
-                          )}
+                          <span className="rf-val">{c.topupFee}</span>
                         </div>
                       </td>
-
 
                       <td className="rf-td rf-col-pay">
                         <div className="rf-svcs-cell">
@@ -1121,12 +1108,25 @@ export default function RatingForm({
                   </Fragment>
                 );
               })
+
             )}
           </tbody>
         </table>
       </div>
 
-
+      {!isEmpty && sorted.length > COLLAPSED ? (
+        <div className="rf-showall">
+          <button
+            type="button"
+            className={showAll ? "rf-collapse" : ""}
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll
+              ? "Свернуть ↑"
+              : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
+          </button>
+        </div>
+      ) : null}
 
       <div className="rf-legend">
         <div className="rf-legend-item">
@@ -1138,24 +1138,6 @@ export default function RatingForm({
           <span className="rf-legend-txt">Есть промокод NHcard на выпуск</span>
         </div>
       </div>
-
-      <div className="rf-footer-sep" />
-
-      {!isEmpty && sorted.length > COLLAPSED ? (
-        <div style={{ textAlign: 'center' }}>
-          <button
-            type="button"
-            className="rf-show-all-btn"
-            onClick={() => setShowAll(!showAll)}
-          >
-            {showAll
-              ? "Свернуть ↑"
-              : `Показать все ${servicesCountLabel(sorted.length)} ↓`}
-          </button>
-        </div>
-      ) : null}
-
-
 
 
       {/* ---- подбор карты ---- */}
@@ -1406,34 +1388,6 @@ function SearchIcon() {
   );
 }
 
-function InfoIcon({
-  onMouseEnter,
-  onMouseLeave,
-}: {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-}) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      style={{ cursor: 'help', flexShrink: 0, marginLeft: '6px', color: '#94A3B8' }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 16v-4M12 8h.01" />
-    </svg>
-  );
-}
-
 function ChevronIcon({ className }: { className?: string }) {
   return (
     <svg 
@@ -1476,3 +1430,23 @@ function GiftIcon({ className }: { className?: string }) {
   );
 }
 
+function InfoDot({
+  onShow,
+  onHide,
+  small,
+}: {
+  onShow: () => void;
+  onHide: () => void;
+  small?: boolean;
+}) {
+  return (
+    <span
+      className={`rf-info${small ? " rf-info--sm" : ""}`}
+      onMouseEnter={onShow}
+      onMouseLeave={onHide}
+      aria-hidden="true"
+    >
+      i
+    </span>
+  );
+}
