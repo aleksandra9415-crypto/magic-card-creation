@@ -49,7 +49,7 @@ export default function ContextSection() {
     <section className="section" id="context">
       <div className="container">
         <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">Контекст 2026</span>
+          
           <h2 className="section__title--pro">
             Почему российские карты не работают и что приходит на замену
           </h2>
