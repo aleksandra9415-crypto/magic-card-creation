@@ -1439,7 +1439,7 @@ function ChevronIcon() {
 function ShieldIcon() {
   return (
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z" fill="#2660FF" />
+      <path d="M12 2L4 6v6c0 4.5 3.4 8.7 8 10 4.6-1.3 8-5.5 8-10V6l-8-4z" fill="#09314A" />
       <path
         d="M8 12l2.5 2.5L16 9"
         stroke="#fff"
