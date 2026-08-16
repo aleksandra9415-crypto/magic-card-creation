@@ -1739,7 +1739,7 @@ a.verdict__row:hover .verdict__go {
 }
 
 .lp-pc__col--n .lp-pc__t {
-  color: #e5484d;
+  color: var(--lp-orange);
 }
 
 .lp-pc__col ul {
