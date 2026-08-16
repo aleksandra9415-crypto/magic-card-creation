@@ -1137,19 +1137,13 @@
 
 .lp-eeat {
   display: grid;
-  gap: 20px;
+  gap: 32px;
   margin: 56px 0;
-  padding: 24px 20px;
-  border: 1px solid var(--lp-line);
-  border-radius: var(--lp-radius);
-  background: var(--lp-bg-2);
 }
 
 @media (min-width: 900px) {
   .lp-eeat {
-    grid-template-columns: 1.1fr 1fr;
-    gap: 40px;
-    padding: 28px 32px;
+    grid-template-columns: 1fr;
   }
 }
 
