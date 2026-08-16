@@ -1136,133 +1136,13 @@
 /* ============ E-E-A-T: авторы и обновления ============ */
 
 .lp-eeat {
-  display: grid;
-  gap: 20px;
   margin: 56px 0;
-  padding: 24px 20px;
-  border: 1px solid var(--lp-line);
-  border-radius: var(--lp-radius);
-  background: var(--lp-bg-2);
-}
-
-@media (min-width: 900px) {
-  .lp-eeat {
-    grid-template-columns: 1.1fr 1fr;
-    gap: 40px;
-    padding: 28px 32px;
-  }
-}
-
-.lp-eeat__title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  margin: 0 0 16px;
-}
-
-.lp-eeat__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--lp-green);
-  box-shadow: 0 0 0 3px rgba(14, 163, 114, 0.18);
-}
-
-.lp-author {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.lp-author:last-child {
-  margin-bottom: 0;
-}
-
-.lp-author__ava {
-  width: 42px;
-  height: 42px;
-  flex: none;
-  border-radius: 50%;
-  background: var(--lp-blue-50);
-  color: var(--lp-blue-600);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.lp-author__ava--fc {
-  background: var(--lp-green-50);
-  color: #0a7d59;
-}
-
-.lp-author__role {
-  display: inline-block;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--lp-blue);
-}
-
-.lp-author__role--fc {
-  color: #0a7d59;
-}
-
-.lp-author__name {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-.lp-author__meta {
-  font-size: 13.5px;
-  color: var(--lp-muted);
-  margin: 3px 0 0;
-}
-
-.lp-changelog {
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.lp-changelog li {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 10px;
-  font-size: 13.5px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--lp-line-2);
-}
-
-.lp-changelog li:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.lp-changelog time {
-  color: var(--lp-dim);
-  font-weight: 700;
-}
-
-.lp-changelog span {
-  color: var(--lp-muted);
 }
 
 /* ============ прозрачность ============ */
 
 .lp-transp {
   margin: 56px 0;
-  padding: 28px 20px;
-  border-radius: var(--lp-radius);
-  background: var(--lp-dark);
-  color: #fff;
 }
 
 @media (min-width: 900px) {
