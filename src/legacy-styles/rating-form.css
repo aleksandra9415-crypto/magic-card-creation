@@ -1442,7 +1442,7 @@
     position: relative;
     background: #fff;
     border: 1px solid var(--rf-line);
-    border-radius: 18px;
+    border-radius: 12px;
     margin-bottom: 12px;
     box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
   }
@@ -1653,7 +1653,7 @@
   }
   .rf-btn {
     height: 46px;
-    border-radius: 13px;
+    border-radius: 6px;
     font-size: 14px;
   }
   .rf-btn--toggle {
