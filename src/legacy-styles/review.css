@@ -132,11 +132,11 @@
         white-space: nowrap;
       }
       .btn-primary {
-        background: var(--blue);
+        background: var(--orange);
         color: #fff;
       }
       .btn-primary:hover {
-        background: var(--blue-600);
+        background: #D94E0D;
       }
       .btn-ghost {
         background: #fff;
