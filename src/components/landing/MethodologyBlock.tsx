@@ -37,22 +37,31 @@ export default function MethodologyBlock({
         ))}
       </div>
 
-      <div className="lp-formula">
-        <div className="lp-formula__title">{methodology.formulaTitle ?? "Формула итогового балла"}</div>
-        {methodology.criteria.map((c) => (
-          <div className="lp-formula__row" key={c.lbl}>
-            <div className="lp-formula__head">
-              <span className="lp-formula__lbl">{c.lbl}</span>
-              <span className="lp-formula__pct">{c.pct}%</span>
-            </div>
-            {/* Ширина считается от максимума, а не от 100%: иначе самый
-                весомый критерий занимает четверть шкалы и разница между
-                соседними позициями на глаз неразличима. */}
-            <span className="lp-formula__bar">
-              <span style={{ width: `${Math.round((c.pct / max) * 100)}%` }} />
-            </span>
+      <div className="formula-box">
+        <div className="dtree__q mb-24">{methodology.formulaTitle ?? "Формула итогового балла"}</div>
+        
+        <div className="formula-scale">
+          <div className="formula-scale__bar">
+            {methodology.criteria.map((c, i) => (
+              <div 
+                key={c.lbl} 
+                className={`formula-scale__segment segment-${i}`}
+                style={{ width: `${c.pct}%` }}
+              >
+                <span className="formula-scale__pct">{c.pct}%</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div className="formula-legend">
+          {methodology.criteria.map((c, i) => (
+            <div key={c.lbl} className="formula-legend__item">
+              <span className={`formula-legend__dot segment-${i}`}></span>
+              <span className="formula-legend__text">{c.lbl}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
