@@ -2318,17 +2318,14 @@
         font-weight: 700;
         color: var(--muted);
         flex-shrink: 0;
-        width: 40px;
+        width: 72px;
+        white-space: nowrap;
       }
 
       .changelog-text {
         color: var(--ink-2);
-      }
-
-        font-family: var(--font-body);
-        font-size: 11px;
-        color: var(--muted);
-        padding-top: 1px;
+        flex: 1;
+        min-width: 0;
       }
 
       /* ============ Old Transparency strip (Removed) ============ */
