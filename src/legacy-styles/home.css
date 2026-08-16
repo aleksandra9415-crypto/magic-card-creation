@@ -1386,7 +1386,7 @@
         font-size: 13px;
         text-transform: uppercase;
         letter-spacing: 0.06em;
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.5);
         margin: 0 0 14px;
         font-weight: 700;
       }
@@ -1397,14 +1397,14 @@
         display: grid;
         gap: 10px;
         font-size: 14px;
-        color: var(--ink-2);
+        color: rgba(255, 255, 255, 0.85);
       }
       .footer ul a:hover {
         color: var(--blue);
       }
       .footer__about {
         font-size: 14px;
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.6);
         margin: 16px 0 0;
         max-width: 36ch;
       }
@@ -1416,7 +1416,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 12px;
-        color: var(--muted);
+        color: rgba(255, 255, 255, 0.5);
         font-size: 13px;
       }
 
