@@ -1528,7 +1528,8 @@
         line-height: 1.2;
       }
       .coll__list {
-        display: block;
+        display: block !important;
+        clear: both;
         font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
