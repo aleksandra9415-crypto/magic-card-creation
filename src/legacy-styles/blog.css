@@ -197,7 +197,22 @@
   .blog-post-block ul {
     color: var(--muted);
     margin: 0;
-    padding-left: 22px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .blog-post-block li {
+    position: relative;
+    padding-left: 26px;
+  }
+
+  .blog-post-block li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--blue);
+    font-weight: 700;
   }
 
   .blog-post-block li + li {
