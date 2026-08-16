@@ -2463,11 +2463,10 @@
         box-shadow: var(--shadow-sm);
       }
       .formula-box__title-main {
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--ink);
+        display: none;
+      }
+      .mb-24 {
         margin-bottom: 24px;
-        text-align: left;
       }
       .formula-scale {
         margin-bottom: 32px;
@@ -2509,9 +2508,9 @@
         padding-top: 24px;
         border-top: 1px solid var(--line-2);
       }
-      @media (min-width: 768px) {
+      @media (min-width: 992px) {
         .formula-legend {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
       }
       .formula-legend__item {
@@ -2525,10 +2524,11 @@
         border-radius: 3px;
       }
       .formula-legend__text {
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.4;
-        color: var(--ink-2);
-        font-weight: 500;
+        color: var(--ink);
+        font-weight: 600;
+        letter-spacing: -0.01em;
       }
       .formula-legend__text {
         font-size: 13.5px;
