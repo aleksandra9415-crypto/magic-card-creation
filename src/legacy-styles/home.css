@@ -2218,7 +2218,7 @@
       .expert-card__img-wrapper {
         width: 120px;
         height: 160px;
-        border-radius: 14px;
+        border-radius: 8px;
         overflow: hidden;
         flex-shrink: 0;
       }
