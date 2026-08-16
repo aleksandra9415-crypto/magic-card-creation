@@ -61,12 +61,11 @@ export default function AiAssistantSection() {
   };
 
   return (
-    <section className="section" id="ai-assistant">
+    <section className="section section--compact" id="ai-assistant">
       <div className="container">
-        <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">AI-помощник · подбор за 30 секунд</span>
+        <div className="section__head">
           <h2 className="section__title--pro">
-            Спросите AI, какая карта вам подойдёт
+            Спросите AI, какая карта подойдёт — <span className="text-orange">подбор за 30 секунд</span>
           </h2>
           <p className="section__sub--pro">
             Опишите, что хотите оплачивать — помощник сравнит {CARDS_TOTAL}{" "}
