@@ -1534,16 +1534,16 @@
       }
       .coll__list {
         display: block !important;
-        clear: both;
+        width: 100% !important;
         font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
-        margin: 4px 0 14px;
+        margin: 4px 0 14px !important;
         text-wrap: pretty;
         overflow: visible;
-        width: 100%;
         position: relative;
         z-index: 1;
+        clear: both !important;
       }
       .coll__foot {
         display: flex;
