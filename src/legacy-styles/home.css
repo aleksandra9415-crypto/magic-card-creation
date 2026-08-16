@@ -1515,6 +1515,7 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
+        gap: 0 !important;
       }
       .coll__cat {
         font-size: 11px;
@@ -1530,7 +1531,7 @@
         letter-spacing: -0.015em;
         margin: 4px 0 6px !important;
         line-height: 1.2;
-        width: 100%;
+        width: 100% !important;
       }
       .coll__list {
         display: block !important;
