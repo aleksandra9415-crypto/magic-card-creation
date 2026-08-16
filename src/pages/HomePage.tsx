@@ -255,6 +255,7 @@ export default function HomePage() {
         <TrustStrip />
         <ServicesSection />
         <CollectionsSection />
+        <AiAssistantSection />
         <CountriesSection />
         <BlogSection />
         <EeatStrip />
@@ -263,9 +264,6 @@ export default function HomePage() {
         <DecisionTreeSection />
         <MethodologySection />
         <CalculatorSection />
-        {/* В референсе AI-подбор живёт внутри виджета рейтинга; пока виджет не
-            перенесён, держим секцию здесь, чтобы не терять функциональность. */}
-        <AiAssistantSection />
         <PMethodsSection />
         <HowToSection />
         <CtaBlock />
