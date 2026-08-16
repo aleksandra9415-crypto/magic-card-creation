@@ -17,7 +17,7 @@ export default function MethodologySection() {
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Методология</span>
-          <h2 className="section__title--pro">Как мы строим рейтинг 2026</h2>
+          <h2 className="section__title--pro">Как мы строим <span className="text-orange">рейтинг 2026</span></h2>
           <p className="section__sub--pro">
             Не «по личным ощущениям». Формализованные веса, реальные тесты,
             публичные источники. Пересчитываем раз в месяц.
