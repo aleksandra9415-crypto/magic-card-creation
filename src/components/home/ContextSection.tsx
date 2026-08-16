@@ -4,7 +4,7 @@
 function Tips({
   items,
 }: {
-  items: { tone: "bad" | "good" | "hint"; b: string; text: string }[];
+  items: { tone: "bad" | "good" | "hint" | "accent"; b: string; text: string }[];
 }) {
   return (
     <div className="ctx-tips">
@@ -25,7 +25,7 @@ const BLOCKED_TIPS = [
     text: "Карты Тинькофф, Сбера, Альфы, ВТБ за рубежом. МИР на Netflix или ChatGPT. UnionPay от российских банков — почти везде.",
   },
   {
-    tone: "good" as const,
+    tone: "accent" as const,
     b: "Что работает",
     text: "Зарубежные виртуальные карты Visa/Mastercard финтехов Армении, Казахстана, Турции, Грузии. USDT для разовых платежей.",
   },
@@ -33,7 +33,7 @@ const BLOCKED_TIPS = [
 
 const WHAT_TIPS = [
   {
-    tone: "good" as const,
+    tone: "accent" as const,
     b: "Что оплачивает",
     text: "ChatGPT, Claude, Midjourney, Netflix, Spotify, App Store, Google Play, Steam, PSN, Booking, Airbnb, Uber, Adobe, Figma, Notion, Amazon, eBay.",
   },

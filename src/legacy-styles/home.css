@@ -2374,6 +2374,7 @@
         color: var(--blue);
         display: inline-block;
         margin-bottom: 10px;
+        border-radius: 6px; /* Reduced radius */
       }
       .ctx-tips {
         display: grid;
@@ -2390,12 +2391,16 @@
         background: var(--line-2);
       }
       .ctx-tip--bad {
-        border-color: var(--red);
-        background: #fff1f2;
+        border-color: var(--orange); /* Red to Orange */
+        background: #fff5f0;
+      }
+      .ctx-tip--accent {
+        border-color: #56afb1; /* Green to Turquoise */
+        background: #f0fafa;
       }
       .ctx-tip--good {
-        border-color: var(--green);
-        background: #e9f8f2;
+        border-color: #56afb1; /* Green to Turquoise */
+        background: #f0fafa;
       }
       .ctx-tip--hint {
         border-color: var(--orange);
