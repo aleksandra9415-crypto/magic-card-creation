@@ -32,7 +32,7 @@ export default function TransparencyBlock({
       </div>
 
       <p className="transp-card__bottom">
-        Партнёрские ссылки помечены <code className="transp-card__code">rel="sponsored"</code>. Они не
+        Партнёрские ссылки помечены <code className="transp-card__code">от спонсора</code>. Они не
         влияют на позицию в рейтинге: место в топе не продаётся, порядок считает
         формула выше.
       </p>
