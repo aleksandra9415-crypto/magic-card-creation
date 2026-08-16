@@ -1,14 +1,5 @@
 import { EEAT_AUTHORS } from "@/data/home";
-import type { ChangelogTag, Editorial } from "@/data/landing/types";
-
-const CHANGELOG_TAG_LABEL: Record<ChangelogTag, string> = {
-  price: "Тарифы",
-  new: "Новое",
-  check: "Перепроверка",
-  list: "Состав",
-  content: "Контент",
-  score: "Оценка",
-};
+import type { Editorial } from "@/data/landing/types";
 
 /* Блоки 1 и 2 нижней части ТЗ: кто составляет рейтинг и что обновилось.
    Это два разных вопроса читателя — «кому верить» и «насколько свежо», —
