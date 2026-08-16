@@ -1,0 +1,133 @@
+
+.formula-box {
+  background: var(--lp-bg-2);
+  border: 1px solid var(--lp-line);
+  border-radius: var(--lp-radius);
+  padding: 32px;
+  margin-top: 40px;
+}
+
+.dtree__q {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--lp-blue);
+  margin-bottom: 24px;
+}
+
+.formula-scale {
+  margin-bottom: 32px;
+}
+
+.formula-scale__bar {
+  display: flex;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lp-bg);
+}
+
+.formula-scale__segment {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.formula-scale__segment:hover {
+  transform: scaleY(1.05);
+  z-index: 2;
+}
+
+.formula-scale__segment.segment-0 { background: #09314a; }
+.formula-scale__segment.segment-1 { background: #1a4d6e; }
+.formula-scale__segment.segment-2 { background: #2b6a92; }
+.formula-scale__segment.segment-3 { background: #3c87b6; }
+.formula-scale__segment.segment-4 { background: #4da4da; }
+.formula-scale__segment.segment-5 { background: #5ec1ff; }
+
+.formula-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .formula-legend {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.formula-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.formula-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.formula-legend__dot.segment-0 { background: #09314a; }
+.formula-legend__dot.segment-1 { background: #1a4d6e; }
+.formula-legend__dot.segment-2 { background: #2b6a92; }
+.formula-legend__dot.segment-3 { background: #3c87b6; }
+.formula-legend__dot.segment-4 { background: #4da4da; }
+.formula-legend__dot.segment-5 { background: #5ec1ff; }
+
+.formula-legend__text {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--lp-ink-2);
+}
+
+.lp-method__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .lp-method__steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lp-method__step {
+  background: var(--lp-bg-2);
+  border: 1px solid var(--lp-line);
+  border-radius: var(--lp-radius);
+  padding: 24px;
+}
+
+.lp-method__stepn {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--lp-orange);
+  margin-bottom: 12px;
+}
+
+.lp-method__step h4 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.lp-method__step p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--lp-muted);
+  line-height: 1.5;
+}
