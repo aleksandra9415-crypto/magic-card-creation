@@ -337,8 +337,8 @@
         font-weight: 600;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        color: var(--blue);
-        background: var(--blue-50);
+        color: var(--ink);
+        background: var(--teal-soft);
         padding: 6px 12px;
         border-radius: 999px;
       }
