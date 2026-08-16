@@ -71,7 +71,8 @@ export default function PMethodsSection() {
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">4 способа пополнения</span>
           <h2 className="section__title--pro">
-            Как закидывать деньги на зарубежную карту
+            Как закидывать деньги
+            <br /> на зарубежную карту
           </h2>
           <p className="section__sub--pro">
             Большая часть переплат — это комиссия пополнения. Сравните каналы,
