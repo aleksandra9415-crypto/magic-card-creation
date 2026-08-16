@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { PMETHODS, type PMethod } from "@/data/home";
 import sbpIconAsset from "@/assets/sbp-partner-icon-new.png.asset.json";
+import usdtIconAsset from "@/assets/usdt-icon.png.asset.json";
+
 
 const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
@@ -14,38 +16,41 @@ const ICONS: Record<PMethod["variant"], ReactNode> = {
     </div>
   ),
   crypto: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M8 8h5a2 2 0 010 4H8m0 0h5.5a2 2 0 010 4H8m0-8v8"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
+    <div className="pmethod__icon-wrapper">
+      <img 
+        src={usdtIconAsset.url} 
+        alt="" 
+        className="pmethod__icon-img"
+        aria-hidden="true" 
       />
-    </svg>
+    </div>
   ),
   swift: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path
-        d="M3 11h16M3 11l5-5M3 11l5 5M19 11l-5-5M19 11l-5 5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <div className="pmethod__icon-wrapper">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path
+          d="M3 11h16M3 11l5-5M3 11l5 5M19 11l-5-5M19 11l-5 5"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   ),
   p2p: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="7" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="15" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M2 18c0-2.8 2.2-5 5-5s5 2.2 5 5M10 18c0-2.8 2.2-5 5-5s5 2.2 5 5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
+    <div className="pmethod__icon-wrapper">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <circle cx="7" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="15" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
+        <path
+          d="M2 18c0-2.8 2.2-5 5-5s5 2.2 5 5M10 18c0-2.8 2.2-5 5-5s5 2.2 5 5"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   ),
 };
 

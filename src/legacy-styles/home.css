@@ -2903,10 +2903,10 @@
         height: 100%;
         object-fit: cover;
       }
-      .pmethod--sbp .pmethod__icon,
-      .pmethod--crypto .pmethod__icon,
-      .pmethod--swift .pmethod__icon,
-      .pmethod--p2p .pmethod__icon {
+      .pmethod--sbp .pmethod__icon-wrapper,
+      .pmethod--crypto .pmethod__icon-wrapper,
+      .pmethod--swift .pmethod__icon-wrapper,
+      .pmethod--p2p .pmethod__icon-wrapper {
         background: var(--blue-50);
         color: var(--blue);
       }
