@@ -3140,6 +3140,8 @@
 @keyframes aidot { 0%, 100% { opacity: 0.25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
 
 .page-home {
+& {
+
 /* ============ Hub tiles / guides / mini-strip (redesign v2) ============ */
 .hub-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 900px) { .hub-grid { grid-template-columns: repeat(4, 1fr); } }
