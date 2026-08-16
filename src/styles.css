@@ -230,14 +230,14 @@
 }
 
 .logo__img {
-  height: 32px;
+  height: 28px;
   width: auto;
   display: block;
 }
 
 @media (min-width: 768px) {
   .logo__img {
-    height: 40px;
+    height: 36px;
   }
 }
 

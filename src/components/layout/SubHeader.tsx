@@ -1,5 +1,5 @@
 import Link from "@/components/shared/Link";
-import logoAsset from "@/assets/logo-nhcard-v2.svg.asset.json";
+import logoAsset from "@/assets/nhcard-logo.svg.asset.json";
 
 /**
  * Компактная шапка внутренних страниц (рейтинг, обзор карты).
