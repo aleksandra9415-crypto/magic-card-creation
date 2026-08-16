@@ -93,14 +93,14 @@ const GLYPHS: Record<Country["id"], ReactNode> = {
 
 function CountryHero({ country }: { country: Country }) {
   const images: Record<string, string> = {
-    kz: "https://images.unsplash.com/photo-1558588942-ad3332be7bd5?auto=format&fit=crop&q=80&w=800", // Kazakhstan (Astana/Nature)
-    am: "https://images.unsplash.com/photo-1528646345828-5695e263004d?auto=format&fit=crop&q=80&w=800", // Armenia (Ararat)
-    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?auto=format&fit=crop&q=80&w=800", // Georgia (Tbilisi)
-    tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=800", // Turkey (Istanbul)
-    ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", // UAE (Dubai)
-    eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800", // Europe (Old town)
-    us: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=800", // USA (NYC)
-    th: "https://images.unsplash.com/photo-1528181304800-2f173c7c33a0?auto=format&fit=crop&q=80&w=800", // Thailand (Island)
+    kz: "https://images.unsplash.com/photo-1589133994348-18507727a810?auto=format&fit=crop&q=80&w=800", // Kazakhstan
+    am: "https://images.unsplash.com/photo-1628189674066-51f67f082e1e?auto=format&fit=crop&q=80&w=800", // Armenia
+    ge: "https://images.unsplash.com/photo-1549410196-6466f27be1f0?auto=format&fit=crop&q=80&w=800", // Georgia
+    tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=800", // Turkey
+    ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", // UAE
+    eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800", // Europe
+    us: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=800", // USA
+    th: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=800", // Thailand
   };
 
   return (
