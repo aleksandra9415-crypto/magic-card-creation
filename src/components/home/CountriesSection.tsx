@@ -175,7 +175,7 @@ export default function CountriesSection() {
       <div className="container">
         <div className="section__head">
           <h2 className="section__title">Лучшие карты для{"\u00a0"}путешествий</h2>
-          <p className="section__sub">
+          <p className="section__sub" style={{ maxWidth: 'none' }}>
             Ниже мы подобрали лучшие карты для каждой страны, протестировали
             их{"\u00a0"}в{"\u00a0"}реальных поездках и{"\u00a0"}собрали
             максимально полный гайд по{"\u00a0"}оплате: какие карты принимают,
