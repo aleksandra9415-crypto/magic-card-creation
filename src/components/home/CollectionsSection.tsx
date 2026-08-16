@@ -45,7 +45,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Cpu size={28} strokeWidth={2.5} />
+          <Cpu size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -57,7 +57,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Airplay size={28} strokeWidth={2.5} />
+          <Airplay size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -69,7 +69,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Target size={28} strokeWidth={2.5} />
+          <Target size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -81,7 +81,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Gamepad size={28} strokeWidth={2.5} />
+          <Gamepad size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -93,7 +93,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <ShoppingBag size={28} strokeWidth={2.5} />
+          <ShoppingBag size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -105,7 +105,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Globe size={28} strokeWidth={2.5} />
+          <Globe size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -117,7 +117,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Layout size={28} strokeWidth={2.5} />
+          <Layout size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -129,7 +129,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Users size={28} strokeWidth={2.5} />
+          <Users size={20} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -139,7 +139,7 @@ const COLLS: Coll[] = [
 
 export default function CollectionsSection() {
   return (
-    <section className="section" id="collections">
+    <section className="section section--compact" id="collections">
       <div className="container">
         <div className="section__head">
           <h2 className="section__title">
