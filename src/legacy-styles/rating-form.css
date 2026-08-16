@@ -1450,7 +1450,7 @@
     margin-top: 18px;
     background: #fff;
     border-color: #bfd2ff;
-    box-shadow: 0 10px 26px rgb(38 96 255 / 12%);
+    box-shadow: none;
   }
   .rf-row--ai {
     background: #fff;
@@ -1478,7 +1478,7 @@
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    box-shadow: 0 4px 10px rgb(38 96 255 / 28%);
+    box-shadow: none;
   }
   .rf-badge--ai {
     background: var(--rf-orange-50);

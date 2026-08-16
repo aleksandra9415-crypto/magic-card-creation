@@ -251,7 +251,7 @@
         font-weight: 800;
         font-size: 22px;
         letter-spacing: -0.02em;
-        box-shadow: 0 10px 26px rgba(38, 96, 255, 0.26);
+        box-shadow: none;
       }
       .rv-place {
         display: inline-flex;
@@ -401,7 +401,7 @@
       }
       .plan.pop {
         border-color: var(--orange);
-        box-shadow: 0 10px 26px rgba(255, 122, 26, 0.1);
+        box-shadow: none;
       }
       .plan-badge {
         align-self: flex-start;
