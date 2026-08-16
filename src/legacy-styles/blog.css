@@ -114,13 +114,14 @@
 
   .blog-card h2 {
     display: -webkit-box;
-    font-size: 22px;
-    line-height: 1.2;
+    font-size: 18px;
+    line-height: 1.25;
     margin: 8px 0 10px;
-    min-height: 3.6em;
+    min-height: 3.75em;
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    font-weight: 700;
   }
 
   .blog-card p {
