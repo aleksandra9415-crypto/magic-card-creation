@@ -3522,12 +3522,24 @@
   }
   .coll__title { font-size: 15.5px; margin: 0 0 4px; }
   .coll__list { font-size: 12px; margin: 0; -webkit-line-clamp: 2; }
+
+  /* E-E-A-T Mobile fixes */
+  .transp-card { padding: 24px 20px; }
+  .transp-card__badge { position: relative; top: 0; right: 0; display: inline-block; margin-bottom: 12px; }
+  .transp-card__grid { flex-direction: column; align-items: stretch; gap: 16px; text-align: left; }
+  .transp-card__divider { display: none; }
+  .eeat-experts__grid { grid-template-columns: 1fr; gap: 12px; }
+  .expert-card { padding: 12px; }
+  .expert-card__img-wrapper { width: 60px; height: 80px; }
+  .expert-card__name { font-size: 15px; }
+  .expert-card__meta { font-size: 11px; }
 }
 
 /* ---- страны: сгруппированные списки-строки ---- */
 .ctr-list { display: none; }
 
 @media (max-width: 559px) {
+
   .countries-grid { display: none; }
   .ctr-list { display: block; }
   .ctr-list__grp {
