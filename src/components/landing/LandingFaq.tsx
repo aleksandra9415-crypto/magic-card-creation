@@ -16,7 +16,7 @@ export default function LandingFaq({
   sub?: string;
 }) {
   return (
-    <section className="lp-faq section" id="faq" aria-labelledby="faq-title">
+    <section className="lp-faq" id="faq" aria-labelledby="faq-title">
       <div className="section__head section__head--centered">
         <h2 id="faq-title" className="section__title">
           {title ?? `Отвечаем на вопросы об оплате ${subjectIn}`}
