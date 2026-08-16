@@ -247,6 +247,15 @@
   max-width: 140px;
 }
 
+.lp-hero__stats > * > * + * {
+  /* placeholder to keep specificity order */
+}
+
+.lp-hero__stats.lp-transp__grid--3col > * + * {
+  border-left: 1px solid var(--lp-line);
+  padding-left: 24px;
+}
+
 .lp-transp__grid--3col {
   grid-template-columns: repeat(3, 1fr) !important;
 }
