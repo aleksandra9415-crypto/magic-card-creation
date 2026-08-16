@@ -609,7 +609,7 @@
       .trust__divider {
         width: 1px;
         height: 20px;
-        background: #e2e8f0;
+        background: var(--line);
         margin: 0 16px;
         flex-shrink: 0;
       }
