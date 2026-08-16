@@ -1,3 +1,4 @@
+
 import { METHOD_STEPS, FORMULA_ROWS } from "@/data/home";
 
 function MethodStep({ n, title, text }: (typeof METHOD_STEPS)[number]) {
@@ -6,18 +7,6 @@ function MethodStep({ n, title, text }: (typeof METHOD_STEPS)[number]) {
       <span className="method-step__n">{n}</span>
       <h4>{title}</h4>
       <p>{text}</p>
-    </div>
-  );
-}
-
-function FormulaRow({ lbl, pct }: (typeof FORMULA_ROWS)[number]) {
-  return (
-    <div className="formula__row">
-      <span className="formula__lbl">{lbl}</span>
-      <span className="formula__bar">
-        <span style={{ width: `${pct}%` }}></span>
-      </span>
-      <span className="formula__pct">{pct}%</span>
     </div>
   );
 }
@@ -42,11 +31,33 @@ export default function MethodologySection() {
             ))}
           </div>
 
-          <div className="formula">
-            <div className="formula__title">Формула итогового балла</div>
-            {FORMULA_ROWS.map((r) => (
-              <FormulaRow key={r.lbl} {...r} />
-            ))}
+          <div className="formula-box">
+            <div className="formula-box__title">Формула итогового балла</div>
+            
+            <div className="formula-scale">
+              <div className="formula-scale__bar">
+                {FORMULA_ROWS.map((row, i) => (
+                  <div 
+                    key={row.lbl} 
+                    className={`formula-scale__segment segment-${i}`}
+                    style={{ width: `${row.pct}%` }}
+                  >
+                    <span className="formula-scale__pct">{row.pct}%</span>
+                    <div className="formula-scale__line"></div>
+                    <div className="formula-scale__ref">{i + 1}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="formula-legend">
+              {FORMULA_ROWS.map((row, i) => (
+                <div key={row.lbl} className="formula-legend__item">
+                  <span className="formula-legend__num">{i + 1}</span>
+                  <span className="formula-legend__text">{row.lbl}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
