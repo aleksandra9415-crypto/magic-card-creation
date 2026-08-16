@@ -5,236 +5,107 @@ const catHref = (category: string) =>
   `/cards?category=${encodeURIComponent(category)}`;
 
 /** Плитки-хиро подборок — 1:1 из референса */
-function Tiles({ tiles }: { tiles: { label: string; cls: string }[] }) {
+function CategoryHero({ imageUrl, overlay = true, children }: { imageUrl: string; overlay?: boolean; children?: ReactNode }) {
   return (
-    <div className="coll-tiles">
-      {tiles.map((t) => (
-        <div key={t.cls + t.label} className={`coll-tile ${t.cls}`}>
-          {t.label}
-        </div>
-      ))}
-    </div>
+    <>
+      <img src={imageUrl} alt="" className="coll__img" loading="lazy" />
+      {overlay && <div className="coll__overlay" />}
+      <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {children}
+      </div>
+    </>
   );
 }
-
-type Coll = {
-  href: string;
-  title: string;
-  list: string;
-  heroClass?: string;
-  heroStyle?: CSSProperties;
-  hero: ReactNode;
-};
 
 const COLLS: Coll[] = [
   {
     href: catHref("Нейросети"),
     title: "Нейросети",
     list: "ChatGPT · Claude · Midjourney · Gemini · Cursor · Suno · Sora",
-    heroClass: "coll__hero--ai",
     hero: (
-      <Tiles
-        tiles={[
-          { label: "ChatGPT", cls: "coll-tile--green coll-tile--wide" },
-          { label: "Claude", cls: "coll-tile--orange" },
-          { label: "Perplexity", cls: "coll-tile--ink" },
-          { label: "Higgsfield", cls: "coll-tile--purple" },
-          { label: "Gemini", cls: "coll-tile--blue" },
-        ]}
-      />
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800">
+        <div style={{ background: "rgba(255,255,255,0.9)", padding: "8px 16px", borderRadius: 8, fontWeight: 800, fontSize: 14 }}>ChatGPT</div>
+      </CategoryHero>
     ),
   },
   {
     href: catHref("Стриминг и медиа"),
     title: "Стриминг и медиа",
     list: "Netflix · Spotify · YouTube Premium · Apple ID · Google Play · HBO",
-    heroClass: "coll__hero--media",
     hero: (
-      <Tiles
-        tiles={[
-          { label: "Netflix", cls: "coll-tile--red coll-tile--wide" },
-          { label: "♪", cls: "coll-tile--green" },
-          { label: "Disney+", cls: "coll-tile--ink" },
-          { label: "HBO", cls: "coll-tile--dark" },
-          { label: "▶", cls: "coll-tile--red" },
-        ]}
-      />
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800">
+        <div style={{ color: "#fff", fontSize: 40 }}>▶</div>
+      </CategoryHero>
     ),
   },
   {
     href: catHref("Реклама и маркетинг"),
     title: "Реклама и финансы",
     list: "Google Ads · Facebook Ads · TikTok Ads · PayPal",
-    heroClass: "coll__hero--ads",
     hero: (
-      <>
-        <svg
-          className="bg-pattern"
-          viewBox="0 0 400 225"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="collAdsG" x1="0" x2="1">
-              <stop offset="0" stopColor="#2660FF" />
-              <stop offset="1" stopColor="#0EA372" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 180 C 60 120 120 200 200 140 S 340 80 400 100 L 400 225 L 0 225 Z"
-            fill="url(#collAdsG)"
-            opacity=".25"
-          />
-          <path
-            d="M0 200 C 80 160 140 220 220 170 S 340 130 400 150 L 400 225 L 0 225 Z"
-            fill="#2660FF"
-            opacity=".18"
-          />
-        </svg>
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            display: "flex",
-            gap: 10,
-            alignItems: "flex-end",
-            padding: 14,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <div style={{ background: "#2660FF", width: "18%", borderRadius: "4px 4px 0 0", height: "55%" }} />
-          <div style={{ background: "#FF7A1A", width: "18%", borderRadius: "4px 4px 0 0", height: "75%" }} />
-          <div style={{ background: "#0B1530", width: "18%", borderRadius: "4px 4px 0 0", height: "40%" }} />
-          <div style={{ background: "#0EA372", width: "18%", borderRadius: "4px 4px 0 0", height: "85%" }} />
-          <div style={{ background: "#6E55FF", width: "18%", borderRadius: "4px 4px 0 0", height: "60%" }} />
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
+        <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: "40%" }}>
+          <div style={{ background: "#2660FF", width: 12, height: "60%", borderRadius: 2 }} />
+          <div style={{ background: "#FF7A1A", width: 12, height: "90%", borderRadius: 2 }} />
+          <div style={{ background: "#0EA372", width: 12, height: "75%", borderRadius: 2 }} />
         </div>
-      </>
+      </CategoryHero>
     ),
   },
   {
     href: catHref("Игры и сторы"),
     title: "Игры и сторы",
     list: "Steam · PlayStation · Xbox · Nintendo · Epic Games · Roblox · Genshin",
-    heroClass: "coll__hero--games",
     hero: (
-      <>
-        <svg
-          className="bg-pattern"
-          viewBox="0 0 400 225"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <circle cx="80" cy="60" r="40" fill="#FF7A1A" opacity=".4" />
-          <circle cx="320" cy="170" r="60" fill="#2660FF" opacity=".5" />
-          <circle cx="200" cy="120" r="20" fill="#fff" opacity=".15" />
-        </svg>
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            display: "flex",
-            gap: 10,
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 14,
-          }}
-        >
-          <div style={{ background: "#171a21", color: "#66c0f4", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13, letterSpacing: "-.02em" }}>STEAM</div>
-          <div style={{ background: "#000", color: "#fff", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13 }}>EPIC</div>
-          <div style={{ background: "#003791", color: "#fff", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13 }}>PS</div>
-          <div style={{ background: "#107C10", color: "#fff", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13 }}>XBOX</div>
-        </div>
-      </>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800">
+        <div style={{ background: "#171a21", color: "#66c0f4", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13 }}>STEAM</div>
+      </CategoryHero>
     ),
   },
   {
     href: catHref("Маркетплейсы"),
     title: "Шопинг",
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
-    heroClass: "coll__hero--shop",
     hero: (
-      <div style={{ position: "relative", display: "flex", gap: 14, alignItems: "center" }}>
-        <div style={{ background: "#fff", borderRadius: 12, padding: "12px 16px", boxShadow: "0 8px 20px rgba(11,21,48,.1)", fontWeight: 800, letterSpacing: "-.03em", fontSize: 18, color: "#FF9900" }}>
-          amazon
-        </div>
-        <div style={{ background: "#0B1530", color: "#fff", borderRadius: "50%", width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 900, fontSize: 18, boxShadow: "0 8px 20px rgba(11,21,48,.2)", transform: "rotate(-6deg)" }}>
-          e
-        </div>
-        <div style={{ background: "#fff", borderRadius: 8, padding: "8px 12px", fontWeight: 800, fontSize: 12, color: "#E5484D", boxShadow: "0 8px 20px rgba(11,21,48,.1)", transform: "rotate(4deg)" }}>
-          Etsy
-        </div>
-      </div>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800">
+        <div style={{ background: "#fff", borderRadius: 8, padding: "8px 16px", fontWeight: 800, color: "#FF9900", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>amazon</div>
+      </CategoryHero>
     ),
   },
   {
     href: catHref("Путешествия"),
     title: "Путешествия",
     list: "Booking · Airbnb · Agoda · Uber · Ryanair · Turkish Airlines",
-    heroClass: "coll__hero--travel",
     hero: (
-      <svg
-        viewBox="0 0 400 225"
-        preserveAspectRatio="xMidYMid slice"
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-        aria-hidden="true"
-      >
-        <path
-          d="M0 160 Q 100 100 200 130 T 400 110"
-          stroke="#2660FF"
-          strokeWidth="2"
-          strokeDasharray="6 8"
-          fill="none"
-          opacity=".7"
-        />
-        <circle cx="60" cy="155" r="6" fill="#2660FF" />
-        <circle cx="200" cy="130" r="6" fill="#FF7A1A" />
-        <circle cx="340" cy="115" r="6" fill="#2660FF" />
-        <path
-          d="M280 70 l 30 -12 l 6 6 l -10 14 l 14 14 l -8 8 l -22 -10 l -10 14 l -6 -2 l 4 -16 l -10 -6 z"
-          fill="#0B1530"
-          opacity=".85"
-        />
-        <ellipse cx="220" cy="200" rx="180" ry="14" fill="#fff" opacity=".4" />
-      </svg>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=800">
+        <div style={{ width: 40, height: 40, background: "rgba(255,255,255,0.2)", borderRadius: "50%", border: "2px solid #fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+      </CategoryHero>
     ),
   },
   {
     href: "/cards",
     title: "Софт для работы",
     list: "Adobe · Figma · Notion · Canva · Microsoft 365 · Zoom · Envato",
-    heroStyle: { background: "linear-gradient(135deg,#EAF0FF 0%,#DDE7FA 100%)" },
     hero: (
-      <Tiles
-        tiles={[
-          { label: "Adobe", cls: "coll-tile--red coll-tile--wide" },
-          { label: "Figma", cls: "coll-tile--dark" },
-          { label: "Notion", cls: "coll-tile--ink" },
-          { label: "Canva", cls: "coll-tile--green" },
-          { label: "Zoom", cls: "coll-tile--blue" },
-        ]}
-      />
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800">
+        <div style={{ background: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 700 }}>Figma</div>
+      </CategoryHero>
     ),
   },
   {
     href: "/cards",
     title: "Соцсети и подписки",
     list: "Telegram Premium · Discord Nitro · Duolingo · LinkedIn · Tinder · Patreon",
-    heroStyle: { background: "linear-gradient(135deg,#E8F4FF 0%,#EDE8FF 100%)" },
     hero: (
-      <Tiles
-        tiles={[
-          { label: "Telegram", cls: "coll-tile--blue coll-tile--wide" },
-          { label: "Discord", cls: "coll-tile--purple" },
-          { label: "Duolingo", cls: "coll-tile--green" },
-          { label: "LinkedIn", cls: "coll-tile--ink" },
-          { label: "Patreon", cls: "coll-tile--orange" },
-        ]}
-      />
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800">
+        <div style={{ background: "#0088cc", color: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 700 }}>Telegram</div>
+      </CategoryHero>
     ),
   },
 ];
+
 
 export default function CollectionsSection() {
   return (
