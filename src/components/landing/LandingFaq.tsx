@@ -1,10 +1,7 @@
 import type { FaqItem } from "@/data/landing/types";
 
 /* Большой блок вопросов из ТЗ — 10+ штук по теме страницы.
-
-   Первый вопрос открыт: это самый частый запрос, и закрытый он выглядит как
-   пустая секция. Остальные свёрнуты — <details> работают без JS, поэтому
-   блок остаётся кликабельным даже до гидрации. */
+   Оформление полностью повторяет блок «Отвечаем на ваши вопросы» на главной. */
 export default function LandingFaq({
   faq,
   subjectIn,
@@ -19,23 +16,22 @@ export default function LandingFaq({
   sub?: string;
 }) {
   return (
-    <section className="lp-faq" id="faq" aria-labelledby="faq-title">
-      <div className="lp-sec__head">
-        <h2 id="faq-title">{title ?? `Отвечаем на вопросы об оплате ${subjectIn}`}</h2>
-        <p className="lp-sec__sub">
+    <section className="lp-faq section" id="faq" aria-labelledby="faq-title">
+      <div className="section__head section__head--centered">
+        <h2 id="faq-title" className="section__title">
+          {title ?? `Отвечаем на вопросы об оплате ${subjectIn}`}
+        </h2>
+        <p className="section__sub" style={{ marginInline: "auto" }}>
           {sub ??
             "Собрали то, что чаще всего спрашивают в нашем Telegram. Не нашли ответ — напишите, отвечаем в течение часа."}
         </p>
       </div>
 
-      <div className="lp-faq__list">
+      <div className="faq">
         {faq.map((item, i) => (
-          <details key={item.q} open={i === 0}>
-            <summary>
-              {item.q}
-              <span className="lp-faq__sign" aria-hidden="true" />
-            </summary>
-            <div className="lp-faq__a">{item.a}</div>
+          <details className="faq__item" key={item.q} open={i === 0}>
+            <summary className="faq__sum">{item.q}</summary>
+            <div className="faq__body">{item.a}</div>
           </details>
         ))}
       </div>
