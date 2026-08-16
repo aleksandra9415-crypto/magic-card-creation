@@ -1692,18 +1692,18 @@ a.verdict__row:hover .verdict__go {
 }
 
 .lp-tag--best {
-  background: var(--lp-blue);
+  background: var(--lp-orange);
   color: #fff;
 }
 
 .lp-tag--alt {
-  background: var(--lp-orange-50);
-  color: #b45309;
+  background: var(--lp-blue);
+  color: #fff;
 }
 
 .lp-tag--no {
-  background: #fdecec;
-  color: #c13b3f;
+  background: var(--lp-orange-50);
+  color: var(--lp-orange);
 }
 
 /* ============ плюсы/минусы ============ */
