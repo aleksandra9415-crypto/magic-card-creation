@@ -2181,36 +2181,37 @@
       .eeat-experts {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
+        margin-top: 32px;
       }
 
       .eeat-experts__title {
-        font-size: 18px;
+        font-size: clamp(20px, 2.5vw, 28px);
         font-weight: 800;
         margin: 0;
-        color: var(--ink);
+        color: #062132;
       }
 
       .eeat-experts__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 24px;
       }
 
       .expert-card {
         display: flex;
-        gap: 16px;
+        gap: 20px;
         background: var(--bg-2);
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        padding: 16px;
-        align-items: center;
+        padding: 20px;
+        align-items: flex-start;
       }
 
       .expert-card__img-wrapper {
-        width: 80px;
-        height: 100px;
-        border-radius: 12px;
+        width: 120px;
+        height: 160px;
+        border-radius: 14px;
         overflow: hidden;
         flex-shrink: 0;
       }
@@ -2245,15 +2246,19 @@
 
       .expert-card__name {
         font-weight: 800;
-        font-size: 16px;
-        color: var(--ink);
-        margin-bottom: 4px;
+        font-size: 19px;
+        color: #062132;
+        margin-bottom: 6px;
       }
-
+ 
       .expert-card__meta {
-        font-size: 12px;
+        font-size: 14.5px;
         color: var(--muted);
-        line-height: 1.4;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
 
       .eeat-changelog {
