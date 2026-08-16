@@ -204,8 +204,8 @@
       .tag-new {
         font-size: 10px;
         font-weight: 700;
-        color: var(--green);
-        background: #e6f7ef;
+        color: #132A3F;
+        background: var(--blue-50);
         padding: 2px 6px;
         border-radius: 4px;
         letter-spacing: 0.04em;
@@ -446,8 +446,7 @@
         background: linear-gradient(
           135deg,
           #062132 0%,
-          #1b2d6b 60%,
-          #062132 100%
+          #132A3F 100%
         );
         transform: rotate(-6deg);
       }
