@@ -30,11 +30,14 @@
         --line: #E3E8EC;
         --line-2: #E3E8EC;
         --blue: #FC6116;
-        --blue-600: #D94E0D;
+        --blue-dark: #062132;
+        --blue-600: #132A3F;
         --blue-50: #BCDFE0;
         --blue-100: #E3E8EC;
         --orange: #FC6116;
         --orange-50: #FFE7DA;
+        --teal: #56AFB1;
+        --teal-soft: #BCDFE0;
         --green: #56AFB1;
         --red: #e5484d;
         --radius: 16px;
