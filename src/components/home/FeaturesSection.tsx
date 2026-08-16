@@ -72,7 +72,7 @@ export default function FeaturesSection() {
       <div className="container">
         <div className="section__head section__head--centered">
           <h2 className="section__title">Почему именно NHcard</h2>
-          <p className="section__sub">
+          <p className="section__sub" style={{ marginInline: 'auto' }}>
             Один источник правды для всех зарубежных платёжных сервисов. Без
             рекламных приоритетов — рейтинг строится на проверке и отзывах.
           </p>
