@@ -369,7 +369,8 @@
       }
       @media (min-width: 768px) {
         .h1 {
-          font-size: 40px;
+          font-size: 36px;
+          font-weight: 800;
         }
       }
       .h1 .accent {
