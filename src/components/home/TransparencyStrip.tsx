@@ -21,16 +21,7 @@ export default function TransparencyStrip() {
           </div>
           <p className="transp__bottom">
             Партнёрские ссылки помечены{" "}
-            <code
-              style={{
-                background: "rgba(255, 255, 255, 0.1)",
-                padding: "1px 6px",
-                borderRadius: 4,
-                fontSize: 11,
-              }}
-            >
-              rel=&quot;sponsored&quot;
-            </code>
+            <code className="transp-card__code">от спонсора</code>
             . Партнёрство не влияет на место в рейтинге: формула считается
             одинаково для всех.
           </p>
