@@ -3232,7 +3232,7 @@
 .guide-col__head h3 { margin: 0; font-size: 18px; letter-spacing: -0.01em; color: #062132; }
 .guide-col__head .muted { font-size: 13px; }
 .guide-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.gchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; background: var(--bg); transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease; }
+.gchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 4px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; background: var(--bg); transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease; }
 .gchip:hover { border-color: var(--blue-100); color: var(--blue); background: var(--blue-50); }
 .gchip--more { color: var(--blue); background: var(--blue-50); border-color: transparent; }
 
