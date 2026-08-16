@@ -25,13 +25,13 @@
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
-  --color-primary: #FC6116;
+  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: #FC6116;
+  --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -54,6 +54,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-teal-500: var(--teal-500);
   --color-teal-200: var(--teal-200);
+  --color-primary-dark: var(--primary-dark);
 }
 
 :root {
@@ -66,7 +67,8 @@
   --card-foreground: #132A3F;
   --popover: #FFFFFF;
   --popover-foreground: #132A3F;
-  --primary: #062132;
+  --primary: #FC6116;
+  --primary-dark: #062132;
   --primary-foreground: #FFFFFF;
   --secondary: #FFE7DA;
   --secondary-foreground: #132A3F;
