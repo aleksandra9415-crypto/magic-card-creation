@@ -6,6 +6,8 @@ const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
     <img 
       src={sbpIconAsset.url} 
+      loading="eager"
+      onError={(e) => console.error("SBP Icon load error:", e)}
       alt="" 
       className="pmethod__icon-img"
       aria-hidden="true" 
