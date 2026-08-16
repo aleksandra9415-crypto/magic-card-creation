@@ -88,7 +88,7 @@ const SEC_ITEMS = [
 
 export default function GuardSection() {
   return (
-    <section className="section section--soft" id="guard" style={{ paddingTop: 0 }}>
+    <section className="section" id="guard" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Безопасность и закон</span>
