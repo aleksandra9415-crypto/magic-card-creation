@@ -26,15 +26,17 @@ const ICONS: Record<PMethod["variant"], ReactNode> = {
     </div>
   ),
   swift: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path
-        d="M3 11h16M3 11l5-5M3 11l5 5M19 11l-5-5M19 11l-5 5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <div className="pmethod__icon-wrapper">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <path
+          d="M3 11h16M3 11l5-5M3 11l5 5M19 11l-5-5M19 11l-5 5"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
   ),
   p2p: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
