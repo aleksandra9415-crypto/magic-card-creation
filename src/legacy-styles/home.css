@@ -363,6 +363,7 @@
         font-size: 28px;
         line-height: 1.15;
         font-weight: 700;
+        color: #062132;
         margin: 16px 0 16px;
         text-wrap: balance;
       }
@@ -1292,6 +1293,7 @@
         font-size: clamp(28px, 4.5vw, 44px);
         font-weight: 800;
         letter-spacing: -0.025em;
+        color: #062132;
         margin: 0 0 12px;
         line-height: 1.1;
         text-wrap: balance;
@@ -3155,7 +3157,7 @@
 @media (min-width: 900px) { .guides-cols { grid-template-columns: 1fr 1fr; } }
 .guide-col { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); padding: 26px; box-shadow: 0 1px 2px rgba(11, 21, 48, 0.04); }
 .guide-col__head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
-.guide-col__head h3 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
+.guide-col__head h3 { margin: 0; font-size: 18px; letter-spacing: -0.01em; color: #062132; }
 .guide-col__head .muted { font-size: 13px; }
 .guide-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .gchip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none; background: var(--bg); transition: border-color 0.12s ease, color 0.12s ease, background 0.12s ease; }
@@ -3166,7 +3168,7 @@
 @media (min-width: 900px) { .mini-grid { grid-template-columns: repeat(3, 1fr); } }
 .mini-card { display: flex; gap: 14px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); text-decoration: none; color: var(--ink); box-shadow: 0 1px 2px rgba(11, 21, 48, 0.04); transition: box-shadow 0.15s ease, border-color 0.15s ease; }
 .mini-card:hover { border-color: var(--blue-100); box-shadow: 0 8px 24px rgba(11, 21, 48, 0.08); }
-.mini-card h3 { margin: 0; font-size: 15px; letter-spacing: -0.01em; }
+.mini-card h3 { margin: 0; font-size: 15px; letter-spacing: -0.01em; color: #062132; }
 .mini-card p { margin: 3px 0 0; font-size: 13px; line-height: 1.4; color: var(--muted); }
 .mini-card__ic { width: 42px; height: 42px; flex: 0 0 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--blue-50); color: var(--blue); }
 .mini-card__go { margin-left: auto; color: var(--muted); }
@@ -3440,6 +3442,7 @@
     font-size: 29px;
     line-height: 1.14;
     letter-spacing: -0.03em;
+    color: #062132;
     margin: 12px 0 10px;
   }
   .hero__lead {
