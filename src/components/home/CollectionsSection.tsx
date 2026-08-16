@@ -1,5 +1,15 @@
 import Link from "@/components/shared/Link";
 import type { CSSProperties, ReactNode } from "react";
+import { 
+  Cpu, 
+  Play, 
+  BarChart3, 
+  Gamepad2, 
+  ShoppingBag, 
+  Plane, 
+  Layout, 
+  Users 
+} from "lucide-react";
 
 const catHref = (category: string) =>
   `/cards?category=${encodeURIComponent(category)}`;
@@ -19,7 +29,7 @@ function CategoryHero({ imageUrl, overlay = true, children }: { imageUrl: string
     <>
       <img src={imageUrl} alt="" className="coll__img" loading="lazy" />
       {overlay && <div className="coll__overlay" />}
-      <div style={{ position: "relative", zIndex: 1, width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div className="coll__content">
         {children}
       </div>
     </>
@@ -27,14 +37,15 @@ function CategoryHero({ imageUrl, overlay = true, children }: { imageUrl: string
 }
 
 const COLLS: Coll[] = [
-
   {
     href: catHref("Нейросети"),
     title: "Нейросети",
     list: "ChatGPT · Claude · Midjourney · Gemini · Cursor · Suno · Sora",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800">
-        <div style={{ background: "rgba(255,255,255,0.9)", padding: "8px 16px", borderRadius: 8, fontWeight: 800, fontSize: 14 }}>ChatGPT</div>
+        <div className="coll__icon-box">
+          <Cpu size={28} strokeWidth={2.5} />
+        </div>
       </CategoryHero>
     ),
   },
@@ -44,7 +55,9 @@ const COLLS: Coll[] = [
     list: "Netflix · Spotify · YouTube Premium · Apple ID · Google Play · HBO",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800">
-        <div style={{ color: "#fff", fontSize: 40 }}>▶</div>
+        <div className="coll__icon-box">
+          <Play size={28} strokeWidth={2.5} fill="currentColor" />
+        </div>
       </CategoryHero>
     ),
   },
@@ -54,10 +67,8 @@ const COLLS: Coll[] = [
     list: "Google Ads · Facebook Ads · TikTok Ads · PayPal",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
-        <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: "40%" }}>
-          <div style={{ background: "#2660FF", width: 12, height: "60%", borderRadius: 2 }} />
-          <div style={{ background: "#FF7A1A", width: 12, height: "90%", borderRadius: 2 }} />
-          <div style={{ background: "#0EA372", width: 12, height: "75%", borderRadius: 2 }} />
+        <div className="coll__icon-box">
+          <BarChart3 size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -68,7 +79,9 @@ const COLLS: Coll[] = [
     list: "Steam · PlayStation · Xbox · Nintendo · Epic Games · Roblox · Genshin",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800">
-        <div style={{ background: "#171a21", color: "#66c0f4", fontWeight: 800, padding: "8px 14px", borderRadius: 8, fontSize: 13 }}>STEAM</div>
+        <div className="coll__icon-box">
+          <Gamepad2 size={28} strokeWidth={2.5} />
+        </div>
       </CategoryHero>
     ),
   },
@@ -77,8 +90,10 @@ const COLLS: Coll[] = [
     title: "Шопинг",
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800">
-        <div style={{ background: "#fff", borderRadius: 8, padding: "8px 16px", fontWeight: 800, color: "#FF9900", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>amazon</div>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800">
+        <div className="coll__icon-box">
+          <ShoppingBag size={28} strokeWidth={2.5} />
+        </div>
       </CategoryHero>
     ),
   },
@@ -87,9 +102,9 @@ const COLLS: Coll[] = [
     title: "Путешествия",
     list: "Booking · Airbnb · Agoda · Uber · Ryanair · Turkish Airlines",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=800">
-        <div style={{ width: 40, height: 40, background: "rgba(255,255,255,0.2)", borderRadius: "50%", border: "2px solid #fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800">
+        <div className="coll__icon-box">
+          <Plane size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -100,7 +115,9 @@ const COLLS: Coll[] = [
     list: "Adobe · Figma · Notion · Canva · Microsoft 365 · Zoom · Envato",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800">
-        <div style={{ background: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 700 }}>Figma</div>
+        <div className="coll__icon-box">
+          <Layout size={28} strokeWidth={2.5} />
+        </div>
       </CategoryHero>
     ),
   },
@@ -109,8 +126,10 @@ const COLLS: Coll[] = [
     title: "Соцсети и подписки",
     list: "Telegram Premium · Discord Nitro · Duolingo · LinkedIn · Tinder · Patreon",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800">
-        <div style={{ background: "#0088cc", color: "#fff", padding: "8px 16px", borderRadius: 8, fontWeight: 700 }}>Telegram</div>
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800">
+        <div className="coll__icon-box">
+          <Users size={28} strokeWidth={2.5} />
+        </div>
       </CategoryHero>
     ),
   },
