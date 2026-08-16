@@ -2,17 +2,17 @@
 @keyframes pulseDot {
   0%,
   100% {
-    box-shadow: 0 0 0 4px rgba(86, 175, 177, 0.15);
+    box-shadow: 0 0 0 4px rgba(252, 97, 22, 0.15);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(86, 175, 177, 0);
+    box-shadow: 0 0 0 8px rgba(252, 97, 22, 0);
   }
 }
 
 @keyframes pulse-green {
-  0% { box-shadow: 0 0 0 0 rgba(86, 175, 177, 0.4); }
-  70% { box-shadow: 0 0 0 6px rgba(86, 175, 177, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(86, 175, 177, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(252, 97, 22, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(252, 97, 22, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(252, 97, 22, 0); }
 }
 
 
