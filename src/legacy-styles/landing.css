@@ -244,6 +244,7 @@
 
 .lp-hero__stats .lp-transp__l {
   color: var(--lp-muted);
+  max-width: 140px;
 }
 
 .lp-transp__grid--3col {
