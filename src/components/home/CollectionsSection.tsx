@@ -1,4 +1,5 @@
 import Link from "@/components/shared/Link";
+import shoppingAsset from "@/assets/shopping-reference.png.asset.json";
 import type { CSSProperties, ReactNode } from "react";
 import { 
   Cpu, 
@@ -91,7 +92,7 @@ const COLLS: Coll[] = [
     title: "Шопинг",
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl={shoppingAsset.url}>
         <div className="coll__icon-box">
           <ShoppingBag size={20} strokeWidth={2.5} />
         </div>
