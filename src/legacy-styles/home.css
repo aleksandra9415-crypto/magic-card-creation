@@ -31,7 +31,7 @@
         --line-2: #eef1f7;
         --blue: #09314a;
         --blue-600: #062132;
-        --blue-50: #f0fafa;
+        --blue-50: #f0f7fb;
         --blue-100: #e1eff6;
         --orange: #FC6116;
         --orange-50: #fff1e5;
@@ -2669,7 +2669,7 @@
       }
       .calc__result {
         padding: 28px;
-        background: var(--blue-50);
+        background: #f0fafa;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2827,7 +2827,7 @@
       .dtree__result {
         margin-top: 20px;
         padding: 18px;
-        background: var(--blue-50);
+        background: linear-gradient(135deg, #fff1e5, #ffe0cc);
         border-radius: var(--radius);
         display: none;
       }
