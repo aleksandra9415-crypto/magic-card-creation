@@ -93,9 +93,9 @@ const GLYPHS: Record<Country["id"], ReactNode> = {
 
 function CountryHero({ country }: { country: Country }) {
   const images: Record<string, string> = {
-    kz: "https://images.unsplash.com/photo-1549420078-43d52678c18c?q=80&w=800&auto=format&fit=crop", // Kazakhstan (replacing with a known good Yerevan/mountainous as fallback/proxy to test load)
-    am: "https://images.unsplash.com/photo-1549420078-43d52678c18c?q=80&w=800&auto=format&fit=crop", // Armenia
-    ge: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop", // Georgia (replacing with Turkey as proxy)
+    kz: "https://plus.unsplash.com/premium_photo-1675865396004-c7b86406affe?q=80&w=800&auto=format&fit=crop", // Steppe/Mountain (Kazakhstan style)
+    am: "https://images.unsplash.com/photo-1621251347648-b4b1050a9c68?q=80&w=800&auto=format&fit=crop", // Armenia
+    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?q=80&w=800&auto=format&fit=crop", // Georgia (trying another Tbilisi)
     tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop", // Turkey
     ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop", // UAE
     eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop", // Europe
