@@ -2669,7 +2669,7 @@
       }
       .calc__result {
         padding: 28px;
-        background: linear-gradient(180deg, #f3f6ff 0%, #eaf0ff 100%);
+        background: #f0fafa;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2709,8 +2709,12 @@
       }
       .calc__breakdown-row span:last-child {
         font-family: var(--font-body);
-        color: var(--ink);
-        font-weight: 600;
+        color: #fff;
+        background: var(--blue);
+        font-weight: 700;
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 6px;
       }
       .calc__breakdown-row--total {
         padding-top: 8px;
