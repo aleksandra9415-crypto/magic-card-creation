@@ -3151,7 +3151,7 @@
 
       /* ============ Section helpers ============ */
       .section--soft {
-        background: transparent;
+        background: var(--soft-bg);
       }
       .section__head--centered {
         text-align: center;
