@@ -94,7 +94,7 @@ export default function DecisionTreeSection() {
     <section className="section" id="decision" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section__head section__head--centered">
-          <span className="eyebrow-pro">Подбор за 10 секунд</span>
+          <span className="eyebrow-pro">САМЫЙ БЫСТРЫЙ ВЫБОР</span>
           <h2 className="section__title--pro">Что вы хотите оплачивать?</h2>
           <p className="section__sub--pro">
             Выберите главный сценарий — покажем карту, которая точно
