@@ -112,7 +112,7 @@
     font-weight: 700;
   }
 
-  .blog-card h2 {
+  .blog-card__title {
     display: -webkit-box !important;
     font-size: 18px !important;
     line-height: 1.25 !important;
