@@ -149,7 +149,7 @@
   .blog-post-meta span {
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 999px;
+    border-radius: 4px;
     padding: 8px 12px;
   }
 
