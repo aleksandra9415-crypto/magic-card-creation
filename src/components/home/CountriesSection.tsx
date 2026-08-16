@@ -95,7 +95,7 @@ const GLYPHS: Record<Country["id"], ReactNode> = {
 
 function CountryHero({ country }: { country: Country }) {
   const images: Record<string, string> = {
-    kz: "https://images.unsplash.com/photo-1558588942-ad3332be7bd5?auto=format&fit=crop&q=60&w=800",
+    kz: kazakhstanAsset.url,
     am: armeniaAsset.url, // Armenia (Tatev Monastery)
     ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?auto=format&fit=crop&q=60&w=800",
     tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop", // Turkey
