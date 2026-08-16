@@ -98,7 +98,7 @@ function CountryHero({ country }: { country: Country }) {
   const images: Record<string, string> = {
     kz: kazakhstanAsset.url,
     am: armeniaAsset.url, // Armenia (Tatev Monastery)
-    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?auto=format&fit=crop&q=60&w=800",
+    ge: georgiaAsset.url, // Georgia (Tbilisi)
     tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop", // Turkey
     ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop", // UAE
     eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop", // Europe
