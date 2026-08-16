@@ -6,13 +6,13 @@
 .admin {
   --a-bg: #f4f6fb;
   --a-panel: #fff;
-  --a-ink: #0b1530;
+  --a-ink: #062132;
   --a-muted: #6b7793;
   --a-line: #e2e7f0;
-  --a-accent: #2660ff;
+  --a-accent: #FC6116;
   --a-danger: #e0364f;
   --a-ok: #10a56a;
-  --a-side: #0b1530;
+  --a-side: #062132;
 
   display: grid;
   grid-template-columns: 236px 1fr;
@@ -802,7 +802,7 @@ a.admin-stat:hover {
   padding: 24px;
   background: #f4f6fb;
   font-family: var(--font-body);
-  color: #0b1530;
+  color: #062132;
 }
 
 .admin-login-card {

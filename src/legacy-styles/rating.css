@@ -14,19 +14,19 @@
       & {
         --bg: #f7f8fb;
         --bg-2: #fff;
-        --ink: #0b1530;
-        --ink-2: #1b2447;
+        --ink: #062132;
+        --ink-2: #132A3F;
         --muted: #64708a;
         --line: #e6eaf2;
         --line-2: #eef1f7;
-        --blue: #2660ff;
-        --blue-600: #1e4fe0;
+        --blue: #FC6116;
+        --blue-600: #132A3F;
         --blue-50: #eaf0ff;
         --blue-100: #d6e0ff;
         --orange: #ff7a1a;
         --orange-50: #fff1e5;
-        --green: #0ea372;
-        --green-50: #e7f6f0;
+        --green: #56AFB1;
+        --green-50: #BCDFE0;
         --red: #e5484d;
         --red-50: #fdebec;
         --radius: 16px;

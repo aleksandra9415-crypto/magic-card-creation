@@ -51,8 +51,8 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
       >
         <defs>
           <linearGradient id="g1" x1="0" x2="1">
-            <stop offset="0" stopColor="#2660FF" />
-            <stop offset="1" stopColor="#0EA372" />
+            <stop offset="0" stopColor="#FC6116" />
+            <stop offset="1" stopColor="#56AFB1" />
           </linearGradient>
         </defs>
         <path
@@ -62,7 +62,7 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
         />
         <path
           d="M0 200 C 80 160 140 220 220 170 S 340 130 400 150 L 400 225 L 0 225 Z"
-          fill="#2660FF"
+          fill="#FC6116"
           opacity=".18"
         />
       </svg>
@@ -78,11 +78,11 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
           height: "100%",
         }}
       >
-        <div style={barStyle("#2660ff", "55%")}></div>
-        <div style={barStyle("#ff7a1a", "75%")}></div>
-        <div style={barStyle("#0b1530", "40%")}></div>
-        <div style={barStyle("#0ea372", "85%")}></div>
-        <div style={barStyle("#6e55ff", "60%")}></div>
+        <div style={barStyle("#56AFB1", "55%")}></div>
+        <div style={barStyle("#FC6116", "75%")}></div>
+        <div style={barStyle("#062132", "40%")}></div>
+        <div style={barStyle("#56AFB1", "85%")}></div>
+        <div style={barStyle("#132A3F", "60%")}></div>
       </div>
     </div>
   ),
@@ -94,8 +94,8 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <circle cx="80" cy="60" r="40" fill="#FF7A1A" opacity=".4" />
-        <circle cx="320" cy="170" r="60" fill="#2660FF" opacity=".5" />
+        <circle cx="80" cy="60" r="40" fill="#FC6116" opacity=".4" />
+        <circle cx="320" cy="170" r="60" fill="#FC6116" opacity=".5" />
         <circle cx="200" cy="120" r="20" fill="#fff" opacity=".15" />
       </svg>
       <div
@@ -145,7 +145,7 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
         </div>
         <div
           style={{
-            background: "#0b1530",
+            background: "#062132",
             color: "#fff",
             borderRadius: "50%",
             width: 48,
@@ -188,18 +188,18 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
       >
         <path
           d="M0 160 Q 100 100 200 130 T 400 110"
-          stroke="#2660FF"
+          stroke="#FC6116"
           strokeWidth="2"
           strokeDasharray="6 8"
           fill="none"
           opacity=".7"
         />
-        <circle cx="60" cy="155" r="6" fill="#2660FF" />
-        <circle cx="200" cy="130" r="6" fill="#FF7A1A" />
-        <circle cx="340" cy="115" r="6" fill="#2660FF" />
+        <circle cx="60" cy="155" r="6" fill="#FC6116" />
+        <circle cx="200" cy="130" r="6" fill="#FC6116" />
+        <circle cx="340" cy="115" r="6" fill="#FC6116" />
         <path
           d="M280 70 l 30 -12 l 6 6 l -10 14 l 14 14 l -8 8 l -22 -10 l -10 14 l -6 -2 l 4 -16 l -10 -6 z"
-          fill="#0B1530"
+          fill="#062132"
           opacity=".85"
         />
         <ellipse cx="220" cy="200" rx="180" ry="14" fill="#fff" opacity=".4" />

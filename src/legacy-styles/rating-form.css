@@ -3,23 +3,24 @@
    Токены и размеры — из спеки референса rating-form. */
 
 .rf {
-  --rf-ink: #0b1530;
-  --rf-ink-2: #1b2447;
-  --rf-muted: #64708a;
-  --rf-dim: #9aa4b8;
-  --rf-line: #e6eaf2;
-  --rf-line-2: #eef1f7;
-  --rf-bg: #f7f8fb;
-  --rf-blue: #2660ff;
-  --rf-blue-600: #1e4fe0;
-  --rf-blue-50: #eaf0ff;
-  --rf-blue-100: #f2f6ff;
-  --rf-good: #0ea372;
+  --rf-ink: #132A3F;
+  --rf-ink-2: #132A3F;
+  --rf-muted: #6B7C8C;
+  --rf-dim: #6B7C8C;
+  --rf-line: #E3E8EC;
+  --rf-line-2: #E3E8EC;
+  --rf-bg: #F1F4F6;
+  --rf-blue: #FC6116;
+  --rf-blue-dark: #062132;
+  --rf-blue-600: #132A3F;
+  --rf-blue-50: #BCDFE0;
+  --rf-blue-100: #E3E8EC;
+  --rf-good: #56AFB1;
   --rf-warn: #a98600;
   --rf-bad: #d97706;
-  --rf-orange: #ff7a1a;
-  --rf-orange-50: #fff1e5;
-  --rf-orange-line: #ffd9b8;
+  --rf-orange: #FC6116;
+  --rf-orange-50: #FFE7DA;
+  --rf-orange-line: #FFE7DA;
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
      в контейнер 1200px без горизонтального скролла. */
@@ -90,12 +91,12 @@
   transition: all 0.15s ease;
 }
 .rf-dd-btn:hover {
-  border-color: var(--rf-blue);
+  border-color: var(--rf-orange);
 }
 .rf-dd-btn.on {
-  border-color: var(--rf-blue);
-  background: var(--rf-blue-50);
-  color: var(--rf-blue-600);
+  border-color: var(--rf-orange);
+  background: var(--rf-orange-50);
+  color: var(--rf-ink);
 }
 .rf-caret {
   width: 7px;
@@ -278,8 +279,8 @@
   align-items: center;
 }
 .rf-pop-chip:hover {
-  border-color: var(--rf-blue);
-  color: var(--rf-blue);
+  border-color: var(--rf-orange);
+  color: var(--rf-orange);
 }
 
 .rf-opt {
@@ -292,18 +293,18 @@
 }
 .rf-opt:hover {
   background: var(--rf-blue-100);
-  color: var(--rf-blue-600);
+  color: var(--rf-ink);
 }
 .rf-opt.on {
-  background: var(--rf-blue-50);
+  background: var(--rf-orange-50);
 }
 .rf-opt-ic {
   width: 26px;
   height: 26px;
   flex: 0 0 26px;
   border-radius: 7px;
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
+  background: var(--rf-orange-50);
+  color: var(--rf-orange);
   font-size: 11px;
   font-weight: 700;
   display: inline-flex;
@@ -329,7 +330,7 @@
   white-space: nowrap;
 }
 .rf-opt-check {
-  color: var(--rf-blue);
+  color: var(--rf-orange);
   font-weight: 800;
 }
 
@@ -349,7 +350,7 @@
   background: var(--rf-blue-100);
 }
 .rf-sug--link:hover {
-  color: var(--rf-blue-600);
+  color: var(--rf-ink);
 }
 .rf-sug-name {
   font-size: 13.5px;
@@ -366,7 +367,7 @@
 }
 .rf-sug-arrow {
   margin-left: auto;
-  color: var(--rf-blue);
+  color: var(--rf-orange);
   font-weight: 700;
 }
 
@@ -393,13 +394,13 @@
   transition: all 0.15s ease;
 }
 .rf-chip:hover {
-  border-color: var(--rf-blue);
-  color: var(--rf-blue);
+  border-color: var(--rf-orange);
+  color: var(--rf-orange);
 }
 .rf-chip.on {
-  border-color: var(--rf-blue);
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
+  border-color: var(--rf-orange);
+  background: var(--rf-orange-50);
+  color: var(--rf-orange);
 }
 .rf-chip-x {
   font-size: 11px;
@@ -429,7 +430,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--rf-blue);
+  background: var(--rf-orange);
   color: #fff;
   border-radius: 999px;
   height: 32px;
@@ -479,14 +480,14 @@
   margin-left: auto;
   border: 0;
   background: transparent;
-  color: var(--rf-blue);
+  color: var(--rf-orange);
   font-size: 13.5px;
   font-weight: 700;
   padding: 6px 8px;
   border-radius: 8px;
 }
 .rf-reset:hover {
-  background: var(--rf-blue-50);
+  background: var(--rf-orange-50);
 }
 
 .rf-info {
@@ -584,7 +585,7 @@
   gap: 4px;
 }
 .rf-th button.on {
-  color: var(--rf-blue);
+  color: var(--rf-orange);
 }
 .rf-arr {
   font-size: 11px;
@@ -611,8 +612,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
+  background: var(--rf-orange-50);
+  color: var(--rf-orange);
   font-size: 11.5px;
   font-weight: 700;
   border-radius: 999px;
@@ -637,8 +638,8 @@
   width: 30px;
   height: 30px;
   border-radius: 9px;
-  background: var(--rf-blue-50);
-  color: var(--rf-blue);
+  background: var(--rf-orange-50);
+  color: var(--rf-orange);
   font-size: 13px;
   font-weight: 800;
   display: inline-flex;
@@ -646,7 +647,7 @@
   justify-content: center;
 }
 .rf-num.on {
-  background: var(--rf-blue);
+  background: var(--rf-orange);
   color: #fff;
 }
 .rf-num--plain {
@@ -790,8 +791,8 @@
   min-width: 90px;
 }
 .rf-more-btn:hover {
-  border-color: var(--rf-blue);
-  background: var(--rf-blue-50);
+  border-color: var(--rf-orange);
+  background: var(--rf-orange-50);
 }
 .rf-more-val {
   font-size: 13px;
@@ -845,8 +846,8 @@
   border-bottom: 1px dashed #c3cbdb;
 }
 .rf .rf-reviews-cnt:hover {
-  color: var(--rf-blue);
-  border-bottom-color: var(--rf-blue);
+  color: var(--rf-orange);
+  border-bottom-color: var(--rf-orange);
 }
 
 .rf-actions {
@@ -879,11 +880,12 @@
   border-color: var(--rf-ink);
 }
 .rf .rf-btn--primary {
-  background: var(--rf-blue);
+  background: var(--rf-orange);
   color: #fff;
 }
 .rf .rf-btn--primary:hover {
-  background: var(--rf-blue-600);
+  background: #FC6116;
+  opacity: 0.9;
   color: #fff;
 }
 /* Кнопка «Обзор → Свернуть» живёт только в мобильной карточке. */
@@ -1049,7 +1051,7 @@
   padding: 9px 14px;
 }
 .rf-alt:hover {
-  border-color: var(--rf-blue);
+  border-color: var(--rf-orange);
 }
 .rf-alt-name {
   font-size: 13.5px;
@@ -1076,14 +1078,14 @@
 .rf-showall button {
   border: 0;
   background: transparent;
-  color: var(--rf-blue);
+  color: var(--rf-orange);
   font-size: 14px;
   font-weight: 700;
   padding: 8px 14px;
   border-radius: 10px;
 }
 .rf-showall button:hover {
-  background: var(--rf-blue-50);
+  background: var(--rf-orange-50);
 }
 .rf-showall button.rf-collapse {
   color: var(--rf-muted);
@@ -1118,7 +1120,7 @@
 
 .rf-ai {
   margin-top: 20px;
-  background: linear-gradient(135deg, #0b1530, #1b2447);
+  background: linear-gradient(135deg, #062132, #132A3F);
   border-radius: 16px;
   padding: 22px 24px;
   color: #fff;
@@ -1259,8 +1261,8 @@
   color: var(--rf-ink);
 }
 .rf-sheet-opt.on {
-  background: var(--rf-blue-50);
-  color: var(--rf-blue-600);
+  background: var(--rf-orange-50);
+  color: var(--rf-ink);
 }
 
 @keyframes rf-sheet-up {
@@ -1380,7 +1382,7 @@
     gap: 6px;
   }
   .rf-chip.on {
-    background: var(--rf-blue);
+    background: var(--rf-orange);
     color: #fff;
   }
 
@@ -1410,11 +1412,11 @@
     font: inherit;
     font-size: 13.5px;
     font-weight: 700;
-    color: var(--rf-blue);
+    color: var(--rf-orange);
     gap: 7px;
   }
   .rf-state-sort--btn strong {
-    color: var(--rf-blue);
+    color: var(--rf-orange);
     font-weight: 700;
   }
   .rf-reset {
@@ -1472,7 +1474,7 @@
   }
   .rf-badge {
     padding: 4px 10px;
-    background: var(--rf-blue);
+    background: var(--rf-orange);
     color: #fff;
     font-size: 10px;
     font-weight: 800;
@@ -1886,13 +1888,13 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #2660ff;
+  color: #FC6116;
 }
 .sguide-price__val {
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 17px;
   font-weight: 600;
-  color: #0b1530;
+  color: #062132;
 }
 .sguide-price__note {
   flex: 1 1 100%;
@@ -1930,7 +1932,7 @@
   width: 28px;
   height: 28px;
   border-radius: 9px;
-  background: #2660ff;
+  background: #FC6116;
   color: #fff;
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 12px;
@@ -1948,7 +1950,7 @@
   margin: 0;
   font-size: 13.5px;
   line-height: 1.6;
-  color: #1b2447;
+  color: #132A3F;
 }
 
 .sguide-pitfalls {
@@ -1976,12 +1978,12 @@
 .sguide-pitfalls li {
   font-size: 13.5px;
   line-height: 1.6;
-  color: #1b2447;
+  color: #132A3F;
 }
 .sguide-pitfalls li b {
   display: block;
   font-size: 13.5px;
-  color: #0b1530;
+  color: #062132;
 }
 
 .sguide-foot {
@@ -1991,9 +1993,9 @@
   color: #9aa4b8;
 }
 .sguide-foot a {
-  color: #2660ff;
+  color: #FC6116;
   border-bottom: 1px solid rgb(38 96 255 / 30%);
 }
 .sguide-foot a:hover {
-  border-bottom-color: #2660ff;
+  border-bottom-color: #FC6116;
 }
