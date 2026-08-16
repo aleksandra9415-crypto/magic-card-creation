@@ -39,16 +39,18 @@ const ICONS: Record<PMethod["variant"], ReactNode> = {
     </div>
   ),
   p2p: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="7" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="15" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M2 18c0-2.8 2.2-5 5-5s5 2.2 5 5M10 18c0-2.8 2.2-5 5-5s5 2.2 5 5"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
+    <div className="pmethod__icon-wrapper">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <circle cx="7" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="15" cy="8" r="3" stroke="currentColor" strokeWidth="1.8" />
+        <path
+          d="M2 18c0-2.8 2.2-5 5-5s5 2.2 5 5M10 18c0-2.8 2.2-5 5-5s5 2.2 5 5"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </svg>
+    </div>
   ),
 };
 
