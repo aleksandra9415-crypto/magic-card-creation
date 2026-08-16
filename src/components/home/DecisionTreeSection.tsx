@@ -93,10 +93,10 @@ export default function DecisionTreeSection() {
   return (
     <section className="section" id="decision" style={{ paddingTop: 0 }}>
       <div className="container">
-        <div className="section__head section__head--centered">
+        <div className="section__head">
           <span className="eyebrow-pro">Подбор за 10 секунд</span>
           <h2 className="section__title--pro">Что вы хотите оплачивать?</h2>
-          <p className="section__sub--pro">
+          <p className="section__sub--pro" style={{ marginInline: '0' }}>
             Выберите главный сценарий — покажем карту, которая точно
             подходит по услугам из её собственного тарифа.
           </p>
@@ -112,7 +112,6 @@ export default function DecisionTreeSection() {
                 className={`dtree-opt${active?.key === o.key ? " is-active" : ""}`}
                 onClick={() => setActive(o)}
               >
-                <span className="dtree-opt__icon">{o.icon}</span>
                 <span>
                   <span className="dtree-opt__label">{o.label}</span>
                   <span className="dtree-opt__sub">{o.sub}</span>
