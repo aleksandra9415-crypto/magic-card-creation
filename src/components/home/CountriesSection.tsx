@@ -105,11 +105,17 @@ function CountryHero({ country }: { country: Country }) {
 
   return (
     <div className="coll__hero">
-      <img 
-        src={images[country.id] || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800"} 
-        alt={country.title} 
-        className="coll__img" 
-        loading="lazy" 
+      <div 
+        className="coll__img"
+        style={{
+          backgroundImage: `url(${images[country.id] || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800"})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          inset: 0
+        }}
       />
       <div className="coll__overlay" style={{ opacity: 0.4 }} />
       <div className="coll__content" style={{ justifyContent: 'flex-start', alignItems: 'flex-start', padding: '12px' }}>
