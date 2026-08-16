@@ -29,8 +29,8 @@
         --green-50: #e7f6f0;
         --red: #e5484d;
         --red-50: #fdebec;
-        --radius: 16px;
-        --radius-sm: 10px;
+        --radius: 12px;
+        --radius-sm: 6px;
         --shadow-sm: 0 1px 2px rgba(11, 21, 48, 0.05);
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
         --container: 1152px;
@@ -98,7 +98,7 @@
       .logo-mark {
         width: 30px;
         height: 30px;
-        border-radius: 8px;
+        border-radius: 4px;
         background: var(--ink);
         display: grid;
         place-items: center;
@@ -110,7 +110,7 @@
       }
       .hdr-nav a {
         padding: 7px 11px;
-        border-radius: 9px;
+        border-radius: 6px;
         font-size: 14px;
         font-weight: 600;
         color: var(--muted);
@@ -134,7 +134,7 @@
         justify-content: center;
         gap: 6px;
         border: 0;
-        border-radius: 10px;
+        border-radius: 6px;
         font-weight: 700;
         font-size: 13.5px;
         padding: 8px 14px;
@@ -166,7 +166,7 @@
       .btn-sm {
         padding: 9px 0;
         font-size: 13px;
-        border-radius: 9px;
+        border-radius: 6px;
         width: 100%;
       }
       @media (min-width: 900px) {
@@ -204,7 +204,7 @@
         gap: 7px;
         background: var(--green-50);
         color: var(--green);
-        border-radius: 999px;
+        border-radius: 4px;
         padding: 5px 11px;
         font-size: 12.5px;
         font-weight: 700;
@@ -262,7 +262,7 @@
       .chip {
         border: 1.5px solid var(--line);
         background: #fff;
-        border-radius: 999px;
+        border-radius: 6px;
         padding: 5px 12px;
         font-size: 12.5px;
         font-weight: 700;
@@ -291,7 +291,7 @@
         gap: 8px;
         border: 1.5px solid var(--line);
         background: #fff;
-        border-radius: 999px;
+        border-radius: 6px;
         padding: 7px 34px 7px 14px;
         font-size: 12.5px;
         font-weight: 700;
@@ -358,7 +358,7 @@
         right: 0;
         background: var(--bg-2);
         border: 1px solid var(--line);
-        border-radius: 14px;
+        border-radius: 6px;
         box-shadow: var(--shadow-sm), 0 12px 28px rgba(11, 21, 48, 0.14);
         padding: 8px;
         display: flex;
@@ -368,7 +368,7 @@
       .svc-pop-search {
         width: 100%;
         border: 1.5px solid var(--line);
-        border-radius: 10px;
+        border-radius: 6px;
         padding: 7px 10px;
         font: inherit;
         font-size: 13px;
@@ -389,7 +389,7 @@
       }
       .svc-pop-opt {
         padding: 7px 10px;
-        border-radius: 8px;
+        border-radius: 4px;
         font-size: 13px;
         font-weight: 600;
         color: var(--ink-2);
@@ -419,7 +419,7 @@
       .f-chip {
         border: 1.5px solid var(--line);
         background: #fff;
-        border-radius: 999px;
+        border-radius: 6px;
         padding: 5px 12px;
         font-size: 12.5px;
         font-weight: 700;
@@ -578,7 +578,7 @@
       .ava {
         width: 36px;
         height: 36px;
-        border-radius: 9px;
+        border-radius: 6px;
         display: grid;
         place-items: center;
         font-weight: 800;
@@ -733,7 +733,7 @@
       .ic {
         width: 18px;
         height: 18px;
-        border-radius: 5px;
+        border-radius: 3px;
         display: grid;
         place-items: center;
         font-size: 9.5px;
@@ -947,7 +947,7 @@
           width: auto;
           padding: 2px 9px;
           border: 1px solid var(--line);
-          border-radius: 999px;
+          border-radius: 4px;
           background: var(--bg-2);
           font-size: 11.5px;
         }
@@ -1039,5 +1039,5 @@
    здесь сужаем .container до того же размера. Побеждаем специфичностью, а
    не порядком файлов — тот же приём, что у .page-rating.lp в landing.css. */
 .page-rating.page-rating--index {
-  --container: 1200px;
+  --container: 1152px;
 }
