@@ -5,6 +5,15 @@ const catHref = (category: string) =>
   `/cards?category=${encodeURIComponent(category)}`;
 
 /** Плитки-хиро подборок — 1:1 из референса */
+type Coll = {
+  href: string;
+  title: string;
+  list: string;
+  heroClass?: string;
+  heroStyle?: CSSProperties;
+  hero: ReactNode;
+};
+
 function CategoryHero({ imageUrl, overlay = true, children }: { imageUrl: string; overlay?: boolean; children?: ReactNode }) {
   return (
     <>
@@ -18,6 +27,7 @@ function CategoryHero({ imageUrl, overlay = true, children }: { imageUrl: string
 }
 
 const COLLS: Coll[] = [
+
   {
     href: catHref("Нейросети"),
     title: "Нейросети",
