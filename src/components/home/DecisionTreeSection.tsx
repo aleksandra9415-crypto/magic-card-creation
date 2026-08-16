@@ -1,10 +1,17 @@
 
 import { useState } from "react";
-import ApplyLink from "@/components/shared/ApplyLink";
+import { 
+  BrainCircuit, 
+  Play, 
+  Target, 
+  Gamepad, 
+  ShoppingBag, 
+  Globe 
+} from "lucide-react";
 
 type Option = {
   key: string;
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   sub: string;
   pick: string;
