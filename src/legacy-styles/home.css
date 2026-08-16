@@ -456,7 +456,7 @@
       .vcard--2 {
         top: 22%;
         right: 0;
-        background: linear-gradient(135deg, #FC6116 0%, #FC6116 100%);
+        background: #FC6116;
         transform: rotate(4deg);
       }
       .vcard--3 {
