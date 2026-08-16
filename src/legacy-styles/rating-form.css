@@ -3,23 +3,23 @@
    Токены и размеры — из спеки референса rating-form. */
 
 .rf {
-  --rf-ink: #0b1530;
-  --rf-ink-2: #1b2447;
-  --rf-muted: #64708a;
-  --rf-dim: #9aa4b8;
-  --rf-line: #e6eaf2;
-  --rf-line-2: #eef1f7;
-  --rf-bg: #f7f8fb;
-  --rf-blue: #2660ff;
-  --rf-blue-600: #1e4fe0;
-  --rf-blue-50: #eaf0ff;
-  --rf-blue-100: #f2f6ff;
-  --rf-good: #0ea372;
+  --rf-ink: #132A3F;
+  --rf-ink-2: #132A3F;
+  --rf-muted: #6B7C8C;
+  --rf-dim: #6B7C8C;
+  --rf-line: #E3E8EC;
+  --rf-line-2: #E3E8EC;
+  --rf-bg: #F1F4F6;
+  --rf-blue: #062132;
+  --rf-blue-600: #132A3F;
+  --rf-blue-50: #BCDFE0;
+  --rf-blue-100: #E3E8EC;
+  --rf-good: #56AFB1;
   --rf-warn: #a98600;
   --rf-bad: #d97706;
-  --rf-orange: #ff7a1a;
-  --rf-orange-50: #fff1e5;
-  --rf-orange-line: #ffd9b8;
+  --rf-orange: #FC6116;
+  --rf-orange-50: #FFE7DA;
+  --rf-orange-line: #FFE7DA;
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
      в контейнер 1200px без горизонтального скролла. */

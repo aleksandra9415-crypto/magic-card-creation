@@ -4,21 +4,21 @@
 .page-review {
 
       & {
-        --bg: #f7f8fb;
+        --bg: #F1F4F6;
         --bg-2: #fff;
-        --ink: #0b1530;
-        --ink-2: #1b2447;
-        --muted: #64708a;
-        --line: #e6eaf2;
-        --line-2: #eef1f7;
-        --blue: #2660ff;
-        --blue-600: #1e4fe0;
-        --blue-50: #eaf0ff;
-        --blue-100: #d6e0ff;
-        --orange: #ff7a1a;
-        --orange-50: #fff1e5;
-        --green: #0ea372;
-        --green-50: #e7f6f0;
+        --ink: #132A3F;
+        --ink-2: #132A3F;
+        --muted: #6B7C8C;
+        --line: #E3E8EC;
+        --line-2: #E3E8EC;
+        --blue: #062132;
+        --blue-600: #132A3F;
+        --blue-50: #BCDFE0;
+        --blue-100: #E3E8EC;
+        --orange: #FC6116;
+        --orange-50: #FFE7DA;
+        --green: #56AFB1;
+        --green-50: #BCDFE0;
         --red: #e5484d;
         --red-50: #fdebec;
         --radius: 16px;
