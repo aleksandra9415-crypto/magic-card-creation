@@ -8,7 +8,6 @@ export default function EeatStrip() {
         <div className="eeat-container">
           {/* Transparency Card */}
           <div className="transp-card">
-            <div className="transp-card__badge">Прозрачность</div>
             <h2 className="transp-card__title">Не верьте на слово — мы оплатили своими деньгами</h2>
             
             <div className="transp-card__grid">

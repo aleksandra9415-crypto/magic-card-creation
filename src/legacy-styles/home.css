@@ -2120,9 +2120,9 @@
         font-size: clamp(20px, 2.5vw, 28px);
         font-weight: 800;
         line-height: 1.2;
-        color: #062132;
+        color: #fff;
         margin: 0 0 24px;
-        max-width: 28ch;
+        max-width: none;
         text-align: left;
       }
 
