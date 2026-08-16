@@ -47,6 +47,7 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  --color-orange: var(--orange);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
   --color-chart-1: var(--chart-1);
@@ -102,6 +103,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --soft-bg: #f0f7fb;
+  --orange: #FC6116;
 }
 
 .dark {
