@@ -41,7 +41,7 @@ export default function PayMethods({
   return (
     <section className="lp-methods" id="how-to-pay" aria-labelledby="how-to-pay-title">
       <div className="lp-sec__head">
-        <h2 id="how-to-pay-title">{h2}</h2>
+        <h2 id="how-to-pay-title">{renderH2(h2)}</h2>
         <p className="lp-sec__sub">{intro}</p>
       </div>
 
