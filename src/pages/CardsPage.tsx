@@ -127,7 +127,9 @@ export default function CardsPage({
         <RatingForm />
 
         <ChecklistSection />
-        <RatingFaqSection />
+        <div style={{ marginTop: '-40px' }}>
+          <RatingFaqSection />
+        </div>
       </main>
     </div>
   );
