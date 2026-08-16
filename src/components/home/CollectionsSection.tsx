@@ -104,7 +104,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Plane size={28} strokeWidth={2.5} />
+          <Globe size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
