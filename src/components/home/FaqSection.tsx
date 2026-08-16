@@ -21,7 +21,7 @@ export default function FaqSection() {
   return (
     <section className="section" id="faq" style={{ paddingTop: 0 }}>
       <div className="container">
-        <div className="section__head section__head--centered">
+        <div className="section__head">
           <h2 className="section__title">Отвечаем на ваши вопросы</h2>
           <p className="section__sub">
             Если не нашли ответ — напишите в наш Telegram, отвечаем в течение
