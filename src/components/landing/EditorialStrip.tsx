@@ -56,7 +56,7 @@ export default function EditorialStrip({
         <ul className="changelog-list">
           {editorial.changelog.map((c) => (
             <li key={c.date + c.text} className="changelog-item">
-              <time className="changelog-date">{c.date}</time>
+              <time className="changelog-date">{c.date.replace(/(\d{2}\.\d{2}\.)\d{2}(\d{2})/, "$1$2")}</time>
               <span className="changelog-text">{c.text}</span>
             </li>
           ))}
