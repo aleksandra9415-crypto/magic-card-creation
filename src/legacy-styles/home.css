@@ -2179,7 +2179,8 @@
       }
 
       .transp-card__code {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--orange, #FC6116);
+        color: #fff;
         padding: 1px 6px;
         border-radius: 4px;
         font-size: 11px;
