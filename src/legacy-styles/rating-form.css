@@ -884,7 +884,8 @@
   color: #fff;
 }
 .rf .rf-btn--primary:hover {
-  background: #D94E0D;
+  background: #FC6116;
+  opacity: 0.9;
   color: #fff;
 }
 /* Кнопка «Обзор → Свернуть» живёт только в мобильной карточке. */
