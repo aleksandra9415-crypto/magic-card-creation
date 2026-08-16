@@ -56,8 +56,12 @@ function PMethodCard({ method }: { method: PMethod }) {
       <div className="pmethod__rate">{method.rate}</div>
       <div className="pmethod__time">{method.time}</div>
       <ul>
-        {method.points.map((p) => (
-          <li key={p}>{p}</li>
+        {method.points.map((p, i) => (
+          <li key={p}>
+            {method.variant === 'swift' && i === method.points.length - 1 ? (
+              <span className="pmethod__footnote">{p}</span>
+            ) : p}
+          </li>
         ))}
       </ul>
     </div>
@@ -71,7 +75,7 @@ export default function PMethodsSection() {
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">4 способа пополнения</span>
           <h2 className="section__title--pro">
-            Как закидывать деньги на зарубежную карту
+            Как <span className="text-orange">закидывать деньги</span> на зарубежную карту
           </h2>
           <p className="section__sub--pro">
             Большая часть переплат — это комиссия пополнения. Сравните каналы,
