@@ -167,7 +167,7 @@ export default function CalculatorSection() {
               <div className="calc__pick-name">{tier.name}</div>
               <div className="calc__pick-meta">{tier.meta}</div>
               <ApplyLink
-                className="btn btn--primary btn--sm mt-24"
+                className="btn btn--orange btn--sm mt-24"
                 href={tier.applyUrl}
                 card={tier.slug}
                 place="calc"
