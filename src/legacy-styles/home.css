@@ -1401,7 +1401,7 @@
         color: rgba(255, 255, 255, 0.85);
       }
       .footer ul a:hover {
-        color: var(--blue);
+        color: var(--teal);
       }
       .footer__about {
         font-size: 14px;
@@ -1412,7 +1412,7 @@
       .footer__bottom {
         margin-top: 32px;
         padding-top: 20px;
-        border-top: 1px solid var(--line);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
