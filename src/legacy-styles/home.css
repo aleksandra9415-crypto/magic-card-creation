@@ -21,21 +21,21 @@
       /* === styles.css === */
       /* NHcard — virtual foreign card monitor. Light fintech theme. */
       & {
-        --bg: #f7f8fb;
+        --bg: #F1F4F6;
         --bg-2: #ffffff;
-        --ink: #0b1530;
-        --ink-2: #1b2447;
-        --muted: #64708a;
-        --muted-2: #9aa4b8;
-        --line: #e6eaf2;
-        --line-2: #eef1f7;
-        --blue: #2660ff;
-        --blue-600: #1e4fe0;
-        --blue-50: #eaf0ff;
-        --blue-100: #d6e0ff;
-        --orange: #ff7a1a;
-        --orange-50: #fff1e5;
-        --green: #0ea372;
+        --ink: #132A3F;
+        --ink-2: #132A3F;
+        --muted: #6B7C8C;
+        --muted-2: #6B7C8C;
+        --line: #E3E8EC;
+        --line-2: #E3E8EC;
+        --blue: #062132;
+        --blue-600: #132A3F;
+        --blue-50: #BCDFE0;
+        --blue-100: #E3E8EC;
+        --orange: #FC6116;
+        --orange-50: #FFE7DA;
+        --green: #56AFB1;
         --red: #e5484d;
         --radius: 16px;
         --radius-sm: 10px;
