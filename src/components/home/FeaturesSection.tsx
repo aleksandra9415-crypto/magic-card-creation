@@ -71,7 +71,7 @@ export default function FeaturesSection() {
     <section className="section" id="why">
       <div className="container">
         <div className="section__head section__head--centered">
-          <h2 className="section__title">Почему именно NHcard</h2>
+          <h2 className="section__title">Почему именно <span className="text-orange">NHcard</span></h2>
           <p className="section__sub" style={{ marginInline: 'auto' }}>
             Один источник правды для всех зарубежных платёжных сервисов. Без
             рекламных приоритетов — рейтинг строится на проверке и отзывах.
