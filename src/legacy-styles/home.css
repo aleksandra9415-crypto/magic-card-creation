@@ -31,7 +31,7 @@
         --line-2: #eef1f7;
         --blue: #09314a;
         --blue-600: #062132;
-        --blue-50: #f0f7fb;
+        --blue-50: var(--soft-bg);
         --blue-100: #e1eff6;
         --orange: #FC6116;
         --orange-50: #fff1e5;
@@ -2669,7 +2669,7 @@
       }
       .calc__result {
         padding: 28px;
-        background: #f0fafa;
+        background: #f0f7fb;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -3151,7 +3151,7 @@
 
       /* ============ Section helpers ============ */
       .section--soft {
-        background: transparent;
+        background: var(--soft-bg);
       }
       .section__head--centered {
         text-align: center;
