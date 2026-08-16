@@ -4,6 +4,7 @@ import { COUNTRIES, type Country } from "@/data/countries";
 import { COUNTRY_GROUPS } from "@/data/rating-form";
 import armeniaAsset from "@/assets/armenia.jpg.asset.json";
 import kazakhstanAsset from "@/assets/kazakhstan.jpg.asset.json";
+import georgiaAsset from "@/assets/georgia.jpg.asset.json";
 
 /* Декоративные глифы стран — 1:1 из исходной вёрстки */
 const GLYPHS: Record<Country["id"], ReactNode> = {
