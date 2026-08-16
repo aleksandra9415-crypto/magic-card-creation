@@ -1521,6 +1521,8 @@
         color: var(--muted);
       }
       .coll__title {
+        display: block !important;
+        width: 100% !important;
         font-size: 18px;
         font-weight: 800;
         letter-spacing: -0.015em;
@@ -1528,7 +1530,8 @@
         line-height: 1.2;
       }
       .coll__list {
-        display: block;
+        display: block !important;
+        clear: both;
         font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
