@@ -3072,8 +3072,8 @@
         color: var(--blue);
       }
       .guard-card--sec .guard-card__icon {
-        background: #ffe9ea;
-        color: #b80012;
+        background: #fff4ed;
+        color: var(--orange);
       }
       .guard-card h3 {
         margin: 0;
