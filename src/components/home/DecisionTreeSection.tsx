@@ -1,10 +1,18 @@
 
 import { useState } from "react";
 import ApplyLink from "@/components/shared/ApplyLink";
+import { 
+  BrainCircuit, 
+  Play, 
+  Target, 
+  Gamepad, 
+  ShoppingBag, 
+  Globe 
+} from "lucide-react";
 
 type Option = {
   key: string;
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   sub: string;
   pick: string;
@@ -18,7 +26,7 @@ type Option = {
 const OPTIONS: Option[] = [
   {
     key: "ai",
-    icon: "AI",
+    icon: <BrainCircuit size={20} />,
     label: "ChatGPT, Claude",
     sub: "Нейросети",
     pick: "Плати по миру",
@@ -29,7 +37,7 @@ const OPTIONS: Option[] = [
   },
   {
     key: "media",
-    icon: "▶",
+    icon: <Play size={20} fill="currentColor" />,
     label: "Netflix, Spotify",
     sub: "Стриминг и медиа",
     pick: "WantToPay",
@@ -39,7 +47,7 @@ const OPTIONS: Option[] = [
   },
   {
     key: "ads",
-    icon: "M",
+    icon: <Target size={20} />,
     label: "Google Ads, TikTok Ads",
     sub: "Реклама и маркетинг",
     pick: "FlexCard",
@@ -49,7 +57,7 @@ const OPTIONS: Option[] = [
   },
   {
     key: "games",
-    icon: "G",
+    icon: <Gamepad size={20} />,
     label: "Steam, Google Play",
     sub: "Игры и сторы",
     pick: "Card.Club",
@@ -59,17 +67,17 @@ const OPTIONS: Option[] = [
   },
   {
     key: "market",
-    icon: "$",
+    icon: <ShoppingBag size={20} />,
     label: "Amazon, eBay, AliExpress",
     sub: "Маркетплейсы",
     pick: "GoGoCard",
-    meta: "Visa/MasterCard в USD от 39 $, работает в 180+ странах, Apple Pay и Google Pay.",
+    meta: "Visa/MasterCard in USD from $39, works in 180+ countries, Apple Pay and Google Pay.",
     slug: "gogocard",
     applyUrl: "https://www.gogocard.me",
   },
   {
     key: "travel",
-    icon: "✈",
+    icon: <Globe size={20} />,
     label: "Booking, поездки",
     sub: "Путешествия",
     pick: "Wayment",
