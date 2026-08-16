@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { PMETHODS, type PMethod } from "@/data/home";
-import sbpIconAsset from "@/assets/sbp-partner-icon.png.asset.json";
+import sbpIconAsset from "@/assets/sbp-partner-icon-new.png.asset.json";
 
 const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
