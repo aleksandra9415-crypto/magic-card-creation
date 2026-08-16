@@ -4,7 +4,7 @@
 function Tips({
   items,
 }: {
-  items: { tone: "bad" | "good" | "hint"; b: string; text: string }[];
+  items: { tone: "bad" | "good" | "hint" | "accent"; b: string; text: string }[];
 }) {
   return (
     <div className="ctx-tips">
