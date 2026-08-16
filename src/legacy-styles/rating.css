@@ -33,7 +33,7 @@
         --radius-sm: 10px;
         --shadow-sm: 0 1px 2px rgba(11, 21, 48, 0.05);
         --shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
-        --container: 1600px;
+        --container: 1152px;
         --font: var(--font-body);
         --mono: var(--font-body);
       }

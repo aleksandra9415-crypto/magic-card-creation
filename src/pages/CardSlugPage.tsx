@@ -461,7 +461,7 @@ function LandingPage({
 
         {/* Таблице нужен широкий контейнер .page-rating — текстовым блокам
             узкий .lp-wrap. Поэтому рейтинг стоит вне текстовой колонки. */}
-        <div className="container" id="rating">
+        <div className="lp-wrap" id="rating">
           <div className="lp-sec__head">
             <h2>{landing.ratingTitle}</h2>
             <p className="lp-sec__sub">{landing.ratingIntro}</p>
