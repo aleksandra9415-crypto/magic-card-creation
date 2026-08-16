@@ -258,7 +258,7 @@ export default function HomePage() {
         <CountriesSection />
         <BlogSection />
         <EeatStrip />
-        <TransparencyStrip />
+
         <ContextSection />
         <DecisionTreeSection />
         <MethodologySection />

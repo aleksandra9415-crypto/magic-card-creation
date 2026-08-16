@@ -2082,97 +2082,198 @@
       /* === styles-pro.css === */
       /* NHcard pro additions — second-level upgrades */
 
-      /* ============ E-E-A-T strip in hero ============ */
-      .eeat {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
+      /* ============ E-E-A-T strip Redesign ============ */
+      .eeat-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
         margin-top: 24px;
-        padding: 18px;
+      }
+
+      .transp-card {
+        background: linear-gradient(180deg, #0b1530 0%, #142146 100%);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .transp-card__badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--orange);
+        background: rgba(252, 97, 22, 0.1);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(252, 97, 22, 0.2);
+      }
+
+      .transp-card__title {
+        font-size: clamp(20px, 2.5vw, 28px);
+        font-weight: 800;
+        line-height: 1.2;
+        margin: 0 0 24px;
+        max-width: 20ch;
+        text-align: left;
+      }
+
+      .transp-card__grid {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 24px;
+      }
+
+      .transp-card__stat-wrapper {
+        display: flex;
+        align-items: center;
+        flex: 1;
+      }
+
+      .transp-card__stat {
+        flex: 1;
+      }
+
+      .transp-card__stat-n {
+        font-size: clamp(24px, 3.5vw, 36px);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+
+      .transp-card__stat-l {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 6px;
+      }
+
+      .transp-card__divider {
+        width: 1px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0 20px;
+      }
+
+      .transp-card__bottom {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0;
+      }
+
+      .transp-card__code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 11px;
+      }
+
+      .eeat-experts {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .eeat-experts__title {
+        font-size: 18px;
+        font-weight: 800;
+        margin: 0;
+        color: var(--ink);
+      }
+
+      .eeat-experts__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .expert-card {
+        display: flex;
+        gap: 16px;
+        background: var(--bg-2);
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        background: var(--bg-2);
-        box-shadow: var(--shadow-sm);
+        padding: 16px;
+        align-items: center;
       }
-      @media (min-width: 760px) {
-        .eeat {
-          grid-template-columns: 1fr 1fr;
-        }
+
+      .expert-card__img-wrapper {
+        width: 80px;
+        height: 100px;
+        border-radius: 12px;
+        overflow: hidden;
+        flex-shrink: 0;
       }
-      .eeat__col-title {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 10px;
+
+      .expert-card__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
-      .eeat-author {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
+
+      .expert-card__content {
+        flex: 1;
       }
-      .eeat-author + .eeat-author {
-        margin-top: 12px;
-        padding-top: 12px;
-        border-top: 1px dashed var(--line);
-      }
-      .eeat-author__ava {
-        width: 40px;
-        height: 40px;
-        flex: 0 0 40px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-weight: 700;
-        font-size: 13px;
-        color: #fff;
-        background: linear-gradient(135deg, var(--blue), var(--blue-600));
-      }
-      .eeat-author__ava--fc {
-        background: linear-gradient(135deg, #b80012, #ff3b3b);
-      }
-      .eeat-author__role {
+
+      .expert-card__role {
         display: inline-block;
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 700;
         padding: 2px 6px;
         border-radius: 4px;
         background: var(--blue-50);
         color: var(--blue-600);
-        letter-spacing: 0.04em;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
+        margin-bottom: 4px;
       }
-      .eeat-author__role--fc {
+
+      .expert-card__role--fc {
         background: #ffe9ea;
         color: #b80012;
       }
-      .eeat-author__name {
-        font-weight: 700;
-        margin-top: 4px;
+
+      .expert-card__name {
+        font-weight: 800;
+        font-size: 16px;
         color: var(--ink);
+        margin-bottom: 4px;
       }
-      .eeat-author__meta {
+
+      .expert-card__meta {
         font-size: 12px;
         color: var(--muted);
-        line-height: 1.45;
-        margin-top: 2px;
+        line-height: 1.4;
       }
-      .changelog {
-        font-size: 13px;
+
+      .eeat-changelog {
+        margin-top: 8px;
+        padding: 16px;
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
       }
-      .changelog__title {
+
+      .eeat-changelog__title {
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--muted);
-        margin-bottom: 10px;
+        margin-bottom: 12px;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
       }
-      .changelog__title .dot {
+
+      .eeat-changelog__title .dot {
         width: 6px;
         height: 6px;
         border-radius: 50%;
@@ -2180,110 +2281,44 @@
         box-shadow: 0 0 0 4px rgba(14, 163, 114, 0.15);
         animation: pulseDot 2s infinite;
       }
-      
-      .changelog ul {
+
+      .changelog-list {
         list-style: none;
         padding: 0;
         margin: 0;
       }
-      .changelog li {
-        padding: 6px 0;
+
+      .changelog-item {
+        display: flex;
+        gap: 12px;
+        padding: 8px 0;
+        font-size: 13px;
         border-bottom: 1px dashed var(--line);
-        color: var(--ink-2);
-        display: grid;
-        grid-template-columns: 44px 1fr;
-        gap: 10px;
       }
-      .changelog li:last-child {
+
+      .changelog-item:last-child {
         border-bottom: 0;
       }
-      .changelog time {
+
+      .changelog-date {
+        font-weight: 700;
+        color: var(--muted);
+        flex-shrink: 0;
+        width: 40px;
+      }
+
+      .changelog-text {
+        color: var(--ink-2);
+      }
+
         font-family: var(--font-body);
         font-size: 11px;
         color: var(--muted);
         padding-top: 1px;
       }
 
-      /* ============ Transparency strip ============ */
-      .transp {
-        background: linear-gradient(180deg, #0b1530 0%, #142146 100%);
-        color: #fff;
-        border-radius: var(--radius-lg);
-        padding: 28px;
-        margin: 0;
-        position: relative;
-        overflow: hidden;
-      }
-      .transp::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -10%;
-        width: 60%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 122, 26, 0.18),
-          transparent 60%
-        );
-        pointer-events: none;
-      }
-      .transp__head {
-        display: flex;
-        align-items: baseline;
-        gap: 14px;
-        flex-wrap: wrap;
-        margin-bottom: 18px;
-        position: relative;
-        justify-content: center;
-        text-align: center;
-      }
-      .transp__tag {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--orange);
-      }
-      .transp__title {
-        font-size: clamp(22px, 3vw, 32px);
-        font-weight: 800;
-        line-height: 1.15;
-        margin: 0;
-      }
-      .transp__grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        position: relative;
-      }
-      @media (min-width: 760px) {
-        .transp__grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
-        }
-      }
-      .transp-stat__n {
-        font-size: clamp(28px, 4vw, 44px);
-        font-weight: 800;
-        letter-spacing: -0.02em;
-        color: #fff;
-        line-height: 1;
-      }
-      .transp-stat__l {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.7);
-        margin-top: 6px;
-        line-height: 1.4;
-      }
-      .transp__bottom {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-        margin-top: 18px;
-        padding-top: 16px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-      }
+      /* ============ Old Transparency strip (Removed) ============ */
+
 
       /* ============ Context block (why blocked / what is) ============ */
       .ctx {
@@ -3420,7 +3455,9 @@
   .home-main > * { order: 3; }
   .home-main > .hero { order: 0; }
   .home-main > #services { order: 1; }
-  .home-main > .trust { order: 2; }
+  .home-main > .eeat { order: 2; }
+  .home-main > .trust { order: 3; }
+
 
   /* Первый экран прототипа: плашка → h1 → лид → полоса статов → рейтинг.
      Кнопок и стопки карт на мобильном нет: сразу под лидом идёт форма. */
