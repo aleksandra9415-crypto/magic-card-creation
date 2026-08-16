@@ -2757,10 +2757,11 @@
 
       /* ============ Decision tree (Dark Compact Version) ============ */
       .dtree-wrapper {
-        background: #0b1530; /* Темно-синий из палитры */
-        border-radius: 20px;
-        padding: 32px;
+        background: radial-gradient(circle at top left, #1a2542 0%, #0b1530 100%);
+        border-radius: 24px;
+        padding: 40px;
         color: #fff;
+        box-shadow: 0 20px 40px rgba(11, 21, 48, 0.2);
       }
       .dtree-header {
         display: flex;
@@ -2811,23 +2812,26 @@
         gap: 8px;
       }
       .dtree-chip {
-        padding: 8px 16px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: transparent;
+        padding: 10px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.03);
         color: #fff;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
-        transition: all 0.2s ease;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
       }
       .dtree-chip:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
       }
       .dtree-chip.is-active {
         background: #fff;
         color: #0b1530;
         border-color: #fff;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
       }
 
       /* Keep result style if needed later, but hidden for now as per reference */
