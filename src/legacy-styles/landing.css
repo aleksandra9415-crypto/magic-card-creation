@@ -233,19 +233,28 @@
 /* Цифры темы под лидом: тонкая строка, а не плашки — иначе конкурируют
    с зелёным бейджем даты над заголовком. */
 .lp-hero__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 20px;
-  margin-top: 18px;
-  padding-top: 14px;
+  margin-top: 32px;
+  padding-top: 24px;
   border-top: 1px solid var(--lp-line);
-  font-size: 13px;
-  font-weight: 600;
+}
+
+.lp-hero__stats .lp-transp__n {
+  color: var(--lp-ink);
+}
+
+.lp-hero__stats .lp-transp__l {
   color: var(--lp-muted);
 }
 
-.lp-hero__stats b {
-  color: var(--lp-ink);
+.lp-transp__grid--3col {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+@media (max-width: 760px) {
+  .lp-transp__grid--3col {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 20px;
+  }
 }
 
 /* Бейдж проверки стоит над h1 — как в макете. */
