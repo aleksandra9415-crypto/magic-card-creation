@@ -93,7 +93,7 @@ export default function GuardSection() {
         <div className="section__head section__head--centered">
           <span className="eyebrow-pro">Безопасность и закон</span>
           <h2 className="section__title--pro">
-            <span className="text-orange">Что проверить</span> до оплаты выпуска
+            Что важно знать перед оформлением
           </h2>
           <p className="section__sub--pro">
             Два вопроса, которые задают чаще всего: налоги и риски блокировки.
