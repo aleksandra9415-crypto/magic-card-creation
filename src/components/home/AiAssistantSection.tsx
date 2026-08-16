@@ -99,6 +99,9 @@ export default function AiAssistantSection() {
               maxLength={500}
               placeholder="Например: плачу за ChatGPT Plus и Netflix, около 3 000 ₽ в месяц, хочу пополнять по СБП без комиссии"
             />
+            <span className="ai-ask__hint">
+              Бесплатно · без регистрации · ответ ~10 секунд
+            </span>
             <div className="ai-ask__actions">
               <button
                 className="btn btn--primary btn--lg"
@@ -108,7 +111,6 @@ export default function AiAssistantSection() {
               >
                 {state === "loading" ? "Подбираю…" : "Подобрать карту"}
               </button>
-              <span className="ai-ask__hint">Бесплатно · без регистрации · ответ ~10 секунд</span>
             </div>
           </div>
 
