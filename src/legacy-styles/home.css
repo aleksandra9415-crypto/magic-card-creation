@@ -1528,15 +1528,13 @@
         line-height: 1.2;
       }
       .coll__list {
+        display: block;
         font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
         margin: 0 0 14px;
         text-wrap: pretty;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        overflow: visible;
       }
       .coll__foot {
         display: flex;

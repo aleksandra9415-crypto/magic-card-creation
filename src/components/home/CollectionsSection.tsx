@@ -3,10 +3,10 @@ import type { CSSProperties, ReactNode } from "react";
 import { 
   Cpu, 
   Play, 
-  BarChart3, 
-  Gamepad2, 
+  Target, 
+  Gamepad, 
   ShoppingBag, 
-  Plane, 
+  Globe, 
   Layout, 
   Users 
 } from "lucide-react";
@@ -68,7 +68,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <BarChart3 size={28} strokeWidth={2.5} />
+          <Target size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -80,7 +80,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Gamepad2 size={28} strokeWidth={2.5} />
+          <Gamepad size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
@@ -104,7 +104,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Plane size={28} strokeWidth={2.5} />
+          <Globe size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
