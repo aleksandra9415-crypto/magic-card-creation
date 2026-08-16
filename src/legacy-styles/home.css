@@ -3638,7 +3638,7 @@
     margin-bottom: 8px;
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius: 6px;
   }
   .ctr-row__flag { font-size: 24px; line-height: 1; }
   .ctr-row__name {
