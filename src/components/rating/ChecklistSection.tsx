@@ -12,7 +12,7 @@ function CheckCard({ b, p }: { b: string; p: string }) {
 export default function ChecklistSection() {
   return (
     <section className="sec" id="checklist">
-      <h2>Что проверить до оплаты выпуска</h2>
+      <h2>Что <span className="text-accent-orange">проверить до оплаты</span> выпуска</h2>
       <p className="ssub">
         Шесть пунктов, на которых чаще всего теряют деньги — из сотен отзывов
         на Хабре, VC, Отзовике и в профильных чатах.
