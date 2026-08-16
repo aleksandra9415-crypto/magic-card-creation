@@ -1450,7 +1450,7 @@
         display: block;
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: var(--radius);
+        border-radius: 8px;
         overflow: hidden;
         text-decoration: none;
         color: inherit;
