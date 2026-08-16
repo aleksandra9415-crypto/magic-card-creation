@@ -43,7 +43,7 @@ const COLLS: Coll[] = [
     title: "Нейросети",
     list: "ChatGPT · Claude · Midjourney · Gemini · Cursor · Suno · Sora",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <Cpu size={20} strokeWidth={2.5} />
         </div>
@@ -91,7 +91,7 @@ const COLLS: Coll[] = [
     title: "Шопинг",
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <ShoppingBag size={20} strokeWidth={2.5} />
         </div>
