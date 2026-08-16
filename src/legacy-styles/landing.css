@@ -13,25 +13,25 @@
    тёмный текст: плашки чейнджлога теряют заливку, аватары редакции — круг.
    Имена с префиксом --lp-, поэтому глобальное объявление ничего не задевает. */
 :root {
-  --lp-ink: #062132;
+  --lp-ink: #132A3F;
   --lp-ink-2: #132A3F;
-  --lp-muted: #64708a;
-  --lp-dim: #9aa4b8;
-  --lp-line: #e6eaf2;
-  --lp-line-2: #eef1f7;
-  --lp-bg: #f7f8fb;
-  --lp-bg-2: #fff;
+  --lp-muted: #6B7C8C;
+  --lp-dim: #6B7C8C;
+  --lp-line: #E3E8EC;
+  --lp-line-2: #E3E8EC;
+  --lp-bg: #F1F4F6;
+  --lp-bg-2: #FFFFFF;
   --lp-blue: #FC6116;
   --lp-blue-600: #132A3F;
-  --lp-blue-50: #eaf0ff;
-  --lp-blue-100: #d6e0ff;
-  --lp-orange: #ff7a1a;
-  --lp-orange-50: #fff1e5;
-  --lp-green: #0ea372;
-  --lp-green-50: #e7f6f0;
-  --lp-warn-50: #fff8e6;
-  --lp-warn-line: #f3e3b4;
-  --lp-warn-ink: #7a5a00;
+  --lp-blue-50: #BCDFE0;
+  --lp-blue-100: #E3E8EC;
+  --lp-orange: #FC6116;
+  --lp-orange-50: #FFE7DA;
+  --lp-green: #56AFB1;
+  --lp-green-50: #BCDFE0;
+  --lp-warn-50: #FFE7DA;
+  --lp-warn-line: #E3E8EC;
+  --lp-warn-ink: #132A3F;
   --lp-dark: #062132;
   --lp-radius: 16px;
   --lp-radius-sm: 10px;
