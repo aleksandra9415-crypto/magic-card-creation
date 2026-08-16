@@ -106,12 +106,6 @@ export default function AiAssistantSection() {
                 onClick={submit}
                 disabled={state === "loading" || value.trim().length < 3}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M12 3l1.8 4.8L18 9.5l-4.2 1.7L12 16l-1.8-4.8L6 9.5l4.2-1.7L12 3zM19 14l.9 2.1L22 17l-2.1.9L19 20l-.9-2.1L16 17l2.1-.9L19 14z"
-                    fill="currentColor"
-                  />
-                </svg>
                 {state === "loading" ? "Подбираю…" : "Подобрать карту"}
               </button>
               <span className="ai-ask__hint">Бесплатно · без регистрации · ответ ~10 секунд</span>
