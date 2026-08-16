@@ -3188,13 +3188,16 @@
         margin: 0 0 10px;
         line-height: 1.15;
       }
+      .section__head:not(.section__head--centered) .section__title--pro { text-align: left; }
+      .section__head--centered .section__title--pro { text-align: center; }
       .section__sub--pro {
         font-size: 15px;
         color: var(--muted);
         max-width: 640px;
-        margin-inline: auto;
         line-height: 1.55;
       }
+      .section__head:not(.section__head--centered) .section__sub--pro { margin-inline: 0; text-align: left; }
+      .section__head--centered .section__sub--pro { margin-inline: auto; text-align: center; }
     
 
 @keyframes aidot { 0%, 100% { opacity: 0.25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
