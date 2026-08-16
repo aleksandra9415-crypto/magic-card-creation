@@ -32,7 +32,7 @@ export default function MethodologySection() {
           </div>
 
           <div className="formula-box">
-            <div className="dtree__q mb-24">Формула итогового балла</div>
+            <div className="dtree__q mb-24">Из чего состоит итоговая оценка:</div>
             
             <div className="formula-scale">
               <div className="formula-scale__bar">
