@@ -260,6 +260,7 @@
 
 /* Бейдж проверки стоит над h1 — как в макете. */
 .lp-hero__col > .lp-hero__badge {
+  margin-top: 24px;
   margin-bottom: 12px;
 }
 
