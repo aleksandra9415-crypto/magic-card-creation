@@ -64,6 +64,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-soft: var(--soft-bg);
+  --color-accent-orange: var(--orange);
 }
 
 :root {
