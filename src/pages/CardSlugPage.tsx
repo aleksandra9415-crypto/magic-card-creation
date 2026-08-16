@@ -491,7 +491,17 @@ function LandingPage({
 
           <section className="lp-whatis" id="what-is-card">
             <div className="lp-sec__head">
-              <h2>{landing.whatIs.title}</h2>
+              <h2>
+                {landing.whatIs.title.includes("простыми словами") ? (
+                  <>
+                    {landing.whatIs.title.split("простыми словами")[0]}
+                    <span className="text-accent-orange">простыми словами</span>
+                    {landing.whatIs.title.split("простыми словами")[1]}
+                  </>
+                ) : (
+                  landing.whatIs.title
+                )}
+              </h2>
               {landing.whatIs.lead ? <p className="lp-sec__sub">{landing.whatIs.lead}</p> : null}
             </div>
             <TextBlock prose={landing.whatIs} as="h2" />
