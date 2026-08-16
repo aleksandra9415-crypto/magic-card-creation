@@ -63,7 +63,7 @@ export default function EeatStrip() {
             <div className="eeat-changelog">
               <div className="eeat-changelog__title">
                 <span className="dot" />
-                Что обновилось 27 апреля
+                ЧТО ОБНОВИЛОСЬ
               </div>
               <ul className="changelog-list">
                 {EEAT_CHANGELOG.map((c) => (
