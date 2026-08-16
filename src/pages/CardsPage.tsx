@@ -109,14 +109,14 @@ export default function CardsPage({
         />
       ))}
       <main className="container">
-        <section className="hero">
+        <section className="section hero" style={{ paddingBottom: '32px' }}>
           <div className="hero-line">
-            <h1>Рейтинг зарубежных виртуальных карт</h1>
+            <h1 className="section__title">Рейтинг зарубежных виртуальных карт</h1>
             <span className="live">
               <i></i> {verifiedLabel}
             </span>
           </div>
-          <p>
+          <p className="section__sub">
             {CARDS.length} {cardsPlural(CARDS.length)} Visa и Mastercard для
             оплаты подписок, рекламы и покупок. Сравниваем не рекламные «0%», а{" "}
             <b>полную стоимость года</b> — с наценкой на курс. Кликните по
