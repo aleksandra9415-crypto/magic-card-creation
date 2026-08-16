@@ -1673,7 +1673,7 @@
 
 .verdict__row {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: flex-start;
   padding: 12px 0;
   border-top: 1px solid var(--lp-line-2);
@@ -1725,7 +1725,14 @@ a.verdict__row:hover .verdict__go {
   border-radius: 6px;
   padding: 4px 8px;
   flex: none;
+  width: 78px;
+  text-align: center;
   margin-top: 1px;
+}
+
+.verdict__k--best {
+  color: #fff;
+  background: var(--lp-orange);
 }
 
 .verdict__v {

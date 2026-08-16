@@ -25,7 +25,7 @@ export default function VerdictBox({ verdict }: { verdict: Verdict }) {
 function VerdictRow({ pick }: { pick: VerdictPick }) {
   const body = (
     <>
-      <span className="verdict__k">{pick.label}</span>
+      <span className={`verdict__k ${pick.label === "ЛУЧШЕЕ" ? "verdict__k--best" : ""}`}>{pick.label}</span>
       <span className="verdict__v">
         {pick.value}
         <span>{pick.note}</span>
