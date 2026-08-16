@@ -32,7 +32,7 @@ export default function BlogPage() {
                   <div className="blog-card__meta">
                     {post.date} · {post.readTime}
                   </div>
-                  <h2>{post.title}</h2>
+                  <h3 className="blog-card__title">{post.title}</h3>
                   <p>{post.excerpt}</p>
                   <b>Читать</b>
                 </div>

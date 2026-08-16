@@ -112,15 +112,16 @@
     font-weight: 700;
   }
 
-  .blog-card h2 {
-    display: -webkit-box;
-    font-size: 22px;
-    line-height: 1.2;
-    margin: 8px 0 10px;
-    min-height: 3.6em;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+  .blog-card__title {
+    display: -webkit-box !important;
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin: 8px 0 10px !important;
+    min-height: 3.75em !important;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    font-weight: 700 !important;
   }
 
   .blog-card p {
