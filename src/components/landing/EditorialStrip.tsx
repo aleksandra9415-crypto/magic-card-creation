@@ -66,14 +66,7 @@ export default function EditorialStrip({
           {editorial.changelog.map((c) => (
             <li key={c.date + c.text} className="changelog-item">
               <time className="changelog-date">{c.date}</time>
-              <span className="changelog-text">
-                {c.tag ? (
-                  <span className={`lp-changelog__k lp-changelog__k--${c.tag}`} style={{ marginRight: '8px' }}>
-                    {CHANGELOG_TAG_LABEL[c.tag]}
-                  </span>
-                ) : null}
-                {c.text}
-              </span>
+              <span className="changelog-text">{c.text}</span>
             </li>
           ))}
         </ul>
