@@ -3186,7 +3186,7 @@
         font-size: 15px;
         color: var(--muted);
         max-width: 640px;
-        margin: 0;
+        margin-inline: auto;
         line-height: 1.55;
       }
     
