@@ -13,16 +13,16 @@
    тёмный текст: плашки чейнджлога теряют заливку, аватары редакции — круг.
    Имена с префиксом --lp-, поэтому глобальное объявление ничего не задевает. */
 :root {
-  --lp-ink: #0b1530;
-  --lp-ink-2: #1b2447;
+  --lp-ink: #062132;
+  --lp-ink-2: #132A3F;
   --lp-muted: #64708a;
   --lp-dim: #9aa4b8;
   --lp-line: #e6eaf2;
   --lp-line-2: #eef1f7;
   --lp-bg: #f7f8fb;
   --lp-bg-2: #fff;
-  --lp-blue: #2660ff;
-  --lp-blue-600: #1e4fe0;
+  --lp-blue: #FC6116;
+  --lp-blue-600: #132A3F;
   --lp-blue-50: #eaf0ff;
   --lp-blue-100: #d6e0ff;
   --lp-orange: #ff7a1a;
@@ -32,7 +32,7 @@
   --lp-warn-50: #fff8e6;
   --lp-warn-line: #f3e3b4;
   --lp-warn-ink: #7a5a00;
-  --lp-dark: #0b1530;
+  --lp-dark: #062132;
   --lp-radius: 16px;
   --lp-radius-sm: 10px;
   --lp-shadow: 0 8px 24px rgba(11, 21, 48, 0.06);
@@ -292,7 +292,7 @@
   margin: 48px 0;
   padding: 28px 20px;
   border-radius: var(--lp-radius);
-  background: linear-gradient(160deg, #101c3d 0%, #0b1530 60%);
+  background: linear-gradient(160deg, #101c3d 0%, #062132 60%);
   color: #fff;
 }
 
@@ -990,7 +990,7 @@
 .lp-shot__card {
   height: 62px;
   border-radius: 9px;
-  background: linear-gradient(135deg, #2660ff 0%, #0b1530 100%);
+  background: linear-gradient(135deg, #FC6116 0%, #062132 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -998,7 +998,7 @@
 }
 
 .lp-shot__card--live {
-  background: linear-gradient(135deg, #0ea372 0%, #0b1530 100%);
+  background: linear-gradient(135deg, #0ea372 0%, #062132 100%);
 }
 
 .lp-shot__card-chip {

@@ -78,9 +78,9 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
           height: "100%",
         }}
       >
-        <div style={barStyle("#2660ff", "55%")}></div>
+        <div style={barStyle("#56AFB1", "55%")}></div>
         <div style={barStyle("#ff7a1a", "75%")}></div>
-        <div style={barStyle("#0b1530", "40%")}></div>
+        <div style={barStyle("#062132", "40%")}></div>
         <div style={barStyle("#0ea372", "85%")}></div>
         <div style={barStyle("#6e55ff", "60%")}></div>
       </div>
@@ -145,7 +145,7 @@ export const COLLECTION_HEROES: Record<Collection["heroVariant"], ReactNode> = {
         </div>
         <div
           style={{
-            background: "#0b1530",
+            background: "#062132",
             color: "#fff",
             borderRadius: "50%",
             width: 48,

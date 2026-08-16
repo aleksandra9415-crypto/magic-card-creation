@@ -1118,7 +1118,7 @@
 
 .rf-ai {
   margin-top: 20px;
-  background: linear-gradient(135deg, #0b1530, #1b2447);
+  background: linear-gradient(135deg, #062132, #132A3F);
   border-radius: 16px;
   padding: 22px 24px;
   color: #fff;
@@ -1886,13 +1886,13 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #2660ff;
+  color: #FC6116;
 }
 .sguide-price__val {
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 17px;
   font-weight: 600;
-  color: #0b1530;
+  color: #062132;
 }
 .sguide-price__note {
   flex: 1 1 100%;
@@ -1930,7 +1930,7 @@
   width: 28px;
   height: 28px;
   border-radius: 9px;
-  background: #2660ff;
+  background: #FC6116;
   color: #fff;
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 12px;
@@ -1948,7 +1948,7 @@
   margin: 0;
   font-size: 13.5px;
   line-height: 1.6;
-  color: #1b2447;
+  color: #132A3F;
 }
 
 .sguide-pitfalls {
@@ -1976,12 +1976,12 @@
 .sguide-pitfalls li {
   font-size: 13.5px;
   line-height: 1.6;
-  color: #1b2447;
+  color: #132A3F;
 }
 .sguide-pitfalls li b {
   display: block;
   font-size: 13.5px;
-  color: #0b1530;
+  color: #062132;
 }
 
 .sguide-foot {
@@ -1991,9 +1991,9 @@
   color: #9aa4b8;
 }
 .sguide-foot a {
-  color: #2660ff;
+  color: #FC6116;
   border-bottom: 1px solid rgb(38 96 255 / 30%);
 }
 .sguide-foot a:hover {
-  border-bottom-color: #2660ff;
+  border-bottom-color: #FC6116;
 }

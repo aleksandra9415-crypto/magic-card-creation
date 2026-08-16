@@ -244,7 +244,7 @@
         height: 72px;
         flex: 0 0 72px;
         border-radius: 20px;
-        background: linear-gradient(135deg, #2660ff, #1e4fe0);
+        background: linear-gradient(135deg, #FC6116, #132A3F);
         display: grid;
         place-items: center;
         color: #fff;
@@ -1379,7 +1379,7 @@
       /* ============ нижний CTA-баннер ============ */
 
       .endcta {
-        background: linear-gradient(135deg, #0b1530, #1b2447);
+        background: linear-gradient(135deg, #062132, #132A3F);
         border-radius: 20px;
         padding: 32px;
         color: #fff;
