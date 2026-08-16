@@ -635,7 +635,7 @@
         color: var(--ink-2);
         letter-spacing: -0.01em;
         font-size: 14.5px;
-        background: var(--bg);
+        background: #fff;
         border: 1.5px solid var(--line);
         border-radius: 12px;
         transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
