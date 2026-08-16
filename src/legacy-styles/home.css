@@ -2552,7 +2552,7 @@
       .expert-quote__ava {
         width: 48px;
         height: 48px;
-        border-radius: 50%;
+        border-radius: 8px;
         display: grid;
         place-items: center;
         font-weight: 700;
