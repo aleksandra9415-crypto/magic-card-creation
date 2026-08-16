@@ -1511,7 +1511,7 @@
   .rf-num {
     width: 26px;
     height: 26px;
-    border-radius: 9px;
+    border-radius: 4px;
     font-size: 12px;
   }
   /* Базис 0: название занимает остаток строки и не выталкивает оценку вниз
