@@ -20,12 +20,10 @@ export default function RelatedSection({ related }: { related: RelatedLink[] }) 
             href={r.href}
             className={`lp-related__card${r.icon ? " lp-related__card--icon" : ""}`}
           >
+            {r.kind === "trend" ? <span className="lp-hot">Тренд</span> : null}
             {r.icon ? <span className="lp-related__ic">{r.icon}</span> : null}
             <span className="lp-related__body">
-              <span className="lp-related__t">
-                {r.title}
-                {r.kind === "trend" ? <span className="lp-hot">Тренд</span> : null}
-              </span>
+              <span className="lp-related__t">{r.title}</span>
               <span className="lp-related__s">{r.sub}</span>
             </span>
           </Link>
