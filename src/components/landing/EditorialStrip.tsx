@@ -1,14 +1,5 @@
 import { EEAT_AUTHORS } from "@/data/home";
-import type { ChangelogTag, Editorial } from "@/data/landing/types";
-
-const CHANGELOG_TAG_LABEL: Record<ChangelogTag, string> = {
-  price: "Тарифы",
-  new: "Новое",
-  check: "Перепроверка",
-  list: "Состав",
-  content: "Контент",
-  score: "Оценка",
-};
+import type { Editorial } from "@/data/landing/types";
 
 /* Блоки 1 и 2 нижней части ТЗ: кто составляет рейтинг и что обновилось.
    Это два разных вопроса читателя — «кому верить» и «насколько свежо», —
@@ -66,14 +57,7 @@ export default function EditorialStrip({
           {editorial.changelog.map((c) => (
             <li key={c.date + c.text} className="changelog-item">
               <time className="changelog-date">{c.date}</time>
-              <span className="changelog-text">
-                {c.tag ? (
-                  <span className={`lp-changelog__k lp-changelog__k--${c.tag}`} style={{ marginRight: '8px' }}>
-                    {CHANGELOG_TAG_LABEL[c.tag]}
-                  </span>
-                ) : null}
-                {c.text}
-              </span>
+              <span className="changelog-text">{c.text}</span>
             </li>
           ))}
         </ul>
