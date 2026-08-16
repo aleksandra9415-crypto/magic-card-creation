@@ -863,8 +863,8 @@
         transform: translateY(-2px);
       }
       .svc--top {
-        border: 1px solid var(--orange);
-        box-shadow: 0 12px 28px rgba(252, 97, 22, 0.12);
+        border: 1px solid var(--blue);
+        box-shadow: 0 12px 28px rgba(252, 97, 22, 0.1);
       }
       .svc__rank {
         position: absolute;
