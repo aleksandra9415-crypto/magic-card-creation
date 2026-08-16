@@ -1512,6 +1512,9 @@
       }
       .coll__body {
         padding: 16px 18px 18px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
       }
       .coll__cat {
         font-size: 11px;
@@ -1522,12 +1525,12 @@
       }
       .coll__title {
         display: block !important;
-        width: 100% !important;
         font-size: 18px;
         font-weight: 800;
         letter-spacing: -0.015em;
-        margin: 4px 0 6px;
+        margin: 4px 0 6px !important;
         line-height: 1.2;
+        width: 100%;
       }
       .coll__list {
         display: block !important;
