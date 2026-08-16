@@ -22,8 +22,8 @@
   --rf-orange-line: #ffd9b8;
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
-     в контейнер 1200px без горизонтального скролла. */
-  --rf-grid: 40px 1.25fr 100px 112px 108px 1fr 90px 156px 34px;
+     в контейнер 1152px без горизонтального скролла. */
+  --rf-grid: 40px 1.2fr 100px 108px 104px 1fr 90px 156px 34px;
 
   color: var(--rf-ink);
   text-align: left;
@@ -60,7 +60,7 @@
 .rf-panel {
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 16px;
   box-shadow: 0 1px 2px rgb(11 21 48 / 5%);
   position: relative;
@@ -78,7 +78,7 @@
 .rf-dd-btn {
   height: 44px;
   padding: 0 16px;
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--rf-line);
   background: #fff;
   color: var(--rf-ink);
@@ -120,7 +120,7 @@
   gap: 9px;
   background: var(--rf-bg);
   border: 1px solid var(--rf-line);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 0 14px;
   height: 44px;
   color: var(--rf-dim);
@@ -158,7 +158,7 @@
   left: 0;
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 14px;
+  border-radius: 6px;
   box-shadow: 0 20px 50px rgb(11 21 48 / 14%);
   z-index: 60;
   animation: rf-fade 0.14s ease;
@@ -210,7 +210,7 @@
 .rf-pop-input {
   border: 1px solid var(--rf-line);
   background: var(--rf-bg);
-  border-radius: 9px;
+  border-radius: 6px;
   height: 34px;
   padding: 0 12px;
   font-size: 13px;
@@ -268,7 +268,7 @@
 .rf-pop-chip {
   height: 30px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: 4px;
   border: 1px solid var(--rf-line);
   background: #fff;
   font-size: 12.5px;
@@ -287,7 +287,7 @@
   align-items: center;
   gap: 10px;
   padding: 8px 10px;
-  border-radius: 9px;
+  border-radius: 6px;
   color: var(--rf-ink);
 }
 .rf-opt:hover {
@@ -301,7 +301,7 @@
   width: 26px;
   height: 26px;
   flex: 0 0 26px;
-  border-radius: 7px;
+  border-radius: 4px;
   background: var(--rf-blue-50);
   color: var(--rf-blue);
   font-size: 11px;
@@ -341,7 +341,7 @@
   border: 0;
   background: transparent;
   padding: 8px 10px;
-  border-radius: 9px;
+  border-radius: 6px;
   text-align: left;
   color: var(--rf-ink);
 }
@@ -381,7 +381,7 @@
 .rf-chip {
   height: 36px;
   padding: 0 12px;
-  border-radius: 10px;
+  border-radius: 6px;
   border: 1px solid var(--rf-line);
   background: #fff;
   color: var(--rf-ink-2);
@@ -431,7 +431,7 @@
   gap: 8px;
   background: var(--rf-blue);
   color: #fff;
-  border-radius: 999px;
+  border-radius: 4px;
   height: 32px;
   padding: 0 8px 0 14px;
   font-size: 13px;
@@ -516,7 +516,7 @@
   left: 0;
   background: var(--rf-ink);
   color: #fff;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 10px 12px;
   font-size: 12.5px;
   font-weight: 500;
@@ -538,7 +538,7 @@
 .rf-table {
   background: #fff;
   border: 1px solid var(--rf-line);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 8px 24px rgb(11 21 48 / 6%);
 }
 .rf-table-scroll {
@@ -615,7 +615,7 @@
   color: var(--rf-blue);
   font-size: 11.5px;
   font-weight: 700;
-  border-radius: 999px;
+  border-radius: 4px;
   padding: 5px 12px;
 }
 .rf-badge--ai {
@@ -636,7 +636,7 @@
 .rf-num {
   width: 30px;
   height: 30px;
-  border-radius: 9px;
+  border-radius: 6px;
   background: var(--rf-blue-50);
   color: var(--rf-blue);
   font-size: 13px;
@@ -672,7 +672,7 @@
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
-  border-radius: 12px;
+  border-radius: 6px;
   color: #fff;
   font-size: 13px;
   font-weight: 800;
@@ -684,14 +684,14 @@
   width: 26px;
   height: 26px;
   flex-basis: 26px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 10px;
 }
 .rf-logo--md {
   width: 30px;
   height: 30px;
   flex-basis: 30px;
-  border-radius: 9px;
+  border-radius: 4px;
   font-size: 11px;
 }
 .rf-name-box {
@@ -783,7 +783,7 @@
   height: 38px;
   padding: 0 12px;
   border: 1px dashed var(--rf-line);
-  border-radius: 11px;
+  border-radius: 6px;
   background: transparent;
   transition: all 0.2s ease;
   line-height: 1.1;
@@ -858,7 +858,7 @@
 .rf-btn {
   height: 38px;
   padding: 0 15px;
-  border-radius: 11px;
+  border-radius: 6px;
   font-size: 13px;
   font-weight: 700;
   display: inline-flex;
@@ -893,7 +893,7 @@
 .rf-promo {
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: 6px;
   border: 1px solid var(--rf-orange-line);
   background: var(--rf-orange-50);
   color: var(--rf-orange);
@@ -917,7 +917,7 @@
 .rf-chev {
   width: 26px;
   height: 26px;
-  border-radius: 8px;
+  border-radius: 4px;
   color: var(--rf-dim);
   display: inline-flex;
   align-items: center;
@@ -940,7 +940,7 @@
   gap: 14px;
   background: var(--rf-bg);
   border: 1px solid var(--rf-line-2);
-  border-radius: 14px;
+  border-radius: 6px;
   padding: 16px 18px;
 }
 .rf-exp-lbl {
@@ -1007,7 +1007,7 @@
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 13px;
   font-weight: 600;
-  border-radius: 9px;
+  border-radius: 4px;
   padding: 6px 12px;
 }
 
@@ -1080,7 +1080,7 @@
   font-size: 14px;
   font-weight: 700;
   padding: 8px 14px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .rf-showall button:hover {
   background: var(--rf-blue-50);
@@ -1119,7 +1119,7 @@
 .rf-ai {
   margin-top: 20px;
   background: linear-gradient(135deg, #0b1530, #1b2447);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 22px 24px;
   color: #fff;
 }
@@ -1156,7 +1156,7 @@
   color: #fff;
   font-size: 12px;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 6px 12px;
 }
 .rf-ai-grid {
@@ -1178,7 +1178,7 @@
 .rf-ai-opt {
   height: 31px;
   padding: 0 13px;
-  border-radius: 999px;
+  border-radius: 4px;
   border: 1px solid rgb(255 255 255 / 25%);
   background: transparent;
   color: #fff;
@@ -1195,7 +1195,7 @@
   margin-top: 16px;
   background: rgb(255 255 255 / 7%);
   border: 1px solid rgb(255 255 255 / 12%);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 13px 16px;
   font-size: 13.5px;
   font-weight: 500;
@@ -1218,7 +1218,7 @@
   transform: translateX(-50%);
   width: 38px;
   height: 4px;
-  border-radius: 999px;
+  border-radius: 4px;
   background: #d6dce8;
 }
 .rf-sheet-title {
@@ -1373,7 +1373,7 @@
     scroll-snap-align: start;
     height: 34px;
     padding: 0 14px;
-    border-radius: 999px;
+  border-radius: 4px;
     color: var(--rf-ink);
     font-size: 12.5px;
     font-weight: 700;
@@ -1442,7 +1442,7 @@
     position: relative;
     background: #fff;
     border: 1px solid var(--rf-line);
-    border-radius: 18px;
+    border-radius: 12px;
     margin-bottom: 12px;
     box-shadow: 0 1px 2px rgb(11 21 48 / 4%);
   }
@@ -1511,7 +1511,7 @@
   .rf-num {
     width: 26px;
     height: 26px;
-    border-radius: 9px;
+    border-radius: 4px;
     font-size: 12px;
   }
   /* Базис 0: название занимает остаток строки и не выталкивает оценку вниз
@@ -1631,14 +1631,14 @@
   .rf-svc-ic {
     width: 36px;
     height: 36px;
-    border-radius: 11px;
+    border-radius: 6px;
     font-size: 12px;
   }
   .rf-more {
     height: 36px;
     min-width: 44px;
     padding: 0 12px;
-    border-radius: 11px;
+    border-radius: 6px;
     font-size: 13px;
   }
 
@@ -1653,7 +1653,7 @@
   }
   .rf-btn {
     height: 46px;
-    border-radius: 13px;
+    border-radius: 6px;
     font-size: 14px;
   }
   .rf-btn--toggle {
@@ -1703,13 +1703,13 @@
     width: 100%;
     height: 46px;
     border: 1px solid var(--rf-line);
-    border-radius: 13px;
+    border-radius: 6px;
     background: #fff;
   }
   .rf-empty {
     background: #fff;
     border: 1px solid var(--rf-line);
-    border-radius: 18px;
+    border-radius: 12px;
     padding: 34px 18px 30px;
   }
   .rf-empty-alts {
@@ -1803,7 +1803,7 @@
   /* --- подбор карты --- */
   .rf-ai {
     padding: 18px 16px;
-    border-radius: 18px;
+    border-radius: 12px;
   }
   .rf-ai-grid {
     grid-template-columns: 1fr;
@@ -1843,7 +1843,7 @@
 .sguide {
   background: #fff;
   border: 1px solid var(--rf-line, #e6eaf2);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 0 1px 2px rgb(11 21 48 / 5%);
   padding: 28px;
   margin: 28px 0 0;
@@ -1879,7 +1879,7 @@
   margin-top: 18px;
   padding: 14px 16px;
   background: #eaf0ff;
-  border-radius: 12px;
+  border-radius: 6px;
 }
 .sguide-price__lbl {
   font-size: 11px;
@@ -1919,7 +1919,7 @@
   position: relative;
   padding: 16px 18px 16px 56px;
   border: 1px solid #eef1f7;
-  border-radius: 12px;
+  border-radius: 6px;
   background: #f7f8fb;
 }
 .sguide-steps li::before {
@@ -1929,7 +1929,7 @@
   left: 16px;
   width: 28px;
   height: 28px;
-  border-radius: 9px;
+  border-radius: 6px;
   background: #2660ff;
   color: #fff;
   font-family: var(--mono, "JetBrains Mono", monospace);
@@ -1954,7 +1954,7 @@
 .sguide-pitfalls {
   margin-top: 22px;
   padding: 18px 20px;
-  border-radius: 12px;
+  border-radius: 6px;
   border-left: 3px solid #ff7a1a;
   background: #fff1e5;
 }
