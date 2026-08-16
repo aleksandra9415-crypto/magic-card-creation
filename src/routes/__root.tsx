@@ -57,8 +57,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const FAVICON =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%230B1530'/%3E%3Cpath d='M7 9 L7 31 L11.6 31 L11.6 17.4 L20.6 31 L25.2 31 L25.2 9 L20.6 9 L20.6 22.6 L11.6 9 Z' fill='%23FF3B3B'/%3E%3C/svg%3E";
+const FAVICON = "/favicon.svg";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -79,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: FAVICON },
+      { rel: "icon", type: "image/svg+xml", href: FAVICON },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
