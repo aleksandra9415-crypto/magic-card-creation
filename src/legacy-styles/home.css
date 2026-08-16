@@ -2207,7 +2207,7 @@
 
       /* ============ Transparency strip ============ */
       .transp {
-        background: linear-gradient(180deg, #062132 0%, #142146 100%);
+        background: linear-gradient(135deg, #062132 0%, #132A3F 100%);
         color: #fff;
         border-radius: var(--radius-lg);
         padding: 28px;
@@ -2737,7 +2737,7 @@
       .dtree__result {
         margin-top: 20px;
         padding: 18px;
-        background: linear-gradient(135deg, #fff1e5, #ffe0cc);
+        background: linear-gradient(135deg, var(--orange-50), var(--blue-50));
         border-radius: var(--radius);
         display: none;
       }
@@ -2968,7 +2968,7 @@
         color: var(--blue);
       }
       .guard-card--sec .guard-card__icon {
-        background: #ffe9ea;
+        background: var(--blue-50);
         color: #FC6116;
       }
       .guard-card h3 {
