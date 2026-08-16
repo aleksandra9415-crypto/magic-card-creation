@@ -59,6 +59,7 @@ export default function BlogPostPage({ params }: Props) {
               {post.sourceUrl ? (
                 <a
                   className="btn btn--ghost btn--lg"
+                  style={{ marginTop: 32 }}
                   href={post.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
