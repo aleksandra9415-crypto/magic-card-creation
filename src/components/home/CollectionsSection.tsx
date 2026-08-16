@@ -1,5 +1,6 @@
 import Link from "@/components/shared/Link";
 import shoppingAsset from "@/assets/shopping-reference.png.asset.json";
+import socialAsset from "@/assets/social-media-reference.png.asset.json";
 import type { CSSProperties, ReactNode } from "react";
 import { 
   Cpu, 
@@ -128,7 +129,7 @@ const COLLS: Coll[] = [
     title: "Соцсети и подписки",
     list: "Telegram Premium · Discord Nitro · Duolingo · LinkedIn · Tinder · Patreon",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl={socialAsset.url}>
         <div className="coll__icon-box">
           <Users size={20} strokeWidth={2.5} />
         </div>
