@@ -65,11 +65,12 @@ export default function LandingHero({
       <h1>{renderH1(h1, h1Accent)}</h1>
       <p className="lp-hero__lead">{lead}</p>
       {stats?.length ? (
-        <div className="lp-hero__stats">
+        <div className="lp-hero__stats lp-transp__grid lp-transp__grid--3col">
           {stats.map((s) => (
-            <span key={s.l}>
-              <b>{s.n}</b> {s.l}
-            </span>
+            <div key={s.l}>
+              <div className="lp-transp__n">{s.n}</div>
+              <div className="lp-transp__l">{s.l}</div>
+            </div>
           ))}
         </div>
       ) : (
