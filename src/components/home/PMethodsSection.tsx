@@ -1,16 +1,15 @@
 import type { ReactNode } from "react";
 import { PMETHODS, type PMethod } from "@/data/home";
+import sbpIconAsset from "@/assets/sbp-partner-icon.png.asset.json";
 
 const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path
-        d="M11 2l6 5v8l-6 5-6-5V7z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <img 
+      src={sbpIconAsset.url} 
+      alt="" 
+      className="pmethod__icon-img"
+      aria-hidden="true" 
+    />
   ),
   crypto: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
