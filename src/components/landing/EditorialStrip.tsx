@@ -27,58 +27,56 @@ export default function EditorialStrip({
 }) {
   const people = authors ?? EEAT_AUTHORS;
   return (
-    <section className="lp-eeat eeat-experts" id="editorial" aria-labelledby="editorial-title" style={{ padding: 0, background: 'none', border: 'none', boxShadow: 'none' }}>
-      <div className="eeat-experts" style={{ margin: 0, padding: 0, width: '100%' }}>
-        <div className="eeat-experts__header">
-          <h3 id="editorial-title" className="eeat-experts__title">
-            {authorsTitle ?? "Кто составляет рейтинги"}
-          </h3>
-        </div>
-        
-        <div className="eeat-experts__grid">
-          {people.map((a) => (
-            <div className="expert-card" key={a.name}>
-              <div className="expert-card__img-wrapper">
-                <img 
-                  src={a.name.includes("Никита") 
-                    ? "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=250&auto=format&fit=crop" 
-                    : "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=250&auto=format&fit=crop"} 
-                  alt={a.name}
-                  className="expert-card__img"
-                />
-              </div>
-              <div className="expert-card__content">
-                <div className={`expert-card__role ${a.fc ? 'expert-card__role--fc' : ''}`}>
-                  {a.role}
-                </div>
-                <div className="expert-card__name">{a.name}</div>
-                <div className="expert-card__meta">{a.meta}</div>
-              </div>
+    <section className="lp-eeat eeat-experts" id="editorial" aria-labelledby="editorial-title">
+      <div className="eeat-experts__header">
+        <h3 id="editorial-title" className="eeat-experts__title">
+          {authorsTitle ?? "Кто составляет рейтинги"}
+        </h3>
+      </div>
+      
+      <div className="eeat-experts__grid">
+        {people.map((a) => (
+          <div className="expert-card" key={a.name}>
+            <div className="expert-card__img-wrapper">
+              <img 
+                src={a.name.includes("Никита") 
+                  ? "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=250&auto=format&fit=crop" 
+                  : "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=250&auto=format&fit=crop"} 
+                alt={a.name}
+                className="expert-card__img"
+              />
             </div>
-          ))}
-        </div>
-
-        <div className="eeat-changelog">
-          <div className="eeat-changelog__title">
-            <span className="dot" />
-            {changelogTitle ?? "ЧТО ОБНОВИЛОСЬ"}
+            <div className="expert-card__content">
+              <div className={`expert-card__role ${a.fc ? 'expert-card__role--fc' : ''}`}>
+                {a.role}
+              </div>
+              <div className="expert-card__name">{a.name}</div>
+              <div className="expert-card__meta">{a.meta}</div>
+            </div>
           </div>
-          <ul className="changelog-list">
-            {editorial.changelog.map((c) => (
-              <li key={c.date + c.text} className="changelog-item">
-                <time className="changelog-date">{c.date}</time>
-                <span className="changelog-text">
-                  {c.tag ? (
-                    <span className={`lp-changelog__k lp-changelog__k--${c.tag}`} style={{ marginRight: '8px' }}>
-                      {CHANGELOG_TAG_LABEL[c.tag]}
-                    </span>
-                  ) : null}
-                  {c.text}
-                </span>
-              </li>
-            ))}
-          </ul>
+        ))}
+      </div>
+
+      <div className="eeat-changelog">
+        <div className="eeat-changelog__title">
+          <span className="dot" />
+          {changelogTitle ?? "ЧТО ОБНОВИЛОСЬ"}
         </div>
+        <ul className="changelog-list">
+          {editorial.changelog.map((c) => (
+            <li key={c.date + c.text} className="changelog-item">
+              <time className="changelog-date">{c.date}</time>
+              <span className="changelog-text">
+                {c.tag ? (
+                  <span className={`lp-changelog__k lp-changelog__k--${c.tag}`} style={{ marginRight: '8px' }}>
+                    {CHANGELOG_TAG_LABEL[c.tag]}
+                  </span>
+                ) : null}
+                {c.text}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
