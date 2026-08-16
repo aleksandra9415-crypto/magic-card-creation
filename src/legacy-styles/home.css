@@ -2663,9 +2663,9 @@
         transition: all 0.15s;
       }
       .calc__chip.is-active {
-        background: var(--ink);
+        background: var(--blue);
         color: #fff;
-        border-color: var(--ink);
+        border-color: var(--blue);
       }
       .calc__result {
         padding: 28px;
