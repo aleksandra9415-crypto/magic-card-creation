@@ -46,9 +46,7 @@ const COLLS: Coll[] = [
     list: "ChatGPT · Claude · Midjourney · Gemini · Cursor · Suno · Sora",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Cpu size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -58,9 +56,7 @@ const COLLS: Coll[] = [
     list: "Netflix · Spotify · YouTube Premium · Apple ID · Google Play · HBO",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Airplay size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -70,9 +66,7 @@ const COLLS: Coll[] = [
     list: "Google Ads · Facebook Ads · TikTok Ads · PayPal",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Target size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -82,9 +76,7 @@ const COLLS: Coll[] = [
     list: "Steam · PlayStation · Xbox · Nintendo · Epic Games · Roblox · Genshin",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Gamepad size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -94,9 +86,7 @@ const COLLS: Coll[] = [
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
     hero: (
       <CategoryHero imageUrl={shoppingAsset.url}>
-        <div className="coll__icon-box">
-          <ShoppingBag size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -106,9 +96,7 @@ const COLLS: Coll[] = [
     list: "Booking · Airbnb · Agoda · Uber · Ryanair · Turkish Airlines",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Globe size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -118,9 +106,7 @@ const COLLS: Coll[] = [
     list: "Adobe · Figma · Notion · Canva · Microsoft 365 · Zoom · Envato",
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&q=80&w=800">
-        <div className="coll__icon-box">
-          <Layout size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
@@ -130,9 +116,7 @@ const COLLS: Coll[] = [
     list: "Telegram Premium · Discord Nitro · Duolingo · LinkedIn · Tinder · Patreon",
     hero: (
       <CategoryHero imageUrl={socialAsset.url}>
-        <div className="coll__icon-box">
-          <Users size={20} strokeWidth={2.5} />
-        </div>
+        {/* Icon removed */}
       </CategoryHero>
     ),
   },
