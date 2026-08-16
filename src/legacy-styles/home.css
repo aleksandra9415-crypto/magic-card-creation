@@ -2755,79 +2755,84 @@
         margin-top: 2px;
       }
 
-      /* ============ Decision tree ============ */
-      .dtree {
-        padding: 28px;
-        border-radius: var(--radius-lg);
-        background: var(--bg-2);
-        border: 1px solid var(--line);
+      /* ============ Decision tree (Dark Compact Version) ============ */
+      .dtree-wrapper {
+        background: #0b1530; /* Темно-синий из палитры */
+        border-radius: 20px;
+        padding: 32px;
+        color: #fff;
       }
-      .dtree__q {
-        font-size: 18px;
+      .dtree-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .dtree-header__icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .dtree-header__title {
+        font-size: 20px;
         font-weight: 700;
-        color: var(--ink);
-        margin-bottom: 16px;
+        margin: 0;
+        color: #fff;
       }
-      .dtree__opts {
+      .dtree-header__sub {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        margin: 4px 0 0;
+      }
+      .dtree-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 0;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-      }
-      @media (min-width: 600px) {
-        .dtree__opts {
-          grid-template-columns: repeat(2, 1fr);
-        }
+        gap: 24px;
       }
       @media (min-width: 900px) {
-        .dtree__opts {
-          grid-template-columns: repeat(3, 1fr);
+        .dtree-grid {
+          grid-template-columns: 1.2fr 1fr 1fr;
         }
       }
-      .dtree-opt {
-        padding: 24px 20px;
-        border: 0;
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        background: #fff;
-        cursor: pointer;
-        text-align: left;
-        transition: all 0.2s ease;
+      .dtree-col__title {
+        font-size: 14px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 12px;
+      }
+      .dtree-col__chips {
         display: flex;
-        gap: 12px;
-        align-items: center;
-        position: relative;
+        flex-wrap: wrap;
+        gap: 8px;
       }
-      .dtree-opt:nth-child(3n) {
-        border-right: 0;
+      .dtree-chip {
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: transparent;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.2s ease;
       }
-      .dtree-opt:nth-last-child(-n+3) {
-        border-bottom: 0;
+      .dtree-chip:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
       }
-      .dtree-opt:hover {
-        background: var(--blue-50);
+      .dtree-chip.is-active {
+        background: #fff;
+        color: #0b1530;
+        border-color: #fff;
       }
-      .dtree-opt.is-active {
-        background: var(--blue-50);
-        box-shadow: inset 0 0 0 1px var(--blue);
-        z-index: 1;
-      }
-      .dtree-opt__label {
-        display: block !important;
-        font-weight: 700;
-        font-size: 16px;
-        color: var(--ink);
-        margin-bottom: 4px !important;
-      }
-      .dtree-opt__sub {
-        display: block !important;
-        font-size: 13px;
-        color: var(--muted);
-      }
+
+      /* Keep result style if needed later, but hidden for now as per reference */
       .dtree__result {
-        margin-top: 20px;
+        margin-top: 24px;
         padding: 18px;
         background: linear-gradient(135deg, #fff1e5, #ffe0cc);
         border-radius: var(--radius);
