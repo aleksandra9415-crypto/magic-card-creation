@@ -1219,8 +1219,8 @@
         display: inline-block;
         font-size: 10px;
         font-weight: 700;
-        background: var(--orange-50);
-        color: var(--orange);
+        background: var(--teal-soft);
+        color: var(--teal);
         padding: 2px 6px;
         border-radius: 4px;
         letter-spacing: 0.04em;
