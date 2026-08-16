@@ -1265,7 +1265,7 @@
         top: -120px;
         background: radial-gradient(
           circle at center,
-          rgba(252, 97, 22, 0.55),
+          rgba(252, 97, 22, 0.4),
           transparent 60%
         );
         pointer-events: none;
