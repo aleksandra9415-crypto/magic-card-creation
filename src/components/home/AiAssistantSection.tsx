@@ -82,7 +82,7 @@ export default function AiAssistantSection() {
                   <button
                     key={c.label}
                     type="button"
-                    className="calc__chip"
+                    className="calc__chip rounded-[6px]"
                     onClick={() => setValue(`Хочу оплачивать: ${c.q}`)}
                   >
                     {c.label}
