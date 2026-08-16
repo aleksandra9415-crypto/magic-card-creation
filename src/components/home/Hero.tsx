@@ -32,7 +32,7 @@ export default function Hero() {
                 показываем только на широких экранах. */}
             <p className="hero__lead">
               NHcard не выпускает карты — мы их{" "}
-              <strong style={{ color: "var(--ink)" }}>
+              <strong style={{ color: "var(--foreground)" }}>
                 мониторим, сравниваем и тестируем
               </strong>
               . {CARDS_TOTAL} проверенных сервисов Visa и Mastercard
@@ -97,21 +97,21 @@ export default function Hero() {
               </div>
               <div className="vcard vcard--3">
                 <div className="vcard__row">
-                  <span className="vcard__brand" style={{ color: "var(--ink)" }}>
+                  <span className="vcard__brand" style={{ color: "var(--foreground)" }}>
                     Cardly
                   </span>
                   <span className="vcard__chip"></span>
                 </div>
-                <div className="vcard__num" style={{ color: "var(--ink-2)" }}>
+                <div className="vcard__num" style={{ color: "var(--foreground)" }}>
                   ···· ···· ···· 0142
                 </div>
                 <div className="vcard__row">
                   <span
-                    style={{ opacity: 0.7, fontSize: 11, color: "var(--muted)" }}
+                    style={{ opacity: 0.7, fontSize: 11, color: "var(--muted-foreground)" }}
                   >
                     EUR · ЕС
                   </span>
-                  <span className="vcard__net" style={{ color: "var(--ink)" }}>
+                  <span className="vcard__net" style={{ color: "var(--foreground)" }}>
                     VISA
                   </span>
                 </div>
