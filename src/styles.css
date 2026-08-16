@@ -245,3 +245,5 @@
 .btn, button, .admin-btn, .rf-btn, .lp-btn {
   box-shadow: none !important;
 }
+
+@import "legacy-styles/rating-picker.css";
