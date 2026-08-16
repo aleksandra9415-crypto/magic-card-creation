@@ -16,15 +16,14 @@ const ICONS: Record<PMethod["variant"], ReactNode> = {
     </div>
   ),
   crypto: (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M8 8h5a2 2 0 010 4H8m0 0h5.5a2 2 0 010 4H8m0-8v8"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
+    <div className="pmethod__icon-wrapper">
+      <img 
+        src={usdtIconAsset.url} 
+        alt="" 
+        className="pmethod__icon-img"
+        aria-hidden="true" 
       />
-    </svg>
+    </div>
   ),
   swift: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
