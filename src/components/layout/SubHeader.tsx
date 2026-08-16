@@ -1,5 +1,5 @@
 import Link from "@/components/shared/Link";
-import { NHMarkSmall } from "@/components/shared/icons";
+import logoAsset from "@/assets/logo-nhcard.svg.asset.json";
 
 /**
  * Компактная шапка внутренних страниц (рейтинг, обзор карты).
@@ -11,10 +11,7 @@ export default function SubHeader({ variant }: { variant: "rating" | "review" })
     <header className="hdr">
       <div className="container hdr-in">
         <Link className="logo" href="/">
-          <span className="logo-mark">
-            <NHMarkSmall />
-          </span>
-          NHcard
+          <img src={logoAsset.url} alt="NHcard" className="logo__img" />
         </Link>
         {variant === "rating" ? (
           <nav className="hdr-nav">
