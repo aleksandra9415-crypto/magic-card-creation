@@ -1250,17 +1250,18 @@
 /* Плашка «Тренд» прямо в заголовке ссылки — так в макете вместо отдельной
    подгруппы «Ближе к теме страницы». */
 .lp-hot {
+  position: absolute;
+  top: -9px;
+  right: 12px;
   display: inline-block;
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: var(--lp-orange-50);
-  color: #b45309;
-  border-radius: 999px;
-  padding: 3px 7px;
-  margin-left: 6px;
-  vertical-align: 1px;
+  background: #09314a;
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 8px;
 }
 
 /* ============ методология ============ */
