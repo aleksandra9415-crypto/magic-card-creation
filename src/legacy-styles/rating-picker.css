@@ -1,0 +1,127 @@
+
+  /* ============ Card Picker (AI) ============ */
+  .rf-ai {
+    margin-top: 40px;
+    padding: 42px;
+    background: #0b1530;
+    border-radius: var(--radius-lg);
+    color: #fff;
+    box-shadow: 0 20px 50px rgba(11, 21, 48, 0.2);
+  }
+
+  .rf-ai-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 42px;
+  }
+
+  .rf-ai-ic {
+    display: none;
+  }
+
+  .rf-ai-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+
+  .rf-ai-sub {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+  }
+
+  .rf-ai-reset {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--orange);
+    background: rgba(252, 97, 22, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(252, 97, 22, 0.2);
+    transition: all 0.2s;
+  }
+
+  .rf-ai-reset:hover {
+    background: rgba(252, 97, 22, 0.2);
+  }
+
+  .rf-ai-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 960px) {
+    .rf-ai-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    
+    .rf-ai-grid > div {
+      padding: 0 40px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .rf-ai-grid > div:first-child {
+      padding-left: 0;
+    }
+    
+    .rf-ai-grid > div:last-child {
+      padding-right: 0;
+      border-right: 0;
+    }
+  }
+
+  .rf-ai-q {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .rf-ai-opts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .rf-ai-opt {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .rf-ai-opt:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .rf-ai-opt.on {
+    background: #fff;
+    color: #0b1530;
+    border-color: #fff;
+  }
+
+  .rf-ai-why {
+    margin-top: 42px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
