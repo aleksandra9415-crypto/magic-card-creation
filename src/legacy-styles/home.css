@@ -2655,7 +2655,7 @@
       .calc__chip {
         padding: 6px 10px;
         border: 1px solid var(--line);
-        border-radius: 999px;
+        border-radius: 6px;
         font-size: 12px;
         background: var(--bg-2);
         cursor: pointer;
