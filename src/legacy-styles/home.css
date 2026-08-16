@@ -2827,7 +2827,7 @@
       .dtree__result {
         margin-top: 20px;
         padding: 18px;
-        background: linear-gradient(135deg, #fff1e5, #ffe0cc);
+        background: var(--blue-50);
         border-radius: var(--radius);
         display: none;
       }
