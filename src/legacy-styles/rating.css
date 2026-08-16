@@ -190,6 +190,7 @@
         font-size: 22px;
         line-height: 1.25;
         font-weight: 700;
+        color: #062132;
         margin: 0;
       }
       @media (min-width: 768px) {
@@ -783,6 +784,7 @@
       .sec h2 {
         font-size: clamp(19px, 2.6vw, 24px);
         letter-spacing: -0.02em;
+        color: #062132;
         margin: 0 0 4px;
       }
       .sec .ssub {
