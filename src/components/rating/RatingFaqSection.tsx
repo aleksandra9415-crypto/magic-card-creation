@@ -13,7 +13,7 @@ export default function RatingFaqSection() {
   return (
     <section className="section" id="faq">
       <div className="container">
-        <h2 className="section__title" style={{ marginBottom: '24px' }}>Частые вопросы</h2>
+        <h2 className="section__title">Частые вопросы</h2>
         <div className="faq">
           {RATING_FAQ.map((item) => (
             <FaqItem key={item.q} {...item} />
