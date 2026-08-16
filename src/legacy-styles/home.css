@@ -29,8 +29,8 @@
         --muted-2: #6B7C8C;
         --line: #E3E8EC;
         --line-2: #E3E8EC;
-        --blue: #062132;
-        --blue-600: #132A3F;
+        --blue: #FC6116;
+        --blue-600: #D94E0D;
         --blue-50: #BCDFE0;
         --blue-100: #E3E8EC;
         --orange: #FC6116;
@@ -239,12 +239,12 @@
         transform: translateY(1px);
       }
       .btn--primary {
-        background: var(--blue);
+        background: var(--orange);
         color: #fff;
-        box-shadow: 0 6px 18px rgba(6, 33, 50, 0.24);
+        box-shadow: 0 6px 18px rgba(252, 97, 22, 0.24);
       }
       .btn--primary:hover {
-        background: var(--blue-600);
+        background: #D94E0D;
       }
       .btn--ghost {
         background: #fff;
@@ -259,7 +259,7 @@
         color: #fff;
       }
       .btn--orange:hover {
-        background: #e66a0f;
+        background: #D94E0D;
       }
       .btn--lg {
         height: 52px;
@@ -1603,7 +1603,7 @@
         color: #fff;
       }
       .coll-tile--blue {
-        background: var(--blue);
+        background: var(--orange);
         color: #fff;
       }
       .coll-tile--orange {
@@ -1707,7 +1707,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--blue);
+        background: var(--orange);
         box-shadow: 0 0 0 4px rgba(6, 33, 50, 0.2);
       }
 
@@ -1946,7 +1946,7 @@
         position: absolute;
         top: -1px;
         left: 26px;
-        background: var(--blue);
+        background: var(--orange);
         color: #fff;
         font-size: 11px;
         font-weight: 700;
@@ -1968,7 +1968,7 @@
         color: var(--blue);
       }
       .rank-num--gold {
-        background: var(--blue);
+        background: var(--orange);
         color: #fff;
       }
 
@@ -2548,7 +2548,7 @@
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        background: var(--blue);
+        background: var(--orange);
         cursor: pointer;
         box-shadow: 0 0 0 4px rgba(6, 33, 50, 0.15);
         transition: transform 0.15s;
@@ -2560,7 +2560,7 @@
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        background: var(--blue);
+        background: var(--orange);
         cursor: pointer;
         border: 0;
       }
@@ -2853,7 +2853,7 @@
         background: var(--line);
       }
       .pmethod--sbp ul li::before {
-        background: var(--blue);
+        background: var(--orange);
       }
       .pmethod--crypto ul li::before {
         background: #d69e00;
@@ -3148,7 +3148,7 @@
 .ai-ask__empty p { margin: 0; font-size: 14px; line-height: 1.55; }
 .ai-ask__loading { display: flex; align-items: center; gap: 6px; color: var(--muted); }
 .ai-ask__loading p { margin: 0 0 0 8px; font-size: 14px; }
-.ai-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); animation: aidot 1s infinite ease-in-out; }
+.ai-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); animation: aidot 1s infinite ease-in-out; }
 .ai-dot:nth-child(2) { animation-delay: 0.15s; }
 .ai-dot:nth-child(3) { animation-delay: 0.3s; }
 
