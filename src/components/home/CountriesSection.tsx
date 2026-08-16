@@ -93,9 +93,9 @@ const GLYPHS: Record<Country["id"], ReactNode> = {
 
 function CountryHero({ country }: { country: Country }) {
   const images: Record<string, string> = {
-    kz: "https://plus.unsplash.com/premium_photo-1675865396004-c7b86406affe?q=80&w=800&auto=format&fit=crop", // Steppe/Mountain (Kazakhstan style)
-    am: "https://images.unsplash.com/photo-1621251347648-b4b1050a9c68?q=80&w=800&auto=format&fit=crop", // Armenia
-    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?q=80&w=800&auto=format&fit=crop", // Georgia (trying another Tbilisi)
+    kz: "https://images.unsplash.com/photo-1558588942-ad3332be7bd5?auto=format&fit=crop&q=60&w=800",
+    am: "https://images.unsplash.com/photo-1589330273594-fade1ee91647?auto=format&fit=crop&q=60&w=800",
+    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?auto=format&fit=crop&q=60&w=800",
     tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop", // Turkey
     ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop", // UAE
     eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop", // Europe
