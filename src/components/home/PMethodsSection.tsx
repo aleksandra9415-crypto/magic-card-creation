@@ -4,12 +4,14 @@ import sbpIconAsset from "@/assets/sbp-partner-icon-new.png.asset.json";
 
 const ICONS: Record<PMethod["variant"], ReactNode> = {
   sbp: (
-    <img 
-      src={sbpIconAsset.url} 
-      alt="" 
-      className="pmethod__icon-img"
-      aria-hidden="true" 
-    />
+    <div className="pmethod__icon-wrapper">
+      <img 
+        src={sbpIconAsset.url} 
+        alt="" 
+        className="pmethod__icon-img"
+        aria-hidden="true" 
+      />
+    </div>
   ),
   crypto: (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
