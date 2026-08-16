@@ -50,7 +50,7 @@ export default function HomeHeader() {
             Крипта <span className="tag-new">NEW</span>
           </a>
           <Link
-            className="btn btn--primary nav__cta"
+            className="btn btn--orange nav__cta"
             href="/cards"
             onClick={() => setOpen(false)}
           >
@@ -59,7 +59,7 @@ export default function HomeHeader() {
         </nav>
         <div className="hdr__spacer"></div>
         <div className="hdr__cta">
-          <Link className="btn btn--primary" href="/cards">
+          <Link className="btn btn--orange" href="/cards">
             Подобрать карту
           </Link>
         </div>
