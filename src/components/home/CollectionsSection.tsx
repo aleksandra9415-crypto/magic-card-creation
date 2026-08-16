@@ -43,7 +43,7 @@ const COLLS: Coll[] = [
     title: "Нейросети",
     list: "ChatGPT · Claude · Midjourney · Gemini · Cursor · Suno · Sora",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <Cpu size={20} strokeWidth={2.5} />
         </div>
@@ -67,7 +67,7 @@ const COLLS: Coll[] = [
     title: "Реклама и финансы",
     list: "Google Ads · Facebook Ads · TikTok Ads · PayPal",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <Target size={20} strokeWidth={2.5} />
         </div>
@@ -91,7 +91,7 @@ const COLLS: Coll[] = [
     title: "Шопинг",
     list: "Amazon · eBay · AliExpress · iHerb · Shein · Temu · Etsy",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <ShoppingBag size={20} strokeWidth={2.5} />
         </div>
@@ -127,7 +127,7 @@ const COLLS: Coll[] = [
     title: "Соцсети и подписки",
     list: "Telegram Premium · Discord Nitro · Duolingo · LinkedIn · Tinder · Patreon",
     hero: (
-      <CategoryHero imageUrl="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&q=80&w=800">
+      <CategoryHero imageUrl="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
           <Users size={20} strokeWidth={2.5} />
         </div>
