@@ -1202,7 +1202,6 @@ export default function RatingForm({
       {/* ---- подбор карты ---- */}
       <div className="rf-ai">
         <div className="rf-ai-head">
-          <span className="rf-ai-ic">✦</span>
           <div>
             <div className="rf-ai-title">Подобрать карту за 10 секунд</div>
             <div className="rf-ai-sub">
@@ -1244,6 +1243,7 @@ export default function RatingForm({
 
         {aiDone ? <div className="rf-ai-why">{aiWhy}</div> : null}
       </div>
+
 
       {/* ---- шторка сортировки (мобильный) ---- */}
       {sheet === "sort" ? (
