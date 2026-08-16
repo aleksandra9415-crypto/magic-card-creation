@@ -165,8 +165,8 @@
   }
   @media (min-width: 768px) {
     h1, .h1 {
-      font-size: 36px;
-      font-weight: 800;
+      font-size: 36px !important;
+      font-weight: 800 !important;
     }
   }
 
@@ -179,8 +179,8 @@
   }
   @media (min-width: 768px) {
     h2, .h2 {
-      font-size: 36px;
-      font-weight: 800;
+      font-size: 36px !important;
+      font-weight: 800 !important;
     }
   }
 
