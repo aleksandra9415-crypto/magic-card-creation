@@ -586,7 +586,7 @@
 
       /* Trust strip */
       .trust {
-        background: #fff;
+        background: var(--bg);
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
         padding: 24px 0;
