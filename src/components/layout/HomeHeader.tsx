@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "@/components/shared/Link";
 import { usePathname } from "@/lib/next-compat";
-import { NHLogoSvg } from "@/components/shared/icons";
+import logoAsset from "@/assets/logo-nhcard.svg.asset.json";
 
 /* Разделы бургер-меню — те же, что в таб-баре, плюс «Крипта»: спека требует
    от мобильной навигации полного набора, а не урезанного. */
@@ -35,10 +35,7 @@ export default function HomeHeader() {
       <header className={`hdr${open ? " is-menu" : ""}`}>
       <div className="container hdr__inner">
         <Link className="logo" href="/" aria-label="NHcard">
-          <span className="logo__mark" aria-hidden="true">
-            <NHLogoSvg gradientId="nhRed" />
-          </span>
-          <span>NHcard</span>
+          <img src={logoAsset.url} alt="NHcard" className="logo__img" />
         </Link>
         <nav className={`nav${open ? " is-open" : ""}`} aria-label="Главное меню">
           {MENU.map((m) => (
