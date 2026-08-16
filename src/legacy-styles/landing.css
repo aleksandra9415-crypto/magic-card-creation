@@ -701,7 +701,7 @@
 
 .lp-prose--best {
   border-color: var(--lp-blue-100);
-  box-shadow: 0 10px 28px rgba(38, 96, 255, 0.1);
+  box-shadow: none;
 }
 
 /* ============ шаги оформления плитками 2×2 ============ */
