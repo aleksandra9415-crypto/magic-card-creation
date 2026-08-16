@@ -3,10 +3,10 @@ import type { CSSProperties, ReactNode } from "react";
 import { 
   Cpu, 
   Play, 
-  BarChart3, 
-  Gamepad2, 
+  Target, 
+  Gamepad, 
   ShoppingBag, 
-  Plane, 
+  Globe, 
   Layout, 
   Users 
 } from "lucide-react";
