@@ -1536,6 +1536,8 @@
         text-wrap: pretty;
         overflow: visible;
         width: 100%;
+        position: relative;
+        z-index: 1;
       }
       .coll__foot {
         display: flex;

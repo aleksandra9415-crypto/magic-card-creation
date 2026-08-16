@@ -8,7 +8,8 @@ import {
   ShoppingBag, 
   Globe, 
   Layout, 
-  Users 
+  Users,
+  Airplay
 } from "lucide-react";
 
 const catHref = (category: string) =>
@@ -56,7 +57,7 @@ const COLLS: Coll[] = [
     hero: (
       <CategoryHero imageUrl="https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&q=80&w=800">
         <div className="coll__icon-box">
-          <Play size={28} strokeWidth={2.5} fill="currentColor" />
+          <Airplay size={28} strokeWidth={2.5} />
         </div>
       </CategoryHero>
     ),
