@@ -23,7 +23,7 @@ export default function FaqSection() {
       <div className="container">
         <div className="section__head section__head--centered">
           <h2 className="section__title">Отвечаем на ваши вопросы</h2>
-          <p className="section__sub">
+          <p className="section__sub" style={{ marginInline: 'auto' }}>
             Если не нашли ответ — напишите в наш Telegram, отвечаем в течение
             часа.
           </p>
