@@ -69,7 +69,7 @@ export default function LandingHero({
           {stats.map((s) => (
             <div key={s.l}>
               <div className="lp-transp__n">{s.n}</div>
-              <div className="lp-transp__l">{s.l}</div>
+              <div className="lp-transp__l" style={{ whiteSpace: 'pre-line' }}>{s.l}</div>
             </div>
           ))}
         </div>
