@@ -1635,49 +1635,12 @@
         color: #fff;
       }
 
-      .coll__hero--ai {
-        background: linear-gradient(
-          135deg,
-          #d6e0ff 0%,
-          #c5d2ff 50%,
-          #ffd3b0 100%
-        );
-      }
-      .coll__hero--media {
-        background: linear-gradient(
-          135deg,
-          #ffe0cc 0%,
-          #ffd0bd 50%,
-          #ffbfc9 100%
-        );
-      }
-      .coll__hero--ads {
-        background: linear-gradient(
-          135deg,
-          #cfe6dd 0%,
-          #bfe0cf 50%,
-          #d6e0ff 100%
-        );
-      }
-      .coll__hero--games {
-        background: linear-gradient(135deg, #1b2447 0%, #2660ff 100%);
-      }
-      .coll__hero--shop {
-        background: linear-gradient(
-          135deg,
-          #fff0de 0%,
-          #ffe0bf 50%,
-          #ffcfa8 100%
-        );
-      }
-      .coll__hero--travel {
-        background: linear-gradient(
-          135deg,
-          #c8ddff 0%,
-          #b3ccff 50%,
-          #dde6ff 100%
-        );
-      }
+      .coll__hero--ai { background: transparent; }
+      .coll__hero--media { background: transparent; }
+      .coll__hero--ads { background: transparent; }
+      .coll__hero--games { background: transparent; }
+      .coll__hero--shop { background: transparent; }
+      .coll__hero--travel { background: transparent; }
       .coll__hero--all {
         background: linear-gradient(135deg, #eef1f7 0%, #d8deec 100%);
       }
