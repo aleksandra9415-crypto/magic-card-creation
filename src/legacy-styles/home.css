@@ -2886,22 +2886,15 @@
         display: grid;
         place-items: center;
         margin-bottom: 16px;
-      }
-      .pmethod--sbp .pmethod__icon {
         background: var(--blue-50);
         color: var(--blue);
       }
-      .pmethod--crypto .pmethod__icon {
-        background: #fff6e5;
-        color: #d69e00;
-      }
-      .pmethod--swift .pmethod__icon {
-        background: #eaf8f2;
-        color: var(--green);
-      }
+      .pmethod--sbp .pmethod__icon,
+      .pmethod--crypto .pmethod__icon,
+      .pmethod--swift .pmethod__icon,
       .pmethod--p2p .pmethod__icon {
-        background: var(--orange-50);
-        color: var(--orange);
+        background: var(--blue-50);
+        color: var(--blue);
       }
       .pmethod h4 {
         margin: 0 0 4px;
@@ -2945,17 +2938,22 @@
         border-radius: 50%;
         background: var(--line);
       }
-      .pmethod--sbp ul li::before {
+      .pmethod--sbp ul li::before,
+      .pmethod--crypto ul li::before,
+      .pmethod--swift ul li::before,
+      .pmethod--p2p ul li::before {
         background: var(--blue);
       }
-      .pmethod--crypto ul li::before {
-        background: #d69e00;
+      .pmethod__footnote {
+        font-size: 12px;
+        color: var(--muted);
+        opacity: 0.8;
+        display: block;
+        margin-top: 4px;
+        font-weight: 400;
       }
-      .pmethod--swift ul li::before {
-        background: var(--green);
-      }
-      .pmethod--p2p ul li::before {
-        background: var(--orange);
+      .pmethod__footnote::before {
+        content: "* ";
       }
 
       /* ============ HowTo steps ============ */
