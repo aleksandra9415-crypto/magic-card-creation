@@ -3033,7 +3033,7 @@
         font-family: var(--font-body);
         font-size: 11px;
         padding: 3px 8px;
-        border-radius: 999px;
+        border-radius: 4px;
         background: var(--line-2);
         color: var(--muted);
       }
