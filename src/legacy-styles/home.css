@@ -1450,7 +1450,7 @@
         display: block;
         background: #fff;
         border: 1px solid var(--line);
-        border-radius: 8px;
+        border-radius: var(--radius);
         overflow: hidden;
         text-decoration: none;
         color: inherit;
@@ -1513,7 +1513,7 @@
         opacity: 0.35;
       }
       .coll__body {
-        padding: 22px 20px 20px;
+        padding: 16px 18px 18px;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -1528,20 +1528,20 @@
       }
       .coll__title {
         display: block !important;
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 800;
         letter-spacing: -0.015em;
-        margin: 4px 0 8px !important;
+        margin: 4px 0 6px !important;
         line-height: 1.2;
         width: 100% !important;
       }
       .coll__list {
         display: block !important;
         width: 100% !important;
-        font-size: 14px;
+        font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
-        margin: 4px 0 16px !important;
+        margin: 4px 0 14px !important;
         text-wrap: pretty;
         overflow: visible;
         position: relative;
@@ -2755,88 +2755,84 @@
         margin-top: 2px;
       }
 
-      /* ============ Decision tree (Dark Compact Version) ============ */
-      .dtree-wrapper {
-        background: radial-gradient(circle at top left, #1a2542 0%, #0b1530 100%);
-        border-radius: 24px;
-        padding: 40px;
-        color: #fff;
-        box-shadow: 0 20px 40px rgba(11, 21, 48, 0.2);
+      /* ============ Decision tree ============ */
+      .dtree {
+        padding: 28px;
+        border-radius: var(--radius-lg);
+        background: var(--bg-2);
+        border: 1px solid var(--line);
       }
-      .dtree-header {
+      .dtree__q {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 16px;
+      }
+      .dtree__opts {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      @media (min-width: 600px) {
+        .dtree__opts {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 900px) {
+        .dtree__opts {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .dtree-opt {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fff;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.2s ease;
         display: flex;
+        gap: 12px;
         align-items: center;
-        gap: 16px;
-        margin-bottom: 28px;
+        position: relative;
       }
-      .dtree-header__icon {
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
+      .dtree-opt:hover {
+        border-color: var(--blue-100);
+        background: var(--blue-50);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+      .dtree-opt.is-active {
+        border-color: var(--blue);
+        background: var(--blue-50);
+        box-shadow: 0 0 0 1px var(--blue);
+      }
+      .dtree-opt__icon {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-shrink: 0;
+        background: var(--bg);
+        color: var(--blue);
+        font-size: 18px;
       }
-      .dtree-header__title {
-        font-size: 20px;
+      .dtree-opt__label {
+        display: block !important;
         font-weight: 700;
-        margin: 0;
-        color: #fff;
-      }
-      .dtree-header__sub {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.5);
-        margin: 4px 0 0;
-      }
-      .dtree-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      @media (min-width: 900px) {
-        .dtree-grid {
-          grid-template-columns: 1.2fr 1fr 1fr;
-        }
-      }
-      .dtree-col__title {
-        font-size: 14px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.8);
-        margin-bottom: 12px;
-      }
-      .dtree-col__chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .dtree-chip {
-        padding: 10px 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        background: rgba(255, 255, 255, 0.03);
-        color: #fff;
         font-size: 15px;
-        font-weight: 600;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
+        color: var(--ink);
+        margin-bottom: 2px !important;
       }
-      .dtree-chip:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.3);
-        transform: translateY(-1px);
+      .dtree-opt__sub {
+        display: block !important;
+        font-size: 12px;
+        color: var(--muted);
       }
-      .dtree-chip.is-active {
-        background: #fff;
-        color: #0b1530;
-        border-color: #fff;
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-      }
-
-      /* Keep result style if needed later, but hidden for now as per reference */
       .dtree__result {
-        margin-top: 24px;
+        margin-top: 20px;
         padding: 18px;
         background: linear-gradient(135deg, #fff1e5, #ffe0cc);
         border-radius: var(--radius);
