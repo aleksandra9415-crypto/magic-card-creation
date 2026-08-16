@@ -1532,9 +1532,10 @@
         font-size: 13px;
         color: var(--muted);
         line-height: 1.5;
-        margin: 0 0 14px;
+        margin: 4px 0 14px;
         text-wrap: pretty;
         overflow: visible;
+        width: 100%;
       }
       .coll__foot {
         display: flex;

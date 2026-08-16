@@ -161,7 +161,7 @@ export default function CollectionsSection() {
               </div>
               <div className="coll__body">
                 <h3 className="coll__title">{c.title}</h3>
-                <p className="coll__list">{c.list}</p>
+                <div className="coll__list">{c.list}</div>
               </div>
             </Link>
           ))}
