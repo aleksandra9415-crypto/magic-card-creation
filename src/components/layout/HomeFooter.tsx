@@ -1,5 +1,5 @@
 import Link from "@/components/shared/Link";
-import { NHLogoSvg } from "@/components/shared/icons";
+import logoAsset from "@/assets/nhcard-logo.svg.asset.json";
 
 type FooterLink = { label: string; href: string };
 
@@ -59,10 +59,7 @@ export default function HomeFooter() {
         <div className="footer__grid">
           <div>
             <Link className="logo" href="/">
-              <span className="logo__mark" aria-hidden="true">
-                <NHLogoSvg gradientId="nhRedF" />
-              </span>
-              <span>NHcard</span>
+              <img src={logoAsset.url} alt="NHcard" className="logo__img" />
             </Link>
             <p className="footer__about">
               Независимый мониторинг зарубежных виртуальных карт для россиян. С
