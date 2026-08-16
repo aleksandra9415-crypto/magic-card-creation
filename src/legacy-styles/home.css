@@ -870,7 +870,7 @@
         position: absolute;
         top: -10px;
         left: 16px;
-        background: var(--orange);
+        background: var(--blue);
         color: #fff;
         font-size: 11px;
         font-weight: 700;
@@ -888,7 +888,7 @@
         width: 44px;
         height: 44px;
         border-radius: 12px;
-        background: linear-gradient(135deg, #e8eeff 0%, #d6e0ff 100%);
+        background: var(--blue-50);
         color: var(--blue);
         display: inline-flex;
         align-items: center;
