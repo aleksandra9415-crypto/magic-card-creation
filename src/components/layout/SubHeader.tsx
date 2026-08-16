@@ -34,9 +34,9 @@ export default function SubHeader({ variant }: { variant: "rating" | "review" })
         )}
         <div className="hdr-cta">
           {variant === "rating" ? (
-            <button className="btn btn-primary">Подобрать карту</button>
+            <button className="btn btn--orange">Подобрать карту</button>
           ) : (
-            <Link className="btn btn-primary" href="/cards">
+            <Link className="btn btn--primary" href="/cards">
               Рейтинг карт
             </Link>
           )}
