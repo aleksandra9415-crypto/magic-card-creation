@@ -1513,7 +1513,7 @@
         opacity: 0.35;
       }
       .coll__body {
-        padding: 16px 18px 18px;
+        padding: 22px 20px 20px;
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -1528,20 +1528,20 @@
       }
       .coll__title {
         display: block !important;
-        font-size: 18px;
+        font-size: 19px;
         font-weight: 800;
         letter-spacing: -0.015em;
-        margin: 4px 0 6px !important;
+        margin: 4px 0 8px !important;
         line-height: 1.2;
         width: 100% !important;
       }
       .coll__list {
         display: block !important;
         width: 100% !important;
-        font-size: 13px;
+        font-size: 14px;
         color: var(--muted);
         line-height: 1.5;
-        margin: 4px 0 14px !important;
+        margin: 4px 0 16px !important;
         text-wrap: pretty;
         overflow: visible;
         position: relative;
