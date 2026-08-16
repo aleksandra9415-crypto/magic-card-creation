@@ -1490,19 +1490,15 @@
         width: 100%;
         height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 16px;
       }
       .coll__icon-box {
-        width: 56px;
-        height: 56px;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--ink);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        color: #fff;
         transition: transform 0.3s ease;
       }
       .coll:hover .coll__icon-box {
