@@ -32,7 +32,7 @@ export default function MethodologySection() {
           </div>
 
           <div className="formula-box">
-            <div className="formula-box__title">Формула итогового балла</div>
+            <h3 className="formula-box__title-main">Формула итогового балла</h3>
             
             <div className="formula-scale">
               <div className="formula-scale__bar">
@@ -43,8 +43,6 @@ export default function MethodologySection() {
                     style={{ width: `${row.pct}%` }}
                   >
                     <span className="formula-scale__pct">{row.pct}%</span>
-                    <div className="formula-scale__line"></div>
-                    <div className="formula-scale__ref">{i + 1}</div>
                   </div>
                 ))}
               </div>
@@ -53,7 +51,7 @@ export default function MethodologySection() {
             <div className="formula-legend">
               {FORMULA_ROWS.map((row, i) => (
                 <div key={row.lbl} className="formula-legend__item">
-                  <span className="formula-legend__num">{i + 1}</span>
+                  <span className={`formula-legend__dot segment-${i}`}></span>
                   <span className="formula-legend__text">{row.lbl}</span>
                 </div>
               ))}
