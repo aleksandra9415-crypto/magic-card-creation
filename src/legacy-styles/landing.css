@@ -1259,10 +1259,6 @@
 
 .lp-transp {
   margin: 56px 0;
-  padding: 28px 20px;
-  border-radius: var(--lp-radius);
-  background: var(--lp-dark);
-  color: #fff;
 }
 
 @media (min-width: 900px) {
