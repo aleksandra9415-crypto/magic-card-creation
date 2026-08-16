@@ -92,10 +92,34 @@ const GLYPHS: Record<Country["id"], ReactNode> = {
 };
 
 function CountryHero({ country }: { country: Country }) {
+  const images: Record<string, string> = {
+    kz: "https://images.unsplash.com/photo-1558588942-ad3332be7bd5?auto=format&fit=crop&q=80&w=800", // Kazakhstan (Astana/Nature)
+    am: "https://images.unsplash.com/photo-1528646345828-5695e263004d?auto=format&fit=crop&q=80&w=800", // Armenia (Ararat)
+    ge: "https://images.unsplash.com/photo-1565008518504-56968724f2d5?auto=format&fit=crop&q=80&w=800", // Georgia (Tbilisi)
+    tr: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&q=80&w=800", // Turkey (Istanbul)
+    ae: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", // UAE (Dubai)
+    eu: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800", // Europe (Old town)
+    us: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&q=80&w=800", // USA (NYC)
+    th: "https://images.unsplash.com/photo-1528181304800-2f173c7c33a0?auto=format&fit=crop&q=80&w=800", // Thailand (Island)
+  };
+
   return (
-    <div className="coll__hero" style={{ background: country.gradient }}>
-      <div className="ctr-flag">{country.flag}</div>
-      {GLYPHS[country.id]}
+    <div className="coll__hero">
+      <img 
+        src={images[country.id] || "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800"} 
+        alt={country.title} 
+        className="coll__img" 
+        loading="lazy" 
+      />
+      <div className="coll__overlay" style={{ opacity: 0.4 }} />
+      <div className="coll__content" style={{ justifyContent: 'flex-start', alignItems: 'flex-start', padding: '12px' }}>
+        <span style={{ 
+          fontSize: '24px', 
+          filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' 
+        }}>
+          {country.flag}
+        </span>
+      </div>
     </div>
   );
 }
