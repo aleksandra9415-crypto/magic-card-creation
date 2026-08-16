@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "@/components/shared/Link";
 import { usePathname } from "@/lib/next-compat";
-import logoAsset from "@/assets/logo-nhcard.svg.asset.json";
+import logoAsset from "@/assets/logo-nhcard-v2.svg.asset.json";
 
 /* Разделы бургер-меню — те же, что в таб-баре, плюс «Крипта»: спека требует
    от мобильной навигации полного набора, а не урезанного. */
