@@ -17,6 +17,22 @@ import MistakesBlock from "./MistakesBlock";
    ширину; по макету они такие же способы, как остальные, поэтому собраны сюда.
    Номер считается по позиции, а не зашит в тексте: гайда может не быть, тогда
    первый метод из `methods` получает «1». */
+/** Подсвечивает оранжевым фрагмент «оплачивать <сервис>» в заголовке. */
+function renderH2(h2: string) {
+  const m = h2.match(/оплачивать\s+\S+/i);
+  if (!m) return h2;
+  const start = m.index ?? 0;
+  return (
+    <>
+      {h2.slice(0, start)}
+      <span className="text-accent-orange" style={{ color: "var(--lp-orange)" }}>
+        {m[0]}
+      </span>
+      {h2.slice(start + m[0].length)}
+    </>
+  );
+}
+
 export default function PayMethods({
   h2,
   intro,
@@ -41,7 +57,7 @@ export default function PayMethods({
   return (
     <section className="lp-methods" id="how-to-pay" aria-labelledby="how-to-pay-title">
       <div className="lp-sec__head">
-        <h2 id="how-to-pay-title">{h2}</h2>
+        <h2 id="how-to-pay-title">{renderH2(h2)}</h2>
         <p className="lp-sec__sub">{intro}</p>
       </div>
 
