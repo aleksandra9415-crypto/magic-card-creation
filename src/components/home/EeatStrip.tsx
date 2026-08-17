@@ -25,7 +25,7 @@ export default function EeatStrip() {
             </div>
 
             <p className="transp-card__bottom">
-              Партнёрские ссылки помечены <code className="transp-card__code">rel="sponsored"</code>. 
+              Партнёрские ссылки помечены <code className="transp-card__code">от спонсора</code>. 
               Партнёрство не влияет на место в рейтинге: формула считается одинаково для всех.
             </p>
           </div>
