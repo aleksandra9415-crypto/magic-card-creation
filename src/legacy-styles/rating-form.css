@@ -23,7 +23,8 @@
   /* №, сервис, выпуск, обслуживание, комиссия, оплачивает, отзывы, кнопки,
      шеврон. Ширины подобраны так, чтобы таблица с девятью колонками влезала
      в контейнер 1152px без горизонтального скролла. */
-  --rf-grid: 40px 1.2fr 100px 108px 104px 1fr 90px 156px 34px;
+  --rf-grid: 20px 220px 100px 100px 100px 100px 50px 230px 34px;
+  --rf-gap: 15px;
 
   color: var(--rf-ink);
   text-align: left;
@@ -552,7 +553,7 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 10px;
+  gap: var(--rf-gap);
   padding: 0 18px;
   height: 56px;
   border-bottom: 1px solid var(--rf-line);
@@ -632,7 +633,7 @@
   display: grid;
   grid-template-columns: var(--rf-grid);
   align-items: center;
-  gap: 10px;
+  gap: var(--rf-gap);
   padding: 10px 18px;
   min-height: 70px;
   cursor: pointer;
