@@ -795,11 +795,10 @@ export default function RatingForm({
               <div>№</div>
               <div>Сервис</div>
               <div className="rf-th">
-                <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
-                  Выпуск карты <span className="rf-arr">{arrow("issue")}</span>
-                </button>
-                <div className="rf-th-sep" />
                 <InfoDot small onShow={() => setTip("issue")} onHide={() => setTip(null)} />
+                <button type="button" className={sort.key === "issue" ? "on" : ""} onClick={() => togSort("issue")}>
+                  Выпуск: <span className="rf-arr">{arrow("issue")}</span>
+                </button>
                 {tip === "issue" ? (
                   <span className="rf-tip" style={{ width: 240 }}>
                     Разовая цена выпуска одной виртуальной карты, включая комиссию
@@ -808,11 +807,10 @@ export default function RatingForm({
                 ) : null}
               </div>
               <div className="rf-th">
+                <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
                 <button type="button" className={sort.key === "maint" ? "on" : ""} onClick={() => togSort("maint")}>
                   Обслуживание <span className="rf-arr">{arrow("maint")}</span>
                 </button>
-                <div className="rf-th-sep" />
-                <InfoDot small onShow={() => setTip("maint")} onHide={() => setTip(null)} />
                 {tip === "maint" ? (
                   <span className="rf-tip" style={{ width: 230 }}>
                     Регулярная плата за месяц. «0 ₽ первый год» — далее по тарифу
@@ -821,9 +819,8 @@ export default function RatingForm({
                 ) : null}
               </div>
               <div className="rf-th">
-                Комиссия
-                <div className="rf-th-sep" />
                 <InfoDot small onShow={() => setTip("fee")} onHide={() => setTip(null)} />
+                Комиссия
                 {tip === "fee" ? (
                   <span className="rf-tip" style={{ width: 230 }}>
                     Комиссия сервиса за пополнение карты. Считается сверх суммы
@@ -834,9 +831,10 @@ export default function RatingForm({
               <div className="rf-th">Оплачивает</div>
               <div className="rf-th">
                 <button type="button" className={sort.key === "reviews" ? "on" : ""} onClick={() => togSort("reviews")}>
-                  Отзывы <span className="rf-arr">{arrow("reviews")}</span>
+                  Рейтинг <span className="rf-arr">{arrow("reviews")}</span>
                 </button>
               </div>
+
 
               <div />
               <div />
